@@ -46,7 +46,7 @@ const Leftbar = () => {
               </li> */}
             </ul>
             <div onClick={ToggleLeftBar} className="d-xl-none mobile-toggle-left pull-right">
-            <MoreHorizontal/>
+            <MoreHorizontal style={{display:"none"}}/>
             </div>
           </div>
           

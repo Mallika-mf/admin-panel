@@ -32,7 +32,8 @@ const WorkingPartnerListTable = () => {
     const [isLoading, setIsLoading] = useState(true);
     const history = useHistory()
     const [buttonHide,setButtonHide] = useState(false)
-   
+    const [localFood,setLocalFood] = useState(false)
+
     const [searchName,setSearchName] = useState("")
     const [workingPartnerName,setworkingPartnerName]=useState("")   
     const [emailID,setEmailID]=useState("")
@@ -161,7 +162,9 @@ return () => {
     
 
    
-   
+    const localFoodHnadler=(event)=>{
+      setLocalFood(event.target.checked)
+    }
    const onChangeSearchName=(event)=>{
     setSearchName(event.target.value)
    }
@@ -278,21 +281,115 @@ return () => {
     
    
     const onChangeAdharFile=(event)=>{
-     const image = event.target.files[0]
-     setAdharFile(imageFile => (image))
-    }
-    const onChangePanFile=(event)=>{
-     const image = event.target.files[0]
-     setPanFile(imageFile => (image))
-    }
-    const onChangePassBookFile=(event)=>{
-     const image = event.target.files[0]
-     setPassbookFile(imageFile => (image))
-    }
-    const onChangeGst=(event)=>{
-     const image = event.target.files[0]
-     setGstFile(imageFile => (image))
-    }
+      const image = event.target.files[0]
+      setAdharFile(imageFile => (image))
+      if(image === '' ) {
+       console.error(`not an image, the image file is a ${typeof(image)}`)
+   
+     }
+     const uploadTask2 = storage.ref(`/${image.name}`).put(image)
+     uploadTask2.on('state_changed', 
+     (snapShot) => {
+       //takes a snap shot of the process as it is happening
+       console.log(snapShot)
+     }, (err) => {
+       //catches the errors
+       console.log(err)
+     }, () => {
+       // gets the functions from storage refences the image storage in firebase by the children
+       // gets the download url then sets the image from firebase as the value for the imgUrl key:
+       storage.ref().child(adharFile.name).getDownloadURL()
+        .then(fireBaseUrl => {
+           setAdharUrl(fireBaseUrl)
+        })
+     
+        
+     })     
+     }
+    
+     const onChangePanFile=(event)=>{
+      const image = event.target.files[0]
+      setPanFile(imageFile => (image))
+      if(image === '' ) {
+       console.error(`not an image, the image file is a ${typeof(image)}`)
+       
+   
+     }
+     const uploadTask3= storage.ref(`/${image.name}`).put(image)
+     uploadTask3.on('state_changed', 
+     (snapShot) => {
+       //takes a snap shot of the process as it is happening
+       console.log(snapShot)
+     }, (err) => {
+       //catches the errors
+       console.log(err)
+     }, () => {
+       // gets the functions from storage refences the image storage in firebase by the children
+       // gets the download url then sets the image from firebase as the value for the imgUrl key:
+       storage.ref().child(image.name).getDownloadURL()
+        .then(fireBaseUrl => {
+           setPanUrl(fireBaseUrl)
+           window.temp++
+        })
+       
+        
+     })  
+     }
+     const onChangePassBookFile=(event)=>{
+      const image = event.target.files[0]
+      setPassbookFile(imageFile => (image))
+      if(image === '' ) {
+       console.error(`not an image, the image file is a ${typeof(image)}`)
+       
+   
+     }
+     const uploadTask4= storage.ref(`/${image.name}`).put(image)
+     uploadTask4.on('state_changed', 
+     (snapShot) => {
+       //takes a snap shot of the process as it is happening
+       console.log(snapShot)
+     }, (err) => {
+       //catches the errors
+       console.log(err)
+     }, () => {
+       // gets the functions from storage refences the image storage in firebase by the children
+       // gets the download url then sets the image from firebase as the value for the imgUrl key:
+       storage.ref().child(image.name).getDownloadURL()
+        .then(fireBaseUrl => {
+           setPassbookUrl( fireBaseUrl)
+           window.temp++
+        })
+       
+        
+     })  
+     }
+     const onChangeGst=(event)=>{
+      const image = event.target.files[0]
+      setGstFile(imageFile => (image))
+                    
+      if(image === '' ) {
+       console.error(`not an image, the image file is a ${typeof(image)}`)               
+     }
+     const uploadTask5= storage.ref(`/${image.name}`).put(image)
+     uploadTask5.on('state_changed', 
+     (snapShot) => {
+       //takes a snap shot of the process as it is happening
+       console.log(snapShot)
+     }, (err) => {
+       //catches the errors
+       console.log(err)
+     }, () => {
+       // gets the functions from storage refences the image storage in firebase by the children
+       // gets the download url then sets the image from firebase as the value for the imgUrl key:
+       storage.ref().child(image.name).getDownloadURL()
+        .then(fireBaseUrl => {
+           setGstUrl( fireBaseUrl)
+           window.temp++
+        })
+      
+        
+     })  
+     }
     
     const onSearchHandler=(event)=>{
         const pushid=event.target.value
@@ -319,10 +416,16 @@ return () => {
          setBranchAddress( snapshot.val().BranchAddress);
           setDeliveryExtraPrice(snapshot.val().Price1)
            setAdharUrl(snapshot.val().Doc1);
-           setPanFile(snapshot.val().Doc2);
+           setPanUrl(snapshot.val().Doc2);
            setPassbookUrl(snapshot.val().Doc3);
            setGstUrl(snapshot.val().Doc4);
            var database = app.database();
+          //  if(snapshot.val().Local=="Yes"){
+          //   setLocalFood(true)
+          // }
+          // else{
+          //     setLocalFood(false)
+          // }
            database.ref().child("Masters").child("Localities")
            .orderByChild("City").equalTo(snapshot.val().City)
            .once('value', function(snapshot1){
@@ -356,6 +459,8 @@ return () => {
              setIfscCode("")
              setBranchName("")
              setBranchAddress("")
+             setLocalFood(false)
+
              window.temp=0;
   
              setAdharFile("")
@@ -528,108 +633,16 @@ return () => {
                       firebaseref.child("Gst").set(gst);
                       firebaseref.child("Commision").set(commisionPercentage);
                       firebaseref.child("Password").set(password);
+                      firebaseref.child("Doc1").set(adharUrl);
+                      firebaseref.child("Doc2").set(panUrl);
+                      firebaseref.child("Doc3").set(passbookUrl);
+                      firebaseref.child("Doc4").set(gstUrl);
+                      if(localFood===true)
+                      firebaseref.child("Local").set("Yes");
+                  else 
+                      firebaseref.child("Local").set("No");
                       firebaseref.child("Cash").set(0);
-                    if(adharFile === '' ) {
-                     console.error(`not an image, the image file is a ${typeof(adharFile)}`)
-                     
-            
-                       
-                   }
-                   const uploadTask2 = storage.ref(`/${adharFile.name}`).put(adharFile)
-                   uploadTask2.on('state_changed', 
-                   (snapShot) => {
-                     //takes a snap shot of the process as it is happening
-                     console.log(snapShot)
-                   }, (err) => {
-                     //catches the errors
-                     console.log(err)
-                   }, () => {
-                     // gets the functions from storage refences the image storage in firebase by the children
-                     // gets the download url then sets the image from firebase as the value for the imgUrl key:
-                     storage.ref().child(adharFile.name).getDownloadURL()
-                      .then(fireBaseUrl => {
-                         firebaseref.child("Doc1").set(fireBaseUrl);
-                         setAdharUrl(prevObject => ({...prevObject, fireBaseUrl}))
-                         window.temp++
-                      })
-                      .then(()=>{setAdharUrl("")})
-                      
-                   })                
-                   if(panFile === '' ) {
-                     console.error(`not an image, the image file is a ${typeof(panFile)}`)
-       
-                   }
-                   const uploadTask3= storage.ref(`/${panFile.name}`).put(panFile)
-                   uploadTask3.on('state_changed', 
-                   (snapShot) => {
-                     //takes a snap shot of the process as it is happening
-                     console.log(snapShot)
-                   }, (err) => {
-                     //catches the errors
-                     console.log(err)
-                   }, () => {
-                     // gets the functions from storage refences the image storage in firebase by the children
-                     // gets the download url then sets the image from firebase as the value for the imgUrl key:
-                     storage.ref().child(panFile.name).getDownloadURL()
-                      .then(fireBaseUrl => {
-                         firebaseref.child("Doc2").set(fireBaseUrl);
-                         setPanUrl(prevObject => ({...prevObject, fireBaseUrl}))
-                         window.temp++
-                      })
-                      .then(()=>{panUrl("")})
-                      
-                   })              
-                   if(passbookFile === '' ) {
-                     console.error(`not an image, the image file is a ${typeof(passbookFile)}`)
-  
-                   
-                       
-                   }
-                   const uploadTask4= storage.ref(`/${passbookFile.name}`).put(passbookFile)
-                   uploadTask4.on('state_changed', 
-                   (snapShot) => {
-                     //takes a snap shot of the process as it is happening
-                     console.log(snapShot)
-                   }, (err) => {
-                     //catches the errors
-                     console.log(err)
-                   }, () => {
-                     // gets the functions from storage refences the image storage in firebase by the children
-                     // gets the download url then sets the image from firebase as the value for the imgUrl key:
-                     storage.ref().child(passbookFile.name).getDownloadURL()
-                      .then(fireBaseUrl => {
-                         firebaseref.child("Doc3").set(fireBaseUrl);
-                         setPassbookUrl(prevObject => ({...prevObject, fireBaseUrl}))
-                         window.temp++
-                      })
-                      .then(()=>{passbookUrl("")})
-                      
-                   })              
-                   if(gstFile === '' ) {
-                     console.error(`not an image, the image file is a ${typeof(gstFile)}`)
-  
-                       
-                   }
-                   const uploadTask5= storage.ref(`/${gstFile.name}`).put(gstFile)
-                   uploadTask5.on('state_changed', 
-                   (snapShot) => {
-                     //takes a snap shot of the process as it is happening
-                     console.log(snapShot)
-                   }, (err) => {
-                     //catches the errors
-                     console.log(err)
-                   }, () => {
-                     // gets the functions from storage refences the image storage in firebase by the children
-                     // gets the download url then sets the image from firebase as the value for the imgUrl key:
-                     storage.ref().child(gstFile.name).getDownloadURL()
-                      .then(fireBaseUrl => {
-                         firebaseref.child("Doc4").set(fireBaseUrl);
-                         setGstUrl(prevObject => ({...prevObject, fireBaseUrl}))
-                         window.temp++
-                      })
-                      .then(()=>{setGstUrl("")})
-                      
-                   })               
+                               
                               
                    firebaseref.child("Status").set("InActive");
                    firebaseref.child("AStatus").set("InActive");
@@ -995,7 +1008,12 @@ return () => {
                       <div className="clearfix"></div>
                      </Col>
                      </Row>
-
+                     {/* <Row>
+                        <Col className="form-group col-md-3">
+                        <Input type="checkbox"  checked={localFood} onChange={localFoodHnadler}className="form-control" />Local Food                
+                         <div className="clearfix"></div>
+                        </Col>
+                        </Row> */}
                      <Row>
                      <Col className="form-group col-md-12">
                      <h4>Documents Upload</h4>

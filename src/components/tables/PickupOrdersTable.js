@@ -128,7 +128,60 @@ const PickupTable = () => {
        }
    });
    }
-   
+   const onClickDunzo=(event)=>{
+    var pushId=event.target.id
+     Swal.fire({
+         title: "Are you sure want to reassign the Dunzo?",
+         text: "",
+         icon: "warning",
+         showCancelButton: true,
+             confirmButtonText: 'OK',
+             cancelButtonText: 'Cancel',
+             cancelButtonColor:'gray'
+       })
+       .then((willDelete) => {
+         if (willDelete.value) {
+             var firebaseref = app.database().ref().child("Orders").child(pushId)
+             firebaseref.child("DeliveryName").remove();
+             firebaseref.child("DeliveryNumber").remove();
+             firebaseref.child("Dunzo").remove();
+         
+             app.database().ref().child("Orders").child(pushId).child("Dunzo").set("Yes");
+     Swal.fire({
+         title: "Reassigned Dunzo Successfully!",
+         text: "",
+         icon: "success",
+     });
+     }
+ });
+ }
+ const onClickWeFast=(event)=>{
+    var pushId=event.target.id
+     Swal.fire({
+         title: "Are you sure want to reassign the WeFast?",
+         text: "",
+         icon: "warning",
+         showCancelButton: true,
+             confirmButtonText: 'OK',
+             cancelButtonText: 'Cancel',
+             cancelButtonColor:'gray'
+       })
+       .then((willDelete) => {
+         if (willDelete.value) {
+             var firebaseref = app.database().ref().child("Orders").child(pushId)
+             firebaseref.child("DeliveryName").remove();
+             firebaseref.child("DeliveryNumber").remove();
+             firebaseref.child("WeFast").remove();
+         
+             app.database().ref().child("Orders").child(pushId).child("WeFast").set("Yes");
+     Swal.fire({
+         title: "Reassigned WeFast Successfully!",
+         text: "",
+         icon: "success",
+     });
+     }
+ });
+ }
    const onClickDeleteHandler=(event)=>{
        var pushId = event.target.id
        Swal.fire({
@@ -184,6 +237,25 @@ const PickupTable = () => {
          }
      })
    }
+   const changeStatusHandler = (event)=>{
+    var pushId = event.target.id
+    Swal.fire({
+        title: "Are you sure ?",
+        text: "",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: 'OK',
+        cancelButtonText: 'Cancel',
+        cancelButtonColor:'gray'
+      })
+      .then((willDelete) => {
+        if (willDelete.value) {
+            app.database().ref().child("Orders").child(pushId).child("Status").set("5");
+  
+  }
+  
+  });
+  }
     const  onChangeHandler=(event)=>{
         setSearchTerm(event.target.value);
        }
@@ -275,9 +347,12 @@ const PickupTable = () => {
                                             <th scope="col">Payment</th>
                                             <th scope="col">DeliveryPartner	</th>
                                             <th scope="col">Rapido</th>
+                                            <th scope="col">Dunzo</th>
+                                            <th scope="col">WeFast</th>
                                             <th scope="col">Actions</th>
                                             <th scope="col">Payment Id</th>
                                             <th>Order Details</th>
+                                            <th scope="col">Change Status</th>
 
                                         </tr>
                                     </thead>
@@ -307,9 +382,12 @@ const PickupTable = () => {
                                        <td>{"UnAssigned"}</td>
                                        }
                                        <td className="actions-view" style={{textAlign:"center"}}><button type="button" id={item.Pushid} onClick={onClickReassigned} className="btn btn-primary btn-md">{"Reassign"}</button></td>
+                                       <td className="actions-view" style={{textAlign:"center"}}><button type="button" id={item.Pushid} onClick={onClickDunzo} className="btn btn-primary btn-md">{"Reassign"}</button></td>
+                                         <td className="actions-view" style={{textAlign:"center"}}><button type="button" id={item.Pushid} onClick={onClickWeFast} className="btn btn-primary btn-md">{"Reassign"}</button></td>
                                        <td><b><font color="blue">{"Order Accepted"}</font></b><br/><button id={item.Pushid} onClick={onClickDeleteHandler} className="btn btn-info btn-sm">{"Cancel"}</button></td>               
                                        <td>{item.RazorpayId}</td>
                                        <td><Button className="warning" id={item.Pushid} onClick={viewDetailHandler}>{"View"}</Button></td>
+                                       <td><Button className="warning" id={item.Pushid} onClick={changeStatusHandler}>{"Status"}</Button></td>
 
                                         </tr>
                                                  )

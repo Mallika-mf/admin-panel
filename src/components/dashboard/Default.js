@@ -186,6 +186,7 @@ const Hospital = (props) => {
     }); 
     var year=yyyy;
     var fyear=yyyy+1;
+    console.log(fyear)
     // if(mm<=3){
     //     fyear=yyyy;
     // }

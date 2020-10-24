@@ -7,7 +7,7 @@ import { MoreHorizontal } from 'react-feather';
 import {SearchBarToggle, MobileRightToggle, SwitchToggle} from '../redux/common/actions'
 import { Label, Input } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import {MENUITEMS2} from './sidebar/menu'
+import MENUITEMS from './sidebar/menu'
 import {Link} from 'react-router-dom'
 import logo_light from '../assets/images/creative-logo.jpg'
 
@@ -16,7 +16,7 @@ import logo_light from '../assets/images/creative-logo.jpg'
   const configDB = useSelector(content => content.Customizer.customizer);
   const sidebar_background_color = configDB.settings.sidebar_background_setting;
   // eslint-disable-next-line
-  const [mainmenu, setMainMenu] = useState(MENUITEMS2);
+  const [mainmenu, setMainMenu] = useState(MENUITEMS);
   const [searchValue, setsearchValue] = useState('');
   // eslint-disable-next-line
   const [searchResult, setSearchResult] = useState(false);

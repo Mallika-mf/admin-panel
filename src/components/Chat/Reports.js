@@ -213,6 +213,31 @@ const Reports = (props) => {
               <Row>
               <Col xl="3" className="xl-50 col-6 hospital-patients box-col-6">
                 <Card className="o-hidden">
+                <NavLink to={(`${process.env.PUBLIC_URL}/reports/chef-download-report`)} style={{color:"black"}}>
+                  <CardBody>
+                    <div className="hospital-widgets media">
+                      <div className="hospital-box light-bg-primary"><Activity/></div>
+                      <div className="media-body">
+                        <div className="hospital-content">
+                          {/* <h3 className="d-inline-block f-w-600">0</h3><span className="badge flat-badge-primary m-l-10">OPD</span> */}
+                          <h6 className="m-t-5 mb-0 f-w-600">Chef Report Download</h6>
+                        </div>
+                        <div className="flowers">
+                          <div className="flower1 flower-primary"></div>
+                          <div className="flower2 flower-primary"></div>
+                          <div className="flower3 flower-primary"></div>
+                        </div>
+                      </div>
+                    </div>
+                </CardBody>
+                </NavLink>
+              </Card>
+              </Col>
+           
+              </Row>
+              <Row>
+              <Col xl="3" className="xl-50 col-6 hospital-patients box-col-6">
+                <Card className="o-hidden">
                 <NavLink to={(`${process.env.PUBLIC_URL}/reports/chef-profiles-report`)} style={{color:"black"}}>
                   <CardBody>
                     <div className="hospital-widgets media">

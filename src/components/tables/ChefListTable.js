@@ -69,7 +69,8 @@ const ChefListTable = () => {
     const [refCode,setRefCode] = useState("")
     const [cateringService,setCateringService] = useState(false)
     const [passportimageAsFile, setPassportImageAsFile] = useState('')
-    
+    const [localFood,setLocalFood] = useState(false)
+
     const [passportImageAsUrl, setPassportImageAsUrl] = useState("")
     const [adharCardImageAsFile,setAdharCardImageAsFile] = useState('')
     const [adharCardImageAsUrl,setAdharCardImageAsUrl] = useState("")
@@ -136,7 +137,7 @@ const ChefListTable = () => {
                       item.UserId="undefined"
                     }
                   })
-                  content.reverse()
+                  // content.reverse()
                   setSearchValue(content);
                   setShow(false)
                   
@@ -263,8 +264,10 @@ const ChefListTable = () => {
         }
     }
          
-    
-      
+    const localFoodHnadler=(event)=>{
+      setLocalFood(event.target.checked)
+    }
+       
       const onChangeCityHandler = (event)=>{
         setCitySelect(event.target.value)
         console.log(city)
@@ -847,7 +850,12 @@ const ChefListTable = () => {
         }
           window.temp=6;
           window.verified="Yes";
-   
+          if(snapshot.val().Local=="Yes"){
+            setLocalFood(true)
+          }
+          else{
+              setLocalFood(false)
+          }
           if(snapshot.val().Veg=="Yes"){
               setVeg(true)
           }
@@ -1239,7 +1247,10 @@ const ChefListTable = () => {
                             firebaseref.child("FatherName").set(husband);
   
                            
-                           
+                            if(localFood===true)
+                            firebaseref.child("Local").set("Yes");
+                        else 
+                            firebaseref.child("Local").set("No");
   
                             if(veg===true)
                                 firebaseref.child("Veg").set("Yes");
@@ -1305,6 +1316,8 @@ const ChefListTable = () => {
                           setFssiCertiImageAsUrl("")
                           setGstImageAsUrl("")
                             window.verified="no";
+                            setLocalFood(false)
+
                             setVeg(false)
                             setCateringService(false)
                             // locality.value="";
@@ -1380,6 +1393,29 @@ const ChefListTable = () => {
        "<br>Longitude: " + position.coords.longitude)
       window.lat=position.coords.latitude;
       window.long=position.coords.longitude;
+  }
+
+  const deletePhotoHandler = (event) =>{
+    var userid = event.target.id
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover it!",
+      icon: "warning",
+      showCancelButton: true,
+  confirmButtonText: 'OK',
+  cancelButtonText: 'Cancel',
+  cancelButtonColor:'gray'
+    })
+    .then((willDelete) => {
+      if (willDelete.value) {
+               app.database().ref().child("CloudKitchen").child(userid).child("PP").remove();
+              Swal.fire({
+              icon: "success",
+              text:"Deleted!"
+          });
+      }
+  });
+
   }
     return (
         <Fragment>
@@ -1807,6 +1843,10 @@ const ChefListTable = () => {
                         <Input type="checkbox"  checked={cateringService} onChange={cateringServiceChange}className="form-control" />Catering Service                   
                          <div className="clearfix"></div>
                         </Col>
+                        <Col className="form-group col-md-4">
+                        <Input type="checkbox"  checked={localFood} onChange={localFoodHnadler}className="form-control" />Local Food                
+                         <div className="clearfix"></div>
+                        </Col>
                         </Row>
 
                         <Row>
@@ -1939,7 +1979,7 @@ const ChefListTable = () => {
                              <div className="clearfix"></div>
                         </div>
                     </div>
-                            <div className="table-responsive">
+                            <div className="table-responsive text-nowrap">
                                 <Table id="datatable">
                                     <thead>
                                         <tr>
@@ -1953,6 +1993,9 @@ const ChefListTable = () => {
                                             <th scope="col"> Package</th>
                                             <th scope="col"> Status</th>
                                             <th scope="col"> TA</th>
+                                            <th  scope="col">Profile Photo</th>
+                                            <th  scope="col">Delete Photo</th>
+
                                             <th scope="col"> View</th>
                                             <th scope="col"> Delete</th>
 
@@ -1960,8 +2003,7 @@ const ChefListTable = () => {
                                     </thead>
                                     <tbody>
                                     {searchValue.filter(order=>order.UserId.includes(searchTerm)).map((item,id) => {
-                                    if(item.AStatus=="InActive"){
-                                    if(item.Passed!=""&&item.Passed!=null){
+                                    
                                          return(
                                         <tr key={id}>
                                             <td>{id+1}</td>
@@ -1972,71 +2014,32 @@ const ChefListTable = () => {
                                             <td>{item.CityName}</td>
                                             <td>{item.LocalityName}</td>
                                             <td>{item.Membership}</td>
-                                            <td className="text-primary">{item.AStatus}</td>
-                                            <td className="text-primary"><b>{item.Passed}</b></td>
-                                            <td><a href="#"><button type="button" id={item.UserId} onClick={onClickSearchHandler} className="btn btn-success btn-md">{"View"}</button></a></td>
+                                            {item.AStatus==="InActive"?
+                                            <td className="text-primary">{item.AStatus}</td>:
+                                            <td className="text-success">{item.AStatus}</td>
+                                          }
+                                          {item.Passed!==""&&item.Passed!==null?
+                                          <td className="text-primary"><b>{item.Passed}</b></td>:
+                                          <td className="text-primary"><b>{""}</b></td>
+
+                                        }
+                                        {item.UserId==="undefined"?
+                                        <>
+                                        <td><a></a></td>
+                                        <td></td>
+                                        </>:
+                                        <>
+                                        <td><a href={item.PP} target="_blank">View</a></td>
+                                        <td ><Button type="button"><Trash id={item.UserId} onClick={deletePhotoHandler} size={15}/></Button></td> 
+                                        
+                                        </>
+                                      }
+                                                                                      
+                                             <td><a href="#"><button type="button" id={item.UserId} onClick={onClickSearchHandler} className="btn btn-success btn-md">{"View"}</button></a></td>
                                             <td><button type="button" id={item.UserId} onClick={onClickDeleteHandler} className="btn btn-danger btn-md">{"Delete"}</button></td>
 
                                         </tr>
                                         )
-                                         }else{
-                                            return(
-                                                <tr key={id}>
-                                                    <td>{id+1}</td>
-                                                    <td>{item.UserId}</td>
-                                                    <td>{item.Name}</td>
-                                                    <td>{item.Gender}</td>
-                                                    <td>{item.MobileNumber}</td>
-                                                    <td>{item.CityName}</td>
-                                                    <td>{item.LocalityName}</td>
-                                                    <td>{item.Membership}</td>
-                                                    <td className="text-primary">{item.AStatus}</td>
-                                                    <td className="text-primary"><b></b></td>
-                                                    <td><a href="#"><button type="button" id={item.UserId}  onClick={onClickSearchHandler} className="btn btn-success btn-md">{"View"}</button></a></td>
-                                                    <td><button type="button" id={item.UserId} onClick={onClickDeleteHandler}  className="btn btn-danger btn-md">{"Delete"}</button></td>
-        
-                                                </tr>
-                                                )
-                                         }
-                                        }else{
-                                        //    if(item.Passed!=""&&item.Passed!=null){
-                                            return(
-                                                <tr key={id}>
-                                                    <td>{id+1}</td>
-                                                    <td>{item.UserId}</td>
-                                                    <td>{item.Name}</td>
-                                                    <td>{item.Gender}</td>
-                                                    <td>{item.MobileNumber}</td>
-                                                    <td>{item.CityName}</td>
-                                                    <td>{item.LocalityName}</td>
-                                                    <td>{item.Membership}</td>
-                                                    <td className="text-success">{item.AStatus}</td>
-                                                    <td className="text-primary"><b>{item.Passed}</b></td>
-                                                    <td><a href="#"><button type="button" id={item.UserId} onClick={onClickSearchHandler} className="btn btn-success btn-md">{"View"}</button></a></td>
-                                                    <td><button type="button" id={item.UserId} onClick={onClickDeleteHandler} className="btn btn-danger btn-md">{"Delete"}</button></td>
-        
-                                                </tr>
-                                                )
-                                            // }else{
-                                                //     return(
-                                                //         <tr key={id}>
-                                                //             <td>{id+1}</td>
-                                                //             <td>{item.UserId}</td>
-                                                //             <td>{item.Name}</td>
-                                                //             <td>{item.Gender}</td>
-                                                //             <td>{item.MobileNumber}</td>
-                                                //             <td>{item.CityName}</td>
-                                                //             <td>{item.LocalityName}</td>
-                                                //             <td>{item.Membership}</td>
-                                                //             <td className="text-primary">{item.AStatus}</td>
-                                                //             <td className="text-primary"><b></b></td>
-                                                //             <td><a href="#" className="details"><button type="button" id="savebtn" className="btn btn-success btn-md">{"View"}</button></a></td>
-                                                //             <td><a href="#" className="details1"><button type="button" id="updatebtn" className="btn btn-danger btn-md">{"Delete"}</button></a></td>
-                
-                                                //         </tr>
-                                                //         )
-                                                // }
-                                            }
                                         
                                             })}
                                     </tbody>

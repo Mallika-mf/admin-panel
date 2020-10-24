@@ -291,6 +291,7 @@ import WebUserCreation from '../components/Settings/WebUserCreation'
 import DisabledChef from '../components/Settings/DisableChef'
 import DisabledUsers from '../components/Settings/DisableUsers'
 import DisabledDrivers from '../components/Settings/DisableDrivers'
+import UserMfCash from '../components/Settings/userMfCash'
 
 import NewsLetter from '../components/Emails/NewsLetter'
 import Birthday from '../components/Emails/Birthday'
@@ -331,6 +332,7 @@ import InActiveChef from '../components/Reports/inActiveChef'
 import ActiveChef from '../components/Reports/ActiveChef'
 import UserCartReport from '../components/Reports/UserCartReport'
 import ChefProfiles from '../components/Reports/ChefProfiles'
+import ChefReportDownLoad from '../components/Reports/ChefReportDownLoad'
 
 import UserPromoCode from '../components/PromoCodes/UserPromoCode'
 import UserPromoCodeReport from '../components/PromoCodes/UserPromoCodeReport'
@@ -402,6 +404,7 @@ export const routes = [
   { path: "/reports/active-chef",Component: ActiveChef},
   { path: "/reports/user-cart-report",Component: UserCartReport},
   { path: "/reports/chef-profiles-report",Component: ChefProfiles},
+  { path: "/reports/chef-download-report",Component: ChefReportDownLoad},
 
 
 
@@ -434,6 +437,7 @@ export const routes = [
   { path: "/setting/DisabledChef",Component: DisabledChef},
   { path: "/setting/DisabledUsers",Component: DisabledUsers},
   { path: "/setting/DisabledDrivers",Component: DisabledDrivers},
+  { path: "/setting/user-mf-cash",Component: UserMfCash},
 
 
 

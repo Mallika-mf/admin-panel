@@ -30,6 +30,7 @@ const ChefReport = () => {
   const [hide,setHide] = useState(true)
   const [isLoading, setIsLoading] = useState(true);
   const [searchValue, setSearchValue] = useState([]);
+  const [localFood,setLocalFood] = useState(false)
   const history = useHistory()
   const[aRating,setArating] = useState("")
   const[aRaview,setAraview] = useState("")
@@ -461,8 +462,8 @@ app.database().ref().child("Masters").child("SubLocalities")
   const AgencyNameChange =(event)=>{
     setAgencyName(event.target.value)
   }
-  const AreviewChange=(event)=>{
-    setReview(event.target.value)
+  const localFoodHnadler=(event)=>{
+    setLocalFood(event.target.checked)
   }
   const vegChangeHandler=(event)=>{
     setVeg(event.target.checked)
@@ -851,7 +852,12 @@ setMemberShip(event.target.value)
     }
       window.temp=6;
       window.verified="Yes";
-
+      if(snapshot.val().Local=="Yes"){
+        setLocalFood(true)
+      }
+      else{
+          setLocalFood(false)
+      }
       if(snapshot.val().Veg=="Yes"){
           setVeg(true)
       }
@@ -1243,7 +1249,10 @@ setMemberShip(event.target.value)
                         firebaseref.child("FatherName").set(husband);
 
                        
-                       
+                        if(localFood===true)
+                        firebaseref.child("Local").set("Yes");
+                    else 
+                        firebaseref.child("Local").set("No");
 
                         if(veg===true)
                             firebaseref.child("Veg").set("Yes");
@@ -1310,6 +1319,7 @@ setMemberShip(event.target.value)
                       setGstImageAsUrl("")
                         window.verified="no";
                         setVeg(false)
+                        setLocalFood(false)
                         setCateringService(false)
                         // locality.value="";
                         // document.getElementById('coord').innerHTML="Location Co-Ordinates";
@@ -2273,6 +2283,10 @@ database.ref().child("CloudKitchen")
                         </Col>
                         <Col className="form-group col-md-4">
                         <Input type="checkbox"  checked={cateringService} onChange={cateringServiceChange}className="form-control" />Catering Service                   
+                         <div className="clearfix"></div>
+                        </Col>
+                        <Col className="form-group col-md-4">
+                        <Input type="checkbox"  checked={localFood} onChange={localFoodHnadler}className="form-control" />Local Food                
                          <div className="clearfix"></div>
                         </Col>
                         </Row>

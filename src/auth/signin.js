@@ -1,5 +1,4 @@
-import React,{useState,useEffect} from 'react';
-import man from '../assets/images/dashboard/user.png';
+import React,{useState} from 'react';
 import {Container,Row,Col,CardBody,Form,FormGroup,Input,Label,Button,Media} from 'reactstrap'
 import app from '../data/base'
 import { toast } from 'react-toastify';
@@ -9,8 +8,8 @@ const Login = (props) => {
   const history = useHistory();
   const [state, setState] = useState({username:"",password:""});
   //const [password, setPassword] = useState("test123");
-  const [loading,setLoading] = useState(false) 
-const [remember,setRemember] =  useState({checked:false})
+  const [,setLoading] = useState(false) 
+const [remember,setRemember] =  useState(false)
   // const [value, setValue] = useState(
   //     window.localStorage.getItem('profileURL' || man)
   // );
@@ -37,19 +36,19 @@ const [remember,setRemember] =  useState({checked:false})
     }))
   }
 const onChangeCheckHandler=(event)=>{
-setRemember({checked:event.target.checked})
+setRemember(event.target.checked)
 }
 const loginAuth =  (event) => {
   event.preventDefault();
 
   setLoading(true)
   try {
-    if(state.username.length ==0)
+    if(state.username.length===0)
     {
       alert("Enter username")
       state.username.focus()
     }
-    if(state.password.length ==0)
+    if(state.password.length===0)
     {
       alert("Enter password")
       state.password.focus()
@@ -60,9 +59,9 @@ const loginAuth =  (event) => {
          if(snapshot.exists())
          {
            if(state.password===(snapshot.val().Password)){    
-                   if(snapshot.val().Role=="WorkingPartner"){
-                       if(snapshot.val().Status=="Active"){
-                           if(remember.checked == true){
+                   if(snapshot.val().Role==="WorkingPartner"){
+                       if(snapshot.val().Status==="Active"){
+                           if(remember=== true){
                                window.localStorage.setItem('name', snapshot.val().UserName);  
                                window.localStorage.setItem('role',snapshot.val().Role); 
                                window.localStorage.setItem('number',snapshot.val().Number); 
@@ -87,12 +86,12 @@ const loginAuth =  (event) => {
                        }
                    }
                    else{
-                        if(remember.checked == true){
+                        if(remember=== true){
                        window.localStorage.setItem('name', snapshot.val().Name);  
                        window.localStorage.setItem('role',snapshot.val().Role); 
                        window.localStorage.setItem('superadmin',snapshot.val().SuperAdmin); 
                        window.localStorage.setItem('city',snapshot.val().City); 
-                           if(snapshot.val().SuperAdmin=="Yes"){
+                           if(snapshot.val().SuperAdmin==="Yes"){
                             history.push(`${process.env.PUBLIC_URL}/dashboard/default`);
                              //window.location.reload()
                            }
@@ -106,7 +105,7 @@ const loginAuth =  (event) => {
                           window.sessionStorage.setItem('role',snapshot.val().Role); 
                            window.sessionStorage.setItem('superadmin',snapshot.val().SuperAdmin); 
                            window.sessionStorage.setItem('city',snapshot.val().City); 
-                           if(snapshot.val().SuperAdmin=="Yes"){
+                           if(snapshot.val().SuperAdmin==="Yes"){
                              history.push(`${process.env.PUBLIC_URL}/dashboard/default`);
                              //window.location.reload()
                          }
@@ -178,10 +177,10 @@ const loginAuth =  (event) => {
                               <Label className="col-form-label">Password</Label>
                               <Input className="form-control" type="password" id="password" value = {state.password} onChange={onChnageHandler}   required=""/>
                             </FormGroup>
-                            {/* <div className="checkbox p-0">
-                              <input id ="checkbox_id"  type="checkbox"  checked={remember.checked}  onChange={onChangeCheckHandler} />
+                            <div className="checkbox p-0">
+                              <input id ="checkbox_id"  type="checkbox"  checked={remember}  onChange={onChangeCheckHandler} />
                               <label htmlFor ="checkbox_id"  >Remember me</label>
-                            </div> */}
+                            </div>
                             <FormGroup className="form-row mt-3 mb-0">
                               {/* {loading ?
                               <Button color="primary btn-block" disabled={loading}>

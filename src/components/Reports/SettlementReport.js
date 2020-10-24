@@ -19,8 +19,10 @@ const override = css`
 
 const SettlementReport = (props) => {
     const [users,setUsers] = useState([])
-    const [state, setState] = useState({sdate:"",edate:"",search:""});
-    const [isLoading, setIsLoading] = useState(true);
+    const [sdate,setSdate]=useState("")
+    const [edate,setEdate]=useState("")
+    const [search,setSearch]=useState("")  
+      const [isLoading, setIsLoading] = useState(true);
     const [show,setShow] = useState(true)
 
     useEffect(()=>{
@@ -64,46 +66,116 @@ const SettlementReport = (props) => {
  }
 },[])
     
-const onChangeHandler = (event) =>{
-    const {id, value} = event.target
-    setState(prevState =>({
-      ...prevState,
-      [id]: value
-    }))
-   
-// setSearchTerm(event.target.value)
+const onChangeSdateHandler=(event)=>{
+  setSdate(event.target.value)
+}
 
-  }
-  
-  const onSubmit =  (event) => {
-    event.preventDefault();
+const onChangeEdateHandler=(event)=>{
+  setEdate(event.target.value)
+}
+const onChangeSearchHandler=(event)=>{
+  setSearch(event.target.value)
+}
+const onSubmit =  (event) => {
+  event.preventDefault();
 // state.sdate=""
 // state.edate=""
-if(state.sdate.length==0&&state.edate.length==0)
-{
-    alert("Select Start Date");
-    // state.sdate.focus();
-    return;
-}
+if(sdate!==""&&edate!==""){
+
 var database = app.database();
-      database.ref().child("Users")
-      // back here
-      .orderByChild("JoiningDate").startAt(state.sdate).endAt(state.edate)
-      .once('value', function(snapshot){
-          if(snapshot.exists()){
-                // $('#datatable').empty();
-                var content = [];
-                
-                snapshot.forEach(snap=>{
-                    content.push(snap.val());
-                     
-                  });
-                  setUsers(content);
-          }
-            
-        })
-    
-  }    
+database.ref().child("Users").orderByChild("JoiningDate").startAt(sdate).endAt(edate)
+.once('value', function(snapshot){
+if(snapshot.exists()){
+// $('#datatable').empty();
+var content = [];
+
+snapshot.forEach(snap=>{
+  content.push(snap.val());
+   
+});
+content.reverse()
+content.map(item=>{
+  if(item.Number===undefined){
+    item.Number="undefined"
+  }
+})
+setUsers([])
+setUsers(content);
+setShow(false)
+
+}else{
+  const timeout = setTimeout(() => {
+      setShow(false)
+    }, 3000);
+    return ()=>{clearTimeout(timeout);}
+
+}
+
+})
+}else if(sdate!==""&&edate===""){
+var database = app.database();
+database.ref().child("Users").orderByChild("JoiningDate").equalTo(sdate)
+.once('value', function(snapshot){
+if(snapshot.exists()){
+// $('#datatable').empty();
+var content = [];
+
+snapshot.forEach(snap=>{
+    content.push(snap.val());
+     
+  });
+  content.reverse()
+  content.map(item=>{
+    if(item.Number===undefined){
+      item.Number="undefined"
+    }
+  })
+  setUsers(content);
+  setShow(false)
+
+}else{
+  setUsers([])
+    const timeout = setTimeout(() => {
+        setShow(false)
+      }, 3000);
+      return ()=>{clearTimeout(timeout);}
+
+}
+
+})
+}else if(sdate===""&&edate!==""){
+var database = app.database();
+database.ref().child("Users").orderByChild("JoiningDate").equalTo(edate)
+.once('value', function(snapshot){
+if(snapshot.exists()){
+// $('#datatable').empty();
+var content = [];
+
+snapshot.forEach(snap=>{
+    content.push(snap.val());
+     
+  });
+  content.reverse()
+  content.map(item=>{
+    if(item.Number===undefined){
+      item.Number="undefined"
+    }
+  })
+  setUsers(content);
+  setShow(false)
+
+}else{
+  setUsers([])
+    const timeout = setTimeout(() => {
+        setShow(false)
+      }, 3000);
+      return ()=>{clearTimeout(timeout);}
+
+}
+
+})
+}
+}     
   const handleMessage = (event) => {
     if (event.data.action === 'receipt-loaded') {
       setIsLoading(false);
@@ -150,23 +222,23 @@ var database = app.database();
                        
                        <CardBody>
                        <Row>
-                                        <FormGroup className="col-md-3">
+                       <FormGroup className="col-md-3">
                                         <label className="form-label">From Date <span style={{color: "red"}}>*</span></label>
                                         <div className="input-group">
-                                        <input type="date" id="sdate" className="form-control"value={state.sdate} onChange={onChangeHandler} />
+                                        <input type="date" id="sdate" className="form-control"value={sdate} onChange={onChangeSdateHandler} />
                           </div>
                                         </FormGroup>
                       <FormGroup className="col-md-3">
                       
                         <label className="form-label">To Date <span style={{color: "red"}}>*</span></label>
                           <div className="input-group">
-                          <input type="date" id="edate" className="form-control"value={state.edate} onChange={onChangeHandler} />
+                          <input type="date" id="edate" className="form-control"value={edate} onChange={onChangeEdateHandler} />
                           </div>
                       </FormGroup>
                     
                                     <div className="col-md-3">
                                        
-                                    <input className="btn btn-primary mr-1" style={{marginTop: "24px", padding: "10px 15px"}} type="button" name="filter"  onClick={(event) => onSubmit(event)} value="Filter" id="filter"/>
+                                            <input className="btn btn-primary mr-1" style={{marginTop: "30px", padding: "10px 15px;"}} type="button" name="filter" onClick={(event) => onSubmit(event)} value="Filter" id="filter"/>
                                    
                                     </div>
                                   
@@ -174,10 +246,10 @@ var database = app.database();
                     </CardBody>
                    
                       
-                        <div className="col-md-5" style={{margin: "0%"}}>
+                    <div className="col-md-5" style={{margin: "1%"}}>
                     <div className="form-group col-md-6">
-                         <label className="form-label">Search <span style={{color: "red"}}>*</span></label>
-                         <input type="text" id="search"  value={state.search} onChange={onChangeHandler}  required=""   className="form-control" placeholder="Search for number" title="Type in a name"/>
+                         <label className="form-label" htmlFor="searchSubscription">Search <span style={{color: "red"}}>*</span></label>
+                             <input type="number"  defaultValue={search} id="searchSubscription" onChange={onChangeSearchHandler}  required="" className="form-control" placeholder="Search for Number" title="Type in a name"/>
                              <div className="clearfix"></div>
                         </div>
                     </div>
@@ -222,7 +294,7 @@ var database = app.database();
                                     </thead>
                                     <tbody>
                                     {users.filter(orders =>
-                                            orders.Number.includes(state.search)).map((item,id)=>{
+                                            orders.Number.includes(search)).map((item,id)=>{
                                                     return(
                                                         <tr key={id}> 
                                                         <td>{id+1}</td>                                                                                                            

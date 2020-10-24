@@ -1534,4 +1534,4 @@ const  onChangeHandler=(event)=>{
             );
         };
         
-export default DeliveryPartnerApprovals;
+export default React.memo(DeliveryPartnerApprovals);

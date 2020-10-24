@@ -1,922 +1,307 @@
-import React, { Fragment } from 'react';
+import React, { Fragment,useEffect,useState } from 'react';
 import BreadCrumb from '../../layout/Breadcrumb'
 import {Home} from 'react-feather';
-import {Container,Row,Col,Card,CardHeader,Table,CardBody} from "reactstrap";
+import {Container,Row,Col,Card,CardHeader,Table,CardBody,Button} from "reactstrap";
+import app from '../../data/base'
+import { Database, ShoppingBag, MessageCircle, User,UserPlus, Layers, ShoppingCart,  ArrowDown, Pocket, Monitor, Truck,BarChart,DollarSign,Percent,Headphones,Check,Trash} from 'react-feather'
+import ReactHTMLTableToExcel from 'react-html-table-to-excel';  
+import jsPDF from 'jspdf';  
+import html2canvas from 'html2canvas'
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/src/sweetalert2.scss'
+import {BeatLoader}  from "react-spinners";
+import { css } from "@emotion/core";
 
+const override = css`
+  display: flex;
+  margin: 0 auto;
+  border-color: red;
+`;
 const TodayOfferApprovals = () => {
+    const [show,setShow]=useState(true)
+    const [searchTerm, setSearchTerm]=useState("")
+    const [isLoading, setIsLoading] = useState(true);
+
+    const [users,setUsers] = useState([])
+    const [comment,setComment] = useState("")
+
+    useEffect(()=>{
+        try{
+            window.addEventListener('message', handleMessage);
+            // app.database().ref().child("Date").set("Time");
+
+        var database = app.database();
+        database.ref().child("Preorders")
+        .orderByChild("AStatus").equalTo("InActive")
+        .on('value', function(snapshot){
+            if(snapshot.exists()){
+                var content = [];
+                snapshot.forEach(function(data){
+                    var val = data.val();   
+                    content.push(val)
+                })
+                content.reverse()
+                content.map(item=>{
+                  item.comment=""
+                  return item;
+  
+               })
+                setUsers(content)
+                setShow(false)
+
+            }else{
+                const timeout = setTimeout(() => {
+                    setShow(false)
+                  }, 3000);
+                  return ()=>{clearTimeout(timeout);}
+  
+            }
+        })
+        return () => {
+            window.removeEventListener('message', handleMessage);
+          }
+        }catch(err){
+            console.log(err)
+        }
+        },[])
+        
+    const  onChangeHandler=(event)=>{
+        setSearchTerm(event.target.value);
+       }
+
+       const approvalHandler=(event)=>{
+           let pushid=event.target.id
+           console.log(pushid)
+           Swal.fire({
+            title: "Are you sure?",
+            text: "Once Approved, Cannot be changed!",
+            icon: "warning",
+            confirmButtonText: 'OK',
+            cancelButtonText: 'Cancel',
+            cancelButtonColor:'gray'
+          })
+          .then((willDelete) => {
+            if (willDelete.value) {
+                var firebaseref=app.database().ref().child("Preorders").child(pushid);      
+                firebaseref.child("AStatus").set("Active");
+              Swal.fire( {
+                title: "Successfully Approved!",
+                 text: "",
+                 icon: "success",
+               
+              });
+            }
+          });   
+          var database = app.database();
+          database.ref().child("Preorders")
+          .orderByChild("AStatus").equalTo("InActive")
+          .on('value', function(snapshot){
+              if(snapshot.exists()){
+                  var content = [];
+                  snapshot.forEach(function(data){
+                      var val = data.val();   
+                      content.push(val)
+                  })
+                  content.reverse()
+                  content.map(item=>{
+                    item.comment=""
+                    return item;
+    
+                 })
+                  setUsers(content)
+                }
+              })
+       }
+
+       const deleteHandler=(event)=>{
+        let pushid=event.target.id
+        Swal.fire({
+            title: "Are you sure want to delete this order?",
+            text: "",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: 'OK',
+            cancelButtonText: 'Cancel',
+            cancelButtonColor:'gray'
+          })
+          .then((willDelete) => {
+            if (willDelete.value) {
+                app.database().ref().child("Preorders").child(pushid).remove();      
+              Swal.fire("Deleted Successfully!", {
+                icon: "success",
+              });
+            }
+          });
+    }
+
+       const handleMessage = (event) => {
+        if (event.data.action === 'receipt-loaded') {
+          setIsLoading(false);
+        }
+      };
+       const printIframe = (id) => {
+        const iframe = document.frames
+          ? document.frames[id]
+          : document.getElementById(id);
+        const iframeWindow = iframe.contentWindow || iframe;
+    
+        iframe.focus();
+        iframeWindow.print();
+    
+        return false;
+      };
+     const printDocument=(event)=> {  
+        const input = document.getElementById('datatable');  
+        html2canvas(input)  
+          .then((canvas) => {  
+            var imgWidth = 200;  
+            var pageHeight = 290;  
+            var imgHeight = canvas.height * imgWidth / canvas.width;  
+            var heightLeft = imgHeight;  
+            const imgData = canvas.toDataURL('image/png');  
+            const pdf = new jsPDF('p', 'mm', 'a4')  
+            var position = 0;  
+            var heightLeft = imgHeight;  
+            pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);  
+            pdf.save("PreOrderApproval.pdf");  
+          });  
+      }
+      const textAreaChangeHandler=(event)=>{
+        users.map(item=>{
+            if(event.target.id===item.PushId){
+                item.comment=event.target.value;
+                setComment(event.target.value)
+            }
+            return item;
+      
+        })
+      }
+      
+      const saveCommentHandler=(event)=>{
+          let arrData = event.target.id.split(",")
+        let pushid = arrData[0]
+        let chefid = arrData[1]
+        console.log(chefid)
+
+         var database = app.database().ref().child("Requests").child(chefid).push()
+         database.child("Address").set(comment)
+         database.child("RequestType").set("Changes")
+         database.child("PushId").set(database.getKey())
+         database.child("SupportReason").set("")
+         database.child("Reason").set("Admin")
+      
+         Swal.fire({
+            title: "Successfully Updated!",
+            text: "",
+            icon: "success"
+         })
+      }
     return (
         <Fragment>
-            <BreadCrumb parent={<Home/>} subparent="Approvals" title="Subscriptions Approvals"/>
+            <BreadCrumb parent={<Home/>} subparent="Settings" title="Preorder Approvals"/>
             <Container fluid={true}>
-                 {/* <Row>
+            <Row>
                     <Col sm="12">
                     <CardHeader>
-                                <h6> Subscriptions Approvals</h6>
+                                <h6> Preorder Approvals</h6>
                                 {/* <span> Use a class <code> table </code> to any table.</span> */}
-                            {/* </CardHeader>
+                            </CardHeader>
                     </Col>
                     <CardBody>
-                    <div class="form-group row">
-                     <label className="col-form-label col-sm-2 text-sm-right">Enter Home Chef Id</label>
-                    <div className="col-sm-8">
-                    <div className="row">
-                     <div className="col-lg-6 col-md-5 col-sm-5">
-                    <input type="text" id="city" className="form-control"/>
-                    </div>
-                    <div className="col-sm-1 col-md-2">
-                    <span id="search"><img src="https://img.icons8.com/ios-filled/24/000000/search.png"/></span>
-                    </div>
-                    </div>
-                     <div className="clearfix"></div>
-                    </div>
-                    </div>
                     <Row>
                 <div className="col-md-5" style={{margin: "1%"}}>
                     <div className="form-group col-md-8">
                          <label className="form-label">Search <span style={{color: "red"}}>*</span></label>
-                             <input type="text" id="myInput"  className="form-control" placeholder="Search for Item Name" title="Type in a name"/>
+                             <input type="text"  value={searchTerm} onChange={onChangeHandler}  required=""  className="form-control" placeholder="Search for Item Name" title="Type in a name"/>
                              <div className="clearfix"></div>
                         </div>
                     </div>
                     <div className="col-md-6 text-right" style={{margin: "3%"}}>
                 <div className="dt-buttons btn-group">       
-                <a className="btn btn-danger "  id="pdf" href="#"><span style={{color:"white"}}>PDF</span></a>
-                <a className="btn btn-danger " id="excel"  href="#"><span style={{color:"white"}}>Excel</span></a>
-                <a className="btn btn-danger "  id="print"  href="#"><span style={{color:"white"}}>Print</span></a>
+                <Button onClick={printDocument} variant="contained" color="primary"><span color="white">PDF</span></Button> 
+                <ReactHTMLTableToExcel  
+                className="btn btn-info"  
+                table="datatable"  
+                filename=""  
+                sheet="ChefApproval"  
+                buttonText="Excel" />
+                <iframe
+                    id="iDatatable"
+                    src="/approvals/TodaysOffer-approvals"
+                    style={{ display: 'none' }}
+                    title="Receipt"
+                />
+                <Button className="warning" onClick={() => printIframe('iDatatable')}>
+                 {isLoading ? 'Print' : 'Print Receipt'}
+                </Button>
                 </div>
                 </div>
                 </Row>
                 </CardBody>
                     <Col sm="12">
                         <Card>
-                            <div className="table-responsive" style={{ overflowX:"scroll"}}   >
+                            <div className="table-responsive text-nowrap" style={{ overflowX:"scroll"}}   >
                                 
-                                <Table id="data-table"  data-toolbar="#bootstrap-table-toolbar" className="datatables-demo table table-striped table-bordered" style={{tablelayout: "auto;"}}>
+                                <Table id="datatable"  data-toolbar="#bootstrap-table-toolbar" className="datatables-demo table table-striped table-bordered" style={{tablelayout: "auto"}}>
                                     <thead >
                                         <tr>
-                                            <th scop="col">SL.NO</th>
-                                            <th scop="col">Item Name</th>
-                                            <th scop="col">  Item Description			</th>
-                                            <th scop="col" >Commision (%)	 </th>
-                                            <th scop="col">Original Price</th>
-                                            <th scop="col"> Offer Price			</th>
-                                            <th scop="col"> Commision Amount		 </th>
-                                            <th scop="col">Gst</th>
-                                            <th scop="col">Settlement Value	</th>
-                                            <th scop="col">Image</th>
-                                            <th scop="col">Actions</th>
+                                        <th>SL.No</th>
+                                        <th>Chef Name</th>
+                                        <th>Item Name</th>
+                                        <th>Image</th>
+                                        <th>Delivery Start Date</th>
+                                        <th>Delivery End Date</th>
+                                        <th>Preorder Start Date</th>
+                                        <th>Preorder End Date</th>
+                                        <th>Settlement</th>
+                                        <th>Comment</th>
+                                            <th>Save</th>
+                                        <th>Actions</th>
 
                                         </tr>
                                     </thead>
-                                    <tbody>  */}
-                                        {/* <tr>
-                                            <th scope="row">1</th>
-                                            <td>Alexander</td>
-                                            <td>Orton</td>
-                                            <td>@mdorton</td>
-                                            <td>Admin</td>
-                                            <td>USA</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>John Deo</td>
-                                            <td>Deo</td>
-                                            <td>@johndeo</td>
-                                            <td>User</td>
-                                            <td>USA</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Randy Orton</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                            <td>admin</td>
-                                            <td>UK</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">4</th>
-                                            <td>Randy Mark</td>
-                                            <td>Ottandy</td>
-                                            <td>@mdothe</td>
-                                            <td>user</td>
-                                            <td>AUS</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">5</th>
-                                            <td>Ram Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@twitter</td>
-                                            <td>admin</td>
-                                            <td>IND</td>
-                                        </tr> */}
-                                    {/* </tbody>
+                                    <tbody>
+                                    {users.filter(orders =>
+                                            orders.Name.includes(searchTerm)).map((item,id)=>{
+                                                // for (var i=0;i<driverNumber.length;i++){
+                                                    return(
+                                                        <tr key={id}>
+                                                          <td>{id+1}</td>
+                                                       <td class="item_locality" >{item.ChefName}</td>
+                                                       <td class="">{item.Name}</td>
+                                                       <td class="actions" style={{fontSize: "25px", fontWeight: "bold"}}><a href={item.Image} target="_blank"><button type="button" id="savebtn" className="btn btn-success btn-md">View</button></a></td>                                                       
+                                                       <td class="item_price">{item.OrderDate}</td>
+                                                       <td class="item_kid" >{item.OrderEndDate}</td>
+                                                       <td class="item_kid" >{item.StartDate}</td>
+                                                       <td class="item_kid" >{item.EndDate}</td>
+                                                       <td className="">{item.Settlement}</td>
+                                                       <td><textarea id={item.PushId} value={item.comment} onChange={textAreaChangeHandler}></textarea></td>
+                                                           <td><Button type="submit" id={item.PushId+","+item.Chef} onClick={saveCommentHandler}>Save</Button></td>
+                                                       <td className="actions" style={{fontSize: "25px", fontWeight: "bold"}}><button type="button" id={item.PushId} onClick={approvalHandler} className="btn btn-danger btn-sm">Approval</button><button type="button" id={item.PushId} onClick={deleteHandler} className="btn btn-danger btn-sm">Delete</button></td>
+                                         
+                                                     </tr> 
+                                                    )
+                                                   
+                                                     })}
+                                       
+                                       
+                                    </tbody>
                                 </Table>
                                 
                             </div>
                         </Card>
-                    </Col> */}
-                    {/* <Col sm="12">
-                        <Card>
-                            <CardHeader>
-                                <h5>Inverse Table</h5>
-                                <span> Use a class <code> table-inverse </code> inside table element.</span>
-                            </CardHeader>
-                            <div className="table-responsive">
-                                <Table className="table-inverse">
-                                    <thead>
-                                        <tr>
-                                            <th >#</th>
-                                            <th >First Name</th>
-                                            <th >Last Name</th>
-                                            <th >Username</th>
-                                            <th >Role</th>
-                                            <th >Country</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Alexander</td>
-                                            <td>Orton</td>
-                                            <td>@mdorton</td>
-                                            <td>Admin</td>
-                                            <td>USA</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>John Deo</td>
-                                            <td>Deo</td>
-                                            <td>@johndeo</td>
-                                            <td>User</td>
-                                            <td>USA</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Randy Orton</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                            <td>admin</td>
-                                            <td>UK</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">4</th>
-                                            <td>Randy Mark</td>
-                                            <td>Ottandy</td>
-                                            <td>@mdothe</td>
-                                            <td>user</td>
-                                            <td>AUS</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">5</th>
-                                            <td>Ram Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@twitter</td>
-                                            <td>admin</td>
-                                            <td>IND</td>
-                                        </tr>
-                                    </tbody>
-                                </Table>
-                            </div>
-                        </Card>
                     </Col>
-                    <Col sm="12">
-                        <Card>
-                            <CardHeader>
-                                <h5>Inverse Table with Primary background</h5>
-                                <span> Use a class <code> .bg-info, .bg-success, .bg-warning and .bg-danger classes. </code> with light text on dark backgrounds inside table element. <span className="d-block"> To set the light background color use .bg-[color] class where [color] is the value of your selected color from stack color palette. So for teal color background class will be .bg-teal </span></span>
-                            </CardHeader>
-                                <div className="table-responsive">
-                                    <Table striped className="bg-primary">
-                                        <thead className="tbl-strip-thad-bdr">
-                                            <tr>
-                                                <th >#</th>
-                                                <th >First Name</th>
-                                                <th >Last Name</th>
-                                                <th >Username</th>
-                                                <th >Role</th>
-                                                <th >Country</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Alexander</td>
-                                                <td>Orton</td>
-                                                <td>@mdorton</td>
-                                                <td>Admin</td>
-                                                <td>USA</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>John Deo</td>
-                                                <td>Deo</td>
-                                                <td>@johndeo</td>
-                                                <td>User</td>
-                                                <td>USA</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Randy Orton</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                                <td>admin</td>
-                                                <td>UK</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">4</th>
-                                                <td>Randy Mark</td>
-                                                <td>Ottandy</td>
-                                                <td>@mdothe</td>
-                                                <td>user</td>
-                                                <td>AUS</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">5</th>
-                                                <td>Ram Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@twitter</td>
-                                                <td>admin</td>
-                                                <td>IND</td>
-                                            </tr>
-                                        </tbody>
-                                    </Table>
-                                </div>
-                            </Card>
-                        </Col>
-                        <Col sm="12">
-                            <Card>
-                                <CardHeader>
-                                    <h5>Hoverable rows</h5>
-                                    <span>Use a class <code> table-hover </code> to enable a hover state on table rows within a <code>tbody</code>.</span>
-                                </CardHeader>
-                                <div className="table-responsive">
-                                    <Table hover>
-                                        <thead>
-                                            <tr>
-                                                <th >#</th>
-                                                <th >First Name</th>
-                                                <th >Last Name</th>
-                                                <th >Username</th>
-                                                <th >Role</th>
-                                                <th >Country</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Alexander</td>
-                                                <td>Orton</td>
-                                                <td>@mdorton</td>
-                                                <td>Admin</td>
-                                                <td>USA</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>John Deo</td>
-                                                <td>Deo</td>
-                                                <td>@johndeo</td>
-                                                <td>User</td>
-                                                <td>USA</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Randy Orton</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                                <td>admin</td>
-                                                <td>UK</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">4</th>
-                                                <td>Randy Mark</td>
-                                                <td>Ottandy</td>
-                                                <td>@mdothe</td>
-                                                <td>user</td>
-                                                <td>AUS</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">5</th>
-                                                <td>Ram Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@twitter</td>
-                                                <td>admin</td>
-                                                <td>IND</td>
-                                            </tr>
-                                        </tbody>
-                                    </Table>
-                                </div>
-                            </Card>
-                        </Col>
-                        <Col sm="12">
-                            <Card>
-                                <CardHeader>
-                                    <h5>Contextual classes</h5>
-                                    <span>Use contextual classes to color table rows or individual cells. you may use Classes <code>table-primary</code>,<code>table-secondary</code>,<code>table-success</code>,<code>table-info</code>,<code>table-warning</code>,<code>table-danger</code>,<code>table-light</code>,<code>table-active</code> in<code>tr</code></span>
-                                </CardHeader>
-                                <div className="table-responsive">
-                                    <Table>
-                                        <thead>
-                                            <tr>
-                                                <th >Class</th>
-                                                <th >Heading</th>
-                                                <th >Heading</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr className="table-primary">
-                                                <th scope="row">Primary</th>
-                                                <td>Cell</td>
-                                                <td>Cell</td>
-                                            </tr>
-                                            <tr className="table-secondary">
-                                                <th scope="row">Secondary</th>
-                                                <td>Cell</td>
-                                                <td>Cell</td>
-                                            </tr>
-                                            <tr className="table-success">
-                                                <th scope="row">Success</th>
-                                                <td>Cell</td>
-                                                <td>Cell</td>
-                                            </tr>
-                                            <tr className="table-info">
-                                                <th scope="row">Info</th>
-                                                <td>Cell</td>
-                                                <td>Cell</td>
-                                            </tr>
-                                            <tr className="table-warning">
-                                                <th scope="row">Warning</th>
-                                                <td>Cell</td>
-                                                <td>Cell</td>
-                                            </tr>
-                                            <tr className="table-danger">
-                                                <th scope="row">Danger</th>
-                                                <td>Cell</td>
-                                                <td>Cell</td>
-                                            </tr>
-                                            <tr className="table-light">
-                                                <th scope="row">Light</th>
-                                                <td>Cell</td>
-                                                <td>Cell</td>
-                                            </tr>
-                                            <tr className="table-active">
-                                                <th scope="row">Active</th>
-                                                <td>Cell</td>
-                                                <td>Cell</td>
-                                            </tr>
-                                        </tbody>
-                                    </Table>
-                                </div>
-                            </Card>
-                        </Col>
-                        <Col sm="12">
-                            <Card>
-                                <CardHeader>
-                                    <h5>Text or background utilities</h5>
-                                    <span>Regular table background variants are not available with the inverse table, however, you may use Classes <code>bg-dark</code>,<code>bg-warning</code>,<code>bg-success</code>,<code>bg-info</code>,<code>bg-danger</code>,<code>bg-primary</code>,<code>bg-secondary</code>,<code>bg-light</code> in<code>td</code></span>
-                                </CardHeader>
-                                <div className="table-responsive">
-                                    <Table className="table-borderedfor">
-                                        <thead>
-                                            <tr>
-                                                <th >#</th>
-                                                <th >Heading</th>
-                                                <th >Heading</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr className="table-active">
-                                                <td className="bg-primary">1</td>
-                                                <td className="bg-primary">primary</td>
-                                                <td className="bg-primary">primary</td>
-                                            </tr>
-                                            <tr className="table-active">
-                                                <td className="bg-secondary">2</td>
-                                                <td className="bg-secondary">secondary</td>
-                                                <td className="bg-secondary">secondary</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="bg-success">3</td>
-                                                <td className="bg-success">success</td>
-                                                <td className="bg-success">success</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="bg-info">4</td>
-                                                <td className="bg-info">info</td>
-                                                <td className="bg-info">info</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="bg-warning">5</td>
-                                                <td className="bg-warning">warning</td>
-                                                <td className="bg-warning">warning</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="bg-danger">6</td>
-                                                <td className="bg-danger">danger</td>
-                                                <td className="bg-danger">danger</td>
-                                            </tr>
-                                            <tr className="table-active">
-                                                <td className="bg-light">7</td>
-                                                <td className="bg-light">light</td>
-                                                <td className="bg-light">light</td>
-                                            </tr>
-                                        </tbody>
-                                    </Table>
-                                </div>
-                            </Card>
-                        </Col>
-                        <Col sm="12">
-                            <Card>
-                                <CardHeader>
-                                    <h5>Table head options</h5>
-                                    <span>Similar to tables and dark tables, use the modifier classes <code>.thead-dark</code>  to make <code>thead</code> appear light or dark gray.</span>
-                                </CardHeader>
-                                <div className="card-block row">
-                                    <Col sm="12" lg="12" xl="12">
-                                        <div className="table-responsive">
-                                            <Table>
-                                                <thead className="thead-dark">
-                                                    <tr>
-                                                        <th >#</th>
-                                                        <th >First Name</th>
-                                                        <th >Last Name</th>
-                                                        <th >Username</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
-                                                </tbody>
-                                            </Table>
-                                        </div>
-                                    </Col>
-                                </div>
-                            </Card>
-                        </Col>
-                        <Col sm="12">
-                            <Card>
-                                <CardHeader>
-                                    <h5>Table head options</h5>
-                                    <span>Similar to tables and dark tables, use the modifier classes <code>.bg-*</code>and  <code>.thead-light</code> to make <code>thead</code> appear light or dark gray.</span>
-                                </CardHeader>
-                                <div className="card-block row">
-                                    <Col sm="12" lg="12" xl="12">
-                                        <div className="table-responsive">
-                                            <Table>
-                                                <thead className="thead-light">
-                                                    <tr>
-                                                        <th >#</th>
-                                                        <th >First Name</th>
-                                                        <th >Last Name</th>
-                                                        <th >Username</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
-                                                </tbody>
-                                            </Table>
-                                        </div>
-                                    </Col>
-                                </div>
-                            </Card>
-                        </Col>
-                        <Col sm="12">
-                            <Card>
-                                <CardHeader>
-                                    <h5>Striped Row </h5>
-                                    <span>Use <code>.table-striped</code> to add zebra-striping to any table row within the <code></code>. This styling doesn't work in IE8 and below as :nth-child CSS selector isn't supported.</span>
-                                </CardHeader>
-                                <div className="card-block row">
-                                    <Col sm="12" lg="12" xl="12">
-                                        <div className="table-responsive">
-                                            <Table striped>
-                                                <thead>
-                                                    <tr>
-                                                        <th >#</th>
-                                                        <th >First Name</th>
-                                                        <th >Last Name</th>
-                                                        <th >Username</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
-                                                </tbody>
-                                            </Table>
-                                        </div>
-                                    </Col>
-                                </div>
-                            </Card>
-                        </Col>
-                        <Col sm="12">
-                            <Card>
-                                <CardHeader>
-                                    <h5>Striped Row with Inverse Table</h5>
-                                    <span>Use <code>.table-striped</code> to add zebra-striping to any table row within the <code></code>. This styling doesn't work in IE8 and below as :nth-child CSS selector isn't supported.</span>
-                                </CardHeader>
-                                <div className="card-block row">
-                                    <Col sm="12" lg="12" xl="12">
-                                        <div className="table-responsive">
-                                            <Table className="table-inverse" striped>
-                                                <thead>
-                                                    <tr>
-                                                        <th >#</th>
-                                                        <th >First Name</th>
-                                                        <th >Last Name</th>
-                                                        <th >Username</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
-                                                </tbody>
-                                            </Table>
-                                        </div>
-                                    </Col>
-                                </div>
-                            </Card>
-                        </Col>
-                        <Col sm="12">
-                            <Card>
-                                <CardHeader>
-                                    <h5>Caption</h5>
-                                    <span>A <code>&lt;caption&gt;</code> functions like a heading for a table. It helps users with screen readers to find a table and understand what it’s about and decide if they want to read it.</span>
-                                </CardHeader>
-                                <div className="card-block row">
-                                    <Col sm="12" lg="12" xl="12">
-                                        <div className="table-responsive">
-                                            <Table>
-                                                <caption>List of users</caption>
-                                                <thead>
-                                                    <tr>
-                                                        <th >#</th>
-                                                        <th >First Name</th>
-                                                        <th >Last Name</th>
-                                                        <th >Username</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
-                                                </tbody>
-                                            </Table>
-                                        </div>
-                                    </Col>
-                                </div>
-                            </Card>
-                        </Col>
-                        <Col sm="12">
-                            <Card>
-                                <CardHeader>
-                                    <h5>Responsive Tables</h5>
-                                    <span>A <code>&lt;caption&gt;</code> functions like a heading for a table. It helps users with screen readers to find a table and understand what it’s about and decide if they want to read it.</span>
-                                </CardHeader>
-                                <div className="card-block row">
-                                    <Col sm="12" lg="12" xl="12">
-                                        <div className="table-responsive">
-                                            <Table>
-                                                <thead>
-                                                    <tr>
-                                                        <th >#</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
-                                                </tbody>
-                                            </Table>
-                                        </div>
-                                    </Col>
-                                </div>
-                            </Card>
-                        </Col>
-                        <Col sm="12">
-                            <Card>
-                                <CardHeader>
-                                    <h5>Breckpoint Specific</h5>
-                                </CardHeader>
-                                <div className="card-block row">
-                                    <Col sm="12" lg="12" xl="12">
-                                        <div className="table-responsive">
-                                            <Table className="table-responsive-sm">
-                                                <thead>
-                                                    <tr>
-                                                        <th >#</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
-                                                </tbody>
-                                            </Table>
-                                        </div>
-                                    </Col>
-                                </div>
-                                <div className="card-block row">
-                                    <Col sm="12" lg="12" xl="12">
-                                        <div className="table-responsive">
-                                            <table className="table table-responsive-sm">
-                                                <thead>
-                                                    <tr>
-                                                        <th >#</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </Col>
-                                </div>
-                                <div className="card-block row">
-                                    <Col sm="12" lg="12" xl="12">
-                                        <div className="table-responsive">
-                                            <table className="table table-responsive-sm">
-                                                <thead>
-                                                    <tr>
-                                                        <th >#</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </Col>
-                                </div>
-                                <div className="card-block row">
-                                    <Col sm="12" lg="12" xl="12">
-                                        <div className="table-responsive">
-                                            <table className="table table-responsive-sm">
-                                                <thead>
-                                                    <tr>
-                                                        <th >#</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                        <th >Table heading</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                        <td>Table cell</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </Col>
-                                </div>
-                            </Card>
-                        </Col>*/}
-                    {/* </Row>*/} 
+                    <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)"}} className="sweet-loading">
+                                     <BeatLoader
+                                         css={override}
+                                        size={30}
+                                        margin={5}
+                                        color={"#F10542"}
+                                        loading={show}
+                                        />
+                                    </div>
+                    </Row>
+                
                 </Container>  
         </Fragment>
             );

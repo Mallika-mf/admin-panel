@@ -1,10 +1,10 @@
 import React, { Fragment,useState,useEffect } from 'react';
 import BreadCrumb from '../../layout/Breadcrumb'
 import {Home} from 'react-feather';
-import {Container,Row,Col,Card,CardHeader,Table,Input,Button} from "reactstrap";
+import {Container,Row,Col,CardHeader,Input,Button} from "reactstrap";
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
-import {useHistory,Link} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import 'firebase/auth';
 import 'firebase/analytics';
 import 'firebase/firestore'
@@ -15,11 +15,12 @@ import app, {storage} from '../../data/base'
 const AddWorkingPartner = () => {
   const history = useHistory()
   const [buttonHide,setButtonHide] = useState(false)
- 
+  const [hideSignIn,setHideSignIn] = useState(false)
+  const [localFood,setLocalFood] = useState(false)
+
   const [searchName,setSearchName] = useState("")
   const [workingPartnerName,setworkingPartnerName]=useState("")   
   const [emailID,setEmailID]=useState("")
-  const [deliveryBaseKm,setDeliveryBaseKm]=useState("")
   const [selectWorkingCity,setSelectWorkingCity]=useState("")
   const [mobileNumber,setMobileNumber]=useState(0)
   const [otp,setOtp]=useState('')
@@ -31,9 +32,6 @@ const AddWorkingPartner = () => {
   const [ selectLocality,setSelectLocality] = useState("")
   const [city,setCity]=useState([])
   const [locality,setLocality] = useState([])
-  const [workingPartner,setworkingPartner]=useState([])
-  const [deliveryPrice,setDeliveryPrice]=useState("")
-  const [DeliveryExtraPrice,setDeliveryExtraPrice] = useState("") 
   const [accountName,setAccountName]=useState("")
   const [accountNumber,setAccountNumber]=useState("")
   const [isfcCode,setIfscCode]=useState("")
@@ -52,15 +50,10 @@ const AddWorkingPartner = () => {
   const [gst,setGst] = useState("")
   const [selectWorkingCityName,setSelectWorkingCityName] = useState("")
  
-  const[cID,setCid] = useState([])
+  const[cId,setCid] = useState([])
   const[cNo,setCno] = useState([])
  
-  var path1="",path2="",path3="",path4="",path5="",path6="",path7="",verified="no";
- var lat="",long="";
- var temp=0;
- var count = 0;
- var citypushid=[];
- var localitypushid=[];
+ 
  var cid=[];
  var cno=[];
   useEffect(()=>{
@@ -89,24 +82,23 @@ const AddWorkingPartner = () => {
      .once('value').then(function(snapshot) {
        var content=[]
          snapshot.forEach(function(data){
-             var val = data.val(); 
             content.push(data.val())
          });
            setCity(content)
          });
-         app.database().ref().child("Franchise")
-         .once('value').then(function(snapshot) {
-           var content=[]
-             snapshot.forEach(function(data){
-                 var val = data.val(); 
-               content.push(data.val())
-             });
-             setworkingPartner(content)
-           });
+        //  app.database().ref().child("Franchise")
+        //  .once('value').then(function(snapshot) {
+        //    var content=[]
+        //      snapshot.forEach(function(data){
+        //          var val = data.val(); 
+        //        content.push(data.val())
+        //      });
+        //      setworkingPartner(content)
+        //    });
   },[])
   
   function onSignInSubmit() {
-   var len=mobileNumber.length;
+  //  var len=mobileNumber.length;
  //  if (len===10) {
  
  
@@ -126,7 +118,8 @@ const AddWorkingPartner = () => {
                    // user in with confirmationResult.confirm(code).
                    window.confirmationResult = confirmationResult;
                    window.signingIn = false;
-                   
+                   setHideSignIn(true)
+
        
                })
                //.catch(function (error) {
@@ -144,21 +137,20 @@ const AddWorkingPartner = () => {
    // }
  }
  
- const onVerifyCodeButton=()=>{
-   onVerifyCodeSubmit();
- }
+
  
  function onVerifyCodeSubmit() {
  
-   if (otp!="") {
+   if (otp!=="") {
      window.verifyingCode = true;
      window.confirmationResult.confirm(otp).then(function (result) {
        console.log("confirmation",result)
        // User signed in successfully.
-       var user = result.user;
+      //  var user = result.user;
        window.verifyingCode = false;
        window.confirmationResult = null;
- 
+       setHideSignIn(false)
+
        // document.getElementById('verification-code').style.display="none";
        // document.getElementById('otp').style.display="none";
        // document.getElementById('verify-code-button').style.display="none";
@@ -184,7 +176,9 @@ const AddWorkingPartner = () => {
    setworkingPartnerName(event.target.value)
   }
 
-
+  const localFoodHnadler=(event)=>{
+    setLocalFood(event.target.checked)
+  }
   const onChangeWorkingCity=(event)=>{
    setSelectWorkingCity(event.target.value)
    city.filter(item=>{
@@ -192,6 +186,7 @@ const AddWorkingPartner = () => {
       setSelectWorkingCityName(item.Name)
       
     }
+    return item;
   })
   var database = app.database();
   database.ref().child("Masters").child("Localities")
@@ -215,6 +210,8 @@ const AddWorkingPartner = () => {
       if(item.PushId===event.target.value){
         setSelectLocality(item.Name)
       }
+      return item;
+
     })
    }
    const onChangeGstNumber=(event)=>{
@@ -264,7 +261,7 @@ const AddWorkingPartner = () => {
   }
   const onChangeIFSCcode=(event)=>{
    setIfscCode(event.target.value)
-     if(event.target.value!=10){
+     if(event.target.value!==10){
          alert('Enter proper ifsc code');
          return;
      }
@@ -294,18 +291,111 @@ const AddWorkingPartner = () => {
   const onChangeAdharFile=(event)=>{
    const image = event.target.files[0]
    setAdharFile(imageFile => (image))
+   if(image === '' ) {
+    console.error(`not an image, the image file is a ${typeof(image)}`)
+
+  }
+  const uploadTask2 = storage.ref(`/${image.name}`).put(image)
+  uploadTask2.on('state_changed', 
+  (snapShot) => {
+    //takes a snap shot of the process as it is happening
+    console.log(snapShot)
+  }, (err) => {
+    //catches the errors
+    console.log(err)
+  }, () => {
+    // gets the functions from storage refences the image storage in firebase by the children
+    // gets the download url then sets the image from firebase as the value for the imgUrl key:
+    storage.ref().child(adharFile.name).getDownloadURL()
+     .then(fireBaseUrl => {
+        setAdharUrl(fireBaseUrl)
+     })
+  
+     
+  })     
   }
   const onChangePanFile=(event)=>{
    const image = event.target.files[0]
    setPanFile(imageFile => (image))
+   if(image === '' ) {
+    console.error(`not an image, the image file is a ${typeof(image)}`)
+    
+
+  }
+  const uploadTask3= storage.ref(`/${image.name}`).put(image)
+  uploadTask3.on('state_changed', 
+  (snapShot) => {
+    //takes a snap shot of the process as it is happening
+    console.log(snapShot)
+  }, (err) => {
+    //catches the errors
+    console.log(err)
+  }, () => {
+    // gets the functions from storage refences the image storage in firebase by the children
+    // gets the download url then sets the image from firebase as the value for the imgUrl key:
+    storage.ref().child(image.name).getDownloadURL()
+     .then(fireBaseUrl => {
+        setPanUrl(fireBaseUrl)
+        window.temp++
+     })
+    
+     
+  })  
   }
   const onChangePassBookFile=(event)=>{
    const image = event.target.files[0]
    setPassbookFile(imageFile => (image))
+   if(image === '' ) {
+    console.error(`not an image, the image file is a ${typeof(image)}`)
+    
+
+  }
+  const uploadTask4= storage.ref(`/${image.name}`).put(image)
+  uploadTask4.on('state_changed', 
+  (snapShot) => {
+    //takes a snap shot of the process as it is happening
+    console.log(snapShot)
+  }, (err) => {
+    //catches the errors
+    console.log(err)
+  }, () => {
+    // gets the functions from storage refences the image storage in firebase by the children
+    // gets the download url then sets the image from firebase as the value for the imgUrl key:
+    storage.ref().child(image.name).getDownloadURL()
+     .then(fireBaseUrl => {
+        setPassbookUrl( fireBaseUrl)
+        window.temp++
+     })
+    
+     
+  })  
   }
   const onChangeGst=(event)=>{
    const image = event.target.files[0]
    setGstFile(imageFile => (image))
+                 
+   if(image === '' ) {
+    console.error(`not an image, the image file is a ${typeof(image)}`)               
+  }
+  const uploadTask5= storage.ref(`/${image.name}`).put(image)
+  uploadTask5.on('state_changed', 
+  (snapShot) => {
+    //takes a snap shot of the process as it is happening
+    console.log(snapShot)
+  }, (err) => {
+    //catches the errors
+    console.log(err)
+  }, () => {
+    // gets the functions from storage refences the image storage in firebase by the children
+    // gets the download url then sets the image from firebase as the value for the imgUrl key:
+    storage.ref().child(image.name).getDownloadURL()
+     .then(fireBaseUrl => {
+        setGstUrl( fireBaseUrl)
+        window.temp++
+     })
+   
+     
+  })  
   }
   
   const onSearchHandler=(event)=>{
@@ -334,9 +424,8 @@ const AddWorkingPartner = () => {
        setIfscCode( snapshot.val().IFSC)
        setBranchName( snapshot.val().BranchName);
        setBranchAddress( snapshot.val().BranchAddress);
-        setDeliveryExtraPrice(snapshot.val().Price1)
          setAdharUrl(snapshot.val().Doc1);
-         setPanFile(snapshot.val().Doc2);
+         setPanUrl(snapshot.val().Doc2);
          setPassbookUrl(snapshot.val().Doc3);
          setGstUrl(snapshot.val().Doc4);
          var database = app.database();
@@ -351,7 +440,12 @@ const AddWorkingPartner = () => {
              setLocality(content)
              setSelectLocality(snapshot.val().Locality)
              });
-
+            //  if(snapshot.val().Local=="Yes"){
+            //   setLocalFood(true)
+            // }
+            // else{
+            //     setLocalFood(false)
+            // }
          window.temp=7;
          window.verified="Yes";
        }else{
@@ -408,28 +502,15 @@ const AddWorkingPartner = () => {
              alert("Enter Email ID");
              return;
          }
-         if(deliveryPrice=='')
-         {
-             alert("Enter Delivery Base Price");
-             return;
-         }
-         if(deliveryBaseKm=='')
-         {
-             alert("Enter  Delivery Base Price");
-             return;
-         }
-         if(DeliveryExtraPrice=='')
-         {
-             alert("Enter Extra Delivery Base Price");
-             return;
-         }
+         
+       
    
          if(mobileNumber===0)
          {
              alert("Enter Mobile Number");
              return;
          }
-         // if(mobileNumber.length!=10)
+         // if(mobileNumber.length!==10)
          // {
          //     alert("Enter Proper Mobile Number");
          //     return;
@@ -439,23 +520,23 @@ const AddWorkingPartner = () => {
              alert("Enter Address");
              return;
          }
-         if(commisionPercentage=="")
+         if(commisionPercentage==="")
          {
              alert("Enter Commision");
              return;
          }
  
-         if(password=="")
+         if(password==="")
          {
              alert("Enter Password");
              return;
          }
-         if(selectCity=="Select")
+         if(selectCity==="Select")
          {
              alert("Select City");
              return;
          }
-         if(selectLocality=="Select")
+         if(selectLocality==="Select")
          {
              alert("Select Locality");
 
@@ -525,7 +606,7 @@ const AddWorkingPartner = () => {
            }
          }
          if(window.verified!=="yes"){
-           alert("Verify Delivery Partner Number");
+           alert("Verify Agency Mobile Number");
            return;
        }
        var tot=0;
@@ -558,9 +639,7 @@ const AddWorkingPartner = () => {
                      firebaseref.child("Name").set(workingPartnerName);
                      firebaseref.child("Email").set(emailID);
                      firebaseref.child("City1").set(selectWorkingCity);
-                     firebaseref.child("Base").set(deliveryPrice);
-                     firebaseref.child("Price1").set(DeliveryExtraPrice);
-                     firebaseref.child("Price").set(deliveryBaseKm);
+                   
                      firebaseref.child("MobileNumber").set(mobileNumber);
                      firebaseref.child("AlternateNumber").set(alterMobileNumber);
                      firebaseref.child("Address").set(address);
@@ -579,104 +658,15 @@ const AddWorkingPartner = () => {
                     firebaseref.child("Commision").set(commisionPercentage);
                     firebaseref.child("Password").set(password);
                     firebaseref.child("Cash").set(0);
-                      if(adharFile === '' ) {
-                       console.error(`not an image, the image file is a ${typeof(adharFile)}`)
-        
-                     }
-                     const uploadTask2 = storage.ref(`/${adharFile.name}`).put(adharFile)
-                     uploadTask2.on('state_changed', 
-                     (snapShot) => {
-                       //takes a snap shot of the process as it is happening
-                       console.log(snapShot)
-                     }, (err) => {
-                       //catches the errors
-                       console.log(err)
-                     }, () => {
-                       // gets the functions from storage refences the image storage in firebase by the children
-                       // gets the download url then sets the image from firebase as the value for the imgUrl key:
-                       storage.ref().child(adharFile.name).getDownloadURL()
-                        .then(fireBaseUrl => {
-                           firebaseref.child("Doc1").set(fireBaseUrl);
-                           setAdharUrl(prevObject => ({...prevObject, fireBaseUrl}))
-                           window.temp++
-                        })
-                        .then(()=>{setAdharUrl("")})
-                        
-                     })                
-                     if(panFile === '' ) {
-                       console.error(`not an image, the image file is a ${typeof(panFile)}`)
-                       
-              
-                     }
-                     const uploadTask3= storage.ref(`/${panFile.name}`).put(panFile)
-                     uploadTask3.on('state_changed', 
-                     (snapShot) => {
-                       //takes a snap shot of the process as it is happening
-                       console.log(snapShot)
-                     }, (err) => {
-                       //catches the errors
-                       console.log(err)
-                     }, () => {
-                       // gets the functions from storage refences the image storage in firebase by the children
-                       // gets the download url then sets the image from firebase as the value for the imgUrl key:
-                       storage.ref().child(panFile.name).getDownloadURL()
-                        .then(fireBaseUrl => {
-                           firebaseref.child("Doc2").set(fireBaseUrl);
-                           setPanUrl(prevObject => ({...prevObject, fireBaseUrl}))
-                           window.temp++
-                        })
-                        .then(()=>{panUrl("")})
-                        
-                     })              
-                     if(passbookFile === '' ) {
-                       console.error(`not an image, the image file is a ${typeof(passbookFile)}`)
-                       
-            
-                     }
-                     const uploadTask4= storage.ref(`/${passbookFile.name}`).put(passbookFile)
-                     uploadTask4.on('state_changed', 
-                     (snapShot) => {
-                       //takes a snap shot of the process as it is happening
-                       console.log(snapShot)
-                     }, (err) => {
-                       //catches the errors
-                       console.log(err)
-                     }, () => {
-                       // gets the functions from storage refences the image storage in firebase by the children
-                       // gets the download url then sets the image from firebase as the value for the imgUrl key:
-                       storage.ref().child(passbookFile.name).getDownloadURL()
-                        .then(fireBaseUrl => {
-                           firebaseref.child("Doc3").set(fireBaseUrl);
-                           setPassbookUrl(prevObject => ({...prevObject, fireBaseUrl}))
-                           window.temp++
-                        })
-                        .then(()=>{passbookUrl("")})
-                        
-                     })              
-                     if(gstFile === '' ) {
-                       console.error(`not an image, the image file is a ${typeof(gstFile)}`)               
-                     }
-                     const uploadTask5= storage.ref(`/${gstFile.name}`).put(gstFile)
-                     uploadTask5.on('state_changed', 
-                     (snapShot) => {
-                       //takes a snap shot of the process as it is happening
-                       console.log(snapShot)
-                     }, (err) => {
-                       //catches the errors
-                       console.log(err)
-                     }, () => {
-                       // gets the functions from storage refences the image storage in firebase by the children
-                       // gets the download url then sets the image from firebase as the value for the imgUrl key:
-                       storage.ref().child(gstFile.name).getDownloadURL()
-                        .then(fireBaseUrl => {
-                           firebaseref.child("Doc4").set(fireBaseUrl);
-                           setGstUrl(prevObject => ({...prevObject, fireBaseUrl}))
-                           window.temp++
-                        })
-                        .then(()=>{setGstUrl("")})
-                        
-                     })               
-                                
+                    firebaseref.child("Doc1").set(adharUrl);
+                    firebaseref.child("Doc2").set(panUrl);
+                    firebaseref.child("Doc3").set(passbookUrl);
+                    firebaseref.child("Doc4").set(gstUrl);             
+                    if(localFood===true)
+                    firebaseref.child("Local").set("Yes");
+                else 
+                    firebaseref.child("Local").set("No");
+
                      firebaseref.child("Status").set("InActive");
                      firebaseref.child("AStatus").set("InActive");
                      var today = new Date();
@@ -706,7 +696,7 @@ const AddWorkingPartner = () => {
                      setPassword("")
                      setGst("")
                      window.temp=0;
-          
+                      setLocalFood(false)
                      setAdharFile("")
                      setAdharUrl("")
                      setPassbookFile("")
@@ -748,28 +738,15 @@ const AddWorkingPartner = () => {
         alert("Enter Email ID");
         return;
     }
-    if(deliveryPrice=='')
-    {
-        alert("Enter Delivery Base Price");
-        return;
-    }
-    if(deliveryBaseKm=='')
-    {
-        alert("Enter  Delivery Base Price");
-        return;
-    }
-    if(DeliveryExtraPrice=='')
-    {
-        alert("Enter Extra Delivery Base Price");
-        return;
-    }
+   
+  
   
     if(mobileNumber===0)
     {
         alert("Enter Mobile Number");
         return;
     }
-    // if(mobileNumber.length!=10)
+    // if(mobileNumber.length!==10)
     // {
     //     alert("Enter Proper Mobile Number");
     //     return;
@@ -779,7 +756,7 @@ const AddWorkingPartner = () => {
         alert("Enter Address");
         return;
     }
-    if(selectCity=="Select")
+    if(selectCity==="Select")
     {
         alert("Select City");
         return;
@@ -830,29 +807,29 @@ const AddWorkingPartner = () => {
         alert("Enter Bank Address");
         return;
     }
-    if(commisionPercentage=="")
+    if(commisionPercentage==="")
     {
         alert("Enter Commision");
         return;
     }
 
-    if(password=="")
+    if(password==="")
     {
         alert("Enter Password");
         return;
     }
-    if(selectCity=="Select")
+    if(selectCity==="Select")
     {
         alert("Select City");
         return;
     }
-    if(selectLocality=="Select")
+    if(selectLocality==="Select")
     {
         alert("Select Locality");
 
         return;
     }
-    var tot=0
+   
    
     var firebaseref1=app.database().ref().child("WebUser").child(searchName);
     firebaseref1.child("Password").set(String(password));
@@ -863,9 +840,6 @@ const AddWorkingPartner = () => {
                  firebaseref.child("Name").set(workingPartnerName);
                  firebaseref.child("Email").set(emailID);
                  firebaseref.child("City1").set(selectWorkingCity);
-                 firebaseref.child("Base").set(deliveryPrice);
-                 firebaseref.child("Price1").set(DeliveryExtraPrice);
-                 firebaseref.child("Price").set(deliveryBaseKm);
                  firebaseref.child("MobileNumber").set(mobileNumber);
                  firebaseref.child("AlternateNumber").set(alterMobileNumber);
                  firebaseref.child("Address").set(address);
@@ -882,108 +856,16 @@ const AddWorkingPartner = () => {
                     firebaseref.child("Commision").set(commisionPercentage);
                     firebaseref.child("Password").set(password);
                     firebaseref.child("Cash").set(0);
-                  if(adharFile === '' ) {
-                   console.error(`not an image, the image file is a ${typeof(adharFile)}`)
-                   
-          
-                     
-                 }
-                 const uploadTask2 = storage.ref(`/${adharFile.name}`).put(adharFile)
-                 uploadTask2.on('state_changed', 
-                 (snapShot) => {
-                   //takes a snap shot of the process as it is happening
-                   console.log(snapShot)
-                 }, (err) => {
-                   //catches the errors
-                   console.log(err)
-                 }, () => {
-                   // gets the functions from storage refences the image storage in firebase by the children
-                   // gets the download url then sets the image from firebase as the value for the imgUrl key:
-                   storage.ref().child(adharFile.name).getDownloadURL()
-                    .then(fireBaseUrl => {
-                       firebaseref.child("Doc1").set(fireBaseUrl);
-                       setAdharUrl(prevObject => ({...prevObject, fireBaseUrl}))
-                       window.temp++
-                    })
-                    .then(()=>{setAdharUrl("")})
-                    
-                 })                
-                 if(panFile === '' ) {
-                   console.error(`not an image, the image file is a ${typeof(panFile)}`)
-     
-                 }
-                 const uploadTask3= storage.ref(`/${panFile.name}`).put(panFile)
-                 uploadTask3.on('state_changed', 
-                 (snapShot) => {
-                   //takes a snap shot of the process as it is happening
-                   console.log(snapShot)
-                 }, (err) => {
-                   //catches the errors
-                   console.log(err)
-                 }, () => {
-                   // gets the functions from storage refences the image storage in firebase by the children
-                   // gets the download url then sets the image from firebase as the value for the imgUrl key:
-                   storage.ref().child(panFile.name).getDownloadURL()
-                    .then(fireBaseUrl => {
-                       firebaseref.child("Doc2").set(fireBaseUrl);
-                       setPanUrl(prevObject => ({...prevObject, fireBaseUrl}))
-                       window.temp++
-                    })
-                    .then(()=>{panUrl("")})
-                    
-                 })              
-                 if(passbookFile === '' ) {
-                   console.error(`not an image, the image file is a ${typeof(passbookFile)}`)
-
-                 
-                     
-                 }
-                 const uploadTask4= storage.ref(`/${passbookFile.name}`).put(passbookFile)
-                 uploadTask4.on('state_changed', 
-                 (snapShot) => {
-                   //takes a snap shot of the process as it is happening
-                   console.log(snapShot)
-                 }, (err) => {
-                   //catches the errors
-                   console.log(err)
-                 }, () => {
-                   // gets the functions from storage refences the image storage in firebase by the children
-                   // gets the download url then sets the image from firebase as the value for the imgUrl key:
-                   storage.ref().child(passbookFile.name).getDownloadURL()
-                    .then(fireBaseUrl => {
-                       firebaseref.child("Doc3").set(fireBaseUrl);
-                       setPassbookUrl(prevObject => ({...prevObject, fireBaseUrl}))
-                       window.temp++
-                    })
-                    .then(()=>{passbookUrl("")})
-                    
-                 })              
-                 if(gstFile === '' ) {
-                   console.error(`not an image, the image file is a ${typeof(gstFile)}`)
-
-                     
-                 }
-                 const uploadTask5= storage.ref(`/${gstFile.name}`).put(gstFile)
-                 uploadTask5.on('state_changed', 
-                 (snapShot) => {
-                   //takes a snap shot of the process as it is happening
-                   console.log(snapShot)
-                 }, (err) => {
-                   //catches the errors
-                   console.log(err)
-                 }, () => {
-                   // gets the functions from storage refences the image storage in firebase by the children
-                   // gets the download url then sets the image from firebase as the value for the imgUrl key:
-                   storage.ref().child(gstFile.name).getDownloadURL()
-                    .then(fireBaseUrl => {
-                       firebaseref.child("Doc4").set(fireBaseUrl);
-                       setGstUrl(prevObject => ({...prevObject, fireBaseUrl}))
-                       window.temp++
-                    })
-                    .then(()=>{setGstUrl("")})
-                    
-                 })               
+                    firebaseref.child("Doc1").set(adharUrl);
+                    firebaseref.child("Doc2").set(panUrl);
+                    firebaseref.child("Doc3").set(passbookUrl);
+                    firebaseref.child("Doc4").set(gstUrl); 
                             
+                    if(localFood===true)
+                    firebaseref.child("Local").set("Yes");
+                else 
+                    firebaseref.child("Local").set("No");
+
                  firebaseref.child("Status").set("InActive");
                  firebaseref.child("AStatus").set("InActive");
                  var today = new Date();
@@ -1008,14 +890,13 @@ const AddWorkingPartner = () => {
                  setIfscCode("")
                  setBranchName("")
                  setBranchAddress("")
-                 setDeliveryPrice("")
                  setBranchAddress("")
                  setCommisionPercentage("")
                  setSelectLocality("")
                  setPassword("")
                  setGst("")
                  window.temp=0;
-      
+                  setLocalFood(false)
                  setAdharFile("")
                  setAdharUrl("")
                  setPassbookFile("")
@@ -1041,7 +922,7 @@ const AddWorkingPartner = () => {
          }
      const onDeleteHandler=()=>{
        
-     if(searchName=="")
+     if(searchName==="")
      {
          alert("Enter Delivery Partner User ID");
          return;
@@ -1055,7 +936,7 @@ const AddWorkingPartner = () => {
          } 
      }
  
-     if(superadmin=="Yes"){
+     if(superadmin==="Yes"){
              Swal.fire({
                  title: "Are you sure?",
                  text: "Once deleted, you will not be able to recover it!",
@@ -1229,7 +1110,7 @@ const AddWorkingPartner = () => {
                             <Input value={searchName} onChange={onChangeSearchName} type="text" id="sname" className="form-control"/>
                             </Col>
                             <Col className="col-sm-1 col-md-2">
-                            <span onClick={onSearchHandler} id="search"><img src="https://img.icons8.com/ios-filled/24/000000/search.png"/></span>
+                            <span onClick={onSearchHandler} id="search"><img src="https://img.icons8.com/ios-filled/24/000000/search.png" alt="search engine"/></span>
                             </Col>
                             </Row>
                             <div className="clearfix"></div>
@@ -1270,16 +1151,16 @@ const AddWorkingPartner = () => {
                         <Input type="number" value={mobileNumber} onChange={onChangeMobileNumber} id="mobilenumber" className="form-control" placeholder="Mobile Number"/>
                         <div className="clearfix"></div>
                          </Col>
-
+                         {hideSignIn!==false?
                          <Col className="form-group col-md-2" >
                         <label className="form-label" id="otp">OTP <span style={{color: "red"}}>*</span></label>
-                         <Input id="verification-code" value={otp} onChange={onChangeOtp}  type="number" className="form-control" placeholder="OTP"/>	
-                        </Col> 
+                         <Input id="verification-code"   type="number" className="form-control" value={otp} onChange={onChangeOtp} placeholder="OTP"/>	
+                         <Button className="btn btn-primary"  id="verify-code-button" style={{color: "white",fontFamily: 'Cinzel',fontWeight: "bold"}} onClick={onVerifyCodeSubmit} >Verify</Button>	
+                        </Col> :
                         <Col className="form-group col-md-3" style={{marginTop:"3%"}} >
-                        <Button className="warning" onClick={onSignInSubmit} id="sign-in-button" href="#" style={{color: "white",fontFamily: 'Cinzel',fontWeight: "bold"}}>Send OTP</Button>	
-                        <Button class="warning" onClick={onVerifyCodeSubmit} id="verify-code-button" href="#" style={{color: "white",fontFamily: 'Cinzel',fontWeight: "bold"}}>Verify</Button>	
+                        <Button className="warning" id="sign-in-button" onClick={onSignInSubmit}  style={{color: "white",fontFamily: 'Cinzel',fontWeight: "bold"}} >Send OTP</Button>	
                         </Col>
-
+                    }
                          <Col className="form-group col-md-6">
                         <label className="form-label">Alternate Mobile Number/Emergency Number</label>
                         <Input value={alterMobileNumber} onChange={onChangeAlterMobileNumber} type="number" id="anumber" className="form-control" placeholder="Mobile Number"/>
@@ -1398,7 +1279,7 @@ const AddWorkingPartner = () => {
                         <Row>
                         <Col className="form-group col-md-4">
                         <label className="form-label">Working City <span style={{color: "red"}}>*</span></label>
-                        <select value={selectWorkingCity} onChange={onChangeWorkingCity} className="form-control" id="gender">
+                        <select value={selectWorkingCityName} onChange={onChangeWorkingCity} className="form-control" id="gender">
                         <option value="Select">Select</option>
                         {city.map((item,id)=>{
                           return(
@@ -1431,8 +1312,15 @@ const AddWorkingPartner = () => {
                         <Input type="password" value={gst} onChange={onChangeGstNumber} className="form-control" id="gender" placeholder=""/>                      
                          <div className="clearfix"></div>
                         </Col>
+                        
                         </Row>
-
+                        {/* <Row>
+                        <Col className="form-group col-md-3">
+                        <Input type="checkbox"  checked={localFood} onChange={localFoodHnadler}className="form-control" />Local Food                
+                         <div className="clearfix"></div>
+                        </Col>
+                        </Row> */}
+                        
                         <Row>
                         <Col className="form-group col-md-12">
                         <h4>Documents Upload</h4>

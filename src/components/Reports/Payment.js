@@ -23,8 +23,10 @@ const Payment = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const [show,setShow] = useState(true)
 
-    const [state, setState] = useState({sdate:"",edate:""});
-    useEffect(()=>{
+    const [search,setSearch] = useState("")
+    const [sdate,setSdate] = useState("")
+    const [edate,setEdate] = useState("")   
+     useEffect(()=>{
         try{
             window.addEventListener('message', handleMessage);
 
@@ -63,6 +65,28 @@ const Payment = (props) => {
                             content.push(snap.val());
                              
                           });
+                          content.reverse()
+              content.map(item=>{
+                if(item.ChefId===undefined){
+                  item.ChefId="undefined"
+                }
+                if(item.Date===undefined){
+                  item.Date="undefined"
+                }
+                if(item.Name===undefined){
+                  item.Name="undefined"
+                }
+                if(item.Number===undefined){
+                  item.Number="undefined"
+                }
+                if(item.Membership===undefined){
+                  item.Membership="undefined"
+                }
+                if(item.Amount===undefined){
+                  item.Amount="undefined"
+                }
+              })
+              
               setUsers(content);
               setShow(false)
 
@@ -84,30 +108,35 @@ const Payment = (props) => {
  }
 },[])
     
-const onChangeHandler = (event) =>{
-    const {id, value} = event.target
-    setState(prevState =>({
-      ...prevState,
-      [id]: value
-    }))
-   
-// setSearchTerm(event.target.value);;
+const onSdateChangeHandler=(event)=>{
+  setSdate(event.target.value)
+}
+const onEdateChangeHandler=(event)=>{
+  setEdate(event.target.value)
+}
+// setSearchTerm(event.target.value)
 
-  }
   
+  const onChangeStateSearch=(event)=>{
+    setSearch(event.target.value)
+    
+  }
   const onSubmit =  (event) => {
     event.preventDefault();
 // state.sdate=""
 // state.edate=""
-if(state.sdate.length==0&&state.edate.length==0)
+if(sdate==""&&edate=="")
 {
     alert("Select Start Date");
     // state.sdate.focus();
     return;
-}   
-var database = app.database();
-database.ref().child("SlotsReport")
-            .orderByChild("Date").startAt(state.sdate).endAt(state.edate)
+}
+
+if(sdate.length!=0&&edate.length!=0){
+  var database = app.database();
+
+      database.ref().child("SlotsReport")
+      .orderByChild("Date").startAt(sdate).endAt(edate)
       .once('value', function(snapshot){
           if(snapshot.exists()){
                 // $('#datatable').empty();
@@ -118,11 +147,51 @@ database.ref().child("SlotsReport")
                      
                   });
                   setUsers(content);
-          }
+                }
             
         })
+      }else if(sdate.length!==0&&edate.length===0){
+        var database = app.database();
+
+        database.ref().child("SlotsReport")
+        .orderByChild("Date").equalTo(sdate)
+        .once('value', function(snapshot){
+            if(snapshot.exists()){
+                  // $('#datatable').empty();
+                  var content = [];
+                  
+                  snapshot.forEach(snap=>{
+                      content.push(snap.val());
+                       
+                    });
+                    setUsers(content);
+                  }
+              
+          })
+        } else{
+          var database = app.database();
+
+          database.ref().child("SlotsReport")
+          .orderByChild("Date").equalTo(edate)
+          .once('value', function(snapshot){
+              if(snapshot.exists()){
+                    // $('#datatable').empty();
+                    var content = [];
+                    
+                    snapshot.forEach(snap=>{
+                        content.push(snap.val());
+                         
+                      });
+                      content.reverse()
+                    
+                      setUsers(content);
+                    }
+                
+            })
+          }
     
-  }    
+  } 
+   
   const handleMessage = (event) => {
     if (event.data.action === 'receipt-loaded') {
       setIsLoading(false);
@@ -169,31 +238,38 @@ database.ref().child("SlotsReport")
                        
                        <CardBody>
                        <Row>
-                                <Form className="theme-form">
-                                        <FormGroup className="col-md-12">
+                       <FormGroup className="col-md-3">
                                         <label className="form-label">From Date <span style={{color: "red"}}>*</span></label>
                                         <div className="input-group">
-                                        <input type="date" id="sdate" className="form-control"value={state.sdate} onChange={onChangeHandler} />
+                                        <input type="date" id="sdate" className="form-control"value={sdate} onChange={onSdateChangeHandler} />
                           </div>
                                         </FormGroup>
-                                        </Form>
-                      <FormGroup className="col-md-4">
+                      <FormGroup className="col-md-3">
                       
                         <label className="form-label">To Date <span style={{color: "red"}}>*</span></label>
                           <div className="input-group">
-                          <input type="date" id="edate" className="form-control"value={state.edate} onChange={onChangeHandler} />
+                          <input type="date" id="edate" className="form-control"value={edate} onChange={onEdateChangeHandler} />
                           </div>
                       </FormGroup>
-                    
-                                    <div className="col-md-3">
+                     
+                      
+                                    <div className="col-md-4">
                                        
-                                    <input className="btn btn-primary mr-1" style={{marginTop: "24px", padding: "10px 15px"}} type="button" name="filter"  onClick={(event) => onSubmit(event)} value="Filter" id="filter"/>
+                                            <input className="btn btn-primary mr-1" style={{marginTop: "30px", padding: "10px 15px;"}} type="button" name="filter" value="Filter" onClick={(event) => onSubmit(event)} id="filter"/>
                                    
                                     </div>
                                   
                                     </Row>
                     </CardBody>
                    
+                      
+                    <div className="col-md-5" style={{margin: "1%"}}>
+                    <div className="form-group col-md-6">
+                         <label className="form-label" htmlFor="searchNumber">Search <span style={{color: "red"}}>*</span></label>
+                             <input type="number"  defaultValue={search} id="searchNumber" onChange={onChangeStateSearch}  required="" className="form-control" placeholder="Search for Number" title="Type in a name"/>
+                             <div className="clearfix"></div>
+                        </div>
+                    </div>
                         <div className="col-md-11 text-right" style={{marginTop: "-5%",marginBottom:"3%"}}>
                        <div className="dt-buttons btn-group">       
                        <Button onClick={printDocument} variant="contained" color="primary"><span color="white">PDF</span></Button> 
@@ -232,7 +308,15 @@ database.ref().child("SlotsReport")
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    {users.map((item,id)=>{
+                                    {users
+                                    .filter(orders =>orders.Date.includes(search))
+                                    .filter(orders =>orders.ChefId.includes(search))
+                                    .filter(orders =>orders.Name.includes(search))
+                                    .filter(orders =>orders.Number.includes(search))
+                                    .filter(orders =>orders.Membership.includes(search))
+                                    .filter(orders =>orders.Amount.includes(search))
+
+                                    .map((item,id)=>{
                                                     return(
                                                         <tr key={id}> 
                                                         <td>{id+1}</td>         

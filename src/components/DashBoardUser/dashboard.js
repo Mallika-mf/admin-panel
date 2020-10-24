@@ -95,7 +95,7 @@ const DashBoard = (props) => {
                     if(val.Total!=null)
                      total1=total1 + +parseFloat(val.Total);
                   }); 
-                  user3("₹"+parseFloat(total1).toFixed(2));
+                  setUser3("₹"+parseFloat(total1).toFixed(2));
                 }   
             });
 

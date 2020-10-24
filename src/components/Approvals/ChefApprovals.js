@@ -3,17 +3,16 @@ import BreadCrumb from '../../layout/Breadcrumb'
 import {Home} from 'react-feather';
 import {Container,Row,Col,Card,CardHeader,Table,Button,Input} from "reactstrap";
 import app,{storage}from '../../data/base'
-import { Database, ShoppingBag, MessageCircle, User,UserPlus, Layers, ShoppingCart,  ArrowDown, Pocket, Monitor, Truck,BarChart,DollarSign,Percent,Headphones,Check,Trash} from 'react-feather'
+import { Trash} from 'react-feather'
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';  
 import jsPDF from 'jspdf';  
 import html2canvas from 'html2canvas';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
-import {useHistory,Link} from 'react-router-dom'
+// import {useHistory} from 'react-router-dom'
 import 'firebase/auth';
 import 'firebase/analytics';
 import 'firebase/firestore'
-import * as firebase from "firebase/app";
 import axios from 'axios'
 import {BeatLoader}  from "react-spinners";
 import { css } from "@emotion/core";
@@ -24,13 +23,14 @@ const override = css`
   border-color: red;
 `;
 const ChefApprovals = () => {
-  const [show,setShow] = useState(false)
+  const [show,setShow] = useState(true)
   const [users,setUsers] = useState([])
+  const [comment,setComment] = useState("")
   const [searchTerm,setSearchTerm] = useState("")
     const [hide,setHide] = useState(true)
     const [isLoading, setIsLoading] = useState(true);
-    const [searchValue, setSearchValue] = useState([]);
-    const history = useHistory()
+    // const [searchValue, setSearchValue] = useState([]);
+    // const history = useHistory()
     const[aRating,setArating] = useState("")
     const[aRaview,setAraview] = useState("")
 
@@ -57,7 +57,6 @@ const ChefApprovals = () => {
     const [selectZone,setSelecetZone] = useState("")
     const [selectLocality,setSelectLocality] = useState("")
     const [zipCode,setZip] = useState("")
-    const [dish,setDish] = useState("")
     const [kopen,setKopen] = useState("")
     const [kClose,setKclose] = useState("")
     const [bankName,setBankName] = useState("")
@@ -69,18 +68,18 @@ const ChefApprovals = () => {
     const [comPer,setComPer] = useState("")
     const [refCode,setRefCode] = useState("")
     const [cateringService,setCateringService] = useState(false)
-    const [passportimageAsFile, setPassportImageAsFile] = useState('')
+    const [, setPassportImageAsFile] = useState('')
     
     const [passportImageAsUrl, setPassportImageAsUrl] = useState("")
-    const [adharCardImageAsFile,setAdharCardImageAsFile] = useState('')
+    const [,setAdharCardImageAsFile] = useState('')
     const [adharCardImageAsUrl,setAdharCardImageAsUrl] = useState("")
-    const [PanImageAsFile,setPanImageAsFile] = useState("")
+    const [,setPanImageAsFile] = useState("")
     const [panImageAsUrl,setPanImageAsUrl] = useState("")
-    const [bankStateMentImageAsFile,setBankStateMentImageAsFile] = useState("")
+    const [,setBankStateMentImageAsFile] = useState("")
     const [bankStateMentImageAsUrl,setBankStateMentImageAsUrl] = useState("")
-    const [fssiCertiImageAsFile,setFssiCertiImageAsFile] = useState("")
+    const [,setFssiCertiImageAsFile] = useState("")
     const [fssiCertiImageAsUrl,setFssiCertiImageAsUrl] = useState("")
-    const [gstImageAsFile,setGstImageAsFile] = useState("")
+    const [,setGstImageAsFile] = useState("")
     const [gstImageAsUrl,setGstImageAsUrl] = useState("")
     const [sdate,setSdate] = useState("")
     const [edate,setEdate] = useState("")
@@ -90,36 +89,28 @@ const ChefApprovals = () => {
     const [locality,setLocality] = useState([])
     const [zone,setZone] = useState([])
     const [state,setState] = useState("")
-    const [cID,setcID] = useState([])
-    const [cNO,setcNO] = useState([])
+    const [,setcID] = useState([])
+    const [,setcNO] = useState([])
     const [city,setCity] = useState([])
     const [citySelect,setCitySelect] = useState("")
-    const[cityPushId,setCityPushId] = useState([])
-    const[subLocalityPushId,setSubLocalityPushId] = useState([])
+    const[,setCityPushId] = useState([])
+    const[,setSubLocalityPushId] = useState([])
   
     const [agency,setAgency] = useState([])
     const [agencyName,setAgencyName] = useState("")
-    const [review,setReview] = useState("")
+    const [localFood,setLocalFood] = useState(false)
     const [veg,setVeg] = useState(false)
     const [ kname,setKname] = useState("")
     const [husband,setHusband] = useState("")
   
-    var path1="",path2="",path3="",path4="",path5="",path6="",verified="no";
-  var lat="",long="";
-  var temp=0;
-  var count = 0;
-  var citypushid=[];
-  var localitypushid=[];
+ 
   var sublocalitypushid=[];
   var cid=[];
   var cno=[];
-  var isMobile = false;
-  var passed=false;
 
     useEffect(()=>{
         window.addEventListener('message', handleMessage);
 
-        var cityname=[];
         var citypushid=[];
         var database = app.database();
         database.ref().child("Masters").child("City")
@@ -144,6 +135,11 @@ const ChefApprovals = () => {
                 content.push(snap.val());
                  
               });
+              content.map(item=>{
+                item.comment=""
+                return item;
+
+             })
               setUsers(content);
               setShow(false)
             }else{
@@ -164,19 +160,17 @@ const ChefApprovals = () => {
         });
         setAgency(content)
         });
-        console.log(citySelect)
     return () => {
         window.removeEventListener('message', handleMessage);
       };
     },[])
     useEffect(()=>{
-      cno=[];
-      cid=[];
+      
       app.database().ref().child("CloudKitchen")
       .once('value').then(function(snapshot) {
           snapshot.forEach(function(data){
               var val = data.val(); 
-              if(val.UserId!=""&&val.UserId!=null){
+              if(val.UserId!==""&&val.UserId!==null){
                   cid.push(val.UserId);
                   cno.push(val.MobileNumber);
               }
@@ -192,7 +186,7 @@ const ChefApprovals = () => {
         setSearchTerm(event.target.value);
        }
        const handleMessage = (event) => {
-        if (event.data.action === 'receipt-loaded') {
+        if (event.data.action ==='receipt-loaded') {
           setIsLoading(false);
         }
       };
@@ -212,31 +206,30 @@ const ChefApprovals = () => {
         html2canvas(input)  
           .then((canvas) => {  
             var imgWidth = 200;  
-            var pageHeight = 290;  
+            // var pageHeight = 290;  
             var imgHeight = canvas.height * imgWidth / canvas.width;  
-            var heightLeft = imgHeight;  
+            // var heightLeft = imgHeight;  
             const imgData = canvas.toDataURL('image/png');  
             const pdf = new jsPDF('p', 'mm', 'a4')  
             var position = 0;  
-            var heightLeft = imgHeight;  
+            // var heightLeft = imgHeight;  
             pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);  
             pdf.save("ChefApprovals.pdf");  
           });  
       }
       const onChangeCityHandler = (event)=>{
         setCitySelect(event.target.value)
-        console.log(city)
         city.filter(item=>{
           if(item.PushId===event.target.value){
             setSelectCityName(item.Name)
           }
+          return item;
         })
         var database = app.database();
         database.ref().child("Masters").child("Localities")
         .orderByChild("City").equalTo(event.target.value)
           .on('value', function(snapshot){
             if(snapshot.exists()){
-                console.log(snapshot.val())
                 var content = [];
                 snapshot.forEach(zoneData=>{
                     content.push(zoneData.val());
@@ -251,6 +244,8 @@ const ChefApprovals = () => {
     if(item.PushId===event.target.value){
       setSelectZoneName(item.Name)
     }
+    return item;
+
   })
 
   app.database().ref().child("Masters").child("SubLocalities")
@@ -273,6 +268,8 @@ const ChefApprovals = () => {
         if(item.PushId===event.target.value){
           setSelectLocalityName(event.target.name)
         }
+        return item;
+
       })
 
       }
@@ -415,8 +412,8 @@ const ChefApprovals = () => {
       const AgencyNameChange =(event)=>{
         setAgencyName(event.target.value)
       }
-      const AreviewChange=(event)=>{
-        setReview(event.target.value)
+      const localFoodHnadler=(event)=>{
+        setLocalFood(event.target.checked)
       }
       const vegChangeHandler=(event)=>{
         setVeg(event.target.checked)
@@ -450,14 +447,13 @@ const ChefApprovals = () => {
       const onChangePassPort=(event)=>{
         const image = event.target.files[0]
         setPassportImageAsFile(imageFile => (image))
-        if(image === '' ) {
+        if(image ==='' ) {
           console.error(`not an image, the image file is a ${typeof(image)}`)
         }
         const uploadTask = storage.ref(`/${image.name}`).put(image)
         uploadTask.on('state_changed', 
         (snapShot) => {
           //takes a snap shot of the process as it is happening
-          console.log(snapShot)
         }, (err) => {
           //catches the errors
           console.log(err)
@@ -475,7 +471,7 @@ const ChefApprovals = () => {
       const onChangeAdhar=(event)=>{
         const image = event.target.files[0]
         setAdharCardImageAsFile(imageFile => (image))
-        if(image === '' ) {
+        if(image ==='' ) {
           console.error(`not an image, the image file is a ${typeof(image)}`)
         }
         const uploadTask = storage.ref(`/${image.name}`).put(image)
@@ -502,7 +498,7 @@ const ChefApprovals = () => {
         const image = event.target.file[0]
         setPanImageAsFile(imageFile=>(image))
         
-        if(image === '' ) {
+        if(image ==='' ) {
           console.error(`not an image, the image file is a ${typeof(image)}`)
         }
         const uploadTask = storage.ref(`/${image.name}`).put(image)
@@ -529,7 +525,7 @@ const ChefApprovals = () => {
         setBankStateMentImageAsFile(imageFile => (image))
         
                   
-        if(image === '' ) {
+        if(image ==='' ) {
           console.error(`not an image, the image file is a ${typeof(image)}`)
         }
         const uploadTask = storage.ref(`/${image.name}`).put(image)
@@ -556,7 +552,7 @@ const ChefApprovals = () => {
         const image = event.target.files[0]
           setFssiCertiImageAsFile(imageFile => (image))
           
-          if(image === '' ) {
+          if(image ==='' ) {
             console.error(`not an image, the image file is a ${typeof(image)}`)
           }
           const uploadTask = storage.ref(`/${image.name}`).put(image)
@@ -585,7 +581,7 @@ const ChefApprovals = () => {
           setGstImageAsFile(imageFile => (image))
           
                   
-          if(image === '' ) {
+          if(image ==='' ) {
             console.error(`not an image, the image file is a ${typeof(image)}`)
           }
           const uploadTask = storage.ref(`/${image.name}`).put(image)
@@ -611,31 +607,31 @@ const ChefApprovals = () => {
      const onChangeMemberShip=(event)=>{
       // var membership = document.getElementById('membership');
   setMemberShip(event.target.value)
-      if(memberShip == "Free"){
+      if(memberShip ==="Free"){
     //    document.getElementById('subscription').style.display="flex";
     //    document.getElementById('commission').style.display="flex";
        setSamount("0");
        setComPer("24");
       }
-      else   if(memberShip == "Bronze"){
+      else   if(memberShip ==="Bronze"){
     //    document.getElementById('subscription').style.display="flex";
     //    document.getElementById('commission').style.display="flex";
        setSamount("14999");
        setComPer("18");
       }
-      else  if(memberShip == "Silver"){
+      else  if(memberShip ==="Silver"){
     //    document.getElementById('subscription').style.display="flex";
     //    document.getElementById('commission').style.display="flex";
        setSamount("29999");
        setComPer("12");
       }
-      else  if(memberShip == "Gold"){
+      else  if(memberShip ==="Gold"){
     //    document.getElementById('subscription').style.display="flex";
     //    document.getElementById('commission').style.display="flex";
        setSamount("79999");
        setComPer("5");
       }
-      else  if(memberShip == "Custom"){
+      else  if(memberShip ==="Custom"){
     //    document.getElementById('subscription').style.display="flex";
     //    document.getElementById('commission').style.display="flex";
        setSamount("");
@@ -647,8 +643,7 @@ const ChefApprovals = () => {
           const id=event.target.id
       var zoneId="";
       var localityId="";
-      var selectcityname=[]
-      var selectcitypushid = []
+      
       var firebaseref=app.database().ref().child("CloudKitchen").child(id);
       return firebaseref.once('value').then(function(snapshot) {
           if(snapshot.exists()){
@@ -656,7 +651,7 @@ const ChefApprovals = () => {
            setName(snapshot.val().Name);
           // kitchenname.value= snapshot.val().KitchenName;
           setAge(snapshot.val().Age)
-          if(snapshot.val().Gender!=null&&snapshot.val().Gender!=="")
+          if(snapshot.val().Gender!==null&&snapshot.val().Gender!=="")
               setGender(snapshot.val().Gender);
           setMail(snapshot.val().Email);
           setMnumber(snapshot.val().MobileNumber)
@@ -706,8 +701,8 @@ const ChefApprovals = () => {
                   });
                 } 
            
-  
-          if(snapshot.val().Passed!=null&&snapshot.val().Passed!==""){
+                var passed=false;
+          if(snapshot.val().Passed!==null&&snapshot.val().Passed!==""){
               if(snapshot.val().Passed==="Yes"){
                   passed=true;
                 //   document.getElementById('smssent').style.display="block";
@@ -718,7 +713,7 @@ const ChefApprovals = () => {
           }
              
   
-              if(snapshot.val().Franchise!=null&&snapshot.val().Franchise!==""){
+              if(snapshot.val().Franchise!==null&&snapshot.val().Franchise!==""){
                   setAgencyName(snapshot.val().Franchise)
               }
          
@@ -742,62 +737,62 @@ const ChefApprovals = () => {
           setBranchName(snapshot.val().BranchName);
           setBranchAddress(snapshot.val().BranchAddress);
           setRemark(snapshot.val().Remarks);
-          if(snapshot.val().Membership!=null&&snapshot.val().Membership!="")
+          if(snapshot.val().Membership!==null&&snapshot.val().Membership!=="")
           setMemberShip(snapshot.val().Membership);
           setRefCode(snapshot.val().Referral);
           setArating(snapshot.val().ARatings);
           setAraview(snapshot.val().AReviews);
-          if(snapshot.val().KitchenName!=null&&snapshot.val().KitchenName!="")
+          if(snapshot.val().KitchenName!==null&&snapshot.val().KitchenName!=="")
               setKname(snapshot.val().KitchenName);
-          if(snapshot.val().FatherName!=null&&snapshot.val().FatherName!="")
+          if(snapshot.val().FatherName!==null&&snapshot.val().FatherName!=="")
               setHusband(snapshot.val().FatherName);
   
           var a=snapshot.val().Location.split(",");
           window.lat=a[0];
           window.long=a[1];
-          // if(membership.options[membership.selectedIndex].value == "Subscription"){
+          // if(membership.options[membership.selectedIndex].value ==="Subscription"){
               setSamount(snapshot.val().SAmount);
               setSdate(snapshot.val().SDate);
              setComPer(snapshot.val().Commision);
               // document.getElementById('subscription').style({display:"flex"});
               // document.getElementById('commission').style{(display:"flex")};
           //    }
-          // else  if(membership.options[membership.selectedIndex].value == "Commission"){
+          // else  if(membership.options[membership.selectedIndex].value ==="Commission"){
               // commision.value= snapshot.val().Commision;
               // document.getElementById('subscription').style.display="none";
               // document.getElementById('commission').style.display="flex";
           //    }
-          if(snapshot.val().Doc1!=""){
+          if(snapshot.val().Doc1!==""){
             setPassportImageAsUrl(snapshot.val().Doc1);
         }
         else{
           setPassportImageAsUrl("")
                 }
-        if(snapshot.val().Doc2!=""){
+        if(snapshot.val().Doc2!==""){
           setAdharCardImageAsUrl(snapshot.val().Doc2);
         }
         else{
           setAdharCardImageAsUrl("")
                 }
-         if(snapshot.val().Doc3!=""){
+         if(snapshot.val().Doc3!==""){
           setPanImageAsUrl(snapshot.val().Doc3);
          }
         else{
           setPanImageAsUrl("")      
           }
-         if(snapshot.val().Doc4!=""){
+         if(snapshot.val().Doc4!==""){
           setBankStateMentImageAsUrl(snapshot.val().Doc4);
          }
         else{
           setBankStateMentImageAsUrl("")    
             }
-         if(snapshot.val().Doc5!=""){
+         if(snapshot.val().Doc5!==""){
           setFssiCertiImageAsUrl(snapshot.val().Doc5);
          }
         else{
           setFssiCertiImageAsUrl("")   
              }
-        if(snapshot.val().Doc6!=""){
+        if(snapshot.val().Doc6!==""){
           setGstImageAsUrl(snapshot.val().Doc6);
         }
         else{
@@ -805,15 +800,20 @@ const ChefApprovals = () => {
         }
           window.temp=6;
           window.verified="Yes";
-   
-          if(snapshot.val().Veg=="Yes"){
+          if(snapshot.val().Local==="Yes"){
+            setLocalFood(true)
+          }
+          else{
+              setLocalFood(false)
+          }
+          if(snapshot.val().Veg==="Yes"){
               setVeg(true)
           }
           else{
             setVeg(true)
           }
   
-          if(snapshot.val().Catering=="Yes"){
+          if(snapshot.val().Catering==="Yes"){
               setCateringService(true);
           }
           else{
@@ -894,182 +894,182 @@ const ChefApprovals = () => {
           const onUpdateHandler=(event)=>{
             
         
-            if(sname=="")
+            if(sname==="")
             {
                 alert("Enter Cloud Kitchen Number");
                return;
             }
             
-            // if(kitchenname.value.length==0)
+            // if(kitchenname.value.length===0)
             //     {
             //         alert("Enter Cloud Kitchen Name");
             //        
             //         return;
             //     }
-                if(name=="")
+                if(name==="")
                 {
                     alert("Enter Name");
     
                     return;
                 }
-                if(age=="")
+                if(age==="")
                 {
                     alert("Enter Age");
   
                     return;
                 }
-                // if(husband=="")
-                // {
-                //     alert("Enter Father/Husband Name");
+                if(husband==="")
+                {
+                    alert("Enter Father/Husband Name");
         
-                //     return;
-                // }
-                // if(kname=="")
-                // {
-                //     alert("Enter Kitchen Name");
+                    return;
+                }
+                if(kname==="")
+                {
+                    alert("Enter Kitchen Name");
       
-                //     return;
-                // }
-                if(gender=="Select")
+                    return;
+                }
+                if(gender==="Select")
                 {
                     alert("Select Gender");
         
                     return;
                 }
-                if(mail=="")
+                if(mail==="")
                 {
                     alert("Enter Email ID");
       
                     return;
                 }
              
-                if(mnumber=="")
+                if(mnumber==="")
                 {
                     alert("Enter Mobile Number");
                     
                     return;
                 }
-                if(mnumber.length!=10)
+                if(mnumber.length!==10)
                 {
                     alert("Enter Proper Mobile Number");
                     
                     return;
                 }
-                // if(anumber.value.length==0)
+                // if(anumber.value.length===0)
                 // {
                 //     alert("Enter Aternate Mobile Number");
                 //
                 //     return;
                 // }
-                // if(anumber.value.length!=10)
+                // if(anumber.value.length!==10)
                 // {
                 //     alert("Enter Proper Alternate Mobile Number");
                 //
                 //     return;
                 // }
-                if(address=="")
+                if(address==="")
                 {
                     alert("Enter Address");
           
                     return;
                 }
-                if(citySelect=="Select")
+                if(citySelect==="Select")
                 {
                     alert("Select City");
     
                     return;
                 }
-                if(selectZone=="Select")
+                if(selectZone==="Select")
                 {
                     alert("Select Locality");
             
                     return;
                 }
-                if(selectLocality=="Select")
+                if(selectLocality==="Select")
                 {
                     alert("Select SubLocality");
                   
                     return;
                 }
-                if(zipCode=="")
+                if(zipCode==="")
                 {
                     alert("Enter ZipCode");
           
                     return;
                 }
-                if(special=="")
+                if(special==="")
                 {
                     alert("Enter Special Dishes");
           
                     return;
                 }
-                if(kopen=="")
+                if(kopen==="")
                 {
                     alert("Enter Opening Time");
       
                     return;
                 }
-                if(kClose=="")
+                if(kClose==="")
                 {
                     alert("Enter Closing Time");
       
                     return;
                 }
-                if(bankName=="")
+                if(bankName==="")
                 {
                     alert("Enter Bank Account Name");
                   
                     return;
                 }
-                if(bankNumber=="")
+                if(bankNumber==="")
                 {
                     alert("Enter Bank Account Number");
                   
                     return;
                 }
-                if(bankCode=="")
+                if(bankCode==="")
                 {
                     alert("Enter Bank IFSC Code");
             
                     return;
                 }
-                if(branchName=="")
+                if(branchName==="")
                 {
                     alert("Enter Branch Name");
                 
                     return;
                 }
-                // if(branchaddress.value.length==0)
+                // if(branchaddress.value.length===0)
                 // {
                 //     alert("Enter Bank Address");
                 //     b
                 //     $("#update").removeAttr("disabled");
                 //     return;
                 // }
-                // if(remarks.value.length==0)
+                // if(remarks.value.length===0)
                 // {
                 //     alert("Enter Remarks");
                 //
                 //     $("#update").removeAttr("disabled");
                 //     return;
                 // }
-                if(memberShip=="Select")
+                if(memberShip==="Select")
                 {
                     alert("Select Membership Type");
                 
                     return;
                 }
         
-                if(memberShip== "Subscription"){
+                if(memberShip==="Subscription"){
         
-                    if(sAmount=="")
+                    if(sAmount==="")
                     {
                         alert("Enter Subscription Amount");
               
                             return;
                     }
         
-                    // if(sdate.value.length==0)
+                    // if(sdate.value.length===0)
                     // {
                     //     alert("Select Start Date");
                     
@@ -1077,7 +1077,7 @@ const ChefApprovals = () => {
                     //     return;
                     // }
         
-                    // if(edate.value.length==0)
+                    // if(edate.value.length===0)
                     // {
                     //     alert("Select End Date");
                     
@@ -1085,7 +1085,7 @@ const ChefApprovals = () => {
                     //     return;
                     // }
         
-                    if(comPer=="")
+                    if(comPer==="")
                     {
                         alert("Enter Commision");
                   
@@ -1093,8 +1093,8 @@ const ChefApprovals = () => {
                     }
                     
                    }
-                else  if(memberShip == "Commission"){
-                        if(comPer=="")
+                else  if(memberShip ==="Commission"){
+                        if(comPer==="")
                         {
                             alert("Enter Commision");
                       
@@ -1103,16 +1103,16 @@ const ChefApprovals = () => {
                     }
         
         
-                    if(window.lat==0){
+                    if(window.lat===0){
                         alert("Please enable gps in setting and click get location button");
                             return;
                     }
         
-                    if(window.long==0){
+                    if(window.long===0){
                         alert("Please enable gps in setting and click get location button");
                             return;
                     }
-                    if(aRating=="")
+                    if(aRating==="")
                     {
                         alert("Enter Auditor Ratings");
                     
@@ -1120,7 +1120,7 @@ const ChefApprovals = () => {
                         return;
                     }
         
-                    if(aRaview=="")
+                    if(aRaview==="")
                     {
                         alert("Enter Auditor Review");
                     
@@ -1134,7 +1134,7 @@ const ChefApprovals = () => {
                 //     //   $("#update").removeAttr("disabled");
                 //       return;
                 //   }
-                  var tot=0;
+                  // var tot=0;
             
                         
                         var firebaseref=app.database().ref().child("CloudKitchen").child(sname);
@@ -1194,7 +1194,10 @@ const ChefApprovals = () => {
                             firebaseref.child("KitchenName").set(kname);
                             firebaseref.child("FatherName").set(husband);
   
-                            
+                            if(localFood===true)
+                            firebaseref.child("Local").set("Yes");
+                        else 
+                            firebaseref.child("Local").set("No");
                             if(veg===true)
                                 firebaseref.child("Veg").set("Yes");
                             else 
@@ -1206,7 +1209,7 @@ const ChefApprovals = () => {
                                 firebaseref.child("Catering").set("No");
   
   
-                            if(agencyName!="Select"){
+                            if(agencyName!=="Select"){
                                firebaseref.child("Franchise").set(agencyName);
                             }
         
@@ -1260,6 +1263,7 @@ const ChefApprovals = () => {
                           setGstImageAsUrl("")
                             window.verified="no";
                             setVeg(false)
+                            setLocalFood(false)
                             setCateringService(false)
                             // locality.value="";
                             // document.getElementById('coord').innerHTML="Location Co-Ordinates";
@@ -1292,7 +1296,7 @@ const ChefApprovals = () => {
                    .once('value').then(function(snapshot) {
                        snapshot.forEach(function(data){
                            var val = data.val(); 
-                           if(val.UserId!=""){
+                           if(val.UserId!==""){
                                cid.push(val.UserId);
                                cno.push(val.MobileNumber);
                            }
@@ -1300,18 +1304,18 @@ const ChefApprovals = () => {
                            setcNO(cno)
                        });
                             });
-                            var database = app.database();
-                            database.ref().child("CloudKitchen")
-                            .once('value', function(snapshot){
-                                if(snapshot.exists()){
-                                    var content = [];
+                            // var database = app.database();
+                            // database.ref().child("CloudKitchen")
+                            // .once('value', function(snapshot){
+                            //     if(snapshot.exists()){
+                            //         var content = [];
                                     
-                                    snapshot.forEach(snap=>{
-                                        content.push(snap.val());
-                                      });
-                                      setSearchValue(content);
-                                    }
-                                    });
+                            //         snapshot.forEach(snap=>{
+                            //             content.push(snap.val());
+                            //           });
+                            //           setSearchValue(content);
+                            //         }
+                                    // });
                             setHide(true)
                         
           }
@@ -1324,11 +1328,38 @@ const ChefApprovals = () => {
 //       }
     
 //   }
+const textAreaChangeHandler=(event)=>{
+  users.map(item=>{
+      if(event.target.id===item.UserId){
+          item.comment=event.target.value;
+          setComment(event.target.value)
+      }
+      return item;
+
+  })
+}
+
+const saveCommentHandler=(event)=>{
+    let arrData = event.target.id
   
+   var database = app.database().ref().child("Requests").child(arrData).push()
+   database.child("Address").set(comment)
+   database.child("RequestType").set("Changes")
+   database.child("PushId").set(database.getKey())
+   database.child("SupportReason").set("")
+   database.child("Reason").set("Admin")
+
+   Swal.fire({
+      title: "Successfully Updated!",
+      text: "",
+      icon: "success"
+   })
+}
   
           const ActiveHandler=(event)=>{
               try{
-            var arrData=event.target.id.split("-")
+            var arrData=event.target.id.split(",")
+            console.log(arrData)
             var data= arrData[0]
             var userid = arrData[1]
               Swal.fire({
@@ -1355,8 +1386,189 @@ const ChefApprovals = () => {
                     var city=arrData[7];
                     var memebership=arrData[8];
                     var samount=arrData[9];
-                
-                    if(referral.length!=0&&verified!="Yes"){
+                    var citypushid = arrData[10]
+                    var database = app.database();
+            database.ref().child("CloudKitchen").child(mfid)
+            .once('value', function(snapshot){
+
+              var val = snapshot.val();
+              if(val.Local==="Yes"){
+                var firebaseref=app.database().ref().child("LocalFood").child(citypushid).child(mfid); 
+                console.log("okay go it")
+                if(val.City!==undefined&&val.City!=="")
+                firebaseref.child("City").set(val.City); 
+             else
+                firebaseref.child("City").set(""); 
+             if(val.Close!==undefined&&val.Close!=="")
+                firebaseref.child("Close").set(val.Close);
+             else
+                firebaseref.child("Close").set("");
+             if(val.Commision!==undefined&&val.Commision!=="")
+                firebaseref.child("Commision").set(val.Commision); 
+             else
+                firebaseref.child("Commision").set("");
+             if(val.EDate!==undefined&&val.EDate!=="")
+                firebaseref.child("EDate").set(val.EDate);
+             else
+                firebaseref.child("EDate").set(""); 
+             if(val.Name!==undefined&&val.Name!=="")
+                firebaseref.child("Name").set(val.Name); 
+             else
+                firebaseref.child("Name").set("");
+             if(val.Location!==undefined&&val.Location!=="")
+                firebaseref.child("Location").set(val.Location); 
+             else
+                firebaseref.child("Location").set("");
+             if(val.Open!==undefined&&val.Open!=="")
+                firebaseref.child("Open").set(val.Open); 
+             else
+                firebaseref.child("Open").set("");
+ 
+             if(val.Status!==undefined&&val.Status!=="")
+                firebaseref.child("Status").set(val.Status);
+             else
+                firebaseref.child("Status").set(""); 
+             if(val.AStatus!==null&&val.AStatus!=="")
+                firebaseref.child("AStatus").set(val.AStatus); 
+             else
+                firebaseref.child("AStatus").set("");
+             if(val.UserId!==undefined&&val.UserId!=="")
+                firebaseref.child("UserId").set(val.UserId);
+             else
+                firebaseref.child("UserId").set("");
+             if(val.PP!==undefined&&val.PP!=="") 
+                firebaseref.child("PP").set(val.PP); 
+             else
+                firebaseref.child("PP").set("");
+             if(val.Details!==undefined&&val.Details!=="")
+                firebaseref.child("Details").set(val.Details);
+             else
+                firebaseref.child("Details").set(""); 
+             if(val.Veg!==undefined&&val.Veg!=="")
+                firebaseref.child("Veg").set(val.Veg); 
+             else
+                firebaseref.child("Veg").set("");
+             if(val.CostTwo!==undefined&&val.CostTwo!=="")
+                 firebaseref.child("CostTwo").set(val.CostTwo); 
+              else
+                firebaseref.child("CostTwo").set("");
+             if(val.DeliveryTime!==undefined&&val.DeliveryTime!=="")
+                firebaseref.child("DeliveryTime").set(val.DeliveryTime); 
+             else
+                firebaseref.child("DeliveryTime").set("");
+             if(val.KitchenName!==undefined&&val.KitchenName!=="")
+                firebaseref.child("KitchenName").set(val.KitchenName); 
+             else
+                firebaseref.child("KitchenName").set("");
+             if(val.Ratings!==undefined&&val.Ratings!=="")
+                firebaseref.child("Ratings").set(val.Ratings); 
+             else
+                firebaseref.child("Ratings").set("");
+             if(val.FoodType!==undefined&&val.FoodType!=="")
+                firebaseref.child("FoodType").set(val.FoodType); 
+             else
+                firebaseref.child("FoodType").set("");
+ 
+             if(val.Cuisines!==undefined&&val.Cuisines!=="")
+                firebaseref.child("Cuisines").set(val.Cuisines); 
+             else
+                firebaseref.child("Cuisines").set("");
+ 
+             if(val.Orders!==undefined&&val.Orders!=="")
+                firebaseref.child("Orders").set(val.Orders);
+             else
+                firebaseref.child("Orders").set("");
+              }
+          else{
+            firebaseref=app.database().ref().child(val.City).child(mfid); 
+             console.log("okay go it 2")
+            if(val.City!==undefined&&val.City!=="")
+               firebaseref.child("City").set(val.City); 
+            else
+               firebaseref.child("City").set(""); 
+            if(val.Close!==undefined&&val.Close!=="")
+               firebaseref.child("Close").set(val.Close);
+            else
+               firebaseref.child("Close").set("");
+            if(val.Commision!==undefined&&val.Commision!=="")
+               firebaseref.child("Commision").set(val.Commision); 
+            else
+               firebaseref.child("Commision").set("");
+            if(val.EDate!==undefined&&val.EDate!=="")
+               firebaseref.child("EDate").set(val.EDate);
+            else
+               firebaseref.child("EDate").set(""); 
+            if(val.Name!==undefined&&val.Name!=="")
+               firebaseref.child("Name").set(val.Name); 
+            else
+               firebaseref.child("Name").set("");
+            if(val.Location!==undefined&&val.Location!=="")
+               firebaseref.child("Location").set(val.Location); 
+            else
+               firebaseref.child("Location").set("");
+            if(val.Open!==undefined&&val.Open!=="")
+               firebaseref.child("Open").set(val.Open); 
+            else
+               firebaseref.child("Open").set("");
+
+            if(val.Status!==undefined&&val.Status!=="")
+               firebaseref.child("Status").set(val.Status);
+            else
+               firebaseref.child("Status").set(""); 
+            if(val.AStatus!==undefined&&val.AStatus!=="")
+               firebaseref.child("AStatus").set(val.AStatus); 
+            else
+               firebaseref.child("AStatus").set("");
+            if(val.UserId!==undefined&&val.UserId!=="")
+               firebaseref.child("UserId").set(val.UserId);
+            else
+               firebaseref.child("UserId").set("");
+            if(val.PP!==undefined&&val.PP!=="") 
+               firebaseref.child("PP").set(val.PP); 
+            else
+               firebaseref.child("PP").set("");
+            if(val.Details!==undefined&&val.Details!=="")
+               firebaseref.child("Details").set(val.Details);
+            else
+               firebaseref.child("Details").set(""); 
+            if(val.Veg!==undefined&&val.Veg!=="")
+               firebaseref.child("Veg").set(val.Veg); 
+            else
+               firebaseref.child("Veg").set("");
+            if(val.CostTwo!==undefined&&val.CostTwo!=="")
+                firebaseref.child("CostTwo").set(val.CostTwo); 
+             else
+               firebaseref.child("CostTwo").set("");
+            if(val.DeliveryTime!==undefined&&val.DeliveryTime!=="")
+               firebaseref.child("DeliveryTime").set(val.DeliveryTime); 
+            else
+               firebaseref.child("DeliveryTime").set("");
+            if(val.KitchenName!==undefined&&val.KitchenName!=="")
+               firebaseref.child("KitchenName").set(val.KitchenName); 
+            else
+               firebaseref.child("KitchenName").set("");
+            if(val.Ratings!==undefined&&val.Ratings!=="")
+               firebaseref.child("Ratings").set(val.Ratings); 
+            else
+               firebaseref.child("Ratings").set("");
+            if(val.FoodType!==undefined&&val.FoodType!=="")
+               firebaseref.child("FoodType").set(val.FoodType); 
+            else
+               firebaseref.child("FoodType").set("");
+
+            if(val.Cuisines!==undefined&&val.Cuisines!=="")
+               firebaseref.child("Cuisines").set(val.Cuisines); 
+            else
+               firebaseref.child("Cuisines").set("");
+
+            if(val.Orders!==undefined&&val.Orders!=="")
+               firebaseref.child("Orders").set(val.Orders);
+            else
+               firebaseref.child("Orders").set("");
+            }
+             
+                   
+              if(referral.length!==0&&verified!=="Yes"){
                         app.database().ref().child("CloudKitchen").child(referral)
                         .once('value').then(function(snapshot) {
                         if(snapshot.exists()){
@@ -1371,7 +1583,7 @@ const ChefApprovals = () => {
                             
                             var firebaseref1=app.database().ref().child("CloudKitchen").child(referral).child("Coins");
                                     firebaseref1.transaction(function(currentstock) {
-                                        return currentstock + parseInt();
+                                        return currentstock + parseInt(referralamount);
                                         },
                                         function(error, committed, snapshot) {
                                         if (error) {
@@ -1412,7 +1624,7 @@ const ChefApprovals = () => {
                                             firebaseref.child("Generated").set("Online");
                                             firebaseref.child("PushId").set(firebaseref.getKey());
                                             firebaseref.child("Status").set(String("Approved"));
-                                            firebaseref.child("Name").set();
+                                            firebaseref.child("Name").set(name);
                                             firebaseref.child("MobileNumber").set(mobilenumber);     
                                             firebaseref.child("City").set(city);     
                                             firebaseref.child("Memebership").set(memebership);     
@@ -1449,15 +1661,56 @@ const ChefApprovals = () => {
                             confirmButtonText: "Ok" 
                            });
                     }
-                  Swal.fire("Approved!", {
+                  Swal.fire( {
+                   title: "Successfully Approved!",
                     icon: "success",
                   });
+                })
                 }
               });
             }catch(err){
                 console.log(err)
             }
           }
+
+          // const ActiveHandler = (event)=>{
+          //   var userid = event.target.id
+          //   app.database().ref().child("CloudKitchen").child(userid)
+          //   .on("value", function(snapshot) {
+          //       if(snapshot.exists()) {
+        
+          //           app.database().ref().child("CloudKitchenInActive").child(userid).set(snapshot.val());
+        
+          //           app.database().ref().child("CloudKitchen").child(userid).remove();
+        
+          //           swal("InActived Successfully!", {
+          //               icon: "success",
+          //             });
+          //             var database = app.database();
+          //             database.ref().child("CloudKitchen")
+          //             .orderByChild("AStatus").equalTo("InActive")
+          //             .on('value', function(snapshot){
+          //             if(snapshot.exists()){
+          //             // document.getElementById('#datatable').empty();
+          //             var content = [];
+                      
+          //             snapshot.forEach(snap=>{
+          //                 content.push(snap.val());
+                           
+          //               });
+          //               setUsers(content);
+          //               setShow(false)
+          //             }else{
+          //               const timeout = setTimeout(() => {
+          //                   setShow(false)
+          //                 }, 3000);
+          //                 return ()=>{clearTimeout(timeout);}
+          
+          //           }
+          //         })
+          //       }  
+          //     })
+          // }
 
     return (
         <Fragment>
@@ -1815,17 +2068,17 @@ const ChefApprovals = () => {
                         <Row >
                         <Col className="form-group col-md-4">
                         <label className="form-label">Subscription Amount<span style={{color: "red"}}>*</span> </label>
-                        <Input type="text" id="subscription" value={sAmount} onChange={onChangeSubscriptionAmount} value={sAmount} className="form-control"/>                    
+                        <Input type="text" id="subscription" value={sAmount} onChange={onChangeSubscriptionAmount} className="form-control"/>                    
                          <div className="clearfix"></div>
                         </Col>
                         <Col className="form-group col-md-4">
                         <label className="form-label">Start Date </label>
-                        <input type="date" value={sdate} onChange={startingDateChange} className="form-control digits" value={sdate}  />                      
+                        <input type="date" value={sdate} onChange={startingDateChange} className="form-control digits"   />                      
                          <div className="clearfix"></div>
                         </Col>
                         <Col className="form-group col-md-4">
                         <label className="form-label">End Date </label>
-                        <input type="date" value={edate} onChange={endingDateChange}className="form-control digits" value={edate}  />                      
+                        <input type="date" value={edate} onChange={endingDateChange}className="form-control digits"  />                      
                          <div className="clearfix"></div>
                         </Col>
                         </Row>
@@ -1833,7 +2086,7 @@ const ChefApprovals = () => {
                         <Row >
                         <Col className="form-group col-md-4">
                         <label className="form-label">Enter Commision Percentage<span style={{color: "red"}}>*</span> </label>
-                        <Input type="number" id="commision" value={comPer} onChange={onChangeCommisionPercentage} value={comPer} className="form-control"/>                    
+                        <Input type="number" id="commision" value={comPer} onChange={onChangeCommisionPercentage}  className="form-control"/>                    
                          <div className="clearfix"></div>
                         </Col>
                         </Row>
@@ -1886,7 +2139,10 @@ const ChefApprovals = () => {
                          <div className="clearfix"></div>
                         </Col>
                         </Row>
-
+                        <Col className="form-group col-md-4">
+                        <Input type="checkbox"  checked={localFood} onChange={localFoodHnadler}className="form-control" />Local Food                
+                         <div className="clearfix"></div>
+                        </Col>
                         <Row>
                         <Col className="form-group col-md-12">
                         <h4>Documents Upload</h4>
@@ -1902,8 +2158,8 @@ const ChefApprovals = () => {
                          </Col>
                          <div className="col-sm-1">
                            {passportImageAsUrl===""?
-                             <a></a> :
-                           <a href={passportImageAsUrl}  id="a1" target="_blank">View</a>
+                             <></> :
+                           <a href={passportImageAsUrl}  id="a1" target="_blank" rel="noopener noreferrer">View</a>
                            }
                           </div>
 
@@ -1918,8 +2174,8 @@ const ChefApprovals = () => {
                          </Col>
                          <div className="col-sm-1">
                            {adharCardImageAsUrl===""?
-                            <a ></a>:
-                            <a href={adharCardImageAsUrl}  id="a2" target="_blank">View</a>
+                            <></>:
+                            <a href={adharCardImageAsUrl}  id="a2" target="_blank" rel="noopener noreferrer">View</a>
                            }
                         </div>
                         </Row>
@@ -1932,8 +2188,8 @@ const ChefApprovals = () => {
                          </Col>
                          <div className="col-sm-1">
                          {panImageAsUrl===""?
-                            <a ></a>:
-                            <a href={panImageAsUrl}  id="a2" target="_blank">View</a>
+                            < ></>:
+                            <a href={panImageAsUrl}  id="a2" target="_blank" rel="noopener noreferrer">View</a>
                            }
                            </div>
                         </Row>
@@ -1946,8 +2202,8 @@ const ChefApprovals = () => {
                          </Col>
                          <div className="col-sm-1">
                          {bankStateMentImageAsUrl===""?
-                            <a ></a>:
-                            <a href={bankStateMentImageAsUrl}  id="a2" target="_blank">View</a>                
+                            <></>:
+                            <a href={bankStateMentImageAsUrl}  id="a2" target="_blank" rel="noopener noreferrer">View</a>                
                                        }
                         </div>
                         </Row>
@@ -1960,8 +2216,8 @@ const ChefApprovals = () => {
                          </Col>
                          <div className="col-sm-1">
                          {fssiCertiImageAsUrl===""?
-                            <a ></a>:
-                            <a href={fssiCertiImageAsUrl}  id="a2" target="_blank">View</a>
+                            <></>:
+                            <a href={fssiCertiImageAsUrl}  id="a2" target="_blank" rel="noopener noreferrer">View</a>
                            }
                         </div>
                         </Row>
@@ -1974,8 +2230,8 @@ const ChefApprovals = () => {
                          </Col>
                          <div className="col-sm-1">
                          {gstImageAsUrl===""?
-                          <a></a>  : 
-                           <a href={gstImageAsUrl}  id="a2" target="_blank">View</a>}
+                          <></>  : 
+                           <a href={gstImageAsUrl}  id="a2" target="_blank" rel="noopener noreferrer">View</a>}
                         </div>
                         </Row>
 
@@ -2024,6 +2280,8 @@ const ChefApprovals = () => {
                                             <th scop="col" >MobileNumber </th>
                                             <th scop="col"> City	</th>
                                             <th scop="col"> Locality	</th>
+                                            <th>Comment</th>
+                                            <th>Save</th>
                                             <th scop="col">View Details	 </th>
                                             <th scop="col">Action</th>
 
@@ -2033,7 +2291,6 @@ const ChefApprovals = () => {
                                     {users.filter(orders =>
                                             orders.UserId.includes(searchTerm)).map((item,id)=>{
                                                 // for (var i=0;i<driverNumber.length;i++){
-                                                    if(item.Franchise==null){
                                                     return(
                                                         <tr key={id}>
                                                             <td>{id+1}</td>
@@ -2045,94 +2302,34 @@ const ChefApprovals = () => {
                                                        <td>{item.CityName}</td>
                                                        <td>{item.LocalityName}</td>
                                                        {/* <td style={{display:"none"}}><textarea type="text" commision_id={item.UserId} className="crop" rows="1" cols="30">{item.Commision}</textarea></td> */}
-                                                       <td style={{display:"none"}} className="franchise">{" "}</td>
-                                                       <td><a href="#" className="details"><button id={item.UserId} onClick={onClickSearchHandler} className="btn btn-primary">{"View Details"}</button></a></td>
-                                                        <td className="actions" style={{textAlign:"center", fontSize: "25px", fontWeight: "bold"}}><button type="button" id={item.Commision+"-"+item.UserId+"-"+item.Referral+"-"+item.Verified+"-"+item.ReferralAmount+"-"+item.Name+"-"+item.MobileNumber+"-"+item.CityName+"-"+item.Membership+"-"+item.SAmount} onClick={ActiveHandler} className="btn btn-success btn-md">{"Approve"}</button></td>
-                                                        <td><br/><a href="#" className="delete-row" style={{display:"none"}}><button type="button" className="btn btn-danger btn-sm"><Trash size={15}/> {"Cancel"}</button></a></td>
+                                                      {item.Franchise===null?
+                                                      <td style={{display:"none"}} className="franchise">{" "}</td>:
+                                                      <td style={{display:"none"}} className="franchise">{item.Franchise}</td>
+                                                    }
+                                                    {item.Referral===null?
+                                                    <td style={{display:"none"}} className="referral">{""}</td>:
+                                                    <td style={{display:"none"}} className="referral">{item.Referral}</td>
+                                                  }
+                                                  {item.Verified===null?
+                                                  <td style={{display:"none"}} className="verified">{""}</td>:
+                                                  <td style={{display:"none"}} className="referral">{item.Verified}</td>
+
+                                                }
+                                                {item.ReferralAmount===null?
+                                                <td style={{display:"none"}} className="reffrelamount">{""}</td>:
+                                                <td style={{display:"none"}} className="reffrelamount">{item.ReferralAmount}</td>
+
+                                              }
+                                              <td><textarea id={item.UserId} value={item.comment} onChange={textAreaChangeHandler}></textarea></td>
+                                                           <td><Button type="submit" id={item.UserId} onClick={saveCommentHandler}>Save</Button></td>
+                                                       <td><button id={item.UserId} onClick={onClickSearchHandler} className="btn btn-primary">{"View Details"}</button></td>
+                                                        <td className="actions" style={{textAlign:"center", fontSize: "25px", fontWeight: "bold"}}><button type="button" id={item.Commision+","+item.UserId+","+item.Referral+","+item.Verified+","+item.ReferralAmount+","+item.Name+","+item.MobileNumber+","+item.CityName+","+item.Membership+","+item.SAmount+","+item.City} onClick={ActiveHandler} className="btn btn-success btn-md">{"Approve"}</button></td>
+                                                        <td style={{display:"none"}}><br/><button type="button" className="btn btn-danger btn-sm"><Trash  size={15}/> {"Cancel"}</button></td>
+                                                       {/* <td class="" style={{fontSize: "25px", fontWeight: "bold"}}><button type="button" id={item.UserId} onClick={inActiveHandler} class="btn btn-primary btn-md">InActive</button></td>';    */}
+
                                                      </tr> 
                                                     )
-                                                    }else if(item.Referral==null){
-                                                        return(
-                                                            <tr key={id}>
-                                                            <td>{id+1}</td>
-                                                           <td item_userid={item.UserId} >{item.UserId}</td>
-                                                           <td item_locality={item.UserId} >{item.Name}</td>
-                                                           <td>{item.MobileNumber}</td>
-                                                            {/* //<td>item.Address</td>
-                                                            //<td>item.City</td> */}
-                                                           <td>{item.CityName}</td>
-                                                           <td>{item.LocalityName}</td>
-                                                           {/* <td style={{display:"none"}}><textarea commision_id={item.UserId} type="text" className="crop" rows="1" cols="30">{item.Commision}</textarea></td> */}
-                                                        <td style={{display:"none"}} className="franchise">{item.Franchise}</td>
-                                                        <td style={{display:"none"}} className="referral">{""}</td>
-                                                        <td><a href="#" className="details"><button id={item.UserId} onClick={onClickSearchHandler} className="btn btn-primary">{"View Details"}</button></a></td>
-                                                           <td className="actions" style={{textAlign:"center", fontSize: "25px", fontWeight: "bold"}}><button type="button" id={item.Commision+"-"+item.UserId+"-"+item.Referral+"-"+item.Verified+"-"+item.ReferralAmount+"-"+item.Name+"-"+item.MobileNumber+"-"+item.CityName+"-"+item.Membership+"-"+item.SAmount} onClick={ActiveHandler} className="btn btn-success btn-md">{"Approve"}</button></td>
-                                                           <td><br/><a href="#" className="delete-row" style={{display:"none"}}><button type="button" className="btn btn-danger btn-sm"><Trash size={15}/> {"Cancel"}</button></a></td>
-                                                         </tr> 
-                                                        )
-                                                    }else if(item.Verified==null){
-                                                        return(
-                                                            <tr key={id}>
-                                                            <td>{id+1}</td>
-                                                           <td item_userid={item.UserId} >{item.UserId}</td>
-                                                           <td item_locality={item.UserId}>{item.Name}</td>
-                                                           <td>{item.MobileNumber}</td>
-                                                            {/* //<td>item.Address</td>
-                                                            //<td>item.City</td> */}
-                                                           <td>{item.CityName}</td>
-                                                           <td>{item.LocalityName}</td>
-                                                           {/* <td style={{display:"none"}}><textarea commision_id={item.UserId} type="text" className="crop" rows="1" cols="30">{item.Commision}</textarea></td> */}
-                                                           <td style={{display:"none"}} className="franchise">{item.Franchise}</td>
-                                                           <td style={{display:"none"}} className="referral">{item.Referral}</td>
-                                                            <td style={{display:"none"}} className="varified">{""}</td>
-                                                           <td><a href="#" className="details"><button id={item.UserId} onClick={onClickSearchHandler} className="btn btn-primary">{"View Details"}</button></a></td>
-                                                           <td className="actions" style={{textAlign:"center", fontSize: "25px", fontWeight: "bold"}}><button type="button"id={item.Commision+"-"+item.UserId+"-"+item.Referral+"-"+item.Verified+"-"+item.ReferralAmount+"-"+item.Name+"-"+item.MobileNumber+"-"+item.CityName+"-"+item.Membership+"-"+item.SAmount} onClick={ActiveHandler} className="btn btn-success btn-md">{"Approve"}</button></td>
-                                                           <td><br/><a href="#" className="delete-row" style={{display:"none"}}><button type="button" className="btn btn-danger btn-sm"><Trash size={15}/> {"Cancel"}</button></a></td>
-                                                         </tr> 
-                                                        )
-                                                    }else if(item.ReferralAmount==null){
-                                                        return(
-                                                            <tr key={id}>
-                                                            <td>{id+1}</td>
-                                                           <td item_userid={item.UserId} >{item.UserId}</td>
-                                                           <td item_locality={item.UserId}>{item.Name}</td>
-                                                           <td>{item.MobileNumber}</td>
-                                                            {/* //<td>item.Address</td>
-                                                            //<td>item.City</td> */}
-                                                           <td>{item.CityName}</td>
-                                                           <td>{item.LocalityName}</td>
-                                                           {/* <td style={{display:"none"}}><textarea commission_id={item.UserId} type="text" className="crop" rows="1" cols="30">{item.Commision}</textarea></td> */}
-                                                           <td style={{display:"none"}} className="franchise">{item.Franchise}</td>
-                                                           <td style={{display:"none"}} className="referral">{item.Referral}</td>
-                                                           <td style={{display:"none"}} className="varified">{item.Verified}</td>
-                                                           <td style={{display:"none"}} className="referralamount">{""}</td>
-                                                           <td><a href="#" className="details"><button id={item.UserId} onClick={onClickSearchHandler} className="btn btn-primary">{"View Details"}</button></a></td>
-                                                           <td className="actions" style={{textAlign:"center", fontSize: "25px", fontWeight: "bold"}}><button type="button" id={item.Commision+"-"+item.UserId+"-"+item.Referral+"-"+item.Verified+"-"+item.ReferralAmount+"-"+item.Name+"-"+item.MobileNumber+"-"+item.CityName+"-"+item.Membership+"-"+item.SAmount} onClick={ActiveHandler} className="btn btn-success btn-md">{"Approve"}</button></td>
-                                                           <td><br/><a href="#" className="delete-row" style={{display:"none"}}><button type="button" className="btn btn-danger btn-sm"><Trash size={15}/> {"Cancel"}</button></a></td>
-                                                         </tr> 
-                                                        )
-                                                    }else{
-                                                        return(
-                                                            <tr key={id}>
-                                                            <td>{id+1}</td>
-                                                           <td  item_userid={item.UserId}>{item.UserId}</td>
-                                                           <td  item_locality={item.UserId}className="item_locality">{item.Name}</td>
-                                                           <td>{item.MobileNumber}</td>
-                                                            {/* //<td>item.Address</td>
-                                                            //<td>item.City</td> */}
-                                                           <td>{item.CityName}</td>
-                                                           <td>{item.LocalityName}</td>
-                                                           {/* <td style={{display:"none"}}><textarea  commission_id={item.UserId}type="text" className="crop" rows="1" cols="30">{.Commision}</textarea></td> */}
-                                                           <td style={{display:"none"}} className="franchise">{item.Franchise}</td>
-                                                           <td style={{display:"none"}} className="referral">{item.Referral}</td>
-                                                           <td style={{display:"none"}} className="varified">{item.Verified}</td>
-                                                           <td style={{display:"none"}} className="referralamount">{item.ReferralAmount}</td>
-                                                           <td><a href="#" className="details"><button id={item.UserId} onClick={onClickSearchHandler} className="btn btn-primary">{"View Details"}</button></a></td>
-                                                           <td className="actions" style={{textAlign:"center", fontSize: "25px", fontWeight: "bold"}}><a href="#" className="update-row"><button type="button" id="savebtn" className="btn btn-success btn-md">{"Approve"}</button></a></td>
-                                                           <td><br/><a href="#" className="delete-row" style={{display:"none"}}><button type="button" className="btn btn-danger btn-sm"><Trash size={15}/> {"Cancel"}</button></a></td>
-                                                         </tr> 
-                                                        )
-                                                    }
+    
                                                 
                                                      })}
                                        
@@ -2158,4 +2355,4 @@ const ChefApprovals = () => {
             );
         };
         
-export default ChefApprovals;
+export default React.memo(ChefApprovals);

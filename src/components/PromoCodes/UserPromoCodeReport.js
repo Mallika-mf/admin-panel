@@ -164,8 +164,14 @@ const UserPromoCodeReport = () => {
                                     <tbody>
                                         {
                                             
-                                            city.filter(orders =>
-                                                orders.Name.includes(searchTerm)).map((item,id)=>{
+                                            city
+                                            .filter(orders =>orders.Name.includes(searchTerm))
+                                            // .filter(orders =>orders.City.includes(searchTerm))
+                                            // .filter(orders =>orders.Discount.includes(searchTerm))
+                                            // .filter(orders =>orders.MinAmount.includes(searchTerm))
+                                            // .filter(orders =>orders.MaxAmount.includes(searchTerm))
+                                            // .filter(orders =>orders.Status.includes(searchTerm))
+                                            .map((item,id)=>{
                                                     return(
                                                         <tr key={id}>
                                                         <td> {id+1}</td>

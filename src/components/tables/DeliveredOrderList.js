@@ -172,10 +172,10 @@ const DeliveredOrderTable = () => {
           });  
       }  
     return (
-        <Fragment>
+        <Fragment >
             <BreadCrumb parent={<Home/>} subparent="Order Management" title="Delivered Orders"/>
-            <Container fluid={true}>
-                <Row>
+            <Container  fluid={true}>
+                <Row >
                 <Col sm ="12">
                     <Card>
                <CardHeader>
@@ -310,7 +310,7 @@ const DeliveredOrderTable = () => {
                             </ModalHeader>
                             <ModalBody>
                             <div className="table-responsive text-nowrap">
-                                <Table >
+                                <Table style={{overflowX:"scroll"}}>
                                     <thead>
                                         <tr>
                                             <th scope="col">SL.NO</th>

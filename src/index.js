@@ -26,6 +26,7 @@ import Error503 from "./pages/errors/Error503";
 
 // Authentication
 import Login from "./pages/authentication/Login";
+import PageInvoice from "./components/Reports/page_invoice-print"
 import LoginWithBgImage from "./pages/authentication/LoginWithBgImage";
 import LoginWithBgVideo from "./pages/authentication/LoginWithBgVideo";
 import Register from "./pages/authentication/Register";
@@ -64,12 +65,12 @@ const Root = (props) =>  {
         }, []);
         const AuthButton=()=>{
             var username=window.localStorage.getItem('name')
-            if(username===null){                      
+            if(username===null)                      
                 username=window.sessionStorage.getItem('name');
-                if(username===null){
+                if(username===null)
                     return(<Redirect  to={`${process.env.PUBLIC_URL}/login`}  />)
-                } 
-                else{
+                // } 
+                // else{
                     console.log(username)
                     return( <App>
                   
@@ -96,32 +97,33 @@ const Root = (props) =>  {
                           ))}
                       </TransitionGroup>
                       </App>)
-           }
-            }else{
-                window.location.reload();
-                     return( <App>
-                       <Route exact path={`${process.env.PUBLIC_URL}/`} render={() => {
-                               return (<Redirect to={`${process.env.PUBLIC_URL}/dashboard/default`} />)
-                           }} />
+        //    }
+        //     }
+            // else{
+            //     window.location.reload();
+            //          return( <App>
+            //            <Route exact path={`${process.env.PUBLIC_URL}/`} render={() => {
+            //                    return (<Redirect to={`${process.env.PUBLIC_URL}/dashboard/default`} />)
+            //                }} />
                        
-                       <TransitionGroup>
-                       {routes.map(({ path, Component }) => (
-                           <Route key={path} exact   path={`${process.env.PUBLIC_URL}${path}`}>
-                               {({ match }) => (
-                                   <CSSTransition 
-                                   in={match != null}
-                                   timeout={100}
-                                   classNames={anim} 
-                                   unmountOnExit
-                                   >
-                                   <div><Component/></div>
-                                   </CSSTransition> 
-                               )}
-                           </Route>
-                           ))}
-                       </TransitionGroup>
-                       </App>)
-            }
+            //            <TransitionGroup>
+            //            {routes.map(({ path, Component }) => (
+            //                <Route key={path} exact   path={`${process.env.PUBLIC_URL}${path}`}>
+            //                    {({ match }) => (
+            //                        <CSSTransition 
+            //                        in={match != null}
+            //                        timeout={100}
+            //                        classNames={anim} 
+            //                        unmountOnExit
+            //                        >
+            //                        <div><Component/></div>
+            //                        </CSSTransition> 
+            //                    )}
+            //                </Route>
+            //                ))}
+            //            </TransitionGroup>
+            //            </App>)
+            // }
                 //    }else{
                 //        return(<Redirect  to={`${process.env.PUBLIC_URL}/login`}  />)
 
@@ -134,6 +136,7 @@ const Root = (props) =>  {
             <Provider store={store}>
                 <BrowserRouter basename={`/`}>
                 <ScrollToTop />
+                <Route  path='/reports/page-invoice' component={PageInvoice}/>
                 <Route  path={`${process.env.PUBLIC_URL}/login`} exact component={Signin} />
                 {AuthButton()  }
                   <Switch>

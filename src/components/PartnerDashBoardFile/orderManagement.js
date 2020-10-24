@@ -1,10 +1,7 @@
 import React, {useState,Fragment,useEffect } from 'react'
-import BreadCrumb from '../../layout/Breadcrumb'
-import ChartistGraph from 'react-chartist';
 import Chart from 'react-apexcharts'
-import { Container, Row, Col, Card, CardBody, CardHeader, Button, Table, CardFooter } from 'reactstrap'
-import { Database, ShoppingBag, MessageCircle, User,UserPlus, Layers, ShoppingCart,  ArrowDown, Pocket, Monitor, Truck,BarChart,DollarSign,Percent} from 'react-feather';
-import {lineChart1, lineChart2, lineChart3, barChart, radialChart, radialChartLive, progress1, progress2, progress3, progress4, progress5, columnChart, browserUses, product, turnOver, monthlySale, uses} from '../widgets/chartsData/charts-data'
+import { Container, Row, Col, Card, CardBody, CardHeader, Table } from 'reactstrap'
+import {  ShoppingBag, User,UserPlus, Truck,BarChart,DollarSign} from 'react-feather';
 
 
 
@@ -20,20 +17,25 @@ const OrderManagement = (props) => {
       latestOrder:[]
     
     })
-    const [state1, setState1] = useState({
-     
-      location:[]
-    })
+    const [toTal,setTotal] = useState()
     const [user, setUser] = useState()
     const [user1, setUser1] = useState()
     const [user2, setUser2] = useState()
     const [user3, setUser3] = useState()
-    const [user4, setUser4] = useState()
-    const [user5, setUser5] = useState()
-    const [user6, setUser6] = useState()
-    const [user7, setUser7] = useState()
-    const [user8, setUser8] = useState()
-    const [user9, setUser9] = useState()
+    const [jan,setJan] = useState(0)
+    const [feb,setFeb] = useState(0)
+    const [march,setMarch] = useState(0)
+    const [april,setApril] = useState(0)
+    const [may,setMay] = useState(0)
+    const [june,setJune] = useState(0)
+    const [july,setJuly] = useState(0)
+    const [august,setAugust] = useState(0)
+    const [september,setSeptember] = useState(0)
+    const [october,setOctober] = useState(0)
+    const [november,setNovember] = useState(0)
+    const [december,setDecember] = useState(0)
+    const [monthlyEarning,setMonthlyEarning] = useState()
+    const [monthlyOrders,setMonthlyOrders] = useState()
       const history = useHistory();
 
 
@@ -46,6 +48,13 @@ const OrderManagement = (props) => {
           history.push(`${process.env.PUBLIC_URL}/login`);
                     } 
                 }
+                var city=window.localStorage.getItem('city');
+                if(city===null){                      
+                    city=window.sessionStorage.getItem('city');
+                    if(city===null){
+                      history.push(`${process.env.PUBLIC_URL}/login`);
+                    } 
+                }
        var today = new Date();
             var dd = String(today.getDate()).padStart(2, '0');
             var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -53,49 +62,477 @@ const OrderManagement = (props) => {
             var yyyy = today.getFullYear();
             today = yyyy + '-' + mm + '-' + dd;
       app.database().ref().child("CloudKitchen")
-            .orderByChild("Franchise").equalTo(username)
+            .orderByChild("WorkingPartner").equalTo(username)
             .on("value", function(snapshot) {
                   setUser(snapshot.numChildren());      
             });
 
         
       app.database().ref().child("Franchise")
-            .child(username).child("Cash")
+            .child(username)
                 .on("value", function(snapshot) {
-                    setUser1("₹"+parseFloat(snapshot.val()).toFixed(2));    
+                  console.log(snapshot.val())
+
+                  console.log(toTal)
+                    let partnerCommision = toTal* snapshot.val().Commision
+                    setUser1("₹"+parseFloat(partnerCommision).toFixed(2));    
                 }); 
 
         var total=0;
-            app.database().ref().child("Orders").orderByChild("OrderDate").equalTo(today).on("value", function(snapshot) {
+            app.database().ref().child("Orders").orderByChild("WorkingPartner").equalTo(username).on("value", function(snapshot) {
                 if(snapshot.exists()){
                     total=0;
                     snapshot.forEach(function(data){
                         var val = data.val();
-                        if(val.Franchise!=null&&val.Franchise!=""){
-                            if(val.Franchise==username){
+                        if(val.OrderDate===today)
+                        if(val.WorkingPartner!==null&&val.WorkingPartner!==""){
+                            if(val.WorkingPartner===username){
                                 total=total + +parseFloat(val.Total);
+                                setTotal(total)
                             }
                         }
                     }); 
                   setUser2("₹"+parseFloat(total).toFixed(2));
                 }   
             }); 
-               app.database().ref().child("Orders").orderByChild("Franchise").equalTo(username).on("value", function(snapshot) {
+               app.database().ref().child("Orders").orderByChild("WorkingPartner").equalTo(username).on("value", function(snapshot) {
                 if(snapshot.exists()){
                     total=0;
                 snapshot.forEach(function(data){
                     var val = data.val();
-                    if(val.Total!=null)
+                    if(val.Total!==null)
                     total=total + +parseFloat(val.Total);
                   }); 
                   setUser3("₹"+parseFloat(total).toFixed(2));
                 }   
             }); 
            
- 
+            var year=yyyy;
+            var fyear=yyyy;
+            console.log(fyear)
+            // if(mm<=3){
+            //     fyear=yyyy;
+            // }
+            // else{
+            //     fyear=yyyy;
+            // }
+            
+
+            // console.log(fyear);
+
+            var tot=[0,0,0,0,0,0,0,0,0,0,0,0];
+            var percentage=[0,0,0,0,0,0,0,0,0,0,0,0];
+            var max=0;
+           
+
 
             app.database().ref().child("Orders")
-            .orderByChild('Franchise').equalTo(username)
+            .orderByChild("WorkingPartner").equalTo(username)
+                .once("value", function(snapshot) {
+                if(snapshot.exists()){
+                    var total=0;
+                    var number=0;
+                    snapshot.forEach(function(data){
+                        var val = data.val();
+                       
+                        
+                         if(val.OrderDate > fyear+"-01-01" && val.OrderDate < fyear+"-01-31"){
+                        if(val.WorkingPartner!==null&&val.WorkingPartner!==""){
+                            if(val.WorkingPartner===username){
+                                if(val.Total!==null){
+                                    total=total + +parseFloat(val.Total);
+                                    number++;
+                                }
+                            }
+                        }
+                      }
+                    }); 
+                    setJan(parseFloat(total).toFixed(2));
+                    tot[0]=parseFloat(total).toFixed(2);
+                    
+          
+                    if(mm==="01"){
+                     setMonthlyEarning("₹"+parseFloat(total).toFixed(2));
+                      setMonthlyOrders(parseInt(number));
+                    }
+
+                }   
+            }); 
+
+            app.database().ref().child("Orders")
+            .orderByChild("WorkingPartner").equalTo(username)
+            .once("value", function(snapshot) {
+                if(snapshot.exists()){
+                    var total=0;
+                    var number=0;
+                    snapshot.forEach(function(data){
+                        var val = data.val();
+                        
+                        if(val.OrderDate > fyear+"-02-01" && val.OrderDate < fyear+"-02-31"){
+                        if(val.WorkingPartner!==null&&val.WorkingPartner!==""){
+                            if(val.WorkingPartner===username){
+                                if(val.Total!==null){
+                                    total=total + +parseFloat(val.Total);
+                                    number++;
+                                }
+                            }
+                        }
+                      }
+                    }); 
+                    setFeb(parseFloat(total).toFixed(2));
+                    tot[1]=parseFloat(total).toFixed(2);
+                  
+          
+                    if(mm==="02"){
+                      setMonthlyEarning("₹"+parseFloat(total).toFixed(2));
+                      setMonthlyOrders(parseInt(number));
+                    }
+
+                }   
+            }); 
+
+
+            app.database().ref().child("Orders")
+            .orderByChild("WorkingPartner").equalTo(username)
+                .once("value", function(snapshot) {
+                if(snapshot.exists()){
+                    var total=0;
+                    var number=0;
+                    snapshot.forEach(function(data){
+                        var val = data.val();
+                        if(val.OrderDate > fyear+"-03-01" && val.OrderDate < fyear+"-03-31"){
+                        if(val.WorkingPartner!==null&&val.WorkingPartner!==""){
+                            if(val.WorkingPartner===username){
+                                if(val.Total!==null){
+                                    total=total + +parseFloat(val.Total);
+                                    number++;
+                                }
+                            }
+                        }
+                      }
+                    }); 
+                    setMarch(parseFloat(total).toFixed(2));
+                    tot[2]=parseFloat(total).toFixed(2);
+                    
+          
+                    if(mm==="03"){
+                      setMonthlyEarning("₹"+parseFloat(total).toFixed(2));
+                      setMonthlyOrders(parseInt(number));
+                    }
+
+                }   
+            }); 
+
+
+            app.database().ref().child("Orders")
+            .orderByChild("WorkingPartner").equalTo(username)
+                .once("value", function(snapshot) {
+                if(snapshot.exists()){
+                    var total=0;
+                    var number=0;
+                    snapshot.forEach(function(data){
+                        var val = data.val();
+                        if(val.OrderDate > fyear+"-04-01" && val.OrderDate < fyear+"-04-31"){
+                        if(val.WorkingPartner!==null&&val.WorkingPartner!==""){
+                            if(val.WorkingPartner===username){
+                                if(val.Total!==null){
+                                    total=total + +parseFloat(val.Total);
+                                    number++;
+                                }
+                            }
+                        }
+                      }
+                    }); 
+                    setApril(parseFloat(total).toFixed(2));
+                    tot[3]=parseFloat(total).toFixed(2);
+                  
+          
+                    if(mm==="04"){
+                      setMonthlyEarning("₹"+parseFloat(total).toFixed(2));
+                      setMonthlyOrders(parseInt(number));
+                    }
+
+                }   
+            }); 
+
+
+            app.database().ref().child("Orders")
+            .orderByChild("WorkingPartner").equalTo(username)
+                .once("value", function(snapshot) {
+                if(snapshot.exists()){
+                    var total=0;
+                    var number=0;
+                    snapshot.forEach(function(data){
+                        var val = data.val();
+                        if(val.OrderDate > fyear+"-05-01" && val.OrderDate < fyear+"-05-31"){
+                        if(val.WorkingPartner!==null&&val.WorkingPartner!==""){
+                            if(val.WorkingPartner===username){
+                                if(val.Total!==null){
+                                    total=total + +parseFloat(val.Total);
+                                    number++;
+                                }
+                            }
+                        }
+                      }
+                    }); 
+                    setMay(parseFloat(total).toFixed(2));
+          tot[4]=parseFloat(total).toFixed(2);
+          
+
+          if(mm==="05"){
+            setMonthlyEarning("₹"+parseFloat(total).toFixed(2));
+            setMonthlyOrders(parseInt(number));
+          }
+
+                }   
+            }); 
+
+
+            app.database().ref().child("Orders")
+            .orderByChild("WorkingPartner").equalTo(username)
+                .once("value", function(snapshot) {
+                if(snapshot.exists()){
+                    var total=0;
+                    var number=0;
+                    snapshot.forEach(function(data){
+                        var val = data.val();
+                        if(val.OrderDate > fyear+"-06-01" && val.OrderDate < fyear+"-06-31"){
+                        if(val.WorkingPartner!==null&&val.WorkingPartner!==""){
+                            if(val.WorkingPartner===username){
+                                if(val.Total!==null){
+                                    total=total + +parseFloat(val.Total);
+                                    number++;
+                                }
+                            }
+                        }
+                      }
+                    }); 
+                    setJune(parseFloat(total).toFixed(2));
+                    tot[5]=parseFloat(total).toFixed(2);
+                    
+          
+                    if(mm==="06"){
+                      setMonthlyEarning("₹"+parseFloat(total).toFixed(2));
+                      setMonthlyOrders(parseInt(number));
+                    }
+
+                }   
+            }); 
+
+            app.database().ref().child("Orders")
+            .orderByChild("WorkingPartner").equalTo(username)
+                .once("value", function(snapshot) {
+                if(snapshot.exists()){
+                    var total=0;
+                    var number=0;
+                    snapshot.forEach(function(data){
+                        var val = data.val();
+                        if(val.OrderDate > fyear+"-07-01" && val.OrderDate < fyear+"-07-31"){
+                        if(val.WorkingPartner!==null&&val.WorkingPartner!==""){
+                            if(val.WorkingPartner===username){
+                                if(val.Total!==null){
+                                    total=total + +parseFloat(val.Total);
+                                    number++;
+                                }
+                            }
+                        }
+                        }
+                    }); 
+                    setJuly(parseFloat(total).toFixed(2));
+                    tot[6]=parseFloat(total).toFixed(2);
+                    
+          
+                    if(mm==="07"){
+                      setMonthlyEarning("₹"+parseFloat(total).toFixed(2));
+                      setMonthlyOrders(parseInt(number));
+                    }
+
+                }   
+            }); 
+
+
+            app.database().ref().child("Orders")
+            .orderByChild("WorkingPartner").equalTo(username)
+                .once("value", function(snapshot) {
+                if(snapshot.exists()){
+                    var total=0;
+                    var number=0;
+                    snapshot.forEach(function(data){
+                        var val = data.val();
+                        if(val.OrderDate > fyear+"-08-01" && val.OrderDate < fyear+"-08-31"){
+                        if(val.WorkingPartner!==null&&val.WorkingPartner!==""){
+                            if(val.WorkingPartner===username){
+                                if(val.Total!==null){
+                                    total=total + +parseFloat(val.Total);
+                                    number++;
+                                }
+                            }
+                        }
+                      }
+                    }); 
+                    setAugust("₹"+parseFloat(total).toFixed(2));
+          tot[7]=parseFloat(total).toFixed(2);
+          
+
+          if(mm==="08"){
+            setMonthlyEarning("₹"+parseFloat(total).toFixed(2));
+            setMonthlyOrders(parseInt(number));
+          }
+
+                }   
+            }); 
+
+
+
+            app.database().ref().child("Orders")
+            .orderByChild("WorkingPartner").equalTo(username)
+                .once("value", function(snapshot) {
+                if(snapshot.exists()){
+                    var total=0;
+                    var number=0;
+                    snapshot.forEach(function(data){
+                        var val = data.val();
+                        if(val.OrderDate > fyear+"-09-01" && val.OrderDate < fyear+"-09-31"){
+                        if(val.WorkingPartner!==null&&val.WorkingPartner!==""){
+                            if(val.WorkingPartner===username){
+                                if(val.Total!==null){
+                                    total=total + +parseFloat(val.Total);
+                                    number++;
+                                }
+                            }
+                        }
+                      }
+                    }); 
+                    setSeptember(parseFloat(total).toFixed(2));
+                    tot[8]=parseFloat(total).toFixed(2);
+                    
+          
+                    if(mm==="09"){
+                      setMonthlyEarning("₹"+parseFloat(total).toFixed(2));
+                      setMonthlyOrders(parseInt(number));
+                    }
+
+                }   
+            });  
+
+
+            app.database().ref().child("Orders")
+            .orderByChild("WorkingPartner").equalTo(username)
+                .once("value", function(snapshot) {
+                if(snapshot.exists()){
+                    var total=0;
+                    var number=0;
+                    snapshot.forEach(function(data){
+                        var val = data.val();
+                      
+                        if(val.OrderDate > fyear+"-10-01" && val.OrderDate < fyear+"-10-30"){
+                        console.log("inside if")
+                        if(val.WorkingPartner!==null&&val.WorkingPartner!==""){
+                            if(val.WorkingPartner===username){
+                                if(val.Total!==null){
+                                    total=total + parseFloat(val.Total);
+                                    number++;
+                                }
+                            }
+                        }
+                      }
+                    }); 
+                    console.log(parseFloat(total).toFixed(2))
+                    setOctober(parseFloat(total).toFixed(2));
+                    tot[9]=parseFloat(total).toFixed(2);
+                    
+          
+                    if(mm==="10"){
+                      setMonthlyEarning("₹"+parseFloat(total).toFixed(2));
+                      setMonthlyOrders(parseInt(number));
+                    }
+
+                }   
+            }); 
+
+
+            app.database().ref().child("Orders")
+            .orderByChild("WorkingPartner").equalTo(username)
+                .once("value", function(snapshot) {
+                if(snapshot.exists()){
+                    var total=0;
+                    var number=0;
+                    snapshot.forEach(function(data){
+                        var val = data.val();
+                        if(val.OrderDate > fyear+"-11-01" && val.OrderDate < fyear+"-11-31"){
+                        if(val.WorkingPartner!==null&&val.WorkingPartner!==""){
+                            if(val.WorkingPartner===username){
+                                if(val.Total!==null){
+                                    total=total + +parseFloat(val.Total);
+                                    number++;
+                                }
+                            }
+                        }
+                      }
+                    }); 
+                    setNovember(parseFloat(total).toFixed(2));
+                    tot[10]=parseFloat(total).toFixed(2);
+                    
+          
+                    if(mm==="11"){
+                      setMonthlyEarning("₹"+parseFloat(total).toFixed(2));
+                      setMonthlyOrders(parseInt(number));
+                    }
+
+                }   
+            }); 
+
+
+            app.database().ref().child("Orders")
+            .orderByChild("WorkingPartner").equalTo(username)
+                .once("value", function(snapshot) {
+                if(snapshot.exists()){
+                    var total=0;
+                    var number=0;
+                    snapshot.forEach(function(data){
+                        var val = data.val();
+                        if(val.OrderDate > fyear+"-12-01" && val.OrderDate < fyear+"-12-31"){
+                        if(val.WorkingPartner!==null&&val.WorkingPartner!==""){
+                            if(val.WorkingPartner===username){
+                                if(val.Total!==null){
+                                    total=total + +parseFloat(val.Total);
+                                    number++;
+                                }
+                            }
+                        }
+                      }
+                    }); 
+                    setDecember(parseFloat(total).toFixed(2));
+                    tot[11]=parseFloat(total).toFixed(2);
+                   
+          
+                    if(mm==="12"){
+                      setMonthlyEarning("₹"+parseFloat(total).toFixed(2));
+                      setMonthlyOrders(parseInt(number));
+                    }
+
+                 }   
+            }); 
+
+            setTimeout(function()
+            { 
+               for(var i=0;i<12;i++){
+                   if(tot[i]>=max){
+                        max=tot[i];
+                    }
+                }
+
+                for( i=0;i<12;i++){
+                  if(tot[i]>0){
+                      percentage[i]=parseInt(tot[i]/max*100);
+                  }
+              }
+
+               
+             }, 3000);
+
+            app.database().ref().child("Orders")
+            .orderByChild('WorkingPartner').equalTo(username)
             .limitToLast(10)
             .once("value", function(snapshot) {
             if(snapshot.exists()){
@@ -104,11 +541,72 @@ const OrderManagement = (props) => {
                   contents.push(snap.val());
                    
                 });
+                contents.reverse()
                 setState({ latestOrder: contents });
             }   
         }); 
   
     },[])
+    const columnChart = {
+      options: {
+          chart: {
+              toolbar: {
+                  show: true
+              }
+          },
+          legend: {
+              show: false
+          },
+          colors: ["#158df7", "#fb2e63"],
+          dataLabels: {
+              enabled: false
+          },
+          plotOptions: {
+              bar: {
+                  radius: 10,
+                  horizontal: false,
+                  columnWidth: '55%'
+              }
+          },
+          stroke: {
+              show: true,
+              colors: ['transparent'],
+              curve: 'smooth',
+              lineCap: 'butt',
+          },
+          xaxis: {
+              categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+          },
+          yaxis: {
+              title: {
+                  text: '$ (thousands)'
+              }
+          },
+          fill: {
+              colors: ["#158df7"]
+          },
+          tooltip: {
+              y: {
+                  formatter: function (val) {
+                      return "$ " + val + " thousands"
+                  }
+              }
+          },
+          grid: {
+              show: false,
+              padding: {
+                  left: 0,
+                  right: 0
+              }
+          }
+      },
+      series: [
+          {
+              // data: [200, 250, 330, 390, 420, 500, 580, 620, 700,888,666,555]
+              data: [jan,feb,march,april,may,june,july,august,september,october,november,december]
+          }
+      ]
+  }
     
     return (
       <Fragment>
@@ -161,7 +659,7 @@ const OrderManagement = (props) => {
                     <div className="hospital-widgets media">
                       <div className="hospital-box light-bg-danger"><UserPlus/></div>
                       <div className="media-body">
-                        <div className="hospital-content">
+                        <div className="hospital-content">{user2}
                            <h4 className="d-inline-block f-w-600">{user2 ||"₹0.00"}</h4>{/*<span className="badge flat-badge-secondary m-l-10">New</span> */}
                           <h6 className="m-t-5 mb-0 f-w-600">Todays Total</h6>
                         </div>
@@ -221,7 +719,7 @@ const OrderManagement = (props) => {
                       <div className="hospital-box light-bg-danger"><DollarSign/></div>
                       <div className="media-body">
                         <div className="hospital-content">
-                           <h3 className="d-inline-block f-w-600">₹0.00</h3>{/*<span className="badge flat-badge-secondary m-l-10">New</span> */}
+                           <h3 className="d-inline-block f-w-600">{monthlyEarning||"₹0.00"}</h3>{/*<span className="badge flat-badge-secondary m-l-10">New</span> */}
                           <h6 className="m-t-5 mb-0 f-w-600">Earned this month</h6>
                         </div>
                         <div className="flowers">
@@ -244,7 +742,7 @@ const OrderManagement = (props) => {
                       <div className="hospital-box light-bg-danger"><ShoppingBag/></div>
                       <div className="media-body">
                         <div className="hospital-content">
-                           <h3 className="d-inline-block f-w-600">₹0.00</h3>{/*<span className="badge flat-badge-secondary m-l-10">New</span> */}
+                           <h3 className="d-inline-block f-w-600">{monthlyOrders||"₹0.00"}</h3>{/*<span className="badge flat-badge-secondary m-l-10">New</span> */}
                           <h6 className="m-t-5 mb-0 f-w-600">Monthly Orders</h6>
                         </div>
                         <div className="flowers">

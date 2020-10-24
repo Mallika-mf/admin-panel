@@ -1,13 +1,9 @@
-import React, { Fragment,useState,useEffect } from 'react';
+import React, { Fragment,useState } from 'react';
 import BreadCrumb from '../../layout/Breadcrumb'
-import {Home} from 'react-feather';
-import {Container,Row,Col,Card,CardHeader,Table,Input,Button,Modal,ModalBody,ModalFooter,ModalHeader} from "reactstrap";
-import { Database, ShoppingBag, User, Truck,Headphones,Phone} from 'react-feather';
+import {Home, Trash} from 'react-feather';
+import {Container,Row,Button} from "reactstrap";
+import { Check} from 'react-feather';
 import app from '../../data/base'
-import {useHistory} from 'react-router-dom'
-import ReactHTMLTableToExcel from 'react-html-table-to-excel';  
-import jsPDF from 'jspdf';  
-import html2canvas from 'html2canvas';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
 import {BeatLoader}  from "react-spinners";
@@ -20,16 +16,20 @@ const override = css`
   border-color: red;
 `;
 const ChefProfile = () => {
-  const history = useHistory()
     const [show,setShow] = useState(false)
     const [sname,setSname]=useState("")
+    const [cityStatus,setCityStatus]=useState("")
     const [foodItems, setFoodItems] = useState([]);
     const [todaysOffer,setTodaysOffer] = useState([])
     const[preOrder,setPreOrders] = useState([])
-    const [status,setStatus] = useState(false)
-    const [aStatus,setAstatus] = useState("")
-   
 
+    const [status,setStatus] = useState(false)
+    const [,setDishStatus] = useState(false)
+    const [,setFoodStatus] = useState(false)
+    const [,setPreOrderStatus] = useState(false)
+    const [price,setPrice] = useState("")
+    const [offerPrice,setOfferPrice] = useState("")
+    const [picImage,setPicImage] = useState('')
 
    const onChangeSearchHandler=(event)=>{
        setSname(event.target.value)
@@ -43,15 +43,16 @@ const ChefProfile = () => {
     .on('value', function(snapshot){
         if(snapshot.exists()){
             var content = [];
-            var sn;
-            sn=0;
+
             snapshot.forEach(function(data){
                 console.log(data.val())
                 let userVal = data.val();
-                let image = userVal.PP;
+                // let image = userVal.PP;
                 let openTime = userVal.Open;
                 let closeTime = userVal.Close;
                 let name = userVal.Name;
+                setCityStatus(userVal.City)
+
                 if(userVal.Status==="Active"){
                     setStatus(true)
                   }else{
@@ -60,14 +61,27 @@ const ChefProfile = () => {
                 document.getElementById("chefName").innerHTML = name;
                 document.getElementById("openTime").innerHTML = openTime;
                 document.getElementById("closeTime").innerHTML = closeTime;
+                // document.getElementById("view").innerHTML = "view";
+
+
+                 setPicImage(userVal.PP)
                 data.child("FoodItems").forEach(childSnapshot => {
-                    var val = childSnapshot.val()
+                    var foodVal = childSnapshot.val()
                     console.log(data.val())
-                    content.push(val)
+                   
+                    content.push(foodVal)
                 })
             })
             content.reverse()
-           
+            content.map(item=>{
+                if(item.Status==="Active"){
+                    setFoodStatus(true)
+                  }else{
+                    setFoodStatus(false)
+                 }
+                 setPrice(item.Price)
+                 return item;
+                })
             setFoodItems(content)
             setShow(false)
 
@@ -97,19 +111,24 @@ const ChefProfile = () => {
 var date = new Date()
     var todaysDate = formatDate(date)
     console.log(todaysDate)
-    var database = app.database();
+     database = app.database();
     database.ref().child("TodaysOffer").child(todaysDate)
     .orderByChild("Chef").equalTo(sname)
-    .once('value', function(snapshot){
+    .on('value', function(snapshot){
         if(snapshot.exists()){
-            
             var content = [];
-            var sn;
-            sn=0;
+            
             snapshot.forEach(function(data){
                 console.log(data.val())
-                var val = data.val();
-                content.push(val)
+                console.log(todaysDate)
+                var todaysOfferVal = data.val();
+                
+                if(todaysOfferVal.Status==="Active"){
+                    setDishStatus(true)
+                  }else{
+                    setDishStatus(false)
+                 }
+                content.push(todaysOfferVal)
             })
             content.reverse()
             // content.map()
@@ -124,19 +143,28 @@ var date = new Date()
 
         }
     })
-    var database = app.database();
+     database = app.database();
     database.ref().child("Preorders")
     .orderByChild("Chef").equalTo(sname)
-    .once('value', function(snapshot){
+    .on('value', function(snapshot){
         if(snapshot.exists()){
             var content = [];
-            var sn;
-            sn=0;
+           
             snapshot.forEach(function(data){
-                var val = data.val();
-                content.push(val)
+                console.log(data.val())
+                var preOrderVal = data.val();
+               
+                content.push(preOrderVal)
             })
             content.reverse()
+           content.map(item=>{
+            if(item.Status==="Active"){
+                setPreOrderStatus(true)
+              }else{
+                setPreOrderStatus(false)
+             }
+             return item;
+           })
             setPreOrders(content)
             setShow(false)
 
@@ -158,13 +186,76 @@ const onChangeStatusHandler=(event)=>{
         var database = app.database();
         database.ref().child("CloudKitchen").child(sname).child("Status")
         .set("Active")
+        console.log(cityStatus)
+        database.ref().child(cityStatus).child(sname).child("Status").set("Active")
     }else{
-        var database = app.database();
+         database = app.database();
         database.ref().child("CloudKitchen").child(sname).child("Status")
+        .set("InActive")
+        database.ref().child(cityStatus).child(sname).child("Status").set("InActive")
+
+        }
+}
+
+const onChangeDishStatus=(event)=>{
+       
+   function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+}
+
+var date = new Date()
+    var todaysDate = formatDate(date)
+   let pushid= event.target.id
+    setDishStatus(event.target.checked)
+    if(event.target.checked===true){
+        var database = app.database();
+        database.ref().child("TodaysOffer").child(todaysDate).child(pushid).child("Status")
+        .set("Active")
+    }else{
+         database = app.database();
+        database.ref().child("TodaysOffer").child(todaysDate).child(pushid).child("Status")
         .set("InActive")
         }
 }
 
+const onChangeFoodStatus=(event)=>{
+    let pushid = event.target.id
+    setFoodStatus(event.target.checked)
+    if(event.target.checked===true){
+        var database = app.database();
+        database.ref().child("CloudKitchen").child(sname).child("FoodItems").child(pushid).child("Status")
+        .set("Active")
+    }else{
+         database = app.database();
+        database.ref().child("CloudKitchen").child(sname).child("FoodItems").child(pushid).child("Status")
+        .set("InActive")
+        }
+}
+
+const onChangePreOrderStatus=(event)=>{
+    let pushid = event.target.id
+    setPreOrderStatus(event.target.checked)
+    console.log(event.target.checked)
+    if(event.target.checked===true){
+        var database = app.database();
+        database.ref().child("Preorders").child(pushid).child("Status")
+        .set("Active")
+    }else{
+         database = app.database();
+        database.ref().child("Preorders").child(pushid).child("Status")
+        .set("InActive")
+        }
+}
 const onClickDeleteFoodItemHandler=(event)=>{
     setShow(true)
 
@@ -195,17 +286,21 @@ database.ref().child("CloudKitchen")
 .on('value', function(snapshot){
     if(snapshot.exists()){
         var content = [];
-        var sn;
-        sn=0;
+        
         snapshot.forEach(function(data){
             var val = data.val();
-            let image = val.PP;
+            // let image = val.PP;
             let openTime = val.Open;
             let closeTime = val.Close;
             let name = val.Name;
             document.getElementById("chefName").innerHTML = name;
             document.getElementById("openTime").innerHTML = openTime;
             document.getElementById("closeTime").innerHTML = closeTime;
+            // document.getElementById("view").innerHTML = "view";
+
+
+            setPicImage(val.PP)
+
             data.child("FoodItems").forEach(childSnapshot => {
                 var val = childSnapshot.val()
                 content.push(val)
@@ -270,8 +365,7 @@ database.ref().child("TodaysOffer").child(todaysDate)
 .once('value', function(snapshot){
     if(snapshot.exists()){
         var content = [];
-        var sn;
-        sn=0;
+        
         snapshot.forEach(function(data){
             var val = data.val();
             content.push(val)
@@ -319,8 +413,7 @@ database.ref().child("Preorders")
 .once('value', function(snapshot){
     if(snapshot.exists()){
         var content = [];
-        var sn;
-        sn=0;
+        
         snapshot.forEach(function(data){
             var val = data.val();
             content.push(val)
@@ -339,7 +432,65 @@ database.ref().child("Preorders")
 })
 }
      
+const onChangePriceHandler=(event)=>{
+    setPrice(event.target.value)
+    foodItems.map((item,id)=>{
+        if(event.target.id===item.PushId){
+            item.Price=event.target.value
+        }
+        return item;
+    })
+}
 
+const onSaveHandler=(event)=>{
+    let pushId = event.target.id
+    app.database().ref().child("CloudKitchen").child(sname).child("FoodItems").child(pushId).child("Price").set(price)
+    Swal.fire({
+        title: "Successfully Save!",
+        icon: "success",
+        confirmButtonText: "Ok" 
+       });
+}
+const onChangeOfferPriceHandler=(event)=>{
+    setOfferPrice(event.target.value)
+    todaysOffer.map((item)=>{
+        if(event.target.id===item.PushId){
+            item.Price=event.target.value
+        }
+        return item;
+    })
+}
+
+const onOfferSaveHandler=(event)=>{
+    let pushId = event.target.id
+    function formatDate(date) {
+        var d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+    
+        if (month.length < 2) 
+            month = '0' + month;
+        if (day.length < 2) 
+            day = '0' + day;
+    
+        return [year, month, day].join('-');
+    }
+    
+    var date = new Date()
+    var todaysDate = formatDate(date)
+    app.database().ref().child("TodaysOffer").child(todaysDate).child(pushId).child("Price").set(offerPrice)
+        Swal.fire({
+        title: "Successfully Save!",
+        icon: "success",
+        confirmButtonText: "Ok" 
+       });
+}
+const imageDeleteHandler=(event)=>{
+    let userid = event.target.id
+    app.database().ref().child("CloudKitchen").child(userid).child("PP").remove()
+    app.database().ref().child(cityStatus).child(sname).child("PP").remove()
+}
     return (
         <Fragment>
             <BreadCrumb parent={<Home/>} subparent="Report" title="Chef Profile Report"/>
@@ -371,7 +522,7 @@ database.ref().child("Preorders")
                                                                        <input type="text" id="sname" value={sname} onChange={onChangeSearchHandler} className="form-control"/>
                                                              </div>
                                                              <div className="col-sm-1 col-md-2">
-                                                                 <span id="search" onClick={onClickSearchHandler} ><img src="https://img.icons8.com/ios-filled/24/000000/search.png" /></span>
+                                                                 <span id="search" onClick={onClickSearchHandler} ><img src="https://img.icons8.com/ios-filled/24/000000/search.png" alt="search engine" /></span>
                                                              </div>
                                                              </div> 
           
@@ -380,13 +531,17 @@ database.ref().child("Preorders")
                                                          </div>
                                                      </div>
                                                     <div className="row">
-                                                        <div className="form-group col-md-4">
+                                                        <div className="form-group col-md-3">
                                                             <label className="form-label">Chef Name: <span id = "chefName"></span></label>
                                                         </div>
-                                                        <div className="form-group col-md-4">
+                                                        <div className="form-group col-md-3">{console.log(picImage)}
+                                                         <label className="form-label">Image: {picImage===""||picImage===null||picImage===undefined?<></>:<><a href={picImage} target="_blank" rel="noopener noreferrer" >View</a><Button style={{marginLeft:"5px"}}><Trash id={sname} size={15} onClick={imageDeleteHandler}/></Button></>}</label>
+                                                        </div>
+                                                        <div className="form-group col-md-3">
                                                             <label className="form-label">Open Time: <span id = "openTime"></span></label>
                                                         </div>
-                                                        <div className="form-group col-md-4">
+                                                        
+                                                        <div className="form-group col-md-3">
                                                             <label className="form-label">Close Time: <span id = "closeTime"></span></label>
 
                                                         </div>
@@ -403,9 +558,11 @@ database.ref().child("Preorders")
                                                                         <th>Cuisine Name</th>
                                                                         <th>Description</th>
                                                                         <th>Price</th>
+                                                                        <th>Save</th>
                                                                         <th>Start Time</th>
                                                                         <th>End Time</th>
                                                                         <th>Signature</th>
+                                                                        <th>Status</th>
                                                                         <th>Actions</th>
                                                                     </tr>
                                                                 </thead>
@@ -413,15 +570,33 @@ database.ref().child("Preorders")
                                                                     {foodItems.map((items,id)=>{
                                                                         return(
                                                                             <tr key={id}>
-                                                                            <td style={{ fontSize: "25px", fontWeight: "bold"}}><a href={items.Image} target="_blank"><button type="button"  className="btn btn-success btn-md">{"View"}</button></a></td>
+                                                                            <td style={{ fontSize: "25px", fontWeight: "bold"}}><a href={items.Image} target="_blank" rel="noopener noreferrer"><button type="button"  className="btn btn-success btn-md">{"View"}</button></a></td>
                                                                             <td>{items.Name}</td>
                                                                             <td>{items.Category}</td>
                                                                             <td>{items.CuisineName}</td>
                                                                             <td>{items.Details}</td>
-                                                                            <td>{items.Price}</td>
+                                                                            <td><input type="number" id={items.PushId} value={items.Price} onChange={onChangePriceHandler} className="price"  /></td>
+                                                                            <td><Button type="button" className="warning"><Check id={items.PushId} onClick={onSaveHandler} size={20}/></Button></td>
                                                                             <td>{items.STime}</td>
                                                                             <td>{items.ETime}</td>
                                                                             <td>{items.Signature}</td>
+                                                                            {items.Status==="Active"?
+                                                                            <td><div style={{position:"relative",maxWidth:"50%",maxHeight:"50%"}}>
+                                                                            <label style={{position:"relative" ,marginLeft:"20%"}} className="switch">
+                                                                            <input  type="checkbox" id={items.PushId}  checked={true} onChange={onChangeFoodStatus}/>
+                                                                            <span className="slider round"></span>
+                                                                            </label>
+                                                                            </div>
+                                                                            </td>:
+                                                                             <td><div style={{position:"relative",maxWidth:"50%",maxHeight:"50%"}}>
+                                                                             <label style={{position:"relative" ,marginLeft:"20%"}} className="switch">
+                                                                             <input  type="checkbox" id={items.PushId}  checked={false} onChange={onChangeFoodStatus}/>
+                                                                             <span className="slider round"></span>
+                                                                             </label>
+                                                                             </div>
+                                                                             </td>
+                                                                        }
+                                                                            
                                                                             <td style={{ fontSize: "25px", fontWeight: "bold"}}><button type="button" id={items.PushId} onClick={onClickDeleteFoodItemHandler} className="btn btn-info btn-md">{"Delete"}</button></td>
                                                                             </tr>
                                                                              
@@ -445,13 +620,16 @@ database.ref().child("Preorders")
                                                                         <th>Cuisine Name</th>
                                                                         <th>Description</th>
                                                                         <th>Price</th>
+                                                                        <th>Save</th>
                                                                         <th>Start Time</th>
                                                                         <th>End Time</th>
+                                                                        <th>Status</th>
                                                                         <th>Actions</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody id="datatable-today">
                                                                 {todaysOffer.map((items,id)=>{
+
                                                                         return(
                                                                             <tr key={id}>
                                                                                 {items!==undefined?
@@ -460,10 +638,28 @@ database.ref().child("Preorders")
                                                                                   <td>{items.Category}</td>
                                                                                   <td>{items.CuisineName}</td>
                                                                                   <td>{items.Details}</td>
-                                                                                  <td>{items.Price}</td>
+                                                                                  <td><input type="number" id={items.PushId} value={items.Price} onChange={onChangeOfferPriceHandler} className="price"  /></td>
+                                                                                 <td><Button type="button" className="warning"><Check id={items.PushId} onClick={onOfferSaveHandler} size={20}/></Button></td>
                                                                                   <td>{items.STime}</td>
                                                                                  <td>{items.ETime}</td>
-                                                                                 <td style={{ fontSize: "25px", fontWeight: "bold"}}><button type="button" id={items.PushId} onClick={onClickDeleteTodaysOfferHandler} className="btn btn-info btn-md">{"Delete"}</button></td>
+                                                                                 {items.Status==="Active"?
+                                                                                  <td><div style={{position:"relative",maxWidth:"50%",maxHeight:"50%"}}>
+                                                                                  <label style={{position:"relative" ,marginLeft:"20%"}} className="switch">
+                                                                                  <input  type="checkbox" id={items.PushId}  checked={true} onChange={onChangeDishStatus}/>
+                                                                                  <span className="slider round"></span>
+                                                                                  </label>
+                                                                                  </div>
+                                                                                  </td>:
+                                                                                  <td><div style={{position:"relative",maxWidth:"50%",maxHeight:"50%"}}>
+                                                                                  <label style={{position:"relative" ,marginLeft:"20%"}} className="switch">
+                                                                                  <input  type="checkbox" id={items.PushId}  checked={false} onChange={onChangeDishStatus}/>
+                                                                                  <span className="slider round"></span>
+                                                                                  </label>
+                                                                                  </div>
+                                                                                  </td>
+                                                                                }
+                                                                                
+                                                                                 <td style={{textAlign:"center", fontSize: "25px", fontWeight: "bold"}}><button type="button" id={items.PushId} onClick={onClickDeleteTodaysOfferHandler} className="btn btn-info btn-md">{"Delete"}</button></td>
                                                                                 </>
                                                                                 :
                                                                                 <td>{"Not available"}</td>}
@@ -491,11 +687,13 @@ database.ref().child("Preorders")
                                                                         <th>Delivery End Date</th>
                                                                         <th>Preorder Date</th>
                                                                         <th>Settlement</th>
+                                                                        <th>Status</th>
                                                                         <th>Actions</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody id="datatable-pre">
                                                                 {preOrder.map((items,id)=>{
+                                                                   
                                                                         return(
                                                                             <tr key={id}>
                                                                             <td>{items.ChefName}</td>
@@ -504,6 +702,23 @@ database.ref().child("Preorders")
                                                                             <td>{items.OrderEndDate}</td>
                                                                             <td>{items.StartDate}</td>
                                                                             <td>{items.Settlement}</td>
+                                                                            {items.Status==="Active"?
+                                                                            <td><div style={{position:"relative",maxWidth:"50%",maxHeight:"50%"}}>
+                                                                            <label style={{position:"relative" ,marginLeft:"20%"}} className="switch">
+                                                                            <input  type="checkbox" id={items.PushId}  checked={true} onChange={onChangePreOrderStatus}/>
+                                                                            <span className="slider round"></span>
+                                                                            </label>
+                                                                            </div>
+                                                                            </td>:
+                                                                            <td><div style={{position:"relative",maxWidth:"50%",maxHeight:"50%"}}>
+                                                                            <label style={{position:"relative" ,marginLeft:"20%"}} className="switch">
+                                                                            <input  type="checkbox" id={items.PushId}  checked={false} onChange={onChangePreOrderStatus}/>
+                                                                            <span className="slider round"></span>
+                                                                            </label>
+                                                                            </div>
+                                                                            </td>
+                                                                        }
+                                                                            
                                                                             <td style={{ fontSize: "25px", fontWeight: "bold"}}><button type="button" id={items.PushId} onClick={onClickDeletePreOrderHandler} className="btn btn-info btn-md">{"Delete"}</button></td>
                                                                             </tr>
                                                                              

@@ -118,21 +118,32 @@ const SubscriptionsApprovals = () => {
 
     }
     const onUpdateHandler=(event)=>{
-       const pushid=event.target.id
-        const itemid=event.target.id1
+
+       var arrData= event.target.id.split("-")
+       let pushid=arrData[0]
+        let name1=arrData[1]
+        let details=arrData[2]
+        let ftotal=arrData[3]
         var firebaseref=app.database().ref().child("Subscriptions").child(pushid);
     firebaseref.child("AStatus").set("Active");
+    if(name1 == name) {
+        firebaseref.child("Name").set(String(name));    
+    }
+    if(details == detail) {
    
-        firebaseref.child("Name").set(String(name));       
-        firebaseref.child("Details").set(String(detail));       
+        firebaseref.child("Details").set(String(detail));   
+    }    
 
-    firebaseref.child("Settlement").set(itemid);
+    firebaseref.child("Settlement").set(ftotal);
 
     Swal.fire({
         title: "Successfully Updated!",
         text: "",
         icon: "success",
-        confirmButtonText: "Ok" 
+        showCancelButton: true,
+        confirmButtonText: 'OK',
+        cancelButtonText: 'Cancel',
+        cancelButtonColor:'gray'
        });
     }
     const onChangeSearchHandler=(event)=>{
@@ -275,45 +286,28 @@ const SubscriptionsApprovals = () => {
                                     {users.filter(orders =>
                                             orders.Name.includes(searchTerm)).map((item,id)=>{
                                                 // for (var i=0;i<driverNumber.length;i++){
-                                                    if(item.Image!=null){
                                                     return(
                                                         <tr key={id}>
                                                        <td class="item_locality" >{item.Name}</td>
-                                                       <td className=""><input type="text" className="name"id={item.UserId} value={item.Name} onChange={onChangeNameHandler} /></td>
-                                                       <td className=""><input type="text" className="details" id={item.UserId} value={item.Details} onChange={onChangeDetailsHandler} /></td>
+                                                       <td className=""><input type="text" className="name"id={item.PushId} value={item.Name} onChange={onChangeNameHandler} /></td>
+                                                       <td className=""><input type="text" className="details" id={item.PushId} value={item.Details} onChange={onChangeDetailsHandler} /></td>
                                                        <td class="">{chefCommision[statecid.indexOf(item.UserId)]}</td>
                                                        <td class="">{item.Mrp}</td>
                                                        <td class="item_price">{item.Price}</td>
                                                        <td class="item_price">{((chefCommision[statecid.indexOf(item.UserId)])*item.Price)/100}</td>
                                                        <td class="item_price">{parseFloat((((chefCommision[statecid.indexOf(item.UserId)])*item.Price)/100)*0.18).toFixed(2)}</td>
                                                        <td id1={item.UserId}>{((+item.Price - (((chefCommision[statecid.indexOf(item.UserId)])*item.Price)/100) - (parseFloat((((chefCommision[statecid.indexOf(item.UserId)])*item.Price)/100)*0.18).toFixed(2))*100)/100)}</td>
-                                                       <td className=""><a href={item.Image} target="_blank">{"View"}</a></td>
+                                                       {item.Image!==null?
+                                                       <td className=""><a href={item.Image} target="_blank">{"View"}</a></td>:
+                                                       <td className="">{"None"}</td>
+                                                    }
                                                        <td class="item_kid" id={item.PushId} style={{display:"none"}}>{item.PushId}</td>
                                                        <td class="item_kid" style={{display:"none"}}>{item.UserId}</td>
-                                                       <td className="actions" style={{textAlign:"center"}}><a href="#" className="update-row"><button type="button" className="btn btn-success btn-sm"><Check id={item.UserId} onClick={onUpdateHandler} size={15}/></button></a><a href="#" className="delete-row"><button type="button" className="btn btn-danger btn-sm"><Trash id={item.UserId} onClick={onDeleteHandler} size={15}/></button></a></td>
+                                                       <td className="actions" style={{textAlign:"center"}}><a href="#" className="update-row"><button type="button" className="btn btn-success btn-sm"><Check id={item.PushId+"-"+item.Name+"-"+item.Details+"-"+((+item.Price - (((chefCommision[statecid.indexOf(item.UserId)])*item.Price)/100) - (parseFloat((((chefCommision[statecid.indexOf(item.UserId)])*item.Price)/100)*0.18).toFixed(2))*100)/100)} onClick={onUpdateHandler} size={15}/></button></a><a href="#" className="delete-row"><button type="button" className="btn btn-danger btn-sm"><Trash id={item.UserId} onClick={onDeleteHandler} size={15}/></button></a></td>
                                          
                                                      </tr> 
                                                     )
-                                                    }else{
-                                                        return(
-                                                            <tr key={id}>
-                                                           <td class="item_locality">{item.Name}</td>
-                                                           <td className=""><input type="text" className="name" value={item.Name} /></td>
-                                                           <td className=""><input type="text" className="details" value={item.Details} /></td>
-                                                           <td className="">{chefCommision[statecid.indexOf(item.UserId)]}</td>
-                                                           <td className="">{item.Mrp}</td>
-                                                           <td className="item_price">{item.Price}</td>
-                                                           <td className="item_price">{((chefCommision[statecid.indexOf(item.UserId)])*item.Price)/100}</td>
-                                                           <td className="item_price">{parseFloat((((chefCommision[statecid.indexOf(item.UserId)])*item.Price)/100)*0.18).toFixed(2)}</td>
-                                                           <td>{((+item.Price - (((chefCommision[statecid.indexOf(item.UserId)])*item.Price)/100) - (parseFloat((((chefCommision[statecid.indexOf(item.UserId)])*item.Price)/100)*0.18).toFixed(2))*100)/100)}</td>
-                                                           <td className="">{"None"}</td>
-                                                           <td className="item_kid" style={{display:"none"}}>{item.PushId}</td>
-                                                           <td className="item_kid" style={{display:"none"}}>{item.UserId}</td>
-                                                           <td className="actions" style={{textAlign:"center"}}><a href="#" className="update-row"><button type="button" className="btn btn-success btn-sm"><Check size={15}/></button></a><a href="#" className="delete-row"><button type="button" className="btn btn-danger btn-sm"><Trash size={15}/></button></a></td>
-                                             
-                                                         </tr> 
-                                                        )
-                                                    }
+                                                   
                                                 
                                                      })}
                                        

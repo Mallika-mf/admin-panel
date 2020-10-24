@@ -14,9 +14,9 @@ import * as firebase from "firebase/app";
 import axios from 'axios'
 import {useHistory} from 'react-router-dom'
 
-const CreateChef = () => {
+const CreateChef = () => { 
   const history = useHistory();
-  const [signinHide,setSigninHide] = useState(false)
+  const [localFood,setLocalFood] = useState(false)
   const[hide,setHide] = useState(false)
   const [hideSignIn,setHideSignIn] = useState(false)
   const[aRating,setArating] = useState("")
@@ -280,12 +280,12 @@ app.database().ref().child("Masters").child("SubLocalities")
        setZone(content)
        setSubLocalityPushId(sublocalitypushid)
         sublocalitypushid.reverse();
-        });
+        }); 
     }
 
    const  onChangeLocalityHandler=(event)=>{
     setSelectLocality(event.target.value)
-    onChangeZoneHandler.filter(item=>{
+    zone.filter(item=>{
       if(item.PushId===event.target.value){
         setSelectLocalityName(item.Name)
       }
@@ -437,6 +437,10 @@ app.database().ref().child("Masters").child("SubLocalities")
 
     const cateringServiceChange=(event)=>{
       setCateringService(event.target.checked)
+    }
+
+    const localFoodHnadler=(event)=>{
+      setLocalFood(event.target.checked)
     }
     
     const hnameChange=(event)=>{
@@ -659,7 +663,6 @@ setMemberShip(event.target.value)
       var zoneId="";
       var localityId="";
       setHide(true)
-      setSigninHide(true)
     if(sname=="")
         {
             alert("Enter Cloud Kitchen Number");
@@ -793,7 +796,12 @@ setMemberShip(event.target.value)
         setGstImageAsUrl (snapshot.val().Doc6);
         window.temp=6;
         window.verified="Yes";
- 
+        if(snapshot.val().Local=="Yes"){
+          setLocalFood(true)
+        }
+        else{
+            setLocalFood(false)
+        }
         if(snapshot.val().Veg=="Yes"){
           setVeg(true)
         }
@@ -1065,19 +1073,19 @@ if(memberShip=="Select")
   // }
   
 
-  if(window.lat==0){
-      alert("Please enable gps in setting and click get location button");
-      // document.getElementById
-      // document.getElementById("#submit").removeAttr("disabled");
-      return;
-  }
+  // if(window.lat==0){
+  //     alert("Please enable gps in setting and click get location button");
+  //     // document.getElementById
+  //     // document.getElementById("#submit").removeAttr("disabled");
+  //     return;
+  // }
 
-  if(window.long==0){
-      alert("Please enable gps in setting and click get location button");
-      // document.getElementById
-      // document.getElementById("#submit").removeAttr("disabled");
-      return;
-  }
+  // if(window.long==0){
+  //     alert("Please enable gps in setting and click get location button");
+  //     // document.getElementById
+  //     // document.getElementById("#submit").removeAttr("disabled");
+  //     return;
+  // }
 
   for(var i=0;i<cNO.length;i++) {
       if(mnumber===cNO[i])
@@ -1196,6 +1204,10 @@ var tot=0;
           else 
               firebaseref.child("Catering").set("No");
 
+          if(localFood===true)
+              firebaseref.child("Local").set("Yes");
+          else 
+              firebaseref.child("Local").set("No");
 
           if(agencyName!="Select"){
               firebaseref.child("Franchise").set(agencyName);
@@ -1272,6 +1284,7 @@ var tot=0;
 
               //    locality.value="";
                  window.verified="no";
+                 setLocalFood(false)
                  setVeg(false)
                  setCateringService(false)
                  document.getElementById('coord').innerHTML="Location Co-Ordinates";
@@ -1282,7 +1295,6 @@ var tot=0;
             setFssiCertiImageAsFile('')
             setGstImageAsFile('')
                 
-                 setSigninHide(false)
                  cno=[];
                  cid=[];
                  app.database().ref().child("CloudKitchen")
@@ -1652,15 +1664,15 @@ var tot=0;
                   }
       
       
-                  if(window.lat==0){
-                      alert("Please enable gps in setting and click get location button");
-                          return;
-                  }
+                  // if(window.lat==0){
+                  //     alert("Please enable gps in setting and click get location button");
+                  //         return;
+                  // }
       
-                  if(window.long==0){
-                      alert("Please enable gps in setting and click get location button");
-                          return;
-                  }
+                  // if(window.long==0){
+                  //     alert("Please enable gps in setting and click get location button");
+                  //         return;
+                  // }
                   // if(aratings.value.length==0)
                   // {
                   //     alert("Enter Auditor Ratings");
@@ -1753,7 +1765,10 @@ var tot=0;
                          else 
                               firebaseref.child("Catering").set("No");
 
-
+                          if(localFood===true)
+                              firebaseref.child("Local").set("Yes");
+                          else 
+                              firebaseref.child("Local").set("No");
                           if(agencyName!="Select"){
                              firebaseref.child("Franchise").set(agencyName);
                           }
@@ -1807,6 +1822,7 @@ var tot=0;
                         setFssiCertiImageAsUrl("")
                         setGstImageAsUrl("")
                           window.verified="no";
+                          setLocalFood(false)
                           setVeg(false)
                           setCateringService(false)
                           // locality.value="";
@@ -1827,7 +1843,6 @@ var tot=0;
                              });
                           
                           setSname("");
-                             setSigninHide(false)
 
                  cno=[];
                  cid=[];
@@ -1917,6 +1932,7 @@ var tot=0;
                         setFssiCertiImageAsUrl("")
                         setGstImageAsUrl("")
                 window.verified="no";
+                setLocalFood(false)
                 setVeg(false)
                 setCateringService(false)
                 document.getElementById('smssent').style.display="none";
@@ -2469,6 +2485,10 @@ function showPosition(position) {
                         </Col>
                         <Col className="form-group col-md-4">
                         <Input type="checkbox"  checked={cateringService} onChange={cateringServiceChange}className="form-control" />Catering Service                   
+                         <div className="clearfix"></div>
+                        </Col>
+                        <Col className="form-group col-md-4">
+                        <Input type="checkbox"  checked={localFood} onChange={localFoodHnadler}className="form-control" />Local Food                
                          <div className="clearfix"></div>
                         </Col>
                         </Row>

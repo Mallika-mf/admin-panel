@@ -20,7 +20,7 @@ const RightSidebar = () => {
   }
 
     return (
-          <div className={`right-sidebar ${rightSidebarToggle?'show':''}`} id="right_side_bar">
+          <div   className={`right-sidebar ${rightSidebarToggle?'show':''}`} id="right_side_bar">
           <div>
           <Container className="themed-container p-0">
               <div className="modal-header p-l-20 p-r-20">

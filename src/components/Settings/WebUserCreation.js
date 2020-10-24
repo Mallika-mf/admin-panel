@@ -1,7 +1,7 @@
 import React, {useState,Fragment,useEffect } from 'react'
 import BreadCrumb from '../../layout/Breadcrumb'
 import {Home} from 'react-feather';
-import { Container, Row, Col, Card, CardBody, CardHeader, Button, Table, Input } from 'reactstrap'
+import { Container, Row, Col, Card, CardBody, CardHeader, Button, Input } from 'reactstrap'
 import app from '../../data/base'
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
@@ -94,6 +94,7 @@ const WebUserCreation = () => {
    const [settings6,setSettings6] = useState("settings6")
    const [settings7,setSettings7] = useState("settings7")
    const [settings8,setSettings8] = useState("settings8")
+   const [settings9,setSettings9] = useState("settings9")
 
    const [emails1,setEmails1] = useState("emails1")
    const [emails2,setEmails2] = useState("emails2")
@@ -123,7 +124,6 @@ const WebUserCreation = () => {
    const [cb12,setCb12] = useState(false)
    const [cb13,setCb13] = useState(false)
    const [cb14,setCb14] = useState(false)
-   const [cb15,setCb15] = useState(false)
    const [cb16,setCb16] = useState(false)
    const [cb17,setCb17] = useState(false)
    const [cb18,setCb18] = useState(false)
@@ -173,7 +173,6 @@ const WebUserCreation = () => {
    const [cb62,setCb62] = useState(false)
    const [cb63,setCb63] = useState(false)
    const [cb64,setCb64] = useState(false)
-   const [cb65,setCb65] = useState(false)
    const [cb66,setCb66] = useState(false)
    const [cb67,setCb67] = useState(false)
    const [cb68,setCb68] = useState(false)
@@ -187,7 +186,6 @@ const WebUserCreation = () => {
    const [cb76,setCb76] = useState(false)
    const [cb77,setCb77] = useState(false)
    const [cb78,setCb78] = useState(false)
-   const [cb79,setCb79] = useState(false)
    const [cb80,setCb80] = useState(false)
    const [webUser,setWebUser] = useState([])
    const [city,setCity] = useState([])
@@ -296,6 +294,7 @@ const WebUserCreation = () => {
         setCb76(false)
         setCb77(false)
         setCb78(false)
+        setCb80(false)
 
         var database = app.database();
         database.ref().child("WebUser").child(event.target.value)
@@ -463,6 +462,8 @@ const WebUserCreation = () => {
                 setCb13(true)
                 if(role.includes('city6'))
                 setCb14(true)
+                if(role.includes('settings9'))
+                setCb80(true)
             }
         })
 
@@ -813,285 +814,292 @@ const WebUserCreation = () => {
         setCb78(event.target.checked)
         setReports(event.target.value)
     }
+    const onChangeCB80=(event)=>{
+      setCb80(event.target.checked)
+      setSettings9(event.target.value)
+  }
 
     const onSubmitHandler=(event)=>{
         try{
         event.preventDefault()
-        if(name==""){
+        if(name===""){
             alert('Enter Name');
         
             return;
         }
     
-        if(username==""){
+        if(username===""){
              alert('Enter UserName');
              
              return;
          }
     
     
-         if(number==""){
+         if(number===""){
              alert('Enter Mobile Number');
              
              return;
           }
     
-          if(number.length==10){
+          if(number.length===10){
              alert('Enter Proper Mobile Number');
              return;
           }
     
-          if(designation==""){
+          if(designation===""){
              alert('Enter Designation')
              return;
           }
     
-          if(password==""){
+          if(password===""){
              alert('Enter Password');
              return;
           }
     
-          if(email==""){
+          if(email===""){
              alert('Enter Email Id');
              
              return;
           }
-          if(selectCity=="Select")
+          if(selectCity==="Select")
           {
               alert("Select City");
           }
           var $role=''
-          if(cb1==true){
+          if(cb1===true){
             $role +=order1       
           }
-        if(cb2==true){
+        if(cb2===true){
         $role +=order2
         }
-        if(cb3==true){
+        if(cb3===true){
         $role +=order3 
         }
-        if(cb4==true){
+        if(cb4===true){
         $role +=order4       
         }
-        if(cb5==true){
+        if(cb5===true){
             $role +=order5      
         }
-        if(cb6==true){
+        if(cb6===true){
            $role +=order6       
         }
-        if(cb7==true){
+        if(cb7===true){
          $role +=order7       
       }
-      if(cb8==true){
+      if(cb8===true){
          $role +=order8       
       }
         
-        if(cb9==true){
+        if(cb9===true){
             $role +=city1
         }
-        if(cb10==true){
+        if(cb10===true){
             $role +=city2
         }
-        if(cb11==true){
+        if(cb11===true){
             $role +=city3
         }
-        if(cb12==true){
+        if(cb12===true){
             $role +=city4
         }
-        if(cb13==true){
+        if(cb13===true){
             $role +=city5
           }
-          if(cb14==true){
+          if(cb14===true){
             $role +=city6
         }
 
-        if(cb16==true){
+        if(cb16===true){
             $role +=emails2
         }
-        if(cb17==true){
+        if(cb17===true){
             $role +=emails3      
         }
-        if(cb18==true){
+        if(cb18===true){
            $role +=emails4     
         }
-        if(cb19==true){
+        if(cb19===true){
             $role +=disputes1       
          }
-         if(cb20==true){
+         if(cb20===true){
             $role +=disputes2       
          }
-         if(cb21==true){
+         if(cb21===true){
             $role +=chef1       
          }
-         if(cb22==true){
+         if(cb22===true){
             $role +=chef2       
          }
-         if(cb23==true){
+         if(cb23===true){
             $role +=chef3       
          }
-         if(cb24==true){
+         if(cb24===true){
             $role +=chef4       
          }
-         if(cb25==true){
+         if(cb25===true){
             $role +=driver1       
          }
-         if(cb26==true){
+         if(cb26===true){
             $role +=driver2       
          }
-         if(cb27==true){
+         if(cb27===true){
             $role +=driver3       
          }
-         if(cb28==true){
+         if(cb28===true){
             $role +=agency1       
          }
-         if(cb29==true){
+         if(cb29===true){
             $role +=agency2       
          }
-         if(cb30==true){
+         if(cb30===true){
             $role +=franchise1      
          }
-         if(cb31==true){
+         if(cb31===true){
             $role +=franchise2      
          }
-         if(cb32==true){
+         if(cb32===true){
             $role +=approvals1       
          }
-         if(cb33==true){
+         if(cb33===true){
             $role +=approvals2       
          }
-         if(cb34==true){
+         if(cb34===true){
             $role +=approvals3       
          }
-         if(cb35==true){
+         if(cb35===true){
             $role +=approvals4       
          }
-         if(cb36==true){
+         if(cb36===true){
             $role +=approvals5       
          }
-         if(cb37==true){
+         if(cb37===true){
             $role +=approvals6       
          }
-         if(cb38==true){
+         if(cb38===true){
             $role +=approvals7      
          }
-         if(cb39==true){
+         if(cb39===true){
             $role +=approvals8       
          }
-         if(cb40==true){
+         if(cb40===true){
             $role +=approvals9       
          }
-         if(cb41==true){
+         if(cb41===true){
             $role +=approvals10       
          }
-         if(cb42==true){
+         if(cb42===true){
             $role +=payouts1       
          }
-         if(cb43==true){
+         if(cb43===true){
             $role +=payouts2    
          }
-         if(cb44==true){
+         if(cb44===true){
             $role +=payouts3       
          }
-         if(cb45==true){
+         if(cb45===true){
             $role +=payouts4       
          }
-         if(cb46==true){
+         if(cb46===true){
             $role +=payouts5       
          }
-         if(cb47==true){
+         if(cb47===true){
             $role +=payouts6       
          }
-         if(cb48==true){
+         if(cb48===true){
             $role +=payouts7       
          }
-         if(cb49==true){
+         if(cb49===true){
             $role +=payouts8       
          }
-         if(cb50==true){
+         if(cb50===true){
             $role +=documents1       
          }
-         if(cb51==true){
+         if(cb51===true){
             $role +=documents2       
          }
-         if(cb52==true){
+         if(cb52===true){
             $role +=subscription1       
          }
-         if(cb53==true){
+         if(cb53===true){
             $role +=subscription2
          }
-         if(cb54==true){
+         if(cb54===true){
             $role +=food1       
          }
-         if(cb55==true){
+         if(cb55===true){
             $role +=food2       
          }
-         if(cb56==true){
+         if(cb56===true){
             $role +=food3;       
          }
-         if(cb57==true){
+         if(cb57===true){
             $role +=food4       
          }
-         if(cb58==true){
+         if(cb58===true){
             $role +=food5       
          }
-         if(cb59==true){
+         if(cb59===true){
             $role +=food6      
          }
-         if(cb60==true){
+         if(cb60===true){
             $role +=food7       
          }
-         if(cb61==true){
+         if(cb61===true){
             $role +=food8       
          }
-         if(cb62==true){
+         if(cb62===true){
             $role +=usermanagement       
          }
-         if(cb63==true){
+         if(cb63===true){
             $role +=corporate1      
          }
-         if(cb64==true){
+         if(cb64===true){
             $role +=corporate2       
          }
        
-         if(cb66==true){
+         if(cb66===true){
             $role +=settings1       
          }
-         if(cb67==true){
+         if(cb67===true){
             $role +=settings2       
          }
-         if(cb68==true){
+         if(cb68===true){
             $role +=settings3       
          }
-         if(cb69==true){
+         if(cb69===true){
             $role +=settings4       
          }
-         if(cb70==true){
+         if(cb70===true){
             $role +=settings5       
          }
-         if(cb71==true){
+         if(cb71===true){
             $role +=settings6      
          }
-         if(cb72==true){
+         if(cb72===true){
             $role +=settings7      
          }
-         if(cb73==true){
+         if(cb73===true){
           $role +=settings8     
        }
-       if(cb74==true){
+       if(cb74===true){
           $role +=emails1       
        }
-       if(cb75==true){
+       if(cb75===true){
         $role +=disputes3       
      }
-     if(cb76==true){
+     if(cb76===true){
         $role +=disputes4       
      }
-     if(cb77==true){
+     if(cb77===true){
         $role +=chatsupport       
      }
-     if(cb78==true){
+     if(cb78===true){
         $role +=reports       
      }
+     if(cb80===true){
+      $role +=settings9       
+   }
      var firebaseref=app.database().ref().child("WebUser").child(username);
        firebaseref.child("UserName").set(String(username));
        firebaseref.child("Name").set(String(name));
@@ -1192,6 +1200,8 @@ const WebUserCreation = () => {
           setCb76(false)
           setCb77(false)
           setCb78(false)
+          setCb80(false)
+
           var firebaseref1=app.database().ref().child("WebUser");
           firebaseref1.once('value').then(function(snapshot) {
             var content=[]
@@ -1210,282 +1220,285 @@ const WebUserCreation = () => {
     }
     const onChangeUpdateHandler=()=>{
         try{
-            if(name==""){
+            if(name===""){
                 alert('Enter Name');
             
                 return;
             }
         
-            if(username==""){
+            if(username===""){
                  alert('Enter UserName');
                  
                  return;
              }
         
         
-             if(number==""){
+             if(number===""){
                  alert('Enter Mobile Number');
                  
                  return;
               }
         
-              if(number.length==10){
+              if(number.length===10){
                  alert('Enter Proper Mobile Number');
                  return;
               }
         
-              if(designation==""){
+              if(designation===""){
                  alert('Enter Designation')
                  return;
               }
         
-              if(password==""){
+              if(password===""){
                  alert('Enter Password');
                  return;
               }
         
-              if(email==""){
+              if(email===""){
                  alert('Enter Email Id');
                  
                  return;
               }
-              if(selectCity=="Select")
+              if(selectCity==="Select")
               {
                   alert("Select City");
               }
               var $role=''
-              if(cb1==true){
+              if(cb1===true){
                 $role +=order1       
               }
-            if(cb2==true){
+            if(cb2===true){
             $role +=order2
             }
-            if(cb3==true){
+            if(cb3===true){
             $role +=order3 
             }
-            if(cb4==true){
+            if(cb4===true){
             $role +=order4       
             }
-            if(cb5==true){
+            if(cb5===true){
                 $role +=order5      
             }
-            if(cb6==true){
+            if(cb6===true){
                $role +=order6       
             }
 
-            if(cb7==true){
+            if(cb7===true){
                $role +=order7       
             }
 
-            if(cb8==true){
+            if(cb8===true){
                $role +=order8       
             }
             
-            if(cb9==true){
+            if(cb9===true){
                 $role +=city1
             }
-            if(cb10==true){
+            if(cb10===true){
                 $role +=city2
             }
-            if(cb11==true){
+            if(cb11===true){
                 $role +=city3
             }
-            if(cb12==true){
+            if(cb12===true){
                 $role +=city4
             }
-            if(cb13==true){
+            if(cb13===true){
                 $role +=city5
               }
-              if(cb14==true){
+              if(cb14===true){
                 $role +=city6
             }
     
-            if(cb16==true){
+            if(cb16===true){
                 $role +=emails2
             }
-            if(cb17==true){
+            if(cb17===true){
                 $role +=emails3      
             }
-            if(cb18==true){
+            if(cb18===true){
                $role +=emails4     
             }
-            if(cb19==true){
+            if(cb19===true){
                 $role +=disputes1       
              }
-             if(cb20==true){
+             if(cb20===true){
                 $role +=disputes2       
              }
-             if(cb21==true){
+             if(cb21===true){
                 $role +=chef1       
              }
-             if(cb22==true){
+             if(cb22===true){
                 $role +=chef2       
              }
-             if(cb23==true){
+             if(cb23===true){
                 $role +=chef3       
              }
-             if(cb24==true){
+             if(cb24===true){
                 $role +=chef4       
              }
-             if(cb25==true){
+             if(cb25===true){
                 $role +=driver1       
              }
-             if(cb26==true){
+             if(cb26===true){
                 $role +=driver2       
              }
-             if(cb27==true){
+             if(cb27===true){
                 $role +=driver3       
              }
-             if(cb28==true){
+             if(cb28===true){
                 $role +=agency1       
              }
-             if(cb29==true){
+             if(cb29===true){
                 $role +=agency2       
              }
-             if(cb30==true){
+             if(cb30===true){
                 $role +=franchise1      
              }
-             if(cb31==true){
+             if(cb31===true){
                 $role +=franchise2      
              }
-             if(cb32==true){
+             if(cb32===true){
                 $role +=approvals1       
              }
-             if(cb33==true){
+             if(cb33===true){
                 $role +=approvals2       
              }
-             if(cb34==true){
+             if(cb34===true){
                 $role +=approvals3       
              }
-             if(cb35==true){
+             if(cb35===true){
                 $role +=approvals4       
              }
-             if(cb36==true){
+             if(cb36===true){
                 $role +=approvals5       
              }
-             if(cb37==true){
+             if(cb37===true){
                 $role +=approvals6       
              }
-             if(cb38==true){
+             if(cb38===true){
                 $role +=approvals7      
              }
-             if(cb39==true){
+             if(cb39===true){
                 $role +=approvals8       
              }
-             if(cb40==true){
+             if(cb40===true){
                 $role +=approvals9       
              }
-             if(cb41==true){
+             if(cb41===true){
                 $role +=approvals10       
              }
-             if(cb42==true){
+             if(cb42===true){
                 $role +=payouts1       
              }
-             if(cb43==true){
+             if(cb43===true){
                 $role +=payouts2    
              }
-             if(cb44==true){
+             if(cb44===true){
                 $role +=payouts3       
              }
-             if(cb45==true){
+             if(cb45===true){
                 $role +=payouts4       
              }
-             if(cb46==true){
+             if(cb46===true){
                 $role +=payouts5       
              }
-             if(cb47==true){
+             if(cb47===true){
                 $role +=payouts6       
              }
-             if(cb48==true){
+             if(cb48===true){
                 $role +=payouts7       
              }
-             if(cb49==true){
+             if(cb49===true){
                 $role +=payouts8       
              }
-             if(cb50==true){
+             if(cb50===true){
                 $role +=documents1       
              }
-             if(cb51==true){
+             if(cb51===true){
                 $role +=documents2       
              }
-             if(cb52==true){
+             if(cb52===true){
                 $role +=subscription1       
              }
-             if(cb53==true){
+             if(cb53===true){
                 $role +=subscription2
              }
-             if(cb54==true){
+             if(cb54===true){
                 $role +=food1       
              }
-             if(cb55==true){
+             if(cb55===true){
                 $role +=food2       
              }
-             if(cb56==true){
+             if(cb56===true){
                 $role +=food3;       
              }
-             if(cb57==true){
+             if(cb57===true){
                 $role +=food4       
              }
-             if(cb58==true){
+             if(cb58===true){
                 $role +=food5       
              }
-             if(cb59==true){
+             if(cb59===true){
                 $role +=food6      
              }
-             if(cb60==true){
+             if(cb60===true){
                 $role +=food7       
              }
-             if(cb61==true){
+             if(cb61===true){
                 $role +=food8       
              }
-             if(cb62==true){
+             if(cb62===true){
                 $role +=usermanagement       
              }
-             if(cb63==true){
+             if(cb63===true){
                 $role +=corporate1      
              }
-             if(cb64==true){
+             if(cb64===true){
                 $role +=corporate2       
              }
            
-             if(cb66==true){
+             if(cb66===true){
                 $role +=settings1       
              }
-             if(cb67==true){
+             if(cb67===true){
                 $role +=settings2       
              }
-             if(cb68==true){
+             if(cb68===true){
                 $role +=settings3       
              }
-             if(cb69==true){
+             if(cb69===true){
                 $role +=settings4       
              }
-             if(cb70==true){
+             if(cb70===true){
                 $role +=settings5       
              }
-             if(cb71==true){
+             if(cb71===true){
                 $role +=settings6      
              }
-             if(cb72==true){
+             if(cb72===true){
                 $role +=settings7      
              }
-             if(cb73==true){
+             if(cb73===true){
               $role +=settings8     
            }
-           if(cb74==true){
+           if(cb74===true){
               $role +=emails1       
            }
-           if(cb75==true){
+           if(cb75===true){
             $role +=disputes3       
          }
-         if(cb76==true){
+         if(cb76===true){
             $role +=disputes4       
          }
-         if(cb77==true){
+         if(cb77===true){
             $role +=chatsupport       
          }
-         if(cb78==true){
+         if(cb78===true){
             $role +=reports       
+         }
+         if(cb80===true){
+            $role +=settings9       
          }
          var firebaseref=app.database().ref().child("WebUser").child(username);
            firebaseref.child("UserName").set(String(username));
@@ -1587,6 +1600,8 @@ const WebUserCreation = () => {
               setCb76(false)
               setCb77(false)
               setCb78(false)
+              setCb80(false)
+
               setHide(false)
             }
             catch(err){
@@ -1594,7 +1609,7 @@ const WebUserCreation = () => {
             }
     }
     const onDeleteHandler=()=>{
-        if(username==""){
+        if(username===""){
             alert('Enter UserName');
             return;
       }
@@ -1602,7 +1617,7 @@ const WebUserCreation = () => {
       var r = window.confirm("Are You Sure!");
 
 
-    if (r == true) {
+    if (r === true) {
 
       app.database().ref().child("WebUser").child(username).remove();
 
@@ -1696,6 +1711,7 @@ const WebUserCreation = () => {
       setCb76(false)
       setCb77(false)
       setCb78(false)
+      setCb80(false)
 
       var firebaseref1=app.database().ref().child("WebUser");
       firebaseref1.once('value').then(function(snapshot) {
@@ -1882,7 +1898,7 @@ const WebUserCreation = () => {
         <Input type="checkbox" id="cb35" value={approvals4} checked={cb35} onChange={onChangeCB35}/>&nbsp;&nbsp;Working Partner Approvals<br/>
         <Input type="checkbox" id="cb36" value={approvals5} checked={cb36} onChange={onChangeCB36}/>&nbsp;&nbsp;Food Items  Approvals<br/>
         <Input type="checkbox" id="cb37" value={approvals6} checked={cb37} onChange={onChangeCB37}/>&nbsp;&nbsp;Subscription  Approvals<br/>
-        <Input type="checkbox" id="cb38" value={approvals7} checked={cb38} onChange={onChangeCB38}/>&nbsp;&nbsp;Todays offer Approvals<br/>
+        <Input type="checkbox" id="cb38" value={approvals7} checked={cb38} onChange={onChangeCB38}/>&nbsp;&nbsp;Preorder Approvals<br/>
         <Input type="checkbox" id="cb39" value={approvals8} checked={cb39} onChange={onChangeCB39}/>&nbsp;&nbsp;Location Change Requests<br/>
         <Input type="checkbox" id="cb40" value={approvals9} checked={cb40} onChange={onChangeCB40}/>&nbsp;&nbsp;Bank Change Requests<br/>
         <Input type="checkbox" id="cb41" value={approvals10} checked={cb41} onChange={onChangeCB41}/>&nbsp;&nbsp;CMS Requests<br/>
@@ -1973,6 +1989,8 @@ const WebUserCreation = () => {
         <Input type="checkbox" id="cb71" value={settings6} checked={cb71} onChange={onChangeCB71}/>&nbsp;&nbsp;Disable Chefs<br/>
         <Input type="checkbox" id="cb72" value={settings7} checked={cb72} onChange={onChangeCB72}/>&nbsp;&nbsp;Disable Users<br/>
         <Input type="checkbox" id="cb73" value={settings8} checked={cb73} onChange={onChangeCB73}/>&nbsp;&nbsp;Disable Drivers<br/>
+        <Input type="checkbox" id="cb80" value={settings9} checked={cb80} onChange={onChangeCB80}/>&nbsp;&nbsp;Mf Cash<br/>
+
          </CardBody>
          </Card>
 

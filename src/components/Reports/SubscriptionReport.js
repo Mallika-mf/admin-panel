@@ -236,7 +236,7 @@ const onChangeSdateHandler=(event)=>{
                     
                                     <div className="col-md-3">
                                        
-                                            <input className="btn btn-primary mr-1" style={{marginTop: "22px", padding: "10px 15px;"}} type="button" name="filter" onClick={(event) => onSubmit(event)} value="Filter" id="filter"/>
+                                            <input className="btn btn-primary mr-1" style={{marginTop: "30px", padding: "10px 15px;"}} type="button" name="filter" onClick={(event) => onSubmit(event)} value="Filter" id="filter"/>
                                    
                                     </div>
                                   

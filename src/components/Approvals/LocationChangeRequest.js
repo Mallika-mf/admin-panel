@@ -1,6 +1,7 @@
-import React, { Fragment,useState} from 'react';
+import React, { Fragment,useState,useEffect} from 'react';
 import BreadCrumb from '../../layout/Breadcrumb'
 import {Home} from 'react-feather';
+import app from '../../data/base'
 import {Container,Row,Col,Card,CardHeader,Table,Button} from "reactstrap";
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';  
 import jsPDF from 'jspdf';  
@@ -18,6 +19,83 @@ const override = css`
 const LocationChangeApprovals = () => {
     const [show,setShow]=useState(true)
     const [isLoading, setIsLoading] = useState(true);
+    const [users,setUsers] = useState([])
+    const [search,setSearch] = useState("")
+    useEffect(()=>{
+        try{
+            window.addEventListener('message', handleMessage);
+            var database = app.database();
+            database.ref().child("Requests")
+            .orderByChild("RequestType").equalTo("Locality")
+            .on('value', function(snapshot){
+                if(snapshot.exists()){
+                    var content = [];
+                    var sn;
+                    sn=0;
+                    snapshot.forEach(function(data){
+                        var val = data.val();  
+                        content.push(val)
+                    })
+                    setUsers(content)
+                    setShow(false)
+
+                }else{
+                    const timeout = setTimeout(() => {
+                        setShow(false)
+                      }, 3000);
+                      return ()=>{clearTimeout(timeout);}
+      
+                }
+                })
+        return () => {
+            window.removeEventListener('message', handleMessage);
+          };
+ }catch(err){
+     console.log(err)
+ }
+    })
+    const SearchHandler = (event)=>{
+        setSearch(event.target.value)
+    }
+    const onSaveHandler=(event)=>{
+        var arrData=event.target.id.split("-")
+        let pushid = arrData[0]
+        let location = arrData[1]
+        let userid = arrData[2]
+        var firebaseref=app.database().ref().child("Requests").child(pushid);
+        app.database().ref().child("CloudKitchen").child(userid).child("Location").set(location);
+
+        app.database().ref().child("Requests").child(pushid).remove();
+        
+          Swal.fire("Approved!", {
+            icon: "success",
+          }); 
+    }
+
+    const onDeleteHandler=(event)=>{
+        var pushid = event.target.id
+        Swal.fire({
+            title: "Are you sure?",
+            text: "Once Deleted, Cannot be changed!",
+            icon: "warning",
+            confirmButtonText: 'OK',
+            cancelButtonText: 'Cancel',
+            cancelButtonColor:'gray'
+          })
+          .then((willDelete) => {
+            if (willDelete.value) {
+                app.database().ref().child("Requests").child(pushid).remove();      
+              Swal.fire("Deleted!", {
+                icon: "success",
+              });
+            }
+          }); 
+    }
+    const handleMessage = (event) => {
+        if (event.data.action === 'receipt-loaded') {
+          setIsLoading(false);
+        }
+      };
     const printIframe = (id) => {
         const iframe = document.frames
           ? document.frames[id]
@@ -47,7 +125,7 @@ const LocationChangeApprovals = () => {
         }
     return (
         <Fragment>
-            <BreadCrumb parent={<Home/>} subparent="Approvals" title="Agency Approvals"/>
+            <BreadCrumb parent={<Home/>} subparent="Settings" title=" Approvals"/>
             <Container fluid={true}>
                 <Row>
                     <Col sm="12">
@@ -59,7 +137,7 @@ const LocationChangeApprovals = () => {
                 <div className="col-md-5" style={{margin: "1%"}}>
                     <div className="form-group col-md-8">
                          <label className="form-label">Search <span style={{color: "red"}}>*</span></label>
-                             <input type="text" id="myInput"  className="form-control" placeholder="Search for Delivery Partner ID" title="Type in a name"/>
+                             <input type="text" id="myInput"  className="form-control" value={search} onChange={SearchHandler} placeholder="Search for ChefId" title="Type in a name"/>
                              <div className="clearfix"></div>
                         </div>
                     </div>
@@ -90,22 +168,32 @@ const LocationChangeApprovals = () => {
                                 <Table id="datatable"  data-toolbar="#bootstrap-table-toolbar" className="datatables-demo table table-striped table-bordered" style={{tablelayout: "auto;"}}>
                                     <thead >
                                         <tr>
-                                            <th scop="col">SL.NO</th>
-                                            <th scop="col">Date</th>
-                                            <th scop="col">Delivery Partne  ID</th>
-                                            <th scop="col"> Delivery Partner Name		</th>
-                                            <th scop="col" >Delivery Partner Number </th>
-                                            <th scop="col">Agency Id	</th>
-                                            <th scop="col"> Total Amount			</th>
-                                            <th scop="col"> Transaction ID		</th>
-                                            <th scop="col"> Image	</th>
-                                            <th scop="col">Remarks </th>
-                                            <th scop="col">Action</th>
+                                        <th>SL.No</th>
+                                        <th>ChefId</th>
+                                        <th>Name</th>
+                                        <th>Number</th>
+                                        <th>Address</th>
+                                        <th>Location Coordinates</th>
+                                        <th>Save</th>
+                                        <th>Delete</th>
 
                                         </tr>
                                     </thead>
                                     <tbody>
-                                       
+                                       {users.filter(orders=>orders.UserId.includes(search)).map((item,id)=>{
+                                           return(
+                                               <tr key={id}>
+                                                   <td>{id+1}</td>
+                                                   <td>{item.UserId}</td>
+                                                   <td>{item.Name}</td>
+                                                   <td>{item.Number}</td>
+                                                   <td>{item.Address}</td>
+                                                   <td>{item.Coord}</td>
+                                                   <td style={{fontSize: "25px", fontWeight: "bold"}}><button type="button" id={item.data.key+"-"+item.Coord+"-"+item.UserId} onClick={onSaveHandler} className="btn btn-primary btn-md">Save</button></td>
+                                                   <td style={{fontSize: "25px", fontWeight: "bold"}}><button type="button" id={item.data.key} onClick={onDeleteHandler} className="btn btn-primary btn-md">Delete</button></td>
+                                               </tr>
+                                           )
+                                       })}
                                     </tbody>
                                 </Table>
                                 

@@ -4,7 +4,7 @@ import {Home} from 'react-feather';
 import {Container,Row,Col,Card,CardHeader,Table,Button,Modal,ModalBody,ModalFooter,ModalHeader} from "reactstrap";
 import app from '../../data/base'
 import {useHistory} from 'react-router-dom'
-import { Database, ShoppingBag, MessageCircle, User,UserPlus, Layers, ShoppingCart,  ArrowDown, Pocket, Monitor, Truck,BarChart,DollarSign,Percent,Headphones,Phone} from 'react-feather';
+import {  ShoppingBag,  User,Headphones,Phone} from 'react-feather';
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';  
 import jsPDF from 'jspdf';  
 import html2canvas from 'html2canvas';
@@ -70,26 +70,27 @@ const BasicTable = () => {
                 // state.order.empty();
                 if(snapshot.exists()){
                     var contents = [];
-                    var sn;
-                    sn=0;
+                 
                     snapshot.forEach(snap=>{
                       var val = snap.val()
-                      if(val.OrderDateTime != '' || val.OrderDateTime != undefined || val.OrderDateTime != null) {           
+                      if(val.OrderDateTime !== '' || val.OrderDateTime !== undefined || val.OrderDateTime !== null) {           
                         contents.push(snap.val());
                       }
                       });
-                     contents.map((item,id)=>{
+                     contents.map((item)=>{
                          if(item.OrderNo===undefined){
                              item.OrderNo=""
                          }
+                         return item;
+
                      })
                      contents.reverse()
                       setSearchValue(contents);
                       setShow(false)
                   }else{
-                    const timeout = setTimeout(() => {
-                        setShow(false)
-                      }, 3000);
+                    // const timeout = setTimeout(() => {
+                    //     setShow(false)
+                    //   }, 3000);
                   }
                 }) 
             })
@@ -172,8 +173,27 @@ const onClickViewItemHandler1=(event)=>{
       }
   })
 }
+const changeStatusHandler = (event)=>{
+  var pushId = event.target.id
+  Swal.fire({
+      title: "Are you sure ?",
+      text: "",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: 'OK',
+      cancelButtonText: 'Cancel',
+      cancelButtonColor:'gray'
+    })
+    .then((willDelete) => {
+      if (willDelete.value) {
+          app.database().ref().child("Orders").child(pushId).child("Status").set("2");
+
+}
+
+});
+}
     const handleMessage = (event) => {
-        if (event.data.action === 'receipt-loaded') {
+        if (event.data.action ==='receipt-loaded') {
           setIsLoading(false);
         }
       };
@@ -194,13 +214,13 @@ const onClickViewItemHandler1=(event)=>{
         html2canvas(input)  
           .then((canvas) => {  
             var imgWidth = 200;  
-            var pageHeight = 290;  
+            // var pageHeight = 290;  
             var imgHeight = canvas.height * imgWidth / canvas.width;  
-            var heightLeft = imgHeight;  
+            // var heightLeft = imgHeight;  
             const imgData = canvas.toDataURL('image/png');  
             const pdf = new jsPDF('p', 'mm', 'a4')  
             var position = 0;  
-            var heightLeft = imgHeight;  
+            // var heightLeft = imgHeight;  
             pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);  
             pdf.save("NewOrder.pdf");  
           });  
@@ -265,7 +285,8 @@ const onClickViewItemHandler1=(event)=>{
                                             <th scope="col">Payment</th>
                                             <th scope="col">Actions</th>
                                             <th scope="col">Payment Id</th>
-                                            <th>Order Details</th>
+                                            <th scope="col">Order Details</th>
+                                            <th scope="col">Change Status</th>
 
 
                                         </tr>
@@ -279,13 +300,13 @@ const onClickViewItemHandler1=(event)=>{
                                       <tr key={id}>
                                                    <td>  {id+1}  </td>
                                                    <td>{(item.OrderDateTime).substring(0, 11)}<br/>{(item.OrderDateTime).substring(11, item.OrderDateTime.length)}</td>
-                                                {item.DeliveryTime == "Immediately"?
+                                                {item.DeliveryTime ==="Immediately"?
                                                     <td >{"Instant Delivery"}</td>:
                                                      <td>{item.DeliveryTime+","+item.DeliveryDate}</td>
                                                 }
                                                 <td style={{color:"#FFA501"}}>{item.OrderNo}</td>
                                                   <td><User style={{color:"#0000FF"}}size={15}/>&nbsp;{item.CName}<br/><Headphones aria-hidden="true" style={{color:"#0000FF"}}size={15}/>&nbsp;{item.Number}</td>
-                                                  {item.ChefNumber != undefined?
+                                                  {item.ChefNumber !== undefined?
                                                 <td><User style={{color:"#0000FF"}}size={15}/>&nbsp;{item.ChefName}<br/><Phone style={{color:"#0000FF"}}size={15}/>&nbsp;{item.ChefNumber}<br/> < ShoppingBag style={{color:"#0000FF"}}size={15}/>&nbsp;{localityName[localityPushId.indexOf(item.ChefLocality)]}{","}{cityName[cityPushId.indexOf(item.ChefCity)]}</td>:
                                                 <td><User style={{color:"#0000FF"}}size={15}/>&nbsp;{item.ChefName}<br/><Phone style={{color:"#0000FF"}}size={15}/>&nbsp;{""}<br/> < ShoppingBag style={{color:"#0000FF"}}size={15}/>&nbsp;{localityName[localityPushId.indexOf(item.ChefLocality)]}{","}{cityName[cityPushId.indexOf(item.ChefCity)]}</td>
                                                 }
@@ -294,6 +315,7 @@ const onClickViewItemHandler1=(event)=>{
                                                 <td><b><font color="blue">{"Order Accepted"}</font></b><br/><button id={item.Pushid} onClick={onClickDeleteHandler} className="btn btn-info btn-sm">{"Cancel"}</button></td>               
                                                 <td>{item.RazorpayId}</td>
                                                 <td><Button className="warning" id={item.Pushid} onClick={viewDetailHandler}>{"View"}</Button></td>
+                                                <td><Button className="warning" id={item.Pushid} onClick={changeStatusHandler}>{"Status"}</Button></td>
 
                                                  </tr>
                                                  )

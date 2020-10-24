@@ -1,14 +1,14 @@
 import React, { useState,useCallback,useEffect } from 'react'
 import {Row, Col,Input, Container,Breadcrumb,BreadcrumbItem} from 'reactstrap'
 import { Star } from 'react-feather'
-import {MENUITEMS2} from './sidebar/menu'
+import MENUITEMS from './sidebar/menu'
 import {Link} from 'react-router-dom'
 import { Tooltip } from 'reactstrap';
 const Breadcrumbs = (props) => {
   // eslint-disable-next-line
   const [breadcrumb, setBreadcrumb] = useState(props);
   // eslint-disable-next-line
-  const [mainmenu, setMainMenu] = useState(MENUITEMS2);
+  const [mainmenu, setMainMenu] = useState(MENUITEMS);
   const [searchValue, setSearchValue] = useState('');
   const [searchResult, setSearchResult] = useState(false);
   const [bookmarkSearch, SetBookmarkSearch] = useState(false)

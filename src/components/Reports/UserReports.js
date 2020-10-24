@@ -219,7 +219,7 @@ if(sdate.length!=0&&edate.length!=0){
                       
                                     <div className="col-md-4">
                                        
-                                            <input className="btn btn-primary mr-1" style={{marginTop: "24px", padding: "10px 15px;"}} type="button" name="filter" value="Filter" onClick={(event) => onSubmit(event)} id="filter"/>
+                                            <input className="btn btn-primary mr-1" style={{marginTop: "30px", padding: "10px 15px;"}} type="button" name="filter" value="Filter" onClick={(event) => onSubmit(event)} id="filter"/>
                                    
                                     </div>
                                   
@@ -267,7 +267,7 @@ if(sdate.length!=0&&edate.length!=0){
                                             <th scope="col"> Joining Date	</th>
                                             <th scope="col"> Role	</th>
                                             <th scope="col"> Status	</th>
-                                            <th scope="col"> MF Case	</th>
+                                            <th scope="col"> MF Cash	</th>
 
                                         </tr>
                                     </thead>

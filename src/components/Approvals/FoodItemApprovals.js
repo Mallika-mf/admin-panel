@@ -3,7 +3,7 @@ import BreadCrumb from '../../layout/Breadcrumb'
 import {Home} from 'react-feather';
 import {Container,Row,Col,Card,CardHeader,Table,CardBody,Button} from "reactstrap";
 import app from '../../data/base'
-import { Database, ShoppingBag, MessageCircle, User,UserPlus, Layers, ShoppingCart,  ArrowDown, Pocket, Monitor, Truck,BarChart,DollarSign,Percent,Headphones,Check,Trash} from 'react-feather'
+import {Check,Trash} from 'react-feather'
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';  
 import jsPDF from 'jspdf';  
 import html2canvas from 'html2canvas';
@@ -18,18 +18,18 @@ const override = css`
   border-color: red;
 `;
 const FoodItemApprovals = () => {
-    const [show,setShow]=useState(true)
+    const [show,setShow]=useState(false)
     const [name,setName] = useState("")
     const [detail,setDetail] = useState("")
     const [searchTerm, setSearchTerm]=useState("")
     const [users,setUsers] = useState([])
-    const [cCommision,setCcommision] = useState([])
     const [chefCommision,setChefCommision] = useState([])
-    const [rCityname,setRCcityname] = useState([])
-    const [cPushid,setcPushid] = useState([])
+    // const [cPushid,setcPushid] = useState([])
     const [ statecid,setStatecid] = useState([])
     const [isLoading, setIsLoading] = useState(true);
     const [search,setSearch] = useState("")
+    const [comment,setComment] = useState("")
+    // const [request,setRequest] = useState([])
     useEffect(()=>{
         try{
             window.addEventListener('message', handleMessage);
@@ -50,7 +50,6 @@ const FoodItemApprovals = () => {
             });
                setStatecid(cid)
                 setChefCommision(chefcommision)
-                setRCcityname(rcityname)
         
         });
         app.database().ref().child("Masters").child("City")
@@ -60,13 +59,13 @@ const FoodItemApprovals = () => {
                 cpushid.push(val.PushId);
                 ccommision.push(val.Commision);
         });
-        setcPushid(cpushid)
-        setCcommision(ccommision)
+        // setcPushid(cpushid)
     });
 
-    var chefid=sessionStorage.getItem('chefidapproval');
-    setSearch(chefid)
+    var chefId=sessionStorage.getItem('chefidapproval');
+    setSearch(chefId)
             database.ref().child("CloudKitchen")
+            .child(window.chefid)
           .child("FoodItems")
          .orderByChild("AStatus").equalTo("InActive")
         .on('value', function(snapshot){
@@ -76,20 +75,20 @@ const FoodItemApprovals = () => {
             
             snapshot.forEach(snap=>{
                 content.push(snap.val());
-                 
               });
+              content.map(item=>{
+                  setName(item.Name)
+                  setDetail(item.Details)
+                  return item;
+              })
+             
+              console.log(content)
               setUsers(content);
-              setShow(false)
-
-            }else{
-                const timeout = setTimeout(() => {
-                    setShow(false)
-                  }, 3000);
-                  return ()=>{clearTimeout(timeout);}
-  
             }
         
     })
+
+    
     return () => {
         window.removeEventListener('message', handleMessage);
       };
@@ -100,39 +99,83 @@ const FoodItemApprovals = () => {
     const onChangeNameHandler=(event)=>{
         setName(event.target.value)
         users.map((item,id)=>{
-            if(event.target.id===item.UserId){
+            if(event.target.id===item.PushId){
                 item.Name=event.target.value
             }
+            return item;
+
         })
     }
     const onChangeDetailsHandler=(event)=>{
         setDetail(event.target.value)
         users.map((item,id)=>{
-            if(event.target.id===item.UserId){
+            if(event.target.id===item.PushId){
                 item.Details=event.target.value
             }
+            return item;
+
         })
     }
     const onDeleteHandler=(event)=>{
+        let arrData = event.target.id.split(",")
+        let userid = arrData[0]
+       
+         window.chefid = arrData[2]
+        let pushid = arrData[1]
+        console.log(arrData)
+    Swal.fire({
+        title: "Are you sure want to delete the food item?",
+        text: "",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: 'OK',
+        cancelButtonText: 'Cancel',
+        cancelButtonColor:'gray'
+      })
+      .then((willDelete) => {
+        if (willDelete.value) {
+            app.database().ref().child("CloudKitchen").child(userid).child("FoodItems").child(pushid).remove()
+        Swal.fire({
+            title: "Food Item Deleted Successfully!",
+            text: "",
+            icon: "success",
+    });
+}
 
+});
     }
     const onUpdateHandler=(event)=>{
-       const pushid=event.target.id1
-        const userid=event.target.id
-        const itemid=event.target.id2
-        var firebaseref=app.database().ref().child("CloudKitchen").child(userid).child("FoodItems").child(pushid);
+        
+        var arrData= event.target.id.split(",")
+        console.log(arrData)
+       let pushid=arrData[1]
+        let userid=arrData[0]
+        // let name1=arrData[2]
+        // let details=arrData[3]
+        let ftotal=arrData[4]
+
+        let firebaseref=app.database().ref().child("CloudKitchen").child(userid).child("FoodItems").child(pushid);
     firebaseref.child("AStatus").set("Active");
-   
+    // if(name1 !== name) {
         firebaseref.child("Name").set(String(name));       
+
+    // }
+    // if(details !== detail) {
         firebaseref.child("Details").set(String(detail));       
 
-    firebaseref.child("Settlement").set(itemid);
+    // }
+
+
+    firebaseref.child("Settlement").set(ftotal);
 
     Swal.fire({
         title: "Successfully Updated!",
         text: "",
         icon: "success",
-        confirmButtonText: "Ok" 
+        showCancelButton: true,
+        confirmButtonText: 'OK',
+        cancelButtonText: 'Cancel',
+        cancelButtonColor:'gray'
        });
     }
     const onChangeSearchHandler=(event)=>{
@@ -147,7 +190,9 @@ const FoodItemApprovals = () => {
         }
       };
       const onSearchHandler=()=>{
-        if(search==""){
+          console.log("im clicking")
+          setShow(true)
+        if(search===""){
             alert("Enter Cloud Kitchen ID");
             return;
         }
@@ -159,14 +204,86 @@ const FoodItemApprovals = () => {
         .on('value', function(snapshot){
             if(snapshot.exists()){
                 var content = [];
-                var sn;
-                sn=0;
+                
                 snapshot.forEach(function(data){
-                    content.push(data.val())
+                 content.push(data.val())
                 })
+                content.map(item=>{
+                   item.comment=""
+                   return item;
+
+                })
+                console.log(content)
                 setUsers(content)
+                setShow(false)
+
+            }else{
+                const timeout = setTimeout(() => {
+                    setShow(false)
+                  }, 3000);
+                  return ()=>{clearTimeout(timeout);}
+  
             }
         })
+        app.database().ref().child("Requests").child(search)
+    .once('value', function(snapshot){
+        if(snapshot.exists()){
+        // $('#datatable').empty();
+        var content = [];
+        
+        snapshot.forEach(snap=>{
+        //    snap.child("PushId").forEach(data=>{
+        //         content.push(data.val());
+        //     })
+          content.push(snap.val());
+
+          })
+          console.log(content)
+          content.map(item=>{
+            if(window.pushid===item.PushId){
+            setComment(item.Address)
+            }
+            return item;
+
+        })
+        //   setRequest(content)
+
+        }
+     } )
+      }
+      const textAreaChangeHandler=(event)=>{
+        console.log(event.target.value)
+        console.log(event.target.id)
+        users.map(item=>{
+            if(event.target.id===item.PushId){
+                item.comment=event.target.value;
+                setComment(event.target.value)
+            }
+            return item;
+
+        })
+      }
+
+      const saveCommentHandler=(event)=>{
+          let arrData = event.target.id.split("-")
+          window.pushid=arrData[1]
+          console.log(arrData)
+          let item_pushid = arrData[1]
+          let userid= arrData[2]
+          console.log(comment)
+          console.log(item_pushid)
+         var database = app.database().ref().child("Requests").child(userid).child(item_pushid)
+         database.child("Address").set(comment)
+         database.child("RequestType").set("Changes")
+         database.child("PushId").set(item_pushid)
+         database.child("SupportReason").set("")
+         database.child("Reason").set("Admin")
+
+         Swal.fire({
+            title: "Successfully Updated!",
+            text: "",
+            icon: "success"
+         })
       }
        const printIframe = (id) => {
         const iframe = document.frames
@@ -184,13 +301,13 @@ const FoodItemApprovals = () => {
         html2canvas(input)  
           .then((canvas) => {  
             var imgWidth = 200;  
-            var pageHeight = 290;  
+            // var pageHeight = 290;  
             var imgHeight = canvas.height * imgWidth / canvas.width;  
-            var heightLeft = imgHeight;  
+            // var heightLeft = imgHeight;  
             const imgData = canvas.toDataURL('image/png');  
             const pdf = new jsPDF('p', 'mm', 'a4')  
             var position = 0;  
-            var heightLeft = imgHeight;  
+            // var heightLeft = imgHeight;  
             pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);  
             pdf.save("FoodItemApprovals.pdf");  
           });
@@ -215,7 +332,7 @@ const FoodItemApprovals = () => {
                     <input type="text" value={search} onChange={onChangeSearchHandler}  className="form-control"/>
                     </div>
                     <div className="col-sm-1 col-md-2">
-                    <span id="search" onClick={onSearchHandler}><img src="https://img.icons8.com/ios-filled/24/000000/search.png"/></span>
+                    <span id="search" onClick={onSearchHandler}><img src="https://img.icons8.com/ios-filled/24/000000/search.png" alt="search engine"/></span>
                     </div>
                     </div>
                      <div className="clearfix"></div>
@@ -264,6 +381,8 @@ const FoodItemApprovals = () => {
                                             <th scop="col" >Commision (%)	 </th>
                                             <th scop="col">Original Price</th>
                                             <th scop="col"> Offer Price			</th>
+                                            <th>Comment</th>
+                                            <th>Save</th>
                                             <th scop="col"> Commision Amount		 </th>
                                             <th scop="col">Gst</th>
                                             <th scop="col">Settlement Value	</th>
@@ -276,45 +395,29 @@ const FoodItemApprovals = () => {
                                     {users.filter(orders =>
                                             orders.Name.includes(searchTerm)).map((item,id)=>{
                                                 // for (var i=0;i<driverNumber.length;i++){
-                                                    if(item.Image!=null){
-                                                    return(
-                                                        <tr key={id}>
-                                                       <td class="item_locality">{item.Name}</td>
-                                                       <td className=""><input type="text" className="name" id={item.UserId} value={item.Name} onChange={onChangeNameHandler} /></td>
-                                                       <td className=""><input type="text" className="details" id={item.UserId} value={item.Details} onChange={onChangeDetailsHandler} /></td>
-                                                       <td class="">{chefCommision[statecid.indexOf(item.UserId)]}</td>
-                                                       <td class="">{item.Mrp}</td>
-                                                       <td class="item_price">{item.Price}</td>
-                                                       <td class="item_price">{((chefCommision[statecid.indexOf(item.UserId)])*item.Price)/100}</td>
-                                                       <td class="item_price">{parseFloat((((chefCommision[statecid.indexOf(item.UserId)])*item.Price)/100)*0.18).toFixed(2)}</td>
-                                                       <td id2={item.UserId}>{((+item.Price - (((chefCommision[statecid.indexOf(item.UserId)])*item.Price)/100) - (parseFloat((((chefCommision[statecid.indexOf(item.UserId)])*item.Price)/100)*0.18).toFixed(2))*100)/100)}</td>
-                                                       <td className=""><a href={item.Image} target="_blank">{"View"}</a></td>
-                                                       <td class="item_kid" id1={item.PushId} style={{display:"none"}}>{item.PushId}</td>
-                                                       <td class="item_kid" id={item.UserId} style={{display:"none"}}>{item.UserId}</td>
-                                                       <td className="actions" style={{textAlign:"center"}}><a href="#" className="update-row"><button type="button" className="btn btn-success btn-sm"><Check id={item.UserId} onClick={onUpdateHandler} size={15}/></button></a><a href="#" className="delete-row"><button type="button" id={item.UserId} onClick={onDeleteHandler}className="btn btn-danger btn-sm"><Trash size={15}/></button></a></td>
-                                         
-                                                     </tr> 
-                                                    )
-                                                    }else{
-                                                        return(
+                                                             return(
                                                             <tr key={id}>
-                                                           <td class="item_locality">{item.Name}</td>
-                                                           <td className=""><input type="text" className="name" value={item.Name} /></td>
-                                                           <td className=""><input type="text" className="details" value={item.Details} /></td>
-                                                           <td className="">{chefCommision[statecid.indexOf(item.UserId)]}</td>
+                                                                <td>{id+1}</td>
+                                                           <td className=""><input type="text" id={item.PushId} onChange={onChangeNameHandler} className="name" value={item.Name} /></td>
+                                                           <td className=""><input type="text" id={item.PushId} onChange={onChangeDetailsHandler}className="details" value={item.Details} /></td>
+                                                           <td className="">{chefCommision[statecid.indexOf(search)]}</td>
                                                            <td className="">{item.Mrp}</td>
                                                            <td className="item_price">{item.Price}</td>
-                                                           <td className="item_price">{((chefCommision[statecid.indexOf(item.UserId)])*item.Price)/100}</td>
-                                                           <td className="item_price">{parseFloat((((chefCommision[statecid.indexOf(item.UserId)])*item.Price)/100)*0.18).toFixed(2)}</td>
-                                                           <td>{((+item.Price - (((chefCommision[statecid.indexOf(item.UserId)])*item.Price)/100) - (parseFloat((((chefCommision[statecid.indexOf(item.UserId)])*item.Price)/100)*0.18).toFixed(2))*100)/100)}</td>
-                                                           <td className="">{"None"}</td>
-                                                           <td className="item_kid" style={{display:"none"}}>{item.PushId}</td>
-                                                           <td className="item_kid" style={{display:"none"}}>{item.UserId}</td>
-                                                           <td className="actions" style={{textAlign:"center"}}><a href="#" className="update-row"><button type="button" className="btn btn-success btn-sm"><Check size={15}/></button></a><a href="#" className="delete-row"><button type="button" className="btn btn-danger btn-sm"><Trash size={15}/></button></a></td>
+                                                           <td><textarea id={item.PushId} value={item.comment} onChange={textAreaChangeHandler}></textarea></td>
+                                                           <td><Button type="submit" id={item.PushId+"-"+search} onClick={saveCommentHandler}>Save</Button></td>
+                                                           <td className="item_price">{((chefCommision[statecid.indexOf(search)])*item.Price)/100}</td>
+                                                           <td className="item_price">{parseFloat((((chefCommision[statecid.indexOf(search)])*item.Price)/100)*0.18).toFixed(2)}</td>
+                                                           <td>{((+item.Price - (((chefCommision[statecid.indexOf(search)])*item.Price)/100) - (parseFloat((((chefCommision[statecid.indexOf(search)])*item.Price)/100)*0.18).toFixed(2))*100)/100)}</td>
+                                                          {item.Image!==null?
+                                                         <td className=""><a href={item.Image} target="_blank" rel="noopener noreferrer">View</a></td>:
+                                                         <td className="">{"None"}</td>
+
+                                                        }
+                                                           <td className="actions" style={{textAlign:"center"}}><button type="button" className="btn btn-success btn-sm"><Check id={search+","+item.PushId+","+item.Name+","+item.Details+","+((+item.Price - (((chefCommision[statecid.indexOf(search)])*item.Price)/100) - (parseFloat((((chefCommision[statecid.indexOf(search)])*item.Price)/100)*0.18).toFixed(2))*100)/100)}  onClick={onUpdateHandler} size={15}/></button><button type="button" className="btn btn-danger btn-sm"><Trash id={search+","+item.PushId+","+item.UserId} onClick={onDeleteHandler} size={15}/></button></td>
                                              
                                                          </tr> 
                                                         )
-                                                    }
+                                                    
                                                 
                                                      })}
                                        

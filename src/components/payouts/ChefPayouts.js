@@ -178,6 +178,8 @@ const ChefPayouts = () => {
                                     val.totalOrder=set
                                 amount= amount + parseFloat(val1.Amount)
                                 val.totalAmount=amount
+                                val.date = val1.Date
+                                
                             }
                         }
                 });
@@ -474,14 +476,12 @@ const ChefPayouts = () => {
                               
                                 </div> */}
                                 <Row>
-                                <Form className="theme-form">
-                                        <FormGroup className="col-md-12">
+                                        <FormGroup className="col-md-3">
                                         <label className="form-label">From Date <span style={{color: "red"}}>*</span></label>
                                         <div className="input-group">
                                         <input type="date" id="sdate" className="form-control"value={state.sdate} onChange={onChnage} />
                           </div>
                                         </FormGroup>
-                                        </Form>
                       <FormGroup className="col-md-3">
                       
                         <label className="form-label">To Date <span style={{color: "red"}}>*</span></label>
@@ -494,7 +494,7 @@ const ChefPayouts = () => {
                                     
                                     <div className="col-md-3">
                                        
-                                            <input className="btn btn-primary mr-1" style={{marginTop: "24px", padding: "10px 15px"}} type="button" name="filter" value="Filter"   onClick={(event) => onSubmit(event)} id="filter"/>
+                                            <input className="btn btn-primary mr-1" style={{marginTop: "30px", padding: "10px 15px"}} type="button" name="filter" value="Filter"   onClick={(event) => onSubmit(event)} id="filter"/>
                                    
                                     </div>
                                   
@@ -514,7 +514,7 @@ const ChefPayouts = () => {
                        <Button onClick={printDocument} variant="contained" color="primary"><span color="white">PDF</span></Button> 
                 <ReactHTMLTableToExcel  
                 className="btn btn-info"  
-                table="datatable"  
+                table="data-table"  
                 filename="ChefPayouts"  
                 sheet="ChefPayouts"  
                 buttonText="Excel" />
@@ -644,6 +644,37 @@ const ChefPayouts = () => {
                                         />
                                     </div> 
                     </Row>
+                    <div style={{display:"none"}} className="table-responsive text-nowrap">
+                    <Table id="data-table">
+                        <thead>
+                            <tr>
+                                <th>From A/C No.</th>
+                                <th>A/C no. </th>
+                                <th>Beneficiary Name</th>
+                                <th>Amount</th>
+                                <th>Payment Mode</th>
+                                <th>Posting Date (Activation Date)</th>
+                                <th>IFSC Code</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {date.map((item,id)=>{
+                                return(
+                                <tr key={id}>
+                                    <td>{112105001309}</td>
+                                    <td>{item.AccountNumber}</td>
+                                    <td>{item.Name}</td>
+                                    <td>{item.Cash}</td>
+                                    <td>{"I"}</td>
+                                    <td>{item.date}</td>
+                                    <td>{item.IFSC}</td>
+
+                                </tr>
+                                )
+                            })}
+                        </tbody>
+                    </Table>
+                    </div>
                 </Container> 
         </Fragment>
             );
