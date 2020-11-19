@@ -1,8 +1,8 @@
 import React, {useState,Fragment,useEffect } from 'react'
-import ChartistGraph from 'react-chartist';
-import Chart from 'react-apexcharts'
-import { Container, Row, Col, Card, CardBody, CardHeader, Button, Table, CardFooter } from 'reactstrap'
-import { Database, ShoppingBag, MessageCircle, User,UserPlus, Layers, ShoppingCart,  ArrowDown, Pocket, Monitor, Truck,BarChart,DollarSign,Percent} from 'react-feather';
+// import ChartistGraph from 'react-chartist';
+// import Chart from 'react-apexcharts'
+import { Container, Row, Col, Card, CardBody } from 'reactstrap'
+import { User,UserPlus,  Truck,BarChart} from 'react-feather';
 
 
 
@@ -14,24 +14,24 @@ import {useHistory} from 'react-router-dom'
 const DashBoard = (props) => {
    
  
-    const [state, setState] = useState({
-      latestOrder:[]
+    // const [state, setState] = useState({
+    //   latestOrder:[]
     
-    })
-    const [state1, setState1] = useState({
+    // })
+    // const [state1, setState1] = useState({
      
-      location:[]
-    })
+    //   location:[]
+    // })
     const [user, setUser] = useState()
     const [user1, setUser1] = useState()
     const [user2, setUser2] = useState()
     const [user3, setUser3] = useState()
-    const [user4, setUser4] = useState()
-    const [user5, setUser5] = useState()
-    const [user6, setUser6] = useState()
-    const [user7, setUser7] = useState()
-    const [user8, setUser8] = useState()
-    const [user9, setUser9] = useState()
+    // const [user4, setUser4] = useState()
+    // const [user5, setUser5] = useState()
+    // const [user6, setUser6] = useState()
+    // const [user7, setUser7] = useState()
+    // const [user8, setUser8] = useState()
+    // const [user9, setUser9] = useState()
     const history = useHistory();
 
 
@@ -62,7 +62,7 @@ const DashBoard = (props) => {
                     var count=0;
                 snapshot.forEach(function(data){
                     var val = data.val();
-                    if(val.OrderDate==today){
+                    if(val.OrderDate===today){
                          count++;
                      }
                   }); 
@@ -75,7 +75,7 @@ const DashBoard = (props) => {
                 if(snapshot.exists()){
                     snapshot.forEach(function(data){
                         var val = data.val();
-                        if(val.City==city){
+                        if(val.City===city){
                             if(val.Total!=null)
                             total=total + +parseFloat(val.Total);
                         }

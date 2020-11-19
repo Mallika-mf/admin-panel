@@ -1,8 +1,8 @@
 import React, {useState,Fragment,useEffect } from 'react'
 import BreadCrumb from '../../layout/Breadcrumb'
 import {Home} from 'react-feather';
-import { Container, Row, Col, Card, CardBody, CardHeader, Button, Table, CardFooter } from 'reactstrap'
-import {Save, Database, ShoppingBag, MessageCircle, User,UserPlus, Layers, ShoppingCart,  ArrowDown, Pocket, Monitor, Truck,BarChart,DollarSign,Percent,Headphones,Check,Trash} from 'react-feather';
+import { Container, Row, Col, Card, CardBody, CardHeader, Button, Table } from 'reactstrap'
+import {Save,Trash} from 'react-feather';
 import app from '../../data/base'
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
@@ -39,12 +39,13 @@ const onChangeTextHandler=(event)=>{
         if(event.target.id===item.PushId){
             item.Name=event.target.value
         }
+        return item
     })
 }
 
 const onSubmitHandler=(event)=>{
    
-    if(reason==''){
+    if(reason===''){
         alert('Enter Reason');
         return;
     }
@@ -89,8 +90,7 @@ const onSubmitHandler=(event)=>{
         .once('value', function(snapshot){
             if(snapshot.exists()){
                 var content = [];
-                var sn;
-                sn=0;
+                
                 snapshot.forEach(function(data){
                     var val = data.val();  
                     content.push(val)
@@ -110,8 +110,7 @@ const onSubmitHandler=(event)=>{
     .once('value', function(snapshot){
         if(snapshot.exists()){
             var content = [];
-            var sn;
-            sn=0;
+            
             snapshot.forEach(function(data){
                 var val = data.val();  
                 content.push(val)
@@ -173,7 +172,7 @@ const onSubmitHandler=(event)=>{
                                                      <td>  {id+1}  </td>
                                                     <td className="item_Cuisinesname"><textarea id={item.PushId} value={item.Name} onChange={onChangeTextHandler} type="text" className="name" rows="1" cols="30">{item.Name}</textarea></td>
                                                     {/* <td className="item_pushid" style={{display:"none"}}><textarea type="text" class="name" rows="1" cols="30">{item.PushId}</textarea></td> */}
-                                                    <td className="actions" style={{textAlign:"center"}}><button type="button" className="btn btn-success btn-xs"><Save id={item.PushId} onClick={onClickSaveHandler} size={15}/></button><a href="#"><button type="button" className="btn btn-danger btn-xs"><Trash id={item.PushId} onClick={onClickDeleteHandler} size={15}/></button></a></td>
+                                                    <td className="actions" style={{textAlign:"center"}}><button type="button" className="btn btn-success btn-xs"><Save id={item.PushId} onClick={onClickSaveHandler} size={15}/></button><button type="button" className="btn btn-danger btn-xs"><Trash id={item.PushId} onClick={onClickDeleteHandler} size={15}/></button></td>
                                                      </tr>
                                                 )
                                    })}

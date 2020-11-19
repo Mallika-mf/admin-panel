@@ -1,11 +1,9 @@
 import React, {useState,Fragment,useEffect } from 'react'
 import BreadCrumb from '../../layout/Breadcrumb'
-import ChartistGraph from 'react-chartist';
-import Chart from 'react-apexcharts'
+
 import {Home} from 'react-feather';
-import { Container, Row, Col, Card, CardBody, CardHeader, Button, Table, CardFooter } from 'reactstrap'
-import { Database, ShoppingBag, MessageCircle, User,UserPlus, Layers, ShoppingCart,  ArrowDown, Pocket, Monitor, Truck,BarChart,DollarSign,Percent} from 'react-feather';
-import { StepAxis } from 'chartist';
+import { Container } from 'reactstrap'
+// import { Database, ShoppingBag, MessageCircle, User,UserPlus, Layers, ShoppingCart,  ArrowDown, Pocket, Monitor, Truck,BarChart,DollarSign,Percent} from 'react-feather';
 import app from '../../data/base'
 
 const PartnerRegistration = () => {
@@ -21,13 +19,13 @@ var pushid=[];
 var promo=[];
     useEffect(()=>{
 
-        promo=[];
-        pushid=[];
+       var promo=[];
+       var pushid=[];
         app.database().ref().child("Promocode").child("Chef")
         .once('value').then(function(snapshot) {
             snapshot.forEach(function(data){
                 var val = data.val(); 
-                if(val.UserId!=""){
+                if(val.UserId!==""){
                     pushid.push(val.PushId);
                     promo.push(val.PromoCode);
                 }
@@ -57,12 +55,12 @@ const statusChangeHandler=(event)=>{
 
 const onSearchSubmitHnadler=(event)=>{
     try{
-    if(sname==""){
+    if(sname===""){
         alert("Enter Promocode Name");
         return;
     }
     // for(var i=0;i<pushId.length;i++) {
-    //     if(sname!==promoo[i])
+    //     if(sname!====promoo[i])
     //     {
     //         alert("Promo Code not Exists!!!");
     //         return;
@@ -84,12 +82,12 @@ const onSearchSubmitHnadler=(event)=>{
 }
 
 const onSubmitHandler=(event)=>{
-    if(promoCode==""){
+    if(promoCode===""){
         alert('Enter PromoCode');
         return;
     }
 
-    if(disc=="0"){
+    if(disc==="0"){
         alert('Enter Discount Percentage');
         return;
     }
@@ -122,7 +120,7 @@ const onSubmitHandler=(event)=>{
     .once('value').then(function(snapshot) {
         snapshot.forEach(function(data){
             var val = data.val(); 
-            if(val.UserId!=""){
+            if(val.UserId!==""){
                 pushid.push(val.PushId);
                 promo.push(val.PromoCode);
             }
@@ -137,12 +135,12 @@ const onSubmitHandler=(event)=>{
 }
 
 const onUpdateHandler=(event)=>{
-    if(promoCode==""){
+    if(promoCode===""){
         alert('Enter PromoCode');
         return;
     }
 
-    if(disc=="0"){
+    if(disc==="0"){
         alert('Enter Discount Percentage');
         return;
     }
@@ -166,7 +164,7 @@ const onUpdateHandler=(event)=>{
     .once('value').then(function(snapshot) {
         snapshot.forEach(function(data){
             var val = data.val(); 
-            if(val.UserId!=""){
+            if(val.UserId!==""){
                 pushid.push(val.PushId);
                 promo.push(val.PromoCode);
             }
@@ -181,7 +179,7 @@ const onUpdateHandler=(event)=>{
 }
 
 const DeleteHandler=(event)=>{
-    if(sname == ""){
+    if(sname === ""){
         alert("Select PromoCode to delete");
         return;
     }
@@ -202,7 +200,7 @@ const DeleteHandler=(event)=>{
     .once('value').then(function(snapshot) {
         snapshot.forEach(function(data){
             var val = data.val(); 
-            if(val.UserId!=""){
+            if(val.UserId!==""){
                 pushid.push(val.PushId);
                 promo.push(val.PromoCode);
             }
@@ -293,7 +291,7 @@ const DeleteHandler=(event)=>{
                                                       
                                                     </div>
                                                     <div className="form-group row">
-                                                          { show==false?
+                                                          { show===false?
                                                             <div className="col-sm-12 ml-sm-auto">
                                                                  <button type="submit" id="submit" className="btn btn-primary" onClick={onSubmitHandler}>Submit</button>
                                                             </div>:

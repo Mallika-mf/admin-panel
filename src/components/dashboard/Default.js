@@ -218,7 +218,7 @@ const Hospital = (props) => {
           tot[0]=parseFloat(total).toFixed(2);
           
 
-          if(mm=="01"){
+          if(mm==="01"){
            setMonthlyEarning("₹"+parseFloat(total).toFixed(2));
             setMonthlyOrders(parseInt(number));
           }
@@ -241,7 +241,7 @@ const Hospital = (props) => {
           tot[1]=parseFloat(total).toFixed(2);
         
 
-          if(mm=="02"){
+          if(mm==="02"){
             setMonthlyEarning("₹"+parseFloat(total).toFixed(2));
             setMonthlyOrders(parseInt(number));
           }
@@ -265,7 +265,7 @@ const Hospital = (props) => {
           tot[2]=parseFloat(total).toFixed(2);
           
 
-          if(mm=="03"){
+          if(mm==="03"){
             setMonthlyEarning("₹"+parseFloat(total).toFixed(2));
             setMonthlyOrders(parseInt(number));
           }
@@ -289,7 +289,7 @@ const Hospital = (props) => {
           tot[3]=parseFloat(total).toFixed(2);
         
 
-          if(mm=="04"){
+          if(mm==="04"){
             setMonthlyEarning("₹"+parseFloat(total).toFixed(2));
             setMonthlyOrders(parseInt(number));
           }
@@ -313,7 +313,7 @@ const Hospital = (props) => {
           tot[4]=parseFloat(total).toFixed(2);
           
 
-          if(mm=="05"){
+          if(mm==="05"){
             setMonthlyEarning("₹"+parseFloat(total).toFixed(2));
             setMonthlyOrders(parseInt(number));
           }
@@ -337,7 +337,7 @@ const Hospital = (props) => {
           tot[5]=parseFloat(total).toFixed(2);
           
 
-          if(mm=="06"){
+          if(mm==="06"){
             setMonthlyEarning("₹"+parseFloat(total).toFixed(2));
             setMonthlyOrders(parseInt(number));
           }
@@ -360,7 +360,7 @@ const Hospital = (props) => {
           tot[6]=parseFloat(total).toFixed(2);
           
 
-          if(mm=="07"){
+          if(mm==="07"){
             setMonthlyEarning("₹"+parseFloat(total).toFixed(2));
             setMonthlyOrders(parseInt(number));
           }
@@ -384,7 +384,7 @@ const Hospital = (props) => {
           tot[7]=parseFloat(total).toFixed(2);
           
 
-          if(mm=="08"){
+          if(mm==="08"){
             setMonthlyEarning("₹"+parseFloat(total).toFixed(2));
             setMonthlyOrders(parseInt(number));
           }
@@ -409,7 +409,7 @@ const Hospital = (props) => {
           tot[8]=parseFloat(total).toFixed(2);
           
 
-          if(mm=="09"){
+          if(mm==="09"){
             setMonthlyEarning("₹"+parseFloat(total).toFixed(2));
             setMonthlyOrders(parseInt(number));
           }
@@ -433,7 +433,7 @@ const Hospital = (props) => {
           tot[9]=parseFloat(total).toFixed(2);
           
 
-          if(mm=="10"){
+          if(mm==="10"){
             setMonthlyEarning("₹"+parseFloat(total).toFixed(2));
             setMonthlyOrders(parseInt(number));
           }
@@ -457,7 +457,7 @@ const Hospital = (props) => {
           tot[10]=parseFloat(total).toFixed(2);
           
 
-          if(mm=="11"){
+          if(mm==="11"){
             setMonthlyEarning("₹"+parseFloat(total).toFixed(2));
             setMonthlyOrders(parseInt(number));
           }
@@ -481,7 +481,7 @@ const Hospital = (props) => {
           tot[11]=parseFloat(total).toFixed(2);
          
 
-          if(mm=="12"){
+          if(mm==="12"){
             setMonthlyEarning("₹"+parseFloat(total).toFixed(2));
             setMonthlyOrders(parseInt(number));
           }
@@ -497,7 +497,7 @@ const Hospital = (props) => {
             }
         }
 
-        for(var i=0;i<12;i++){
+        for( i=0;i<12;i++){
             if(tot[i]>0){
                 percentage[i]=parseInt(tot[i]/max*100);
             }

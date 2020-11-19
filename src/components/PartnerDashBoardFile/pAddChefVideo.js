@@ -1,8 +1,8 @@
-import React, { Fragment,useState,useEffect } from 'react';
+import React, { Fragment,useState } from 'react';
 import BreadCrumb from '../../layout/Breadcrumb'
 import {Home} from 'react-feather';
 import {Container,Row,Col,Card,CardHeader,CardBody,Table,Button} from "reactstrap";
-import { Database, ShoppingBag, MessageCircle, User,UserPlus, Layers, ShoppingCart,  ArrowDown, Pocket, Monitor, Truck,BarChart,DollarSign,Percent,Headphones,Check,Trash} from 'react-feather';
+import { Trash} from 'react-feather';
 import app, {storage} from '../../data/base'
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';  
 import jsPDF from 'jspdf';  
@@ -12,7 +12,7 @@ import 'sweetalert2/src/sweetalert2.scss'
 const PAddChefVideoTable = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [thumbNailImageFile,setThumbNailImageFile]=useState('')
-    const [thumbNailImageUrl,setThumbNailImageUrl] = useState({imageurl:""})
+    const [,setThumbNailImageUrl] = useState({imageurl:""})
     const [searchName,setSearchName] = useState("")
     const [videoUrlName,setVedioUrl] = useState("")
     const [list,setList] = useState([])
@@ -24,7 +24,6 @@ const PAddChefVideoTable = () => {
             if(snapshot.exists()){
                 var content = [];
                 snapshot.forEach(function(data){
-                    var val = data.val();  
                     content.push(data.val())
                 })
                 setList(content)
@@ -54,11 +53,11 @@ const PAddChefVideoTable = () => {
     const onSubmitButton=(event)=>{
         event.preventDefault()
 
-        if(searchName==""){
+        if(searchName===""){
             alert('Enter Chef Id');
             return;
         }
-        if(videoUrlName==""){
+        if(videoUrlName===""){
             alert('Enter Chef Id');
             return;
         }
@@ -138,13 +137,13 @@ const PAddChefVideoTable = () => {
         html2canvas(input)  
           .then((canvas) => {  
             var imgWidth = 200;  
-            var pageHeight = 290;  
+            // var pageHeight = 290;  
             var imgHeight = canvas.height * imgWidth / canvas.width;  
-            var heightLeft = imgHeight;  
+            // var heightLeft = imgHeight;  
             const imgData = canvas.toDataURL('image/png');  
             const pdf = new jsPDF('p', 'mm', 'a4')  
             var position = 0;  
-            var heightLeft = imgHeight;  
+            // var heightLeft = imgHeight;  
             pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);  
             pdf.save("ChefList.pdf");  
           });  
@@ -169,7 +168,7 @@ const PAddChefVideoTable = () => {
                     <input type="text" value={searchName} onChange={onChangeSearchHandler} className="form-control"/>
                     </div>
                     <div className="col-sm-1 col-md-2">
-                    <span id="search" onClick={onSearchHander}><img src="https://img.icons8.com/ios-filled/24/000000/search.png"/></span>
+                    <span id="search" onClick={onSearchHander}><img src="https://img.icons8.com/ios-filled/24/000000/search.png" alt="search engine"/></span>
                     </div>
                     </div>
                      <div className="clearfix"></div>

@@ -1,10 +1,9 @@
-import React, {useState,Fragment } from 'react'
+import React, {Fragment } from 'react'
 import BreadCrumb from '../../layout/Breadcrumb'
-import ChartistGraph from 'react-chartist';
-import Chart from 'react-apexcharts'
+
 import {Home} from 'react-feather';
-import { Container, Row, Col, Card, CardBody, CardHeader, Button, Table, CardFooter } from 'reactstrap'
-import { Database, ShoppingBag, MessageCircle, User,UserPlus, Layers, ShoppingCart,  ArrowDown, Pocket, Monitor, Truck,BarChart,DollarSign,Percent} from 'react-feather';
+import { Container, Row, Col, Card, CardBody } from 'reactstrap'
+import { User, Truck} from 'react-feather';
 import {NavLink} from 'react-router-dom'
 
 const PromoCodes = () => {

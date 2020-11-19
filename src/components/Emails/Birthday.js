@@ -1,7 +1,7 @@
-import React, {useState,Fragment } from 'react'
+import React, {Fragment } from 'react'
 import BreadCrumb from '../../layout/Breadcrumb'
 import {Home} from 'react-feather';
-import { Container, Row, Col, Card, CardBody, CardHeader, Button, Table, CardFooter } from 'reactstrap'
+import { Container} from 'reactstrap'
 const Birthday = () => {
    
     return (

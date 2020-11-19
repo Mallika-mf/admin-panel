@@ -1,6 +1,5 @@
 {
   "hosting": {
-    "site":"beta-mothersfood",
     "public": "build",
     "ignore": [
       "firebase.json",

@@ -22,12 +22,12 @@ const ZoneTable = () => {
     const [show,setShow] = useState(false)
     const [searchTerm, setSearchTerm]=useState("")
     const [users,setUsers] = useState([])
-    const [pushId,setPushId] = useState([])
+    // const [pushId,setPushId] = useState([])
     const [name,setName] = useState([])
     const [isLoading, setIsLoading] = useState(true);
 
     var pushid=[];
-    var cityname=[]
+    // var cityname=[]
     useEffect((event)=>{
         try{
             async function fetchMyAPI() {
@@ -76,7 +76,7 @@ const ZoneTable = () => {
 
                   });
                       
-                    setPushId(pushid)
+                    // setPushId(pushid)
                    setUsers(content);
                    setShow(false)
                 }else{
@@ -110,13 +110,13 @@ const ZoneTable = () => {
         html2canvas(input)  
           .then((canvas) => {  
             var imgWidth = 200;  
-            var pageHeight = 290;  
+            // var pageHeight = 290;  
             var imgHeight = canvas.height * imgWidth / canvas.width;  
-            var heightLeft = imgHeight;  
+            // var heightLeft = imgHeight;  
             const imgData = canvas.toDataURL('image/png');  
             const pdf = new jsPDF('p', 'mm', 'a4')  
             var position = 0;  
-            var heightLeft = imgHeight;  
+            // var heightLeft = imgHeight;  
             pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);  
             pdf.save("LocalityList.pdf");  
           });  
@@ -135,7 +135,7 @@ const onClickDeleteHandler=(event)=>{
 
     
 
-    if(superadmin=="Yes"){
+    if(superadmin==="Yes"){
         Swal.fire({
             title: "Are you sure?",
             text: "Once deleted, you will not be able to recover it!",
@@ -235,7 +235,7 @@ const onClickDeleteHandler=(event)=>{
                                                         <tr key={id}>
                                                             <td>{id+1}</td>
                                                             <td className="item_cityname">{item.Name}</td>
-                                                            <td className="" style={{textAlign:"center", fontSize: "25px", fontWeight: "bold"}}><a href="#" className="details1"><button type="button" id={item.PushId} onClick={onClickDeleteHandler} className="btn btn-danger btn-sm">{"Delete"}</button></a></td>
+                                                            <td className="" style={{textAlign:"center", fontSize: "25px", fontWeight: "bold"}}><button type="button" id={item.PushId} onClick={onClickDeleteHandler} className="btn btn-danger btn-sm">{"Delete"}</button></td>
                                                            {/* <td className="item_pushid" style={{display:"none"}}><textarea type="text" defaultValue="" className="crop" rows="1" cols="30">{item.PushId}</textarea></td> */}
                                                         </tr>
                                                     )

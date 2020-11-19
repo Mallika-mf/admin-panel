@@ -2,7 +2,7 @@ import React, { Fragment,useState,useEffect } from 'react';
 import BreadCrumb from '../../layout/Breadcrumb'
 import {Home} from 'react-feather';
 import {Container,Row,Col,Card,CardHeader,Table,Button} from "reactstrap";
-import { Database, ShoppingBag, MessageCircle, User,UserPlus, Layers, ShoppingCart,  ArrowDown, Pocket, Monitor, Truck,BarChart,DollarSign,Percent,Headphones,Check,Trash} from 'react-feather';
+// import { Database, ShoppingBag, MessageCircle, User,UserPlus, Layers, ShoppingCart,  ArrowDown, Pocket, Monitor, Truck,BarChart,DollarSign,Percent,Headphones,Check,Trash} from 'react-feather';
 import app from '../../data/base'
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';  
 import jsPDF from 'jspdf';  
@@ -59,7 +59,7 @@ const AddonTable = () => {
             }
               fetchMyAPI()
 
-    },[app])
+    },[])
     const handleMessage = (event) => {
         if (event.data.action === 'receipt-loaded') {
           setIsLoading(false);
@@ -82,13 +82,13 @@ const AddonTable = () => {
         html2canvas(input)  
           .then((canvas) => {  
             var imgWidth = 200;  
-            var pageHeight = 290;  
+            // var pageHeight = 290;  
             var imgHeight = canvas.height * imgWidth / canvas.width;  
-            var heightLeft = imgHeight;  
+            // var heightLeft = imgHeight;  
             const imgData = canvas.toDataURL('image/png');  
             const pdf = new jsPDF('p', 'mm', 'a4')  
             var position = 0;  
-            var heightLeft = imgHeight;  
+            // var heightLeft = imgHeight;  
             pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);  
             pdf.save("Addons.pdf");  
           });  
@@ -105,7 +105,7 @@ const AddonTable = () => {
     
         
     
-        if(superadmin=="Yes"){
+        if(superadmin==="Yes"){
             Swal.fire({
                 title: "Are you sure?",
                 text: "Once deleted, you will not be able to recover it!",
@@ -197,7 +197,7 @@ const AddonTable = () => {
                                            <tr key={id}>
                                                <td>{id+1}</td>
                                                <td className="item_cityname">{item.Name}</td>
-                                               <td className="" style={{textAlign:"center", fontSize: "25px", fontWeight: "bold"}}><a href="#" className="details1"><button type="button" id={item.PushId} onClick={onClickDeleteHandler} className="btn btn-danger btn-md">Delete</button></a></td>';
+                                               <td className="" style={{textAlign:"center", fontSize: "25px", fontWeight: "bold"}}><button type="button" id={item.PushId} onClick={onClickDeleteHandler} className="btn btn-danger btn-md">Delete</button></td>
          
                                                {/* <td className="item_pushid" style={{display:"none"}}><textarea type="text" className="crop" rows="1" cols="30">{item.PushId}</textarea></td>'; */}
                                            </tr>

@@ -1,8 +1,8 @@
 import React, {useState,Fragment,useEffect } from 'react'
 import BreadCrumb from '../../layout/Breadcrumb'
 import {Home} from 'react-feather';
-import { Container, Row, Col, Card, CardBody, CardHeader, Button, Table, CardFooter } from 'reactstrap'
-import { Database, ShoppingBag, MessageCircle, User,UserPlus, Layers, ShoppingCart,  ArrowDown, Pocket, Monitor, Truck,BarChart,DollarSign,Percent,Headphones,Check,Trash,Save} from 'react-feather'
+import { Container, Row, Col, Card, CardBody, CardHeader, Table } from 'reactstrap'
+import {Save} from 'react-feather'
 import app from '../../data/base'
 import {BeatLoader}  from "react-spinners";
 import { css } from "@emotion/core";
@@ -26,9 +26,9 @@ const DisableDriver = () => {
             .child("Masters").child("City")
             .once('value', function(snapshot){
                 if(snapshot.exists()){
-                    var content = '';
-                    var sn;
-                    sn=0;
+                    // var content = '';
+                    // var sn;
+                    // sn=0;
                     snapshot.forEach(function(data){
                         var val = data.val();      
                         cpushid.push(val.PushId);   
@@ -99,13 +99,13 @@ const DisableDriver = () => {
                                     <tbody>
                                     {users.map((item,id)=>{
                                         var set=0;
-                                        if(item.AStatus=="Active")
+                                        if(item.AStatus==="Active")
                                         set="YES";
                                         else
                                         set="NO"; 
-                                        if(item.UserId==null || item.Name==null ||item.MobileNumber==null || item.City==null ){
+                                        if(item.UserId===null || item.Name===null ||item.MobileNumber===null || item.City===null ){
                                             if(item.Reason != null){
-                                                if(set=="YES"){
+                                                if(set==="YES"){
                                                         return(
                                                             <tr key={id}> 
                                                             <td>{id+1}</td>                                                                                                            
@@ -118,7 +118,7 @@ const DisableDriver = () => {
                                                                <option value="Active">{"Enabled"}</option>
                                                                <option value="InActive">{"Disabled"}</option>
                                                            </select>&nbsp;</td>
-                                                           <td className="actions" style={{textAlign:"center"}}><a href="#" className="update-row"><Save size={15}/></a></td>
+                                                           <td className="actions" style={{textAlign:"center"}}><Save size={15}/></td>
                                                          </tr> 
                                                         )
                                                         }else {
@@ -134,11 +134,11 @@ const DisableDriver = () => {
                                                                <option value="Active">{"Disabled"}</option>
                                                                <option value="InActive">{"Enabled"}</option>
                                                            </select>&nbsp;</td>
-                                                               <td className="actions" style={{textAlign:"center"}}><a href="#" className="update-row"><Save size={15}/></a></td>
+                                                               <td className="actions" style={{textAlign:"center"}}><Save size={15}/></td>
                                                              </tr> 
                                                             )
                                                         } }else{
-                                                            if(set=="YES"){
+                                                            if(set==="YES"){
                                                                 return(
                                                                     <tr key={id}> 
                                                                     <td>{id+1}</td>                                                                                                            
@@ -151,7 +151,7 @@ const DisableDriver = () => {
                                                                        <option value="Active">{"Enabled"}</option>
                                                                        <option value="InActive">{"Disabled"}</option>
                                                                    </select>&nbsp;</td>
-                                                                   <td className="actions" style={{textAlign:"center"}}><a href="#" className="update-row"><Save size={15}/></a></td>
+                                                                   <td className="actions" style={{textAlign:"center"}}><Save size={15}/></td>
                                                                  </tr> 
                                                                 )
                                                                 }else {
@@ -167,7 +167,7 @@ const DisableDriver = () => {
                                                                        <option value="Active">{"Disabled"}</option>
                                                                        <option value="InActive">{"Enabled"}</option>
                                                                    </select>&nbsp;</td>
-                                                                       <td className="actions" style={{textAlign:"center"}}><a href="#" className="update-row"><Save size={15}/></a></td>
+                                                                       <td className="actions" style={{textAlign:"center"}}><Save size={15}/></td>
                                                                      </tr> 
                                                                     )
                                                                 } 
@@ -176,7 +176,7 @@ const DisableDriver = () => {
                                                         
                                         }else{
                                         if(item.Reason != null){
-                                            if(set=="YES"){
+                                            if(set==="YES"){
                                                     return(
                                                         <tr key={id}> 
                                                         <td>{id+1}</td>                           
@@ -189,7 +189,7 @@ const DisableDriver = () => {
                                                            <option value="Active">{"Enabled"}</option>
                                                            <option value="InActive">{"Disabled"}</option>
                                                        </select>&nbsp;</td>
-                                                       <td className="actions" style={{textAlign:"center"}}><a href="#" className="update-row"><Save size={15}/></a></td>
+                                                       <td className="actions" style={{textAlign:"center"}}><Save size={15}/></td>
                                                      </tr> 
                                                     )
                                                     }else {
@@ -205,11 +205,11 @@ const DisableDriver = () => {
                                                            <option value="Active">{"Disabled"}</option>
                                                            <option value="InActive">{"Enabled"}</option>
                                                        </select>&nbsp;</td>
-                                                           <td className="actions" style={{textAlign:"center"}}><a href="#" className="update-row"><Save size={15}/></a></td>
+                                                           <td className="actions" style={{textAlign:"center"}}><Save size={15}/></td>
                                                          </tr> 
                                                         )
                                                     } }else{
-                                                        if(set=="YES"){
+                                                        if(set==="YES"){
                                                             return(
                                                                 <tr key={id}> 
                                                                 <td>{id+1}</td>        
@@ -223,7 +223,7 @@ const DisableDriver = () => {
                                                                    <option value="Active">{"Enabled"}</option>
                                                                    <option value="InActive">{"Disabled"}</option>
                                                                </select>&nbsp;</td>
-                                                               <td className="actions" style={{textAlign:"center"}}><a href="#" className="update-row"><Save size={15}/></a></td>
+                                                               <td className="actions" style={{textAlign:"center"}}><Save size={15}/></td>
                                                              </tr> 
                                                             )
                                                             }else {
@@ -240,7 +240,7 @@ const DisableDriver = () => {
                                                                    <option value="Active">{"Disabled"}</option>
                                                                    <option value="InActive">{"Enabled"}</option>
                                                                </select>&nbsp;</td>
-                                                                   <td className="actions" style={{textAlign:"center"}}><a href="#" className="update-row"><Save size={15}/></a></td>
+                                                                   <td className="actions" style={{textAlign:"center"}}><Save size={15}/></td>
                                                                  </tr> 
                                                                 )
                                                             } 

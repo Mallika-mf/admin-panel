@@ -1,10 +1,9 @@
 import React, { Fragment,useState,useEffect } from 'react';
 import BreadCrumb from '../../layout/Breadcrumb'
 import {Home} from 'react-feather';
-import {Container,Row,Col,Card,CardHeader,CardBody,Table,Form,FormGroup,Input,Button} from "reactstrap";
-import DatePicker from "react-datepicker";
-import {useHistory} from 'react-router-dom'
-import { Database, ShoppingBag, MessageCircle, User,UserPlus, Layers, ShoppingCart,  ArrowDown, Pocket, Monitor, Truck,BarChart,DollarSign,Percent,Headphones,Trash,Save} from 'react-feather';
+import {Container,Row,Col,Card,CardHeader,CardBody,Table,Input,Button} from "reactstrap";
+
+// import { Database, ShoppingBag, MessageCircle, User,UserPlus, Layers, ShoppingCart,  ArrowDown, Pocket, Monitor, Truck,BarChart,DollarSign,Percent,Headphones,Trash,Save} from 'react-feather';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
 import app from '../../data/base'
@@ -37,7 +36,7 @@ useEffect(()=>{
               });
               setSearchCity(content);
         });
-        var firebaseref1=app.database().ref().child("Masters").child("City");
+         firebaseref1=app.database().ref().child("Masters").child("City");
      firebaseref1.orderByChild("Status").equalTo("Active").once('value').then(function(snapshot) {
         
             var content = [];
@@ -67,7 +66,6 @@ useEffect(()=>{
         const onChangeZoneSelectHandler=(event)=>{
             console.log(event.target.value)
             setSelectZone(event.target.value)
-            var database = app.database();
         }
 
         const onChangeSlotTime=(event)=>{
@@ -84,31 +82,31 @@ useEffect(()=>{
 
         const onSubmit=(event)=>{
             event.preventDefault()
-            if(selectCity=="Select")
+            if(selectCity==="Select")
         {
             alert("Select City Name");
             return;
         }
 
-        if(selectZone=="Select")
+        if(selectZone==="Select")
         {
             alert("Select Zone Name");
             return;
         }
     
-        if(time==""){
+        if(time===""){
              alert('Enter Slot Date');
              return;
          }
 
-         if(selectSlot=="Select")
+         if(selectSlot==="Select")
          {
              alert("Select Slot");
              return;
          }
      
 
-         if(numberSlot==0){
+         if(numberSlot===0){
             alert('Enter Number of slots available');
             return;
         }
@@ -406,9 +404,7 @@ useEffect(()=>{
             }
                 
            
-    const handleChange = (event) => {
-       
-      };
+   
 
       
        return (
@@ -447,7 +443,7 @@ useEffect(()=>{
                         <Row className="form-group row">
                         <label className="col-form-label col-sm-2 text-sm-right">Select Date <span style={{color: "red"}}>*</span></label>
                         <div className="col-sm-8">
-                        <input type="date" className="form-control digits" value={time} onChange={onChangeTimeHandler} onChange={handleChange} />
+                        <input type="date" className="form-control digits" value={time} onChange={onChangeTimeHandler}  />
                         <div className="clearfix"></div>
                         </div>
                         </Row>
@@ -534,7 +530,6 @@ useEffect(()=>{
                                     <tbody>
                                         {
                                             dataBySlot.map((item,id)=>{                                              
-                                                 var set=0;
                                                  return(
                                                     <tr key={id}>
                                                         <td>{item.sn}</td>

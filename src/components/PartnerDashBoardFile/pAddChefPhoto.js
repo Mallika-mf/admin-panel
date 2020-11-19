@@ -1,14 +1,14 @@
 import React, { Fragment,useEffect,useState } from 'react';
 import BreadCrumb from '../../layout/Breadcrumb'
 import {Home} from 'react-feather';
-import {Container,Row,Col,Card,CardHeader,CardBody,Table} from "reactstrap";
+import {Container,Row,Col,CardHeader,CardBody} from "reactstrap";
 import app,{storage}from '../../data/base'
 
 const PAddChefPhoto = () => {
     const [imageAsFile, setImageAsFile] = useState('')
     const [name,setName] = useState("")
     const [imageAsUrl, setImageAsUrl] = useState({imgUrl:""})
-    const [Cid,setCid] = useState([])
+    // const [Cid,setCid] = useState([])
     useEffect(() => {
         async function  fileAsSave(){
         var cid=[]
@@ -21,12 +21,12 @@ const PAddChefPhoto = () => {
         //     $("#city").autocomplete({
         //         source: cid
         //       });
-              setCid(cid)
+            //   setCid(cid)
         });
     }
     fileAsSave()
         
-    }, [app])
+    }, [])
     console.log(imageAsFile)
     const onChangeHandler=(event)=>{
      setName(event.target.value)
@@ -39,16 +39,16 @@ const PAddChefPhoto = () => {
  
      const onSubmitHandler=(event)=>{
          event.preventDefault()
-         if(imageAsFile==''){
+         if(imageAsFile===''){
             alert("Add Passport Size photo");
             return;
         }
-         if(name==""){
+         if(name===""){
             alert('Enter Chef Id');
             return;
         }
 
-        if(imageAsUrl==''){
+        if(imageAsUrl===''){
             alert('Wait for the Image to Upload');
             return;
         }
