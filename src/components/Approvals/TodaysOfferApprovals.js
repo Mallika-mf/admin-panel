@@ -311,7 +311,7 @@ const TodayOfferApprovals = () => {
                                         <th>Preorder Start Date</th>
                                         <th>Preorder End Date</th>
                                         <th>Settlement</th>
-                                        <th>Comment</th>
+                                        <th>Remarks</th>
                                             <th>Save</th>
                                         <th>Actions</th>
 

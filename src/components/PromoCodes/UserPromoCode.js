@@ -401,7 +401,7 @@ const DeleteHandler=(event)=>{
 
                                                     <div className="form-group row">
                                                         <div className="form-group col-md-4">
-                                                            <label className="form-label">Minimum Amount <span style={{color: "red"}}>*</span></label>
+                                                            <label className="form-label">Minimum Order Value <span style={{color: "red"}}>*</span></label>
                                                             <input type="number" id="t5" value={promoCodeValid} onChange={validPromoCodeChangeHandler} className="form-control" placeholder="Enter Minimum Amount Required for Promocode to be Valid"/>
                                                             <div className="clearfix"></div>
                                                         </div>
@@ -411,7 +411,7 @@ const DeleteHandler=(event)=>{
 
                                                     <div className="form-group row">
                                                         <div className="form-group col-md-4">
-                                                            <label className="form-label">Maximum Amount <span style={{color: "red"}}>*</span></label>
+                                                            <label className="form-label">Maximum Discount <span style={{color: "red"}}>*</span></label>
                                                             <input type="number" id="t6" value={promoCodeRedeem} onChange={redeemPromoCodeChangeHandler} className="form-control" placeholder="Enter Maximum Discount Amount  for Promocode to be Redeemed"/>
                                                             <div className="clearfix"></div>
                                                         </div>

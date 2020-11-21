@@ -247,6 +247,7 @@ const RefundOrderTable = () => {
                                             <th>Payment</th>
                                             <th>Actions</th>
                                             <th>Payment Id</th>
+                                            {/* <th>Refund Date</th> */}
                                             <th>Order Details</th>
 
                                         </tr>

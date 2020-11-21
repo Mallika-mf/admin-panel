@@ -79,13 +79,15 @@ const Banner = () => {
               
               <div class="form-group row">
               <label class="col-form-label col-sm-2 text-sm-right">Banner Number</label>
-             <div class="col-sm-10">
+             <div class="col-sm-4">
               <select id="banner" value={name} onChange={onChangeHandler} class="form-control">
             <option value="Select">Select</option>
             <option value="Baner1">Baner1</option>
             <option value="Baner2">Baner2</option>
             <option value="Baner3">Baner3</option>
             <option value="Baner4">Baner4</option>
+            <option value="Baner5">Baner5</option>
+            <option value="Baner6">Baner6</option>
                         </select>
                          <div class="clearfix"></div>
                           </div>

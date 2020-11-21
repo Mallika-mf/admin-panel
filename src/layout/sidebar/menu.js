@@ -134,7 +134,7 @@ import {
            ]
         },
 
-          {title: 'User Management',icon:User, type: 'link',active: false, path: `${process.env.PUBLIC_URL}/documentManagement/user-management`},
+          // {title: 'User Management',icon:User, type: 'link',active: false, path: `${process.env.PUBLIC_URL}/documentManagement/user-management`},
         
     
     // {
@@ -680,13 +680,13 @@ var roleSession = window.sessionStorage.getItem('superadmin')
             }
             newData[newData.length -1].children.push(food12)
           }
-          if(userLocal.includes("usermanagement")) {
-            const usermanagement =   {
-              title: ' User Management', icon: User, type: 'link', badgeType: 'primary',path: `${process.env.PUBLIC_URL}/documentManagement/user-management`
+          // if(userLocal.includes("usermanagement")) {
+          //   const usermanagement =   {
+          //     title: ' User Management', icon: User, type: 'link', badgeType: 'primary',path: `${process.env.PUBLIC_URL}/documentManagement/user-management`
   
-            }
-            newData.push(usermanagement)
-          }
+          //   }
+          //   newData.push(usermanagement)
+          // }
           if(userLocal.includes("corporate")) {
             const corporate =   {
                 title: 'Corporate Orders', icon: ShoppingCart, type: 'sub', active: false, children: []
@@ -1352,13 +1352,13 @@ var roleSession = window.sessionStorage.getItem('superadmin')
                 }
                 newData[newData.length -1].children.push(food12)
               }
-              if(userSession.includes("usermanagement")) {
-                const usermanagement =   {
-                  title: ' User Management', icon: User, type: 'link', badgeType: 'primary',path: `${process.env.PUBLIC_URL}/documentManagement/user-management`
+              // if(userSession.includes("usermanagement")) {
+              //   const usermanagement =   {
+              //     title: ' User Management', icon: User, type: 'link', badgeType: 'primary',path: `${process.env.PUBLIC_URL}/documentManagement/user-management`
       
-                }
-                newData.push(usermanagement)
-              }
+              //   }
+              //   newData.push(usermanagement)
+              // }
               if(userSession.includes("corporate")) {
                 const corporate =   {
                     title: 'Corporate Orders', icon: ShoppingCart, type: 'sub', active: false, children: []

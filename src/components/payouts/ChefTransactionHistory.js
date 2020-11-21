@@ -180,7 +180,7 @@ const ChefTransactionHistory = () => {
         <Row>
           <Col sm="12">
             <CardHeader>
-              <h6> Chef Transaction History</h6>
+              <h6> Vendor Transaction History</h6>
               {/* <span> Use a className <code> table </code> to any table.</span> */}
             </CardHeader>
           </Col>
@@ -221,12 +221,12 @@ const ChefTransactionHistory = () => {
                 <TableHead >
                   <TableRow>
                     <TableCell scop="col">SL.NO</TableCell>
-                    <TableCell scop="col">Chef Id</TableCell>
+                    <TableCell scop="col">Vendor Id</TableCell>
                     <TableCell scop="col">Vendor Name</TableCell>
-                    <TableCell scop="col">Transaction Date</TableCell>
-                    <TableCell scop="col"> Transaction Name		</TableCell>
+                    <TableCell scop="col">Txn Date</TableCell>
+                    <TableCell scop="col"> Txn Status		</TableCell>
                     <TableCell scop="col" >Status </TableCell>
-                    <TableCell scop="col"> Transaction Type	</TableCell>
+                    {/* <TableCell scop="col"> Transaction Type	</TableCell> */}
                     <TableCell scop="col"> Bank Transaction Id	</TableCell>
 
                   </TableRow>
@@ -242,7 +242,7 @@ const ChefTransactionHistory = () => {
                         <TableCell>{item.Date}</TableCell>
                         <TableCell>{item.TransactionName}</TableCell>
                         <TableCell>{item.Status}</TableCell>
-                        <TableCell>{item.TransactionType}</TableCell>
+                        {/* <TableCell>{item.TransactionType}</TableCell> */}
                         <TableCell>{item.Cms}</TableCell>
 
 
