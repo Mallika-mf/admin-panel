@@ -199,7 +199,8 @@ const DeliveredOrderTable = () => {
                 return items;
                 }
                 else{
-                return items.filter(x =>x.OrderNo.includes(target.value))
+                return items.filter(x =>(x.OrderNo.includes(target.value))||(x.Number.includes(target.value))
+                || (x.ChefName.includes(target.value))|| (x.Chef.includes(target.value)) || (x.CName.includes(target.value)))
 
                 }
             }
@@ -265,7 +266,7 @@ const DeliveredOrderTable = () => {
                 <div className="col-md-5" style={{margin: "1%"}}>
                     <div className="form-group col-md-6">
                     <label className="form-label">Search </label>
-                    <Input type="text" onKeyUp={myFunction}  required="" id = "search1" className="form-control" placeholder="Search for Name, Number..."/>
+                    <Input type="text"   placeholder="Search for Name, Number, OrderId..." onChange={handleSearch}  required=""  className="form-control"  />
                     <div className="clearfix"></div>
                     </div>
                 </div>
@@ -342,7 +343,7 @@ const DeliveredOrderTable = () => {
                                                          )
                                                 
                                               
-                                        })}
+                                })}
                             
                                     </tbody>
                                 </Table>

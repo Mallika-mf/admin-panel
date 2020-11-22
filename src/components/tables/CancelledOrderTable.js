@@ -345,8 +345,7 @@ const CancelledOrderTable = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    { searchValue.filter(orders =>
-                                            orders.OrderNo.includes(searchTerm)).map((item,id) => {
+                                    { searchValue.map((item,id) => {
                                                 
                                     return(
                                         <tr  key={id}>

@@ -166,8 +166,8 @@ const Hospital = (props) => {
                 var wallet=0;
                 snapshot.forEach(function(data){
                     var val = data.val();
-                    if(val.Wallet!=null)
-                    wallet=wallet + +parseFloat(val.Wallet);
+                    if(val.WalletInsta!=null)
+                    wallet=wallet + +parseFloat(val.WalletInsta);
                 }); 
               setUser10("₹"+parseFloat(wallet).toFixed(2));
             }   

@@ -70,7 +70,7 @@ const Reports = (props) => {
                       <div className="media-body">
                         <div className="hospital-content">
                           {/* <h3 className="d-inline-block f-w-600">0</h3><span className="badge flat-badge-primary m-l-10">OPD</span> */}
-                          <h6 className="m-t-5 mb-0 f-w-600">Chef Reports</h6>
+                          <h6 className="m-t-5 mb-0 f-w-600">Vendor Reports</h6>
                         </div>
                         <div className="flowers">
                           <div className="flower1 flower-primary"></div>

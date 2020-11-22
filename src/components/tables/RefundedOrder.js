@@ -182,7 +182,8 @@ const RefundOrderTable = () => {
                 return items;
                 }
                 else{
-                return items.filter(x =>x.OrderNo.includes(target.value))
+                return items.filter(x =>(x.OrderNo.includes(target.value))||(x.Number.includes(target.value))
+                || (x.ChefName.includes(target.value))|| (x.Chef.includes(target.value)) || (x.ChefNumber.includes(target.value)) || (x.CName.includes(target.value)))
 
                 }
             }
@@ -206,7 +207,7 @@ const RefundOrderTable = () => {
                 <div className="col-md-5" style={{margin: "1%"}}>
                     <div className="form-group col-md-9">
                     <label className="form-label">Search <span style={{color:"red"}}>*</span></label>
-                    <Input type="text"   placeholder="Search for Order ID" onChange={handleSearch}  required=""  className="form-control"  />
+                    <Input type="text"   placeholder="Search for Name, Number, OrderId..." onChange={handleSearch}  required=""  className="form-control"  />
                     <div className="clearfix"></div>
                     </div>
                  </div>

@@ -2868,7 +2868,7 @@ const ChefReport = () => {
                 <Col sm="12">
                   <Card>
                     <CardHeader>
-                      <h6> Chef Data</h6>
+                      <h6> Vendor Data</h6>
                       {/* <span> Use a class <code> table </code> to any table.</span> */}
                     </CardHeader>
                     <CardBody>

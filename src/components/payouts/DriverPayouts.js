@@ -395,8 +395,8 @@ const DriverPayouts = () => {
     }
 
     const myFunction = () => {
-        var input, filter, table, tr, td1,td2,td3,td4,td5,td6,td7,td8;
-        var i,txtValue1,txtValue2,txtValue3,txtValue4,txtValue5,txtValue6,txtValue7,txtValue8;
+        var input, filter, table, tr, td1,td2,td3,td4,td5,td6;
+        var i,txtValue1,txtValue2,txtValue3,txtValue4,txtValue5,txtValue6;
         input = document.getElementById("search1");
         filter = input.value.toUpperCase();
         table = document.getElementById("datatable");
@@ -408,8 +408,6 @@ const DriverPayouts = () => {
         td4 = tr[i].getElementsByTagName("td")[4];
         td5 = tr[i].getElementsByTagName("td")[5];
         td6 = tr[i].getElementsByTagName("td")[6];
-        td7 = tr[i].getElementsByTagName("td")[7];
-        td8 = tr[i].getElementsByTagName("td")[8];
         if (td1) {
           txtValue1 = td1.textContent || td1.innerText;
           txtValue2 = td2.textContent || td2.innerText;
@@ -417,10 +415,8 @@ const DriverPayouts = () => {
           txtValue4 = td4.textContent || td4.innerText;
           txtValue5 = td5.textContent || td5.innerText;
           txtValue6 = td6.textContent || td6.innerText;
-          txtValue7 = td7.textContent || td7.innerText;
-          txtValue8 = td8.textContent || td8.innerText;
         
-         var main = txtValue1+ txtValue2+txtValue3+txtValue4+txtValue5+txtValue6+txtValue7+txtValue8;
+         var main = txtValue1+ txtValue2+txtValue3+txtValue4+txtValue5+txtValue6;
            if (main.toUpperCase().indexOf(filter) > -1) {
             tr[i].style.display = "";
           } else {
@@ -448,7 +444,7 @@ const DriverPayouts = () => {
                         </div>
                     </div>
                         <div className="table-responsive">
-                                <Table>
+                                <Table id = "datatable">
                                     <thead>
                                         <tr>
                                             <th scope="col">SL.NO</th>
