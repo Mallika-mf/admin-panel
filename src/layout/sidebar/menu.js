@@ -154,6 +154,7 @@ import {
             { path: `${process.env.PUBLIC_URL}/setting/DisabledDrivers`, title: 'Disbles Drivers', type: 'link' },
             { path: `${process.env.PUBLIC_URL}/setting/user-mf-cash`, title: 'Mf Cash', type: 'link' },
             { path: `${process.env.PUBLIC_URL}/setting/my-cash`, title: 'My Cash', type: 'link' },
+            { path: `${process.env.PUBLIC_URL}/setting/partial-refund`, title: 'Partial Refund Amount', type: 'link' },
 
         ]
     },

@@ -350,6 +350,7 @@ import PartnerResigtrationReport from '../components/PromoCodes/PartnerResigtrat
 
 import ViewDetails from '../components/View Details/viewDetail'
 import Chat1 from '../components/Chat/chat'
+import PartialRefund from '../components/Settings/partialRefund'
 
 
 export const routes = [
@@ -450,6 +451,7 @@ export const routes = [
   { path: "/setting/DisabledDrivers",Component: DisabledDrivers},
   { path: "/setting/user-mf-cash",Component: UserMfCash},
   { path: "/setting/my-cash",Component: MyCash},
+  { path: "/setting/partial-refund",Component: PartialRefund},
 
 
 
