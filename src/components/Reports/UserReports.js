@@ -404,11 +404,11 @@ const recordsAfterPagingAndSorting = () => {
                                         <tr>
                                             <th scope="col">SL.NO</th>
                                             <th scope="col"> Name </th>
-                                            <th scope="col">User Name	</th>
-                                            <th scope="col"> Email	</th>
-                                            <th scope="col">  Number</th>
-                                            <th scope="col"> Joining Date	</th>
-                                            <th scope="col"> Role	</th>
+                                            <th scope="col">User ID	</th>
+                                            <th scope="col"> Email ID	</th>
+                                            <th scope="col">Contact No</th>
+                                            <th scope="col"> Registered	</th>
+                                            {/* <th scope="col"> Role	</th> */}
                                             <th scope="col"> Status	</th>
                                             <th scope="col"> MF Cash	</th>
 
@@ -425,7 +425,7 @@ const recordsAfterPagingAndSorting = () => {
                                                        <td className="">{item.Email}</td>
                                                        <td className="">{item.Number}</td>
                                                        <td className="">{item.JoiningDate}</td>
-                                                       <td className="">{item.Role}</td>
+                                                       {/* <td className="">{item.Role}</td> */}
                                                        {/* <td>{item.Reason}</td> */}
                                                        <td className="">{item.Status}</td>
                                                        <td className="">{item.Wallet}</td>

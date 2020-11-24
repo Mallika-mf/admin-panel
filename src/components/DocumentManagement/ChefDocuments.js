@@ -17,7 +17,7 @@ const override = css`
   border-color: red;
 `;
 const ChefDocuments = () => {
-    const pages = [10, 30, 100,200]
+    const pages = [10, 30, 100,200, 500]
     const [page, setPage] = useState(0)
     const [rowsPerPage, setRowsPerPage] = useState(pages[page])
     const [filterfn, setFilterFn] = useState({ fn: items => { return items; } })
@@ -131,8 +131,44 @@ const ChefDocuments = () => {
         })
     }
     const recordsAfterPagingAndSorting = () => {
-        return filterfn.fn(users).slice(page * rowsPerPage, (page + 1) * rowsPerPage)
+        return filterfn.fn(users.reverse()).slice(page * rowsPerPage, (page + 1) * rowsPerPage)
     }
+
+    const myFunction = () => {
+        var input, filter, table, tr, td1,td2,td3,td4,td5,td6,td7,td8;
+        var i,txtValue1,txtValue2,txtValue3,txtValue4,txtValue5,txtValue6,txtValue7,txtValue8;
+        input = document.getElementById("search1");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("datatable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+        td1 = tr[i].getElementsByTagName("td")[1];
+        td2 = tr[i].getElementsByTagName("td")[2];
+        td3 = tr[i].getElementsByTagName("td")[3];
+        td4 = tr[i].getElementsByTagName("td")[4];
+        td5 = tr[i].getElementsByTagName("td")[5];
+        td6 = tr[i].getElementsByTagName("td")[6];
+        td7 = tr[i].getElementsByTagName("td")[7];
+        td8 = tr[i].getElementsByTagName("td")[8];
+        if (td1) {
+          txtValue1 = td1.textContent || td1.innerText;
+          txtValue2 = td2.textContent || td2.innerText;
+          txtValue3 = td3.textContent || td3.innerText;
+          txtValue4 = td4.textContent || td4.innerText;
+          txtValue5 = td5.textContent || td5.innerText;
+          txtValue6 = td6.textContent || td6.innerText;
+          txtValue7 = td7.textContent || td7.innerText;
+          txtValue8 = td8.textContent || td8.innerText;
+        
+         var main = txtValue1+ txtValue2+txtValue3+txtValue4+txtValue5+txtValue6+txtValue7+txtValue8;
+           if (main.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }       
+      }
+      } 
     return (
         <Fragment>
             <BreadCrumb parent={<Home />} subparent="Document Manager" title="Chef Documents" />
@@ -140,7 +176,7 @@ const ChefDocuments = () => {
                 <Row>
                     <Col sm="12">
                         <CardHeader>
-                            <h6>Chef Documents</h6>
+                            <h6>Vendor Documents</h6>
                             {/* <span> Use a class <code> table </code> to any table.</span> */}
                         </CardHeader>
                     </Col>
@@ -148,7 +184,7 @@ const ChefDocuments = () => {
                     <div className="col-md-5" style={{ margin: "1%" }}>
                         <div className="form-group col-md-9">
                             <label className="form-label">Search </label>
-                            <Input type="text" placeholder="Search..." onChange={handleSearch} required="" className="form-control" />
+                            <input type="text" onKeyUp={myFunction}  required="" id = "search1" className="form-control" placeholder="Search..."/>
                             <div className="clearfix"></div>
                         </div>
                     </div>
@@ -179,8 +215,9 @@ const ChefDocuments = () => {
                                     <thead>
                                         <tr>
                                             <th scope="col">SL.NO</th>
-                                            <th scope="col">Chef ID</th>
-                                            <th scope="col">Chef Name</th>
+                                            <th scope="col">Vendor ID</th>
+                                            <th scope="col">Vendor Name</th>
+                                            <th scope="col">Contact</th>
                                             <th scope="col">Status</th>
                                             <th scope="col">Passport Photo</th>
                                             <th scope="col">Adhar Card</th>
@@ -198,7 +235,11 @@ const ChefDocuments = () => {
                                                     <td>{id + 1}</td>
                                                     <td className="item_userid">{item.UserId}</td>
                                                     <td className="item_locality">{item.Name}</td>
-                                                    <td>{item.AStatus}</td>
+                                                    <td className="item_locality">{item.Number}</td>
+                                                    {item.AStatus === "Active"?
+                                                    <td style = {{color: "green"}}>{item.AStatus}</td>:
+                                                    <td style = {{color: "red"}}>{item.AStatus}</td> 
+                                                    }
                                                     {item.Doc1 === "" ?
                                                         <td>Not Uploaded</td> :
                                                         <td><a href={item.Doc1} target="_blank" rel="noopener noreferrer">{"View"}</a></td>

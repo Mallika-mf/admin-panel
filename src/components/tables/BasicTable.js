@@ -231,6 +231,46 @@ const changeStatusHandler = (event)=>{
             pdf.save("NewOrder.pdf");  
           });  
       }  
+
+      const myFunction = () => {
+        var input, filter, table, tr, td1,td2,td3,td4,td5,td6,td7,td8,td9,td10;
+        var i,txtValue1,txtValue2,txtValue3,txtValue4,txtValue5,txtValue6,txtValue7,txtValue8,txtValue9,txtValue10;
+        input = document.getElementById("search1");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("datatable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+        td1 = tr[i].getElementsByTagName("td")[1];
+        td2 = tr[i].getElementsByTagName("td")[2];
+        td3 = tr[i].getElementsByTagName("td")[3];
+        td4 = tr[i].getElementsByTagName("td")[4];
+        td5 = tr[i].getElementsByTagName("td")[5];
+        td6 = tr[i].getElementsByTagName("td")[6];
+        td7 = tr[i].getElementsByTagName("td")[7];
+        td8 = tr[i].getElementsByTagName("td")[8];
+        td9 = tr[i].getElementsByTagName("td")[9];
+        td10 = tr[i].getElementsByTagName("td")[10];
+        if (td1) {
+          txtValue1 = td1.textContent || td1.innerText;
+          txtValue2 = td2.textContent || td2.innerText;
+          txtValue3 = td3.textContent || td3.innerText;
+          txtValue4 = td4.textContent || td4.innerText;
+          txtValue5 = td5.textContent || td5.innerText;
+          txtValue6 = td6.textContent || td6.innerText;
+          txtValue7 = td7.textContent || td7.innerText;
+          txtValue8 = td8.textContent || td8.innerText;
+          txtValue9 = td9.textContent || td9.innerText;
+          txtValue10 = td10.textContent || td10.innerText;
+        
+         var main = txtValue1+ txtValue2+txtValue3+txtValue4+txtValue5+txtValue6+txtValue7+txtValue8+txtValue9+txtValue10;
+           if (main.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }       
+      }
+      }
     
       
     return (
@@ -247,7 +287,8 @@ const changeStatusHandler = (event)=>{
                 <div className="col-md-5" style={{margin: "1%"}}>
                     <div className="form-group col-md-8">
                          <label className="form-label">Search </label>
-                             <input type="number"  value={searchTerm} onChange={onChangeHandler}  required="" className="form-control" placeholder="Search for Order ID" title="Type in a name"/>
+                             {/* <input type="number"  value={searchTerm} onChange={onChangeHandler}  required="" className="form-control" placeholder="Search for Order ID" title="Type in a name"/> */}
+                             <input type="text" onKeyUp={myFunction}  required="" id = "search1" className="form-control" placeholder="Search for Name, Number..."/>
                              <div className="clearfix"></div>
                         </div>
                     </div>

@@ -20,7 +20,9 @@ constructor( props ){
    markerPosition: {
     lat: this.props.center.lat,
     lng: this.props.center.lng
-}
+},
+
+
   }
  }
 /**

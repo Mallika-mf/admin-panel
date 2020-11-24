@@ -10,6 +10,7 @@ const MyCash = (props) => {
     const [cID,setCid] = useState([])
     const [cNO,setCno] = useState([])
     const [balanced,setBalance] = useState([])
+    const [username,setUsername] = useState([])
     const [cash,setCash] = useState("")
     const [password,setPassword] = useState([])
     // const [name,setName] = useState([])
@@ -58,6 +59,7 @@ const onChangeIdHandler=(event)=>{
 const onChangeSearchHandler=(event)=>{
     // var sname=document.getElementById("sname");
     var balance=document.getElementById('balance');
+    var username=document.getElementById('username');
 
     var temp=-1;
     for(var i=0;i<cNO.length;i++){
@@ -74,7 +76,9 @@ const onChangeSearchHandler=(event)=>{
     window.uid = cID[temp]
     console.log(cID[temp])
     window.amount=balanced[temp];
+    // window.username=username[temp];
     balance.innerHTML="My Cash Balance : "+balanced[temp];
+    // username.innerHTML=username[temp];
 }
 const onChangedescription=(event)=>{
     setDesc(event.target.value)
@@ -231,6 +235,7 @@ const onSubmit=(event)=>{
                         <div className="col-lg-6 col-md-5 col-sm-5">
                      <Input type="text" className="form-control" id="sname" value={sname} onChange={onChangeIdHandler}  autoComplete={cNO} placeholder="User Number"/>
                         <p style={{color:"red",margin: "1%"}} id="balance">User Cash Balance : </p>
+                        {/* <p style={{color:"red",margin: "1%"}} id="username">User Name : </p> */}
                          </div>
                         <div className="col-sm-1 col-md-2">
                         <span id="search" onClick={onChangeSearchHandler}><img src="https://img.icons8.com/ios-filled/24/000000/search.png" alt="search engine"/></span>

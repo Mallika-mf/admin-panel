@@ -9,8 +9,149 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
 import logo from '../../assets/logo.png'
 
-const PageInvoicePrint = () => {
+class PageInvoicePrint extends React.Component {
 
+    componentDidMount() {
+        
+var sname=document.getElementById("sname");
+var name=document.getElementById("name");
+var age=document.getElementById("age");
+var gender=document.getElementById("gender");
+var email=document.getElementById("email");
+var mobilenumber=document.getElementById("mobilenumber");
+var anumber=document.getElementById("anumber");
+var address=document.getElementById("address");
+var city = document.getElementById("city");
+var zone=document.getElementById("zone");
+var locality=document.getElementById("locality");
+var state=document.getElementById("state");
+var zipcode=document.getElementById("zipcode");
+var special=document.getElementById("special");
+var otime=document.getElementById("otime");
+var ctime=document.getElementById("ctime");
+var referencename1=document.getElementById("referencename1");
+var referenceaddress1=document.getElementById("referenceaddress1");
+var referencenumber1=document.getElementById("referencenumber1");
+var referencename2=document.getElementById("referencename2");
+var referenceaddress2=document.getElementById("referenceaddress2");
+var referencenumber2=document.getElementById("referencenumber2");
+var accountname=document.getElementById("accountname");
+var accountnumber=document.getElementById("accountnumber");
+var ifsccode=document.getElementById("ifsccode");
+var branchname=document.getElementById("branchname");
+var branchaddress=document.getElementById("branchaddress");
+var remarks=document.getElementById("remarks");
+var membership=document.getElementById("membership");
+var samount=document.getElementById("samount");
+var sdate=document.getElementById("sdate");
+var edate=document.getElementById("edate");
+var commision=document.getElementById("commision");
+var referral=document.getElementById("referral");
+var desc=document.getElementById("desc");
+var brand=document.getElementById("brand");
+var agency = document.getElementById('agency');
+var agency1 = document.getElementById('agency1');
+var aratings = document.getElementById('aratings');
+var areview = document.getElementById('areview');
+var veg = document.getElementById('veg');
+var catering = document.getElementById('catering');
+var kname = document.getElementById('kname');
+var father = document.getElementById('father');
+
+sname.value = sessionStorage.getItem("ID"); 
+
+var firebaseref=app.database().ref().child("CloudKitchen").child(sname.value);
+return firebaseref.once('value').then(function(snapshot) {
+    if(snapshot.exists()){
+    name.value= snapshot.val().Name;
+    // kitchenname.value= snapshot.val().KitchenName;
+    age.value= snapshot.val().Age;
+    if(snapshot.val().Gender!=null&&snapshot.val().Gender!="")
+        gender.value= snapshot.val().Gender;
+    email.value= snapshot.val().Email;
+    mobilenumber.value= snapshot.val().MobileNumber;
+    anumber.value= snapshot.val().AlternateNumber;
+    address.value= snapshot.val().Address;
+    city.value = snapshot.val().CityName;
+    zone.value = snapshot.val().ZoneName;
+    locality.value = snapshot.val().LocalityName;
+
+
+        if(snapshot.val().Franchise!= undefined &&snapshot.val().Franchise!=""){
+            agency1.value= snapshot.val().Franchise;
+        }
+        else {
+            agency1.value = ""
+        }
+   
+        if(snapshot.val().State!=null&&snapshot.val().State!="")
+            state.value= snapshot.val().State;
+    zipcode.value= snapshot.val().Zipcode;
+    special.value= snapshot.val().Special;
+    otime.value= snapshot.val().Open;
+    ctime.value= snapshot.val().Close;
+    desc.value= snapshot.val().Details;
+    brand.value= snapshot.val().Brand;
+    referencename1.value= snapshot.val().ReferenceName1;
+    referenceaddress1.value= snapshot.val().ReferenceAddress1;
+    referencenumber1.value= snapshot.val().ReferenceNumber1;
+    referencename2.value= snapshot.val().ReferenceName2;
+    referenceaddress2.value= snapshot.val().ReferenceAddress2;
+    referencenumber2.value= snapshot.val().ReferenceNumber2;
+    accountname.value= snapshot.val().AccountName;
+    accountnumber.value= snapshot.val().AccountNumber;
+    ifsccode.value= snapshot.val().IFSC;
+    branchname.value= snapshot.val().BranchName;
+    branchaddress.value= snapshot.val().BranchAddress;
+    remarks.value= snapshot.val().Remarks;
+    if(snapshot.val().Membership!=null&&snapshot.val().Membership!="")
+        membership.value= snapshot.val().Membership;
+    referral.value= snapshot.val().Referral;
+    aratings.value= snapshot.val().ARatings;
+    areview.value= snapshot.val().AReviews;
+
+    if(snapshot.val().KitchenName!=null&&snapshot.val().KitchenName!="")
+         kname.value = snapshot.val().KitchenName;
+    if(snapshot.val().FatherName!=null&&snapshot.val().FatherName!="")
+        father.value = snapshot.val().FatherName;
+
+    if(snapshot.val().Veg=="Yes"){
+        veg.checked=true;
+    }
+    else{
+        veg.checked=false;
+    }
+
+    if(snapshot.val().Catering=="Yes"){
+        catering.checked=true;
+    }
+    else{
+        catering.checked=false;
+    }
+
+
+
+    var a=snapshot.val().Location.split(",");
+    window.lat=a[0];
+    window.long=a[1];
+        samount.value= snapshot.val().SAmount;
+        sdate.value= snapshot.val().SDate;
+        edate.value= snapshot.val().EDate;
+        commision.value= snapshot.val().Commision;
+        document.getElementById('subscription').style.display="flex";
+        document.getElementById('commission').style.display="flex";
+
+        if(snapshot.val().PP!=""){
+            document.getElementById('photoimage').src=snapshot.val().PP;
+        }
+}
+setTimeout(function() {
+    window.print();
+    }, 3000)
+})
+    
+}
+render() {
 return(
     <div>
     <div className="invoice-print p-5">
@@ -82,7 +223,7 @@ return(
                         <div className="form-group col-md-4">
                             <label className="form-label">Gender <span style={{color: "red"}}>*</span></label>
                             {/* <!-- <p id = "gender">35</p> --> */}
-                            <input type="text" id="gender" className="form-control" placeholder="Kitchen Name"/>
+                            <input type="text" id="gender" className="form-control" placeholder=""/>
                            {/* <!-- <select className="form-control" id="gender">
                                <option value="Select">Select</option>
                                <option value="Male">Male</option>
@@ -110,7 +251,7 @@ return(
 
                         <div className="form-group col-md-6">
                             <label className="form-label">Alternate Mobile Number/Emergency Number</label>
-                            <input type="number" id="anumber" className="form-control" placeholder="Mobile Number"/>
+                            <input type="number" id="anumber" className="form-control" placeholder=""/>
                             <div className="clearfix"></div>
                         </div>
                        
@@ -125,26 +266,17 @@ return(
                    <div className="form-row">
                     <div className="form-group col-md-4">
                         <label className="form-label">City <span style={{color: "red"}}>*</span></label>
-                        <input type="text" id="city1" className="form-control"/>
-                        <select id="city" className="form-control" style={{display: "none"}}>
-                            <option value="Select">Select</option>
-                            </select>
+                        <input type="text" id="city" className="form-control" placeholder=""/>
                          <div className="clearfix"></div>
                     </div>
                     <div className="form-group col-md-4">
                         <label className="form-label">Zone <span style={{color: "red"}}>*</span></label>
-                        <input type="text" id="locality1" className="form-control"/>
-                        <select id="locality" className="form-control" style={{display: "none"}}>
-                            <option value="Select">Select</option>
-                            </select>
+                        <input type="text" id="zone" className="form-control" placeholder=""/>
                          <div className="clearfix"></div>
                     </div>
                     <div className="form-group col-md-4">
                         <label className="form-label">Locality <span style={{color: "red"}}>*</span></label>
-                        <input type="text" id="sublocality1" className="form-control"/>
-                        <select id="sublocality" className="form-control" style={{display: "none"}}>
-                            <option value="Select">Select</option>
-                            </select>
+                        <input type="text" id="locality" className="form-control" placeholder=""/>
                          <div className="clearfix"></div>
                     </div>
                         <div className="form-group col-md-4">
@@ -432,5 +564,6 @@ return(
     </div>
     
 )
+                        }
 }
 export default PageInvoicePrint

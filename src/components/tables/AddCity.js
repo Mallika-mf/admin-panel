@@ -385,9 +385,9 @@ if(state.maximum==""){
                 
 
                 <Row className="form-group row">
-                <label className="col-form-label col-sm-2 text-sm-right">Restaurant Commision (in %) <span style={{color: "red"}}>*</span></label>
+                <label className="col-form-label col-sm-2 text-sm-right">Vendor Commision (in %) <span style={{color: "red"}}>*</span></label>
                 <div className="col-sm-8">
-                <input type="number" className="form-control" name="commision" placeholder="Restaurant Commison" value={state.commision} onChange={onChangeHandler}/>
+                <input type="number" className="form-control" name="commision" placeholder="Vendor Commison" value={state.commision} onChange={onChangeHandler}/>
                 <div className="clearfix"></div>
                 </div>
                 </Row>

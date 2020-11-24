@@ -83,7 +83,7 @@ useEffect(()=>{
     window.colorCodes = {userId: sname}
 
     sessionStorage.setItem("ID", sname);  
-    history.push(`${process.env.PUBLIC_URL}/reports/page-invoice`);
+    window.open(`${process.env.PUBLIC_URL}/reports/page-invoice`, "_blank");
     // return(<Redirect  to={`${process.env.PUBLIC_URL}/reports/page-invoice`}  />)
 
 }
@@ -195,7 +195,7 @@ const recordsAfterPagingAndSorting = () => {
                                  </div>
                                  </div>
                     </div>
-                        <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)"}} classNameName="sweet-loading">
+                        <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)"}} className="sweet-loading">
                     <BeatLoader
           css={override}
           size={30}

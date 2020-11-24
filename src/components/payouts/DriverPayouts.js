@@ -393,6 +393,38 @@ const DriverPayouts = () => {
     const recordsAfterPagingAndSorting = ()=>{
         return filterfn.fn(users).slice(page*rowsPerPage,(page+1)*rowsPerPage)
     }
+
+    const myFunction = () => {
+        var input, filter, table, tr, td1,td2,td3,td4,td5,td6;
+        var i,txtValue1,txtValue2,txtValue3,txtValue4,txtValue5,txtValue6;
+        input = document.getElementById("search1");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("datatable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+        td1 = tr[i].getElementsByTagName("td")[1];
+        td2 = tr[i].getElementsByTagName("td")[2];
+        td3 = tr[i].getElementsByTagName("td")[3];
+        td4 = tr[i].getElementsByTagName("td")[4];
+        td5 = tr[i].getElementsByTagName("td")[5];
+        td6 = tr[i].getElementsByTagName("td")[6];
+        if (td1) {
+          txtValue1 = td1.textContent || td1.innerText;
+          txtValue2 = td2.textContent || td2.innerText;
+          txtValue3 = td3.textContent || td3.innerText;
+          txtValue4 = td4.textContent || td4.innerText;
+          txtValue5 = td5.textContent || td5.innerText;
+          txtValue6 = td6.textContent || td6.innerText;
+        
+         var main = txtValue1+ txtValue2+txtValue3+txtValue4+txtValue5+txtValue6;
+           if (main.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }       
+      }
+      } 
        return (
         <Fragment>
             <BreadCrumb parent={<Home/>} subparent="Payouts" title="DeliveryPartner Payouts"/>
@@ -406,12 +438,13 @@ const DriverPayouts = () => {
                         <div className="col-md-5" style={{margin: "1%"}}>
                     <div className="form-group col-md-9">
                          <label className="form-label">Search <span style={{color: "red"}}>*</span></label>
-                             <Input type="text"   placeholder="Search..." onChange={handleSearch}  required=""  className="form-control"  />
+                             {/* <Input type="text"   placeholder="Search..." onChange={handleSearch}  required=""  className="form-control"  /> */}
+                             <input type="text" onKeyUp={myFunction}  required="" id = "search1" className="form-control" placeholder="Search..."/>
                              <div className="clearfix"></div>
                         </div>
                     </div>
                         <div className="table-responsive">
-                                <Table>
+                                <Table id = "datatable">
                                     <thead>
                                         <tr>
                                             <th scope="col">SL.NO</th>

@@ -29,6 +29,8 @@ const Hospital = (props) => {
     const [user5, setUser5] = useState()
     const [user6, setUser6] = useState()
     const [user7, setUser7] = useState()
+    const [user10, setUser10] = useState()
+    const [user11, setUser11] = useState()
     const [jan,setJan] = useState(0)
     const [feb,setFeb] = useState(0)
     const [march,setMarch] = useState(0)
@@ -156,7 +158,33 @@ const Hospital = (props) => {
                     }); 
                   setUser7("₹"+parseFloat(wallet).toFixed(2));
                 }   
+            });
+            
+            app.database().ref().child("Users")
+            .once("value", function(snapshot) {
+            if(snapshot.exists()){
+                var wallet=0;
+                snapshot.forEach(function(data){
+                    var val = data.val();
+                    if(val.WalletInsta!=null)
+                    wallet=wallet + +parseFloat(val.WalletInsta);
+                }); 
+              setUser10("₹"+parseFloat(wallet).toFixed(2));
+            }   
+        });
+        
+        app.database().ref().child("Users")
+        .once("value", function(snapshot) {
+        if(snapshot.exists()){
+            var wallet=0;
+            snapshot.forEach(function(data){
+                var val = data.val();
+                if(val.Wallet!=null)
+                wallet=wallet + +parseFloat(val.Wallet);
             }); 
+          setUser11("₹"+parseFloat(wallet).toFixed(2));
+        }   
+    });
 
             app.database().ref().child("Orders")
             .limitToLast(10)
@@ -539,7 +567,7 @@ const Hospital = (props) => {
           },
           yaxis: {
               title: {
-                  text: '$ (thousands)'
+                  text: '₹ (thousands)'
               }
           },
           fill: {
@@ -548,7 +576,7 @@ const Hospital = (props) => {
           tooltip: {
               y: {
                   formatter: function (val) {
-                      return "$ " + val + " thousands"
+                      return "₹ " + val + " thousands"
                   }
               }
           },
@@ -734,6 +762,47 @@ const Hospital = (props) => {
                 </CardBody>
               </Card>
               </Col>
+              <Col xl="3" className="xl-50 col-6 hospital-patients box-col-6">
+                <Card className="o-hidden">
+                  <CardBody>
+                    <div className="hospital-widgets media">
+                      <div className="hospital-box light-bg-primary"><DollarSign/></div>
+                      <div className="media-body">
+                        <div className="hospital-content">
+                           <h5 className="d-inline-block f-w-600">{user10||"₹0.00"}</h5>{/*<span className="badge flat-badge-primary m-l-10">OPD</span> */}
+                          <p className="m-t-5 mb-0 f-w-600">Total MF Cash</p>
+                        </div>
+                        <div className="flowers">
+                          <div className="flower1 flower-primary"></div>
+                          <div className="flower2 flower-primary"></div>
+                          <div className="flower3 flower-primary"></div>
+                        </div>
+                      </div>
+                    </div>
+                </CardBody>
+              </Card>
+              </Col>
+
+              <Col xl="3" className="xl-50 col-6 hospital-patients box-col-6">
+                <Card className="o-hidden">
+                  <CardBody>
+                    <div className="hospital-widgets media">
+                      <div className="hospital-box light-bg-primary"><DollarSign/></div>
+                      <div className="media-body">
+                        <div className="hospital-content">
+                           <h5 className="d-inline-block f-w-600">{user11||"₹0.00"}</h5>{/*<span className="badge flat-badge-primary m-l-10">OPD</span> */}
+                          <p className="m-t-5 mb-0 f-w-600">Total My Cash</p>
+                        </div>
+                        <div className="flowers">
+                          <div className="flower1 flower-primary"></div>
+                          <div className="flower2 flower-primary"></div>
+                          <div className="flower3 flower-primary"></div>
+                        </div>
+                      </div>
+                    </div>
+                </CardBody>
+              </Card>
+              </Col>
              
               <Row >
               <Col xl="6" className="xl-90 box-col-6">
@@ -761,7 +830,7 @@ const Hospital = (props) => {
                       <div className="media-body">
                         <div className="hospital-content">
                            <h5 className="d-inline-block f-w-600">{monthlyEarning||"₹0.00"}</h5>{/*<span className="badge flat-badge-secondary m-l-10">New</span> */}
-                          <p className="m-t-5 mb-0 f-w-600">Earned this month</p>
+                          <p className="m-t-5 mb-0 f-w-600">Monthly Sales</p>
                         </div>
                         <div className="flowers">
                           <div className="flower1"></div>

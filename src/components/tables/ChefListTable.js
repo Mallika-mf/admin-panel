@@ -48,7 +48,7 @@ const ChefListTable = () => {
   const classes = useStyles()
   const [holderName,setHolderName] = useState("")
 
-  const pages = [10, 50,100,200]
+  const pages = [10,50,100,200, 500]
   const [page, setPage] = useState(0)
   const [rowsPerPage, setRowsPerPage] = useState(pages[page])
   const [filterfn, setFilterFn] = useState({ fn: items => { return items; } })
@@ -1569,7 +1569,7 @@ const ChefListTable = () => {
     })
   }
   const recordsAfterPagingAndSorting = () => {
-    return filterfn.fn(searchValue).slice(page * rowsPerPage, (page + 1) * rowsPerPage)
+    return filterfn.fn(searchValue.reverse()).slice(page * rowsPerPage, (page + 1) * rowsPerPage)
   }
 
   return (

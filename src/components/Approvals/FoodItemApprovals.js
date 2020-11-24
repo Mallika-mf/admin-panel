@@ -376,7 +376,7 @@ const FoodItemApprovals = () => {
                                             <th scop="col" >Commision (%)	 </th>
                                             <th scop="col">Original Price</th>
                                             <th scop="col"> Offer Price			</th>
-                                            <th>Comment</th>
+                                            <th>Remarks</th>
                                             <th>Save</th>
                                             <th scop="col"> Commision Amount		 </th>
                                             <th scop="col">Gst</th>
