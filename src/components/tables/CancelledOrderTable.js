@@ -46,8 +46,6 @@ const CancelledOrderTable = () => {
             cityname.push(val.Name);
         });
     });
-
-
     
    await app.database().ref().child("Masters").child("City")
     .once('value').then(function(snapshot) {
@@ -190,8 +188,18 @@ const CancelledOrderTable = () => {
                     })
                 
                 })
+
+                var currentdate = new Date(); 
+                var datetime = currentdate.getDate() + "/"
+                              + (currentdate.getMonth()+1)  + "/" 
+                              + currentdate.getFullYear() + " @ "  
+                              + currentdate.getHours() + ":"  
+                              + currentdate.getMinutes() + ":" 
+                              + currentdate.getSeconds();
                 
-                app.database().ref().child("Orders").child(pushId).child("Status").set("100");
+                var ref = app.database().ref().child("Orders").child(pushId)
+                ref.child("Status").set("100");
+                ref.child("RefundDateTime").set(datetime)
 
         Swal.fire({
             title: "Order Refunded Successfully!",

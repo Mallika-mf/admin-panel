@@ -374,6 +374,7 @@ const DeleteHandler=(event)=>{
                                                             <label className="form-label">City <span style={{color: "red"}}>*</span></label>
                                                             <select id="city100" value={city} onChange={cityChangeHandler} className="form-control">
                                                                 <option value="Select">Select</option>
+                                                                <option value="All">All</option>
                                                                 {user.map((item,id)=><option key={id} value={item.PushId}>{item.Name}</option>)}
                                                             </select>
                                                             <div className="clearfix"></div>

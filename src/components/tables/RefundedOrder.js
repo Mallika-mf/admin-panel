@@ -268,7 +268,7 @@ const RefundOrderTable = () => {
                                             <th>Payment</th>
                                             <th>Actions</th>
                                             <th>Payment Id</th>
-                                            {/* <th>Refund Date</th> */}
+                                            <th>Refund Date</th>
                                             <th>Order Details</th>
 
                                         </tr>
@@ -292,6 +292,9 @@ const RefundOrderTable = () => {
                                         <td className="text-info">{item.Payment}</td>
                                         <td color="orange">{"Refunded"}</td>                                                             
                                         <td>{item.RazorpayId}</td>
+                                        {item.RefundDateTime !== undefined ?
+                                        <td>{item.RefundDateTime}</td>
+                                        : <td></td>}
                                         <td><Button className="warning" id={item.Pushid} onClick={viewDetailHandler}>{"View"}</Button></td>
 
                                         </tr>

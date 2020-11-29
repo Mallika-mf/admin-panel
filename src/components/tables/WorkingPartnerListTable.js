@@ -103,6 +103,7 @@ const WorkingPartnerListTable = () => {
         })
         var database = app.database();
         database.ref().child("Franchise")
+        .orderByChild("AStatus").equalTo("Active")
     .on('value', function(snapshot){
         if(snapshot.exists()){
         // $('#datatable').empty();
@@ -763,7 +764,50 @@ return () => {
              });
        }
        setButtonHide(false)
-       }  
+       } 
+
+    const onInActiveHandler=(event)=>{
+         
+     const pushid=event.target.id
+   
+       var superadmin=window.localStorage.getItem('superadmin');
+       if(superadmin===null){                      
+           superadmin=window.sessionStorage.getItem('superadmin');
+           if(superadmin===null){
+             history.push(`${process.env.PUBLIC_URL}/login`);
+           } 
+       }
+   
+       if(superadmin==="Yes"){
+               Swal.fire({
+                   title: "Are you sure wan to make InActive?",
+                   text: "",
+                   icon: "warning",
+                   showCancelButton: true,
+                   confirmButtonText: 'OK',
+                   cancelButtonText: 'Cancel',
+                   cancelButtonColor:'gray'
+               })
+               
+                         .then((willDelete) => {
+                           if (willDelete.value) {
+                               app.database().ref().child("Franchise").child(pushid).child("AStatus").set("InActive")
+                               Swal.fire("Marked InActive!", {
+                                icon: "success",
+                            });
+                           }
+                        })
+       }
+       else{
+           Swal.fire({
+               title: "Disabled",
+               text: "The option has been disabled!",
+               icon: "warning",
+               dangermode: true,
+             });
+       }
+       setButtonHide(false)
+       }   
 
    
   
@@ -1174,6 +1218,7 @@ return () => {
                                   <th scop="col">Commision	</th>
                                   <th scop="col">View Details</th>
                                   <th scop="col">Delete 	</th>
+                                  <th scop="col">InActive 	</th>
 
                               </tr>
                           </thead>
@@ -1192,7 +1237,8 @@ return () => {
                                              <td>{cityName[cityPushId.indexOf(item.City1)]}</td>
                                              <td>{item.Commision}</td>
                                              <td><button id={item.UserId} onClick={onSearchHandler} className="btn btn-primary">{"View Details"}</button></td>
-                                             <td className="" style={{textAlign:"center", fontSize: "25px", fontWeight: "bold"}}><button id={item.UserId} onChange={onDeleteHandler} type="button"  className="btn btn-danger btn-md">{"Delete"}</button></td>
+                                             <td className="" style={{textAlign:"center", fontSize: "25px", fontWeight: "bold"}}><button id={item.UserId} onClick={onDeleteHandler} type="button"  className="btn btn-danger btn-md">{"Delete"}</button></td>
+                                             <td className="" style={{textAlign:"center", fontSize: "25px", fontWeight: "bold"}}><button id={item.UserId} onClick={onInActiveHandler} type="button"  className="btn btn-primary btn-md">{"InActive"}</button></td>
                                
                                            </tr> 
                                           )

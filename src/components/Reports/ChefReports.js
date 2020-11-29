@@ -140,6 +140,7 @@ const ChefReport = () => {
   const [fta, setFta] = useState("")
   const [fca, setFca] = useState("")
   const [paidControl, setPaidControl] = useState("")
+  const [localControl, setLocalControl] = useState("")
   var sublocalitypushid = [];
   var cid = [];
   var cno = [];
@@ -2113,6 +2114,111 @@ const ChefReport = () => {
     }
   }
 
+  const onChangeLocalControlHandler = (event) => {
+    setLocalControl(event.target.value)
+    if (event.target.value == "Select") {
+      var database = app.database();
+      database.ref().child("CloudKitchen")
+        .once('value', function (snapshot) {
+          if (snapshot.exists()) {
+            // $('#datatable').empty();
+            var content = [];
+
+            snapshot.forEach(snap => {
+              var val = snap.val()
+              let locker = {
+                UserId: val.UserId,
+                Name: val.Name,
+                Gender: val.Gender,
+                MobileNumber: val.MobileNumber,
+                CityName: val.CityName,
+                LocalityName: val.LocalityName,
+                Commision: val.Commision,
+                AStatus: val.AStatus,
+                Passed: val.Passed,
+              }
+
+              content.push(locker);
+
+            });
+
+            content.map(item => {
+              if (item.Name === undefined) {
+                item.Name = ""
+              }
+              if (item.UserId === undefined) {
+                item.UserId = ""
+              }
+              if (item.MobileNumber === undefined) {
+                item.MobileNumber = ""
+              }
+
+            })
+            setUsers(content);
+            setShow(false)
+
+          } else {
+            const timeout = setTimeout(() => {
+              setShow(false)
+            }, 3000);
+            return () => { clearTimeout(timeout); }
+
+          }
+
+        })
+    } else {
+      var database = app.database();
+      database.ref().child("CloudKitchen").orderByChild("Local").equalTo(event.target.value)
+        .once('value', function (snapshot) {
+          if (snapshot.exists()) {
+            // $('#datatable').empty();
+            var content = [];
+
+            snapshot.forEach(snap => {
+              var val = snap.val()
+              let locker = {
+                UserId: val.UserId,
+                Name: val.Name,
+                Gender: val.Gender,
+                MobileNumber: val.MobileNumber,
+                CityName: val.CityName,
+                LocalityName: val.LocalityName,
+                Commision: val.Commision,
+                AStatus: val.AStatus,
+                Passed: val.Passed,
+              }
+
+              content.push(locker);
+
+            });
+
+            content.map(item => {
+              if (item.Name === undefined) {
+                item.Name = ""
+              }
+              if (item.UserId === undefined) {
+                item.UserId = ""
+              }
+              if (item.MobileNumber === undefined) {
+                item.MobileNumber = ""
+              }
+
+            })
+            setUsers(content);
+            setShow(false)
+
+          } else {
+            const timeout = setTimeout(() => {
+              setShow(false)
+            }, 3000);
+            return () => { clearTimeout(timeout); }
+
+          }
+
+        })
+    }
+  }
+
   const onChangeSdate = (event) => {
     setSdate(event.target.value)
     var database = app.database();
@@ -2200,6 +2306,11 @@ const ChefReport = () => {
       alert("Select Paid");
       return;
     }
+
+    if (localControl === "Select") {
+      alert("Select Local Food");
+      return;
+    }
     var database = app.database();
     database.ref().child("CloudKitchen")
       .orderByChild("City").equalTo(scity)
@@ -2210,7 +2321,7 @@ const ChefReport = () => {
 
           snapshot.forEach(snap => {
             var val = snap.val();
-            if (val.Status == fstatus.value && val.Membership == fpackage.value && val.Passed == fta.value && val.Catering == fca.value && val.Paid == paidControl.value) {
+            if (val.Status == fstatus.value && val.Membership == fpackage.value && val.Passed == fta.value && val.Catering == fca.value && val.Paid == paidControl.value && val.Local == localControl.value) {
               var val = snap.val()
               let locker = {
                 UserId: val.UserId,
@@ -2935,14 +3046,25 @@ const ChefReport = () => {
                               <input type="date" id="sdate" className="form-control" value={sdate} onChange={onChangeSdate} />
                               <div className="clearfix"></div>
                             </Col>
-                            <Col class="form-group col-md-6">
+
+                            <Col className="form-group col-md-6">
                               <label className="form-label">Paid </label>
                               <select id="paidControl" value={paidControl} onChange={onChangePaidControlHandler} className="form-control">
                                 <option value="Select">Select</option>
                                 <option value="Yes">Yes</option>
                               </select>
-                              <div class="clearfix"></div>
+                              <div className="clearfix"></div>
                             </Col>
+                            <Col className="form-group col-md-6">
+                              <label className="form-label">Local Food </label>
+                              <select id="localControl" value={localControl} onChange={onChangeLocalControlHandler} className="form-control">
+                                <option value="Select">Select</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                              </select>
+                              <div className="clearfix"></div>
+                            </Col>
+
                             <Col className="col-md-2">
                               <div className="form-group col-md-12">
                                 <Input className="btn btn-primary mr-2" style={{ marginTop: "24px", padding: "10px 15px" }} type="button" name="filter" value="Filter" onClick={(event) => onSubmit(event)} id="filter" />

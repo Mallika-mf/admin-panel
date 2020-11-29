@@ -312,7 +312,7 @@ const DeliveredOrderTable = () => {
                                         <th>Remarks</th>
                                         <th>DeliveryPartner</th>
                                         <th>Delivered</th>
-                                        <th>Actions</th>
+                                        <th>Deliverd Date</th>
                                         <th>Payment Id</th>
                                         <th>Order Details</th>
                                         </tr>
@@ -326,9 +326,9 @@ const DeliveredOrderTable = () => {
                                        <td style={{color:"#FFA501"}}>{item.OrderNo}</td>
                                          <td><User style={{color:"#0000FF"}} size={15}/>&nbsp;{item.CName}<br/><Headphones aria-hidden="true" style={{color:"#0000FF"}} size={15}/>&nbsp;{item.Number}</td>
                                          {item.ChefNumber !== undefined?
-                                       <td><User style={{color:"#0000FF"}} size={15}/>&nbsp;{item.ChefName}<br/>< ShoppingBag style={{color:"#0000FF"}}size={15}/>&nbsp;{cityName[cityPushId.indexOf(item.ChefCity)]}<br/><Phone style={{color:"#0000FF"}}size={15}/>&nbsp;{item.ChefNumber}</td>:
+                                       <td><User style={{color:"#0000FF"}} size={15}/>&nbsp;{item.ChefName}<br/>< ShoppingBag style={{color:"#0000FF"}}size={15}/>&nbsp;{cityName[cityPushId.indexOf(item.ChefCity)]}<br/></td>:
                                     //    <td><User style={{color:"#0000FF"}} size={15}/>&nbsp;{item.ChefName}<br/><Phone style={{color:"#0000FF"}}size={15}/>&nbsp;{""}<br/> < ShoppingBag style={{color:"#0000FF"}}size={15}/>&nbsp;{localityName[localityPushId.indexOf(item.ChefLocality)]}{","}{cityName[cityPushId.indexOf(item.ChefCity)]}</td>
-                                       <td><User style={{color:"#0000FF"}} size={15}/>&nbsp;{item.ChefName}<br/>< ShoppingBag style={{color:"#0000FF"}}size={15}/>&nbsp;{cityName[cityPushId.indexOf(item.ChefCity)]}<br/><Phone style={{color:"#0000FF"}}size={15}/>&nbsp;{""}</td>
+                                       <td><User style={{color:"#0000FF"}} size={15}/>&nbsp;{item.ChefName}<br/>< ShoppingBag style={{color:"#0000FF"}}size={15}/>&nbsp;{cityName[cityPushId.indexOf(item.ChefCity)]}<br/></td>
                                        }
                                        <td className="actions-view" style={{textAlign:"center"}}><button type="button" id={item.Pushid} onClick={onClickViewItemHandler} className="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">{"View"}</button></td>
                                        <td className="actions-view" style={{textAlign:"center"}}><button type="button" id={item.Pushid} onClick={onClickViewItemHandler1} className="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal1">{"View"}</button></td>
@@ -341,7 +341,7 @@ const DeliveredOrderTable = () => {
                                        <td>{item.DeliveryApiRemarks}</td>:
                                       <td>{item.Remark}</td>
                                     }
-                                       <td >{item.DeliveredDateTime}</td>
+                                       <td >{item.DeliveryDateTime}</td>
                                        <td><b><font color="green">{"Completed"}</font></b></td>               
                                        <td>{item.RazorpayId}</td>
                                        <td><Button className="warning" id={item.Pushid} onClick={viewDetailHandler}>{"View"}</Button></td>

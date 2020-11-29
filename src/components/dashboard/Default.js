@@ -113,13 +113,32 @@ const Hospital = (props) => {
                    } 
                   })
 
+                  var d = new Date();
+                  var a = d.getHours()
+                  var b = d.getMinutes()
+                  var c = a + ":" + b
+
+
                   app.database().ref().child("CloudKitchen")
                   .orderByChild("Status").equalTo("Active")
                   .once("value", function(snapshot) {
                       if(snapshot.exists()) {
                           var count = 0;
-                              count = snapshot.numChildren()
-                              setUser4(count) ;
+                          var open;
+                          snapshot.forEach(function(snapshot) {
+                            if(snapshot.val().AStatus === "Active") {
+                              // console.log(c)
+                              if((snapshot.val().Open) < c) {
+                                if((snapshot.val().Close) > c) {
+                                // console.log(snapshot.val().Open)
+                                // console.log(snapshot.val().Close)
+                                count = count + 1
+                                setUser4(count) ;
+                                }
+                              }
+                            }
+                          })
+
                       }
                   })
             var wallet=0;
@@ -166,10 +185,11 @@ const Hospital = (props) => {
                 var wallet=0;
                 snapshot.forEach(function(data){
                     var val = data.val();
-                    if(val.WalletInsta!=null)
+                    if(val.WalletInsta!=null) {
                     wallet=wallet + +parseFloat(val.WalletInsta);
+                    }
                 }); 
-              setUser10("₹"+parseFloat(wallet).toFixed(2));
+              setUser11("₹"+parseFloat(wallet).toFixed(2));
             }   
         });
         
@@ -182,7 +202,7 @@ const Hospital = (props) => {
                 if(val.Wallet!=null)
                 wallet=wallet + +parseFloat(val.Wallet);
             }); 
-          setUser11("₹"+parseFloat(wallet).toFixed(2));
+          setUser10("₹"+parseFloat(wallet).toFixed(2));
         }   
     });
 
