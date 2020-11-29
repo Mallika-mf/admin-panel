@@ -55,7 +55,8 @@ const UserReports = () => {
                   JoiningDate : val.JoiningDate,
                   Role : val.Role,
                   Status : val.Status,
-                  Wallet : val.Wallet
+                  Wallet : val.Wallet,
+                  WalletInsta: val.WalletInsta,
                 }
               content.push(locker);
               }
@@ -144,7 +145,8 @@ if(sdate.length!==0&&edate.length!==0){
                     JoiningDate : val.JoiningDate,
                     Role : val.Role,
                     Status : val.Status,
-                    Wallet : val.Wallet
+                    Wallet : val.Wallet,
+                    WalletInsta: val.WalletInsta
                   }
                 content.push(locker); 
                   }                    
@@ -191,7 +193,8 @@ if(sdate.length!==0&&edate.length!==0){
                       JoiningDate : val.JoiningDate,
                       Role : val.Role,
                       Status : val.Status,
-                      Wallet : val.Wallet
+                      Wallet : val.Wallet,
+                      WalletInsta: val.WalletInsta
                     }
                   content.push(locker); 
                   }                      
@@ -238,7 +241,8 @@ if(sdate.length!==0&&edate.length!==0){
                         JoiningDate : val.JoiningDate,
                         Role : val.Role,
                         Status : val.Status,
-                        Wallet : val.Wallet
+                        Wallet : val.Wallet,
+                        WalletInsta: val.WalletInsta
                       }
                     content.push(locker);
                       }                         
@@ -411,6 +415,7 @@ const recordsAfterPagingAndSorting = () => {
                                             {/* <th scope="col"> Role	</th> */}
                                             <th scope="col"> Status	</th>
                                             <th scope="col"> MF Cash	</th>
+                                            <th scope="col"> My Cash	</th>
 
                                         </tr>
                                     </thead>
@@ -429,6 +434,9 @@ const recordsAfterPagingAndSorting = () => {
                                                        {/* <td>{item.Reason}</td> */}
                                                        <td className="">{item.Status}</td>
                                                        <td className="">{item.Wallet}</td>
+                                                       {item.WalletInsta != undefined ?
+                                                       <td className="">{item.WalletInsta}</td>
+                                                       : <td className = "">0</td>}
 
                                                      </tr> 
                                                     )

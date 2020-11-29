@@ -661,7 +661,7 @@ if(format.test(person) ){
                             <div className="col-md-5" style={{ margin: "1%" }}>
                                 <div className="form-group col-md-10">
                                     <label className="form-label">Search </label>
-                                    <input type="text" onKeyUp={myFunction}  required="" id = "search1" className="form-control" placeholder="Search for City..."/>
+                                    <input type="text" onKeyUp={myFunction}  required="" id = "search1" className="form-control" placeholder="Search..."/>
                                     <div className="clearfix"></div>
                                 </div>
                             </div>

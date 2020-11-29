@@ -98,6 +98,7 @@ const Banner = () => {
                   <label class="col-form-label col-sm-2 text-sm-right">Upload Image</label>
                   <div class="col-sm-10">
                   <input type="file"  onChange={onDrop} required/>
+                  <p>Banner Size: 320 * 150</p>
                   {/* <img src={imageAsUrl.imgUrl} alt="image tag" /> */}
                      <div class="clearfix"></div>
                           </div>

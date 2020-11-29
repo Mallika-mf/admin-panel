@@ -10,6 +10,8 @@ const UserMFCash = (props) => {
     const [cID,setCid] = useState([])
     const [cNO,setCno] = useState([])
     const [balanced,setBalance] = useState([])
+    const [username,setUsername] = useState([])
+    const [lastDate,setLastDate] = useState([])
     const [cash,setCash] = useState("")
     const [password,setPassword] = useState([])
     // const [name,setName] = useState([])
@@ -20,6 +22,8 @@ const UserMFCash = (props) => {
 var cid=[];
 var cno=[];
 var balance=[];
+var name = []
+var last = []
 // var amount=-1;
 
     
@@ -35,12 +39,17 @@ useEffect(()=>{
                 cid.push(val.UserName);
                 cno.push(val.Number);
                 balance.push(val.Wallet);
+                name.push(val.Name)
+                last.push(val.MFCashLastDate)
+                
             }
             // setName(data.val())
         });
         setCid(cid)
         setCno(cno)
         setBalance(balance)
+        setUsername(name)
+        setLastDate(last)
         
         // document.getElementById("#sname").autocomplete({
         //     source: cid
@@ -56,6 +65,8 @@ const onChangeIdHandler=(event)=>{
 const onChangeSearchHandler=(event)=>{
     // var sname=document.getElementById("sname");
     var balance=document.getElementById('balance');
+    var username1=document.getElementById('username');
+    var lastDate1=document.getElementById('lastDate');
 
     var temp=-1;
     for(var i=0;i<cNO.length;i++){
@@ -64,7 +75,6 @@ const onChangeSearchHandler=(event)=>{
             break;
         }
     }
-
     if(temp===-1){
         alert('Enter Valid Number');
         return;
@@ -72,6 +82,9 @@ const onChangeSearchHandler=(event)=>{
     window.uid = cID[temp]
     window.amount=balanced[temp];
     balance.innerHTML="MF Cash Balance : "+balanced[temp];
+    username1.innerHTML="Username : "+ username[temp];
+    if(lastDate[temp] !== undefined)
+    lastDate1.innerHTML = "MF Cash Last Transaction Date: "+ lastDate[temp]
 }
 const onChangedescription=(event)=>{
     setDesc(event.target.value)
@@ -91,6 +104,8 @@ const onSubmit=(event)=>{
     // var desc=document.getElementById('desc');
     // var type=document.getElementById('type');
     var balance=document.getElementById('balance');
+    var username1=document.getElementById('username');
+    var lastDate1=document.getElementById('lastDate');
 
     if(sname===""){
         alert("Enter User Id");
@@ -153,6 +168,8 @@ const onSubmit=(event)=>{
              function(error, committed, snapshot) {
                 a=snapshot.val();
                 console.log(a);
+
+                app.database().ref().child("Users").child(window.uid).child("MFCashLastDate").set(today)
                 var ref=app.database().ref().child("Users").child(window.uid).child("Transactions").push();
                 ref.child("PushId").set(ref.getKey());
                 ref.child("Amount").set(String(cash));
@@ -176,6 +193,8 @@ const onSubmit=(event)=>{
                 setSname("")
                 setDesc("")
                 balance.innerHTML="MF Cash Balance : ";
+                username1.innerHTML="Username : ";
+                lastDate1.innerHTML = "MF Cash last Transaction Date:";
                 window.amount=-1;
 
                 app.database().ref().child("Users")
@@ -183,12 +202,15 @@ const onSubmit=(event)=>{
                     window.cno=[];
                     window.cid=[];
                     window.balance=[];
+                    window.name=[];
                     snapshot.forEach(function(data){
                         var val = data.val(); 
                         if(val.UserName!==""&&val.UserName!==null){
                             window.cid.push(val.UserName);
                             window.cno.push(val.Number);
                             window.balance.push(val.Wallet);
+                            // window.name.push(val.Name)
+                            // window.last.push(val.MFCashLastDate)
                         }
                     });
                     // document.getElementById("#sname").autocomplete({
@@ -223,9 +245,11 @@ const onSubmit=(event)=>{
                         <label className="col-form-label col-sm-2 text-sm-right">Enter User Number <span style={{color: "red"}}>*</span></label>
                         <div className="form-group col-md-6">
                          <Row>
-                        <div className="col-lg-6 col-md-5 col-sm-5">
+                        <div className="col-lg-8 col-md-8 col-sm-5">
                      <Input type="text" className="form-control" id="sname" value={sname} onChange={onChangeIdHandler}  autoComplete={cNO} placeholder="User Number"/>
                         <p style={{color:"red",margin: "1%"}} id="balance">User Cash Balance : </p>
+                        <p style={{color:"red",margin: "1%"}} id="username">User name : </p>
+                        <p style={{color:"red",margin: "1%"}} id="lastDate">MF Cash Last Transaction Date : </p>
                          </div>
                         <div className="col-sm-1 col-md-2">
                         <span id="search" onClick={onChangeSearchHandler}><img src="https://img.icons8.com/ios-filled/24/000000/search.png" alt="search engine"/></span>
