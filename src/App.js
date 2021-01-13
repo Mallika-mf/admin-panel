@@ -36,6 +36,7 @@ class App extends React.Component {
           <Route path="/listing" exact component={List} />
           <Route path="/myaccount" component={MyAccount} />
           <Route path="/404" exact component={NotFound} />
+          <Route path="/about" exact component={NotFound} />
           <Route path="/extra" exact component={Extra} />
           <Route path="/login" exact component={Login} />
           <Route path="/register" exact component={Register} />

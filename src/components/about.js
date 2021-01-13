@@ -9,8 +9,6 @@ const About = () => {
   const noAction = (e) => e.preventDefault();
   return (
     <Fragment>
-      <Header />
-
       <section
         className="section-bg p-top-50 p-bottom-50"
         style={{ background: "#ffffff" }}
