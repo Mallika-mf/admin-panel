@@ -56,7 +56,7 @@ class Footer extends React.Component {
                 <div className="app">
                   <p className="mb-2">DOWNLOAD APP(Customers)</p>
                   <Link
-                    to="//https://play.google.com/store/apps/details?id=mothers.food.mothersfood"
+                    href="https://play.google.com/store/apps/details?id=mothers.food.mothersfood"
                     className="mr-1"
                   >
                     <Image src="img/google.png" fluid />
@@ -66,7 +66,7 @@ class Footer extends React.Component {
                   </Link>
                 </div>
                 <div className="app">
-                  <p className="mb-2 mt-2">DOWNLOAD APP(Venders)</p>
+                  <p className="mb-2 mt-2">DOWNLOAD APP(Vendors)</p>
                   <Link to="#" className="mr-1">
                     <Image src="img/google.png" alt="" fluid />
                   </Link>
