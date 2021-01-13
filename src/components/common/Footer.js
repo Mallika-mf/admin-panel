@@ -309,7 +309,7 @@ Footer.defaultProps = {
   popularFood: [],
   copyrightText: "© 2020 MothersFood. All rights reserved.",
   madewithIconclassName: "heart heart-icon text-danger",
-  firstLinkText: "MR.Nag Babu",
+  firstLinkText: "Mr.Naga Babu",
   firstLink: "//www.instagram.com/nagababu_v/",
   // secondLinkText: "Askbootstrap",
   // secondLink: "//askbootstrap.com/",
