@@ -54,8 +54,17 @@ class Footer extends React.Component {
                   to get updates on <Link to="offers">Offers and Coupons</Link>
                 </p>
                 <div className="app">
-                  <p className="mb-2">DOWNLOAD APP</p>
+                  <p className="mb-2">DOWNLOAD APP(Customers)</p>
+                  <Link to="#" className="mr-1">
+                    <Image src="img/google.png" alt="" fluid />
+                  </Link>
                   <Link to="#">
+                    <Image src="img/apple.png" alt="" fluid />
+                  </Link>
+                </div>
+                <div className="app">
+                  <p className="mb-2 mt-2">DOWNLOAD APP(Venders)</p>
+                  <Link to="#" className="mr-1">
                     <Image src="img/google.png" alt="" fluid />
                   </Link>
                   <Link to="#">
@@ -123,6 +132,44 @@ class Footer extends React.Component {
                     <Link to="#">Owner Guidelines</Link>
                   </li> */}
                 </ul>
+                {/* <ul className="d-flex  justify-content-end ">
+                  <li>
+                    <a
+                      target="_blank"
+                      href="https://www.facebook.com/MothersFoodIndia/"
+                      rel="noopener noreferrer"
+                    >
+                      <span className="fab fa-facebook-f"></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      href="https://www.instagram.com/mothersfoodindia/"
+                      rel="noopener noreferrer"
+                    >
+                      <span className="fab fa-instagram"></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      href="https://www.youtube.com/channel/UCdaLAl8sc_FyLhR-ch40AoA"
+                      rel="noopener noreferrer"
+                    >
+                      <span className="fab fa-youtube"></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      href="https://twitter.com/mothersfood1"
+                      rel="noopener noreferrer"
+                    >
+                      <span className="fab fa-twitter"></span>
+                    </a>
+                  </li>
+                </ul> */}
               </Col>
             </Row>
           </Container>
@@ -131,11 +178,14 @@ class Footer extends React.Component {
           <div className="container">
             <Row>
               <Col xs={12}>
-                <p className={this.props.popularCHclassName}>
-                  POPULAR COUNTRIES
-                </p>
+                <p className={this.props.popularCHclassName}>POPULAR CITIES</p>
                 <div className="search-links">
-                  <Link to="#">Australia</Link> |<Link to="#">Brasil</Link> |
+                  <Link to="#">Hyderabad</Link> |<Link to="#">Delhi</Link> |
+                  <Link to="#">Mumbai</Link> |<Link to="#">Noida</Link> |
+                  <Link to="#">Greater Noida</Link> |
+                  <Link to="#">Fairdabad</Link> |<Link to="#">Ghazibad</Link> |
+                  <Link to="#">Pune</Link> |<Link to="#">Banglore</Link>
+                  {/* <Link to="#">Australia</Link> |<Link to="#">Brasil</Link> |
                   <Link to="#">Canada</Link> |<Link to="#">Chile</Link> |
                   <Link to="#">Czech Republic</Link> |<Link to="#">India</Link>{" "}
                   |<Link to="#">Indonesia</Link> |<Link to="#">Ireland</Link> |
@@ -163,30 +213,43 @@ class Footer extends React.Component {
                   <Link to="#">Ireland</Link> |<Link to="#">New Zealand</Link> |
                   <Link to="#">United Kingdom</Link> |<Link to="#">Turkey</Link>{" "}
                   |<Link to="#">Philippines</Link> |
-                  <Link to="#">Sri Lanka</Link>
+                  <Link to="#">Sri Lanka</Link> */}
                 </div>
-                <p className={this.props.popularFHclassName}>POPULAR FOOD</p>
+                <p className={this.props.popularFHclassName}>
+                  POPULAR CUISINES
+                </p>
                 <div className="search-links">
-                  <Link to="#">Fast Food</Link> |<Link to="#">Chinese</Link> |
-                  <Link to="#">Street Food</Link> |
-                  <Link to="#">Continental</Link> |<Link to="#">Mithai</Link> |
-                  <Link to="#">Cafe</Link> |<Link to="#">South Indian</Link> |
-                  <Link to="#">Punjabi Food</Link> |
-                  <Link to="#">Fast Food</Link> |<Link to="#">Chinese</Link> |
-                  <Link to="#">Street Food</Link> |
-                  <Link to="#">Continental</Link> |<Link to="#">Mithai</Link> |
-                  <Link to="#">Cafe</Link> |<Link to="#">South Indian</Link> |
-                  <Link to="#">Punjabi Food</Link> |
-                  <Link to="#">Fast Food</Link> |<Link to="#">Chinese</Link> |
-                  <Link to="#">Street Food</Link> |
-                  <Link to="#">Continental</Link> |<Link to="#">Mithai</Link> |
-                  <Link to="#">Cafe</Link> |<Link to="#">South Indian</Link> |
-                  <Link to="#">Punjabi Food</Link> |
-                  <Link to="#">Fast Food</Link> |<Link to="#">Chinese</Link> |
-                  <Link to="#">Street Food</Link> |
-                  <Link to="#">Continental</Link> |<Link to="#">Mithai</Link> |
-                  <Link to="#">Cafe</Link> |<Link to="#">South Indian</Link> |
-                  <Link to="#">Punjabi Food</Link>
+                  <Link to="#">South Indian</Link> |<Link to="#">Italian</Link>{" "}
+                  |<Link to="#">Thai</Link> |<Link to="#">Continental</Link> |
+                  <Link to="#">Gujarati</Link> |<Link to="#">Rajasthani</Link> |
+                  <Link to="#">Maharashtrian </Link> |
+                  <Link to="#">Mughlai</Link> |<Link to="#">Awadhi </Link> |
+                  <Link to="#">Mexican </Link> |<Link to="#">Kerala </Link> |
+                  <Link to="#">Odiya</Link> |<Link to="#">Chinese </Link> |
+                  <Link to="#">American</Link> |<Link to="#">Bengali </Link> |
+                  <Link to="#">Punjabi </Link> |<Link to="#">Andhra </Link> |
+                  <Link to="#">Kashmiri </Link> |<Link to="#">Goan </Link> |
+                  <Link to="#">Tamilian</Link> |<Link to="#">Assamese </Link> |
+                  <Link to="#">Manipuri </Link> |<Link to="#">Naga </Link> |
+                  <Link to="#">Meghalayan</Link> |<Link to="#">Mizo </Link> |
+                  <Link to="#">Sikkimese </Link> |<Link to="#">Spanish </Link> |
+                  <Link to="#">Indonesian </Link> |<Link to="#">Turkish </Link>{" "}
+                  |<Link to="#">French </Link> |<Link to="#">Vietnamese</Link> |
+                  <Link to="#">Lebanese </Link> |<Link to="#">Moroccan</Link>|
+                  <Link to="#">British</Link> |<Link to="#">European</Link>|
+                  <Link to="#">Asian </Link> |<Link to="#">Bihari</Link>|
+                  <Link to="#">Malvani</Link> |<Link to="#">Mangalorean</Link>|
+                  <Link to="#">Sindhi</Link> |<Link to="#">Telangana</Link>|
+                  <Link to="#">Bhojpuri </Link> |<Link to="#">Kumauni</Link>|
+                  <Link to="#">Japanese </Link> |<Link to="#"> Korean</Link>|
+                  <Link to="#"> Russian </Link> |<Link to="#"> Spa </Link>|
+                  <Link to="#"> Ayurvedic </Link> |<Link to="#"> Vegan </Link>|
+                  <Link to="#"> Mediterranean </Link> |
+                  <Link to="#"> Mangolian </Link>|
+                  <Link to="#"> Cake baking </Link> |
+                  <Link to="#"> North indian </Link>|
+                  <Link to="#"> Parsi Food </Link> |<Link to="#"> Baking </Link>
+                  |<Link to="#">Items </Link>
                 </div>
               </Col>
             </Row>
@@ -244,12 +307,12 @@ Footer.defaultProps = {
   popularCountries: [],
   popularFHclassName: "mt-4 text-black",
   popularFood: [],
-  copyrightText: "© Copyright 2020 Osahan Eat. All Rights Reserved",
+  copyrightText: "© 2020 MothersFood. All rights reserved.",
   madewithIconclassName: "heart heart-icon text-danger",
-  firstLinkText: "Gurdeep Osahan",
-  firstLink: "//www.instagram.com/iamgurdeeposahan/",
-  secondLinkText: "Askbootstrap",
-  secondLink: "//askbootstrap.com/",
+  firstLinkText: "MR.Nag Babu",
+  firstLink: "//www.instagram.com/nagababu_v/",
+  // secondLinkText: "Askbootstrap",
+  // secondLink: "//askbootstrap.com/",
 };
 
 export default Footer;
