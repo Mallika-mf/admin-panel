@@ -55,8 +55,11 @@ class Footer extends React.Component {
                 </p>
                 <div className="app">
                   <p className="mb-2">DOWNLOAD APP(Customers)</p>
-                  <Link to="#" className="mr-1">
-                    <Image src="img/google.png" alt="" fluid />
+                  <Link
+                    to="//https://play.google.com/store/apps/details?id=mothers.food.mothersfood"
+                    className="mr-1"
+                  >
+                    <Image src="img/google.png" fluid />
                   </Link>
                   <Link to="#">
                     <Image src="img/apple.png" alt="" fluid />
