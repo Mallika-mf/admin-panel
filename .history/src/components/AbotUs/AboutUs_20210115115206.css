@@ -1,0 +1,239 @@
+/* /* *{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+.about-container {
+    position: relative;
+    /* text-align: center; */
+    /* color: white;
+}
+.banner_title {
+    position: absolute;
+    left: 10rem;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: bold;
+    bottom: 8px;
+}
+.about-content {
+    margin: auto;
+    max-width: 70%;
+    margin-bottom: 5rem;
+    margin-top: 3rem;
+}
+
+.about-content p{
+    text-align: left;
+}
+
+.about-content .title {
+    margin-bottom: 3rem;
+}
+
+.about-content .title h3 {
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.about-content .title h6 {
+    color: #BCBCBC;
+}
+
+.how-it-works {
+    width: 100%;
+    height: auto;
+    background-color: #F6F6F6;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.how-it-works .heading {
+    margin: auto;
+    max-width: 70%;
+}
+
+.how-it-works .heading h3{
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.how-it-works .container {
+   margin-top: 4%;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+}
+
+.how-it-works .container .how-it-works-item {
+    max-width: 300px;
+}
+
+.how-it-works .container .how-it-works-item img {
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.our-app {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.our-app .app-links h3{
+    text-align: left;
+    margin-bottom: 5%;
+    font-weight: 700;
+}
+
+.our-app .app-links .underline {
+    border-radius: 50px;
+    width: 15%;
+    height: 2.3px;
+    background-color: black;
+}
+
+.our-app .app-links #link-txt {
+    margin-top: 5%;
+}
+
+.our-app .app-links form {
+    display: flex;
+    width: 100%;
+    text-align: left;
+}
+
+.our-app .app-links form input {
+    width: 80%;
+    text-align: left;
+    padding: 8px;
+}
+
+.our-app .app-links form button {
+    border: none;
+    background-color: black;
+    color: white;
+    width: 20%;
+    padding: 8px;
+}
+
+
+.our-app .app-links .badges img{
+    width: 160px;
+    height: 60px;
+}
+
+.our-app .app-links .badges {
+    padding-top: 10%;
+    margin-left: -24%;
+}
+
+.partnership {
+    margin-top: 7%;
+}
+
+.partnership .partnership-head h3{
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.partnership-btns {
+    margin-top: 3%;
+}
+
+.partnership-btns button {
+    border-radius: 50px;
+    margin: 0 2%;
+    font-size: 1.1em;
+    border: none;
+    padding: 10px 90px;
+    color: white;
+}
+
+.partnership-btns .btn1 {
+    background-color: #FA1736;
+}
+
+.partnership-btns .btn2 {
+    background-color: black;
+}
+
+.choose {
+    margin-top: 10%;
+    background-color: #B4031B;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    color: white;
+    padding: 70px;
+}
+
+.choose .content *{
+    padding-left: 100px;
+    text-align: left;
+}
+
+.choose .btn {
+    display: flex;
+    /* align-items: center; */
+/* }
+
+.choose .btn .btn3 {
+    border: 1px solid white;
+    padding: 10px 35px;
+    border-radius: 50px;
+    color: white;
+    background-color: #B4031B;
+}
+
+@media only screen and (max-width: 768px) { */
+    /* For mobile phones: */
+    /* [class*=""] {
+      width: 100%;
+    }
+
+    .youtube-vedio {
+        margin-top: 20px;
+    }
+
+    .youtube-vedio iframe {
+        width: 500px;
+    }
+
+    .partnership-btns .btn2 {
+        margin-top: 10px;
+    }
+
+    .choose{
+      display: block;
+      padding-left: 0px;
+    }
+
+    .choose .content *{
+        /* text-align: center; */
+        /* padding-left: 50px;
+    }
+
+    .choose .btn3 {
+        margin-left: 70px;  
+    }
+
+    .our-app {
+        padding: 10px;
+    }
+
+    .our-app .app-links form input {
+        padding: 5px;
+    }
+
+    .our-app .app-links .badges {
+        margin-left: 0;
+    }
+  } */
+
+  /* @media only screen and (max-width: 530px) {
+    .youtube-vedio iframe {
+        width: auto;
+    }
+  }  */ 
