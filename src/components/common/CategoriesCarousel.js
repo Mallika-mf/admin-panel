@@ -18,7 +18,7 @@ class CategoriesCarousel extends React.Component {
             image="img/list/American Food.jpg"
             imageClass="img-fluid"
             imageAlt="carousel"
-            linkUrl="#"
+            // linkUrl="#"
           />
         </div>
         <div className="item">
@@ -28,7 +28,7 @@ class CategoriesCarousel extends React.Component {
             image="img/list/Chicken.jpg"
             imageClass="img-fluid"
             imageAlt="carousel"
-            linkUrl="#"
+            // linkUrl="#"
           />
         </div>
         <div className="item">
@@ -38,7 +38,7 @@ class CategoriesCarousel extends React.Component {
             image="img/list/Chinese.jpg"
             imageClass="img-fluid"
             imageAlt="carousel"
-            linkUrl="#"
+            // linkUrl="#"
           />
         </div>
         <div className="item">
@@ -48,7 +48,7 @@ class CategoriesCarousel extends React.Component {
             image="img/list/Dessert.jpg"
             imageClass="img-fluid"
             imageAlt="carousel"
-            linkUrl="#"
+            // linkUrl="#"
           />
         </div>
         <div className="item">
@@ -58,7 +58,7 @@ class CategoriesCarousel extends React.Component {
             image="img/list/Vegeterianj.jpg"
             imageClass="img-fluid"
             imageAlt="carousel"
-            linkUrl="#"
+            // linkUrl="#"
           />
         </div>
         <div className="item">
@@ -68,7 +68,7 @@ class CategoriesCarousel extends React.Component {
             image="img/list/Hamburgers.jpg"
             imageClass="img-fluid"
             imageAlt="carousel"
-            linkUrl="#"
+            // linkUrl="#"
           />
         </div>
         <div className="item">
@@ -78,7 +78,7 @@ class CategoriesCarousel extends React.Component {
             image="img/list/Healthy.jpg"
             imageClass="img-fluid"
             imageAlt="carousel"
-            linkUrl="#"
+            // linkUrl="#"
           />
         </div>
         <div className="item">
@@ -88,7 +88,7 @@ class CategoriesCarousel extends React.Component {
             image="img/list/Indian.jpg"
             imageClass="img-fluid"
             imageAlt="carousel"
-            linkUrl="#"
+            // linkUrl="#"
           />
         </div>
         <div className="item">
@@ -98,7 +98,7 @@ class CategoriesCarousel extends React.Component {
             image="img/list/Pizza.jpg"
             imageClass="img-fluid"
             imageAlt="carousel"
-            linkUrl="#"
+            // linkUrl="#"
           />
           {/* <div className="item">
             <ProductBox
@@ -107,7 +107,7 @@ class CategoriesCarousel extends React.Component {
               image="img/list/Vegeterianj.jpg"
               imageClass="img-fluid"
               imageAlt="carousel"
-              linkUrl="#"
+              // linkUrl="#"
             />
           </div> */}
         </div>

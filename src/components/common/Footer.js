@@ -100,7 +100,7 @@ class Footer extends React.Component {
                 <h6 className="mb-3">Contact</h6>
                 <ul>
                   <li>
-                    <Link to="#">Partner With Us</Link>
+                    <Link to="/partnerwithus">Partner With Us</Link>
                   </li>
                   <li>
                     <Link to="#">Drive With Us</Link>

@@ -12,6 +12,7 @@ import Extra from "./components/Extra";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import TrackOrder from "./components/TrackOrder";
+import PartnerWithUs from "./components/partnerwithus";
 import Invoice from "./components/Invoice";
 import Checkout from "./components/Checkout";
 import Detail from "./components/Detail";
@@ -44,6 +45,7 @@ class App extends React.Component {
           <Route path="/invoice" exact component={Invoice} />
           <Route path="/checkout" exact component={Checkout} />
           <Route path="/thanks" exact component={Thanks} />
+          <Route path="/partnerwithus" exact component={PartnerWithUs} />
           <Route path="/detail" exact component={Detail} />
           <Route exact component={NotFound} />
         </Switch>
