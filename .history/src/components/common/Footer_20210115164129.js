@@ -84,13 +84,13 @@ class Footer extends React.Component {
                 <div className="app">
                   <p className="mb-2 mt-2">DOWNLOAD APP(Vendors)</p>
 {/* >>>>>>> e1f3282275238d424e5f4b2b07c9431b2a2a07bf */}
-                 <Link to="#" className="mr-1">
+                  <Link to="#" className="mr-1">
                     <Image src="img/google.png" alt="" fluid />
                   </Link>
                   <Link to="#">
                     <Image src="img/apple.png" alt="" fluid />
                   </Link>
-                {/* </div>  */}
+                </div> */}
                 </div>
               </Col>
               <Col md={1} sm={6} className="mobile-none"></Col>
