@@ -20,6 +20,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
 import "react-select2-wrapper/css/select2.css";
 import "./App.css";
+import About from './components/AbotUs/AboutUs';
+import Career from './components/FooterPages/career';
+import Apply from './components/FooterPages/apply-form';
+
 
 class App extends React.Component {
   render() {
@@ -47,6 +51,10 @@ class App extends React.Component {
           <Route path="/thanks" exact component={Thanks} />
           <Route path="/partnerwithus" exact component={PartnerWithUs} />
           <Route path="/detail" exact component={Detail} />
+          <Route path="/about-us" exact component={About} />
+          <Route path="/career" exact component={Career} />
+          <Route path="/apply" exact component={Apply} />
+
           <Route exact component={NotFound} />
         </Switch>
         {this.props.location.pathname !== "/login" &&
