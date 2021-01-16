@@ -8,12 +8,12 @@ import React, {Fragment} from 'react';
 // import Subscribe from '../content/subscribe/subscribe7';
 // import Footer from '../layout/footer/footer-dark-3'
 import {NavLink} from 'react-router-dom';
-// import PlacesAutocomplete from 'react-places-autocomplete';
-// import {
-//     geocodeByAddress,
-//     // geocodeByPlaceId,
-//     getLatLng,
-//   } from 'react-places-autocomplete';
+import PlacesAutocomplete from 'react-places-autocomplete';
+import {
+    geocodeByAddress,
+    // geocodeByPlaceId,
+    getLatLng,
+  } from 'react-places-autocomplete';
 // import Header from '../layout/header/slider-header-2';
 
 // import Navbar from '../layout/navbar/colorNav';
@@ -34,14 +34,14 @@ class Index extends React.Component{
 
       
     
-    //   handleSelect = address => {
+      handleSelect = address => {
 
-    //     geocodeByAddress(address)
-    //       .then(results => getLatLng(results[0]))
-    //       .then(latLng => console.log('Success', latLng))
-    //       .catch(error => console.error('Error', error));
+        geocodeByAddress(address)
+          .then(results => getLatLng(results[0]))
+          .then(latLng => console.log('Success', latLng))
+          .catch(error => console.error('Error', error));
 
-    //   };
+      };
 
 
      

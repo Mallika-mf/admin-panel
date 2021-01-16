@@ -29,7 +29,6 @@ import Apply from "./components/FooterPages/apply-form";
 import Term from "./components/FooterPages/TermAndConditions";
 import Refund from "./components/FooterPages/Refund";
 import Blog from "./components/Blogs/blog";
-import Privacy from "./components/FooterPages/Privacy";
 
 import NewsDetail4 from './page/news-detail-4';
 import NewsDetail1 from './page/news-detail-1';
@@ -80,7 +79,6 @@ class App extends React.Component {
           <Route path="/refund" exact component={Refund} />
           <Route path="/term" exact component={Term} />
           <Route path="/blog" exact component={Blog} />
-          <Route path="/privacy" exact component={Privacy} />
 
           <Route exact path = '/news-detail-1' component = { NewsDetail1 } />
           <Route exact path = '/news-detail-2' component = { NewsDetail2 } />
