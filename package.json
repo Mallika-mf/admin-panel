@@ -3,21 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
-    "@fortawesome/fontawesome-svg-core": "^1.2.34",
-    "@fortawesome/free-solid-svg-icons": "^5.15.2",
-    "axios": "^0.21.1",
-    "bootstrap": "^4.5.3",
-    "font-awesome": "^4.7.0",
-    "jquery": "^3.5.1",
-    "lodash": "^4.17.20",
-    "moment": "^2.29.1",
-    "react": "^16.14.0",
-    "react-bootstrap": "^1.4.3",
-    "react-dom": "^16.14.0",
-=======
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "firebase": "^8.2.3",
     "font-awesome": "^4.7.0",
@@ -29,23 +17,15 @@
     "react-bootstrap-sweetalert": "^5.2.0",
     "react-bootstrap-tabs": "^2.0.0",
     "react-dom": "^16.8.6",
->>>>>>> b425b698c21af3372417227dbc91f47dd5a67778
     "react-icofont": "0.0.6",
     "react-loader-spinner": "^3.1.14",
     "react-owl-carousel3": "^2.2.5",
-<<<<<<< HEAD
-    "react-router-dom": "^5.2.0",
-    "react-router-hash-link": "^2.3.1",
-    "react-scripts": "3.0.1",
-    "react-select2-wrapper": "^1.0.4-beta6",
-    "rsuite": "^4.8.8",
-=======
     "react-responsive": "^8.2.0",
     "react-responsive-modal": "^6.0.1",
     "react-router-dom": "^5.0.1",
+    "react-router-hash-link": "^2.3.1",
     "react-scripts": "3.0.1",
     "react-select2-wrapper": "^1.0.4-beta6",
->>>>>>> b425b698c21af3372417227dbc91f47dd5a67778
     "simple-react-validator": "^1.6.0"
   },
   "scripts": {

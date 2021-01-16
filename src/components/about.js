@@ -1,10 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { Fragment } from "react";
-import { NavLink } from "react-router-dom";
-import Header from "../layout/header/slider-header-2";
-import Footer from "../layout/footer/footer-dark-3";
-import Split from "../container/split/section-split";
-import Team from "../container/element/carousel/team-carousel-one";
+
 const About = () => {
   const noAction = (e) => e.preventDefault();
   return (
@@ -387,8 +383,6 @@ const About = () => {
         </div>
         {/*<!-- ends: .icon-boxes -->*/}
       </section>
-
-      <Footer />
     </Fragment>
   );
 };

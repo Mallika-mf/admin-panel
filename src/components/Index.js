@@ -69,15 +69,15 @@ class Index extends React.Component {
                 >
                   <div className="item">
                     <CardItem
-                      title="World Famous"
-                      subTitle="North Indian • American • Pure veg"
+                      title="Reeta Bhardwaj (Hyderabad)"
+                      subTitle="South Indian • Pure veg"
                       imageAlt="Product"
-                      image="img/list/1.png"
+                      image="./assets/img/chefs/Hyd Chef_Reeta Bharadwaj.jpg"
                       imageClass="img-fluid item-img"
                       linkUrl="detail"
-                      offerText="65% off | Use Coupon OSAHAN50"
+                      offerText="35% off | Use Coupon "
                       time="20–25 min"
-                      price="$250 FOR TWO"
+                      // price="$250 FOR TWO"
                       showPromoted={true}
                       promotedVariant="dark"
                       favIcoIconColor="text-danger"
@@ -86,15 +86,15 @@ class Index extends React.Component {
                   </div>
                   <div className="item">
                     <CardItem
-                      title="Bite Me Sandwiches"
-                      subTitle="North Indian • American • Pure veg"
+                      title="Chef_Simi (Hyderabad)"
+                      subTitle="North Indian • Pure veg"
                       imageAlt="Product"
                       image="img/list/3.png"
                       imageClass="img-fluid item-img"
                       linkUrl="detail"
-                      offerText="65% off | Use Coupon OSAHAN50"
+                      offerText="65% off | Use Coupon"
                       time="15–25 min"
-                      price="$100 FOR TWO"
+                      // price="$100 FOR TWO"
                       showPromoted={true}
                       promotedVariant="dark"
                       favIcoIconColor="text-danger"
@@ -111,7 +111,7 @@ class Index extends React.Component {
                       linkUrl="detail"
                       offerText="65% off | Use Coupon OSAHAN50"
                       time="20–25 min"
-                      price="$500 FOR TWO"
+                      // price="$500 FOR TWO"
                       showPromoted={true}
                       promotedVariant="danger"
                       favIcoIconColor="text-dark"
@@ -128,7 +128,7 @@ class Index extends React.Component {
                       linkUrl="detail"
                       offerText="65% off | Use Coupon OSAHAN50"
                       time="20–25 min"
-                      price="$250 FOR TWO"
+                      // price="$250 FOR TWO"
                       showPromoted={true}
                       promotedVariant="dark"
                       favIcoIconColor="text-danger"

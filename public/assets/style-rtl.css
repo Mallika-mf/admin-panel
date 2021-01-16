@@ -4612,7 +4612,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card--testimonial2 .ratings span:last-child {
-  margin--left: 0;
+  margin-left: 0;
 }
 
 .card--testimonial2 .author-spec {
@@ -5155,6 +5155,7 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   -webkit-filter: blur(0px);
+          filter: blur(0px);
   -webkit-transform: rotateY(0deg);
           transform: rotateY(0deg);
   -webkit-transform-style: preserve-3d;
@@ -5173,7 +5174,7 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  -webkit-filter: blur(0px);
+  --webkit-filter: blur(0px);
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
   -webkit-transform-style: preserve-3d;

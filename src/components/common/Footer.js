@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link,NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   Row,
   Col,
@@ -33,7 +33,9 @@ class Footer extends React.Component {
           <Container>
             <Row>
               <Col md={4} sm={12}>
-                <h6 className="mb-3" style={{ textAlign: "justify" }}>Subscribe to our Newsletter</h6>
+                <h6 className="mb-3" style={{ textAlign: "justify" }}>
+                  Subscribe to our Newsletter
+                </h6>
                 <Form className="newsletter-form mb-1">
                   <InputGroup className="mb-3">
                     <FormControl
@@ -53,23 +55,42 @@ class Footer extends React.Component {
                   </Link>{" "}
                   to get updates on <Link to="offers">Offers and Coupons</Link>
                 </p>
-{/* <<<<<<< HEAD */}
+                {/* <<<<<<< HEAD */}
                 <div style={{ textAlign: "justify" }} className="app">
-                  <p className="mb-2" style={{ textAlign: "justify" }}>DOWNLOAD APP(Customers)</p>
-                  <a href = "https://play.google.com/store/apps/details?id=mothers.food.mothersfood" target = "_blank" rel="noopener noreferrer"  className="mr-1">      
-                   
-                 
-                    <Image style={{ textAlign: "justify" }} src="img/google.png" fluid />
+                  <p className="mb-2" style={{ textAlign: "justify" }}>
+                    DOWNLOAD APP(Customers)
+                  </p>
+                  <a
+                    href="https://play.google.com/store/apps/details?id=mothers.food.mothersfood"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mr-1"
+                  >
+                    <Image
+                      style={{ textAlign: "justify" }}
+                      src="img/google.png"
+                      fluid
+                    />
                   </a>
-                  <a href = "https://apps.apple.com/us/app/mothers-food/id1533947618" target = "_blank" rel="noopener noreferrer"  >      
-
-                    <Image style={{ textAlign: "justify" }} src="img/apple.png" alt="" fluid />
+                  <a
+                    href="https://apps.apple.com/us/app/mothers-food/id1533947618"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image
+                      style={{ textAlign: "justify" }}
+                      src="img/apple.png"
+                      alt=""
+                      fluid
+                    />
                   </a>
                 </div>
                 <div style={{ textAlign: "justify" }} className="app">
-                  <p style={{ textAlign: "justify" }} className="mb-2 mt-2">DOWNLOAD APP(Venders)</p>
-{/* ======= */}
-                {/* <div className="app">
+                  <p style={{ textAlign: "justify" }} className="mb-2 mt-2">
+                    DOWNLOAD APP(Venders)
+                  </p>
+                  {/* ======= */}
+                  {/* <div className="app">
                   <p className="mb-2">DOWNLOAD APP(Customers)</p>
                   <Link
                     href="https://play.google.com/store/apps/details?id=mothers.food.mothersfood"
@@ -84,18 +105,29 @@ class Footer extends React.Component {
                 <div className="app">
                   <p className="mb-2 mt-2">DOWNLOAD APP(Vendors)</p>
 {/* >>>>>>> e1f3282275238d424e5f4b2b07c9431b2a2a07bf */}
-                 <Link to="#" className="mr-1">
+                  <a
+                    className="mr-1"
+                    href="https://play.google.com/store/apps/details?id=mothers.food.motherfoodpartner"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Image src="img/google.png" alt="" fluid />
-                  </Link>
-                  <Link to="#">
+                  </a>
+                  <a
+                    href="https://apps.apple.com/us/app/mothers-food-home-chef/id1528883397"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Image src="img/apple.png" alt="" fluid />
-                  </Link>
-                {/* </div>  */}
+                  </a>
+                  {/* </div>  */}
                 </div>
               </Col>
               <Col md={1} sm={6} className="mobile-none"></Col>
               <Col md={2} sm={4} xs={6}>
-                <h6 style={{ textAlign: "justify" }} className="mb-3">Company</h6>
+                <h6 style={{ textAlign: "justify" }} className="mb-3">
+                  Company
+                </h6>
                 <ul>
                   <li style={{ textAlign: "justify" }}>
                     <NavLink to="/about-us">About Us</NavLink>
@@ -115,24 +147,22 @@ class Footer extends React.Component {
                 </ul>
               </Col>
               <Col md={2} sm={4} xs={6}>
-                <h6 style={{ textAlign: "justify" }} className="mb-3">Contact</h6>
+                <h6 style={{ textAlign: "justify" }} className="mb-3">
+                  Contact
+                </h6>
                 <ul>
-<<<<<<< HEAD
-                  <li>
+                  <li style={{ textAlign: "justify" }}>
                     <Link to="/partnerwithus">Partner With Us</Link>
-=======
+                  </li>
+
                   <li style={{ textAlign: "justify" }}>
-                    <Link to="#">Partner With Us</Link>
->>>>>>> b425b698c21af3372417227dbc91f47dd5a67778
+                    <Link to="/ridewithus">Drive With Us</Link>
                   </li>
                   <li style={{ textAlign: "justify" }}>
-                    <Link to="#">Drive With Us</Link>
-                  </li >
-                  <li style={{ textAlign: "justify" }}>
-                    <Link to="#">Help & Support</Link>
+                    <Link to="/helpsupport">Help & Support</Link>
                   </li>
                   <li style={{ textAlign: "justify" }}>
-                    <Link to="#">Contact Us</Link>
+                    <Link to="/contactus">Contact Us</Link>
                   </li>
                   {/* <li>
                     <Link to="#">Code of Conduct</Link>
@@ -140,11 +170,13 @@ class Footer extends React.Component {
                 </ul>
               </Col>
               <Col md={2} sm={4} xs={4} className="m-none">
-                <h6 style={{ textAlign: "justify" }} className="mb-3">Legal</h6>
+                <h6 style={{ textAlign: "justify" }} className="mb-3">
+                  Legal
+                </h6>
                 <ul>
                   <li style={{ textAlign: "justify" }}>
                     <Link to="#">Terms & Conditions </Link>
-                  </li >
+                  </li>
                   <li style={{ textAlign: "justify" }}>
                     <Link to="#">Refund & Policy</Link>
                   </li>
@@ -204,7 +236,12 @@ class Footer extends React.Component {
           <div className="container">
             <Row>
               <Col xs={12}>
-                <p style={{ textAlign: "justify" }} className={this.props.popularCHclassName}>POPULAR CITIES</p>
+                <p
+                  style={{ textAlign: "justify" }}
+                  className={this.props.popularCHclassName}
+                >
+                  POPULAR CITIES
+                </p>
                 <div style={{ textAlign: "justify" }} className="search-links">
                   <Link to="#">Hyderabad</Link> |<Link to="#">Delhi</Link> |
                   <Link to="#">Mumbai</Link> |<Link to="#">Noida</Link> |
@@ -241,7 +278,10 @@ class Footer extends React.Component {
                   |<Link to="#">Philippines</Link> |
                   <Link to="#">Sri Lanka</Link> */}
                 </div>
-                <p style={{ textAlign: "justify" }} className={this.props.popularFHclassName}>
+                <p
+                  style={{ textAlign: "justify" }}
+                  className={this.props.popularFHclassName}
+                >
                   POPULAR CUISINES
                 </p>
                 <div style={{ textAlign: "justify" }} className="search-links">
