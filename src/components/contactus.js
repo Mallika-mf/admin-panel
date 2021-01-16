@@ -168,8 +168,13 @@ class GeneralRules extends React.Component {
                       <i className="fa fa-headphones color-danger"></i>
                     </div>
                     <div className="contents text-left">
-                      <h6 className="text-left">+91 8333 01 8333 </h6>
-                      <span className="sub-text text-left">
+                      <h6 style={{ fontSize: "20px" }} className="text-left">
+                        +91 8333 01 8333{" "}
+                      </h6>
+                      <span
+                        className="sub-text text-left"
+                        style={{ fontSize: "15px" }}
+                      >
                         Give a miss call to this number and get a call with in
                         2hrs
                       </span>
@@ -188,8 +193,15 @@ class GeneralRules extends React.Component {
                       <i className="fa fa-envelope color-danger"></i>
                     </div>
                     <div className="contents text-left">
-                      <h6 className="text-left">info@mothersfood.in</h6>
-                      <span className="sub-text text-left">Write to Us</span>
+                      <h6 style={{ fontSize: "20px" }} className="text-left">
+                        info@mothersfood.in
+                      </h6>
+                      <span
+                        style={{ fontSize: "15px" }}
+                        className="sub-text text-left"
+                      >
+                        Write to Us
+                      </span>
                     </div>
                   </li>
                   <li className="icon-list2 d-flex  mb-4">
@@ -205,8 +217,13 @@ class GeneralRules extends React.Component {
                       <i className="fa fa-map-marker color-danger"></i>
                     </div>
                     <div className="contents text-left">
-                      <h6 className="text-left">Corporate Office</h6>
-                      <span className="sub-text text-left">
+                      <h6 style={{ fontSize: "20px" }} className="text-left">
+                        Corporate Office
+                      </h6>
+                      <span
+                        className="sub-text text-left"
+                        style={{ fontSize: "15px" }}
+                      >
                         Mothers kitchens &amp; Catering Services Pvt Ltd
                         <br />
                         #A-49, Street-3, Prakashnagar, <br />
