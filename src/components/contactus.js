@@ -72,8 +72,7 @@ class GeneralRules extends React.Component {
 
     return (
       <Fragment>
-        <div className="card">
-          {/* <div className="list-inline-wrapper p-top-80 p-bottom-50">
+        {/* <div className="list-inline-wrapper p-top-80 p-bottom-50">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
@@ -105,122 +104,121 @@ class GeneralRules extends React.Component {
             </div>
         </div> */}
 
-          <section className="list-inline-wrapper p-top-80 p-bottom-50">
-            <div className="container">
-              <div className="row mt-5 mb-3" style={{ border: "none" }}>
-                <div className="col-lg-6 ">
-                  <div className="form-wrapper">
-                    <div className="m-bottom-10">
-                      <div className="divider divider-simple text-left">
-                        <h3>
-                          <b>Get In Touch</b>
-                        </h3>
-                      </div>
+        <section className="list-inline-wrapper p-top-80 p-bottom-50">
+          <div className="container">
+            <div className="row mt-5 mb-3" style={{ border: "none" }}>
+              <div className="col-lg-6 ">
+                <div className="form-wrapper">
+                  <div className="m-bottom-10">
+                    <div className="divider divider-simple text-left">
+                      <h3>
+                        <b>Get In Touch</b>
+                      </h3>
                     </div>
-                    <p className="m-bottom-30"></p>
-                    <form id="create-course-form">
-                      <input
-                        type="text"
-                        name="name"
-                        value={this.state.name}
-                        onChange={this.setStateFromInput}
-                        className="form-control form-outline mb-4"
-                        placeholder="Name"
-                      />
-                      <input
-                        type="email"
-                        value={this.state.email}
-                        onChange={this.setStateFromInput}
-                        name="email"
-                        className="form-control form-outline mb-4"
-                        placeholder="Email"
-                      />
-                      <textarea
-                        value={this.state.message}
-                        onChange={this.setStateFromInput}
-                        className="form-control form-outline mb-4"
-                        name="message"
-                        placeholder="Message"
-                      />
-                    </form>
-                    <button
-                      type="submit"
-                      onClick={submit}
-                      className="btn btn-danger m-right-25 mb-2"
-                      style={{ background: "#E41C39", border: "#E41C39" }}
-                    >
-                      Submit
-                    </button>
                   </div>
-                </div>
-
-                <div className="col-lg-6 " style={{ margin: "auto" }}>
-                  <ul className="icon-list--three">
-                    <li className="icon-list2 d-flex mb-4">
-                      <div
-                        className="icon"
-                        style={{
-                          marginTop: "5%",
-                          marginRight: "2%",
-                          fontSize: "25px",
-                          color: "red",
-                        }}
-                      >
-                        <i className="fa fa-headphones color-danger"></i>
-                      </div>
-                      <div className="contents text-left">
-                        <h6 className="text-left">+91 8333 01 8333 </h6>
-                        <span className="sub-text text-left">
-                          Give a miss call to this number and get a call with in
-                          2hrs
-                        </span>
-                      </div>
-                    </li>
-                    <li className="icon-list2 d-flex  mb-4">
-                      <div
-                        className="icon"
-                        style={{
-                          marginTop: "5%",
-                          marginRight: "2%",
-                          fontSize: "25px",
-                          color: "red",
-                        }}
-                      >
-                        <i className="fa fa-envelope color-danger"></i>
-                      </div>
-                      <div className="contents text-left">
-                        <h6 className="text-left">info@mothersfood.in</h6>
-                        <span className="sub-text text-left">Write to Us</span>
-                      </div>
-                    </li>
-                    <li className="icon-list2 d-flex  mb-4">
-                      <div
-                        className="icon"
-                        style={{
-                          marginTop: "5%",
-                          marginRight: "2%",
-                          fontSize: "25px",
-                          color: "red",
-                        }}
-                      >
-                        <i className="fa fa-map-marker color-danger"></i>
-                      </div>
-                      <div className="contents text-left">
-                        <h6 className="text-left">Corporate Office</h6>
-                        <span className="sub-text text-left">
-                          Mothers kitchens &amp; Catering Services Pvt Ltd
-                          <br />
-                          #A-49, Street-3, Prakashnagar, <br />
-                          Begumpet, Hyderabad 500 003
-                        </span>
-                      </div>
-                    </li>
-                  </ul>
+                  <p className="m-bottom-30"></p>
+                  <form id="create-course-form">
+                    <input
+                      type="text"
+                      name="name"
+                      value={this.state.name}
+                      onChange={this.setStateFromInput}
+                      className="form-control form-outline mb-4"
+                      placeholder="Name"
+                    />
+                    <input
+                      type="email"
+                      value={this.state.email}
+                      onChange={this.setStateFromInput}
+                      name="email"
+                      className="form-control form-outline mb-4"
+                      placeholder="Email"
+                    />
+                    <textarea
+                      value={this.state.message}
+                      onChange={this.setStateFromInput}
+                      className="form-control form-outline mb-4"
+                      name="message"
+                      placeholder="Message"
+                    />
+                  </form>
+                  <button
+                    type="submit"
+                    onClick={submit}
+                    className="btn btn-danger m-right-25 mb-2"
+                    style={{ background: "#E41C39", border: "#E41C39" }}
+                  >
+                    Submit
+                  </button>
                 </div>
               </div>
+
+              <div className="col-lg-6 " style={{ margin: "auto" }}>
+                <ul className="icon-list--three">
+                  <li className="icon-list2 d-flex mb-4">
+                    <div
+                      className="icon"
+                      style={{
+                        marginTop: "5%",
+                        marginRight: "2%",
+                        fontSize: "25px",
+                        color: "red",
+                      }}
+                    >
+                      <i className="fa fa-headphones color-danger"></i>
+                    </div>
+                    <div className="contents text-left">
+                      <h6 className="text-left">+91 8333 01 8333 </h6>
+                      <span className="sub-text text-left">
+                        Give a miss call to this number and get a call with in
+                        2hrs
+                      </span>
+                    </div>
+                  </li>
+                  <li className="icon-list2 d-flex  mb-4">
+                    <div
+                      className="icon"
+                      style={{
+                        marginTop: "5%",
+                        marginRight: "2%",
+                        fontSize: "25px",
+                        color: "red",
+                      }}
+                    >
+                      <i className="fa fa-envelope color-danger"></i>
+                    </div>
+                    <div className="contents text-left">
+                      <h6 className="text-left">info@mothersfood.in</h6>
+                      <span className="sub-text text-left">Write to Us</span>
+                    </div>
+                  </li>
+                  <li className="icon-list2 d-flex  mb-4">
+                    <div
+                      className="icon"
+                      style={{
+                        marginTop: "5%",
+                        marginRight: "2%",
+                        fontSize: "25px",
+                        color: "red",
+                      }}
+                    >
+                      <i className="fa fa-map-marker color-danger"></i>
+                    </div>
+                    <div className="contents text-left">
+                      <h6 className="text-left">Corporate Office</h6>
+                      <span className="sub-text text-left">
+                        Mothers kitchens &amp; Catering Services Pvt Ltd
+                        <br />
+                        #A-49, Street-3, Prakashnagar, <br />
+                        Begumpet, Hyderabad 500 003
+                      </span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
       </Fragment>
     );
   }

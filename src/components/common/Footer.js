@@ -21,7 +21,7 @@ class Footer extends React.Component {
           <Container>
             <Row>
               <Col sm={12}>
-                <h5 className="m-0">
+                <h5 className="m-0" style={{ fontSize: "25px" }}>
                   Operate food store or restaurants?{" "}
                   <Link to="login">Work With Us</Link>
                 </h5>
