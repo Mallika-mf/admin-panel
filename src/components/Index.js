@@ -72,7 +72,7 @@ class Index extends React.Component {
                       title="Reeta Bhardwaj (Hyderabad)"
                       subTitle="South Indian • Pure veg"
                       imageAlt="Product"
-                      image="./assets/img/chefs/Hyd Chef_Reeta Bharadwaj.jpg"
+                      image="./assets/img/chefs/Kusum Dwivedi.jpg"
                       imageClass="img-fluid item-img"
                       linkUrl="detail"
                       offerText="35% off | Use Coupon "
@@ -81,15 +81,15 @@ class Index extends React.Component {
                       showPromoted={true}
                       promotedVariant="dark"
                       favIcoIconColor="text-danger"
-                      rating="3.1 (300+)"
+                      rating="4.5 (300+)"
                     />
                   </div>
                   <div className="item">
                     <CardItem
-                      title="Chef_Simi (Hyderabad)"
+                      title="Reeta Bharadwaj (Hyderabad)"
                       subTitle="North Indian • Pure veg"
                       imageAlt="Product"
-                      image="img/list/3.png"
+                      image="./assets/img/chefs/Reeta Bharadwaj.jpg"
                       imageClass="img-fluid item-img"
                       linkUrl="detail"
                       offerText="65% off | Use Coupon"
@@ -98,41 +98,41 @@ class Index extends React.Component {
                       showPromoted={true}
                       promotedVariant="dark"
                       favIcoIconColor="text-danger"
-                      rating="3.1 (300+)"
+                      rating="3.9 (300+)"
                     />
                   </div>
                   <div className="item">
                     <CardItem
-                      title="The osahan Restaurant"
-                      subTitle="North Indian • American • Pure veg"
+                      title="Simi(Hyderabad)"
+                      subTitle="North Indian • Pure veg"
                       imageAlt="Product"
-                      image="img/list/6.png"
+                      image="./assets/img/chefs/Simi.jpg"
                       imageClass="img-fluid item-img"
                       linkUrl="detail"
-                      offerText="65% off | Use Coupon OSAHAN50"
+                      offerText="65% off | Use Coupon"
                       time="20–25 min"
                       // price="$500 FOR TWO"
                       showPromoted={true}
                       promotedVariant="danger"
                       favIcoIconColor="text-dark"
-                      rating="3.1 (300+)"
+                      rating="4.2 (300+)"
                     />
                   </div>
                   <div className="item">
                     <CardItem
-                      title="Polo Lounge"
-                      subTitle="North Indian • American • Pure veg"
+                      title="Pallavi Mohan Shahi"
+                      subTitle="North Indian • Pure veg"
                       imageAlt="Product"
-                      image="img/list/9.png"
+                      image="./assets/img/chefs/Pallavi Mohan Shahi2.jpg"
                       imageClass="img-fluid item-img"
                       linkUrl="detail"
-                      offerText="65% off | Use Coupon OSAHAN50"
+                      offerText="65% off | Use Coupon"
                       time="20–25 min"
                       // price="$250 FOR TWO"
                       showPromoted={true}
                       promotedVariant="dark"
                       favIcoIconColor="text-danger"
-                      rating="3.1 (300+)"
+                      rating="4.1 (300+)"
                     />
                   </div>
                 </OwlCarousel>
@@ -185,7 +185,7 @@ class Index extends React.Component {
                       showPromoted={true}
                       promotedVariant="dark"
                       favIcoIconColor="text-danger"
-                      rating="3.1 (300+)"
+                      rating="4.1 (300+)"
                     />
                   </div>
                   <div className="item">
@@ -202,7 +202,7 @@ class Index extends React.Component {
                       showPromoted={true}
                       promotedVariant="danger"
                       favIcoIconColor="text-dark"
-                      rating="3.1 (300+)"
+                      rating="4.2 (300+)"
                     />
                   </div>
                   <div className="item">
@@ -219,7 +219,7 @@ class Index extends React.Component {
                       showPromoted={true}
                       promotedVariant="dark"
                       favIcoIconColor="text-danger"
-                      rating="3.1 (300+)"
+                      rating="4.1 (300+)"
                     />
                   </div>
                 </OwlCarousel>

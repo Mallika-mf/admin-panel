@@ -90,7 +90,7 @@ class TopSearch extends React.Component {
                   >
                     <div className="item">
                       <ProductBox
-                        image="img/slider.png"
+                        image="img/Top Sliders/Bengaluru Masala Dosa.jpg"
                         imageClass="img-fluid rounded"
                         imageAlt="carousel"
                         linkUrl="listing"
@@ -98,7 +98,7 @@ class TopSearch extends React.Component {
                     </div>
                     <div className="item">
                       <ProductBox
-                        image="img/slider1.png"
+                        image="img/Top Sliders/Chatpata Chole Bhature.jpg"
                         imageClass="img-fluid rounded"
                         imageAlt="carousel"
                         linkUrl="listing"
@@ -106,7 +106,119 @@ class TopSearch extends React.Component {
                     </div>
                     <div className="item">
                       <ProductBox
-                        image="img/slider.png"
+                        image="img/Top Sliders/Crazy Custoomized Cakes.jpg"
+                        imageClass="img-fluid rounded"
+                        imageAlt="carousel"
+                        linkUrl="listing"
+                      />
+                    </div>
+                    <div className="item">
+                      <ProductBox
+                        image="img/Top Sliders/Delhi ka Parota.jpg"
+                        imageClass="img-fluid rounded"
+                        imageAlt="carousel"
+                        linkUrl="listing"
+                      />
+                    </div>
+                    <div className="item">
+                      <ProductBox
+                        image="img/Top Sliders/Delhi ki Rajma Chawal.jpg"
+                        imageClass="img-fluid rounded"
+                        imageAlt="carousel"
+                        linkUrl="listing"
+                      />
+                    </div>
+                    <div className="item">
+                      <ProductBox
+                        image="img/Top Sliders/Freshly Baked Burgers.jpg"
+                        imageClass="img-fluid rounded"
+                        imageAlt="carousel"
+                        linkUrl="listing"
+                      />
+                    </div>
+                    <div className="item">
+                      <ProductBox
+                        image="img/Top Sliders/Healthy HomeMade Pickles.jpg"
+                        imageClass="img-fluid rounded"
+                        imageAlt="carousel"
+                        linkUrl="listing"
+                      />
+                    </div>
+                    <div className="item">
+                      <ProductBox
+                        image="img/Top Sliders/Hyderabadi Biryani.jpg"
+                        imageClass="img-fluid rounded"
+                        imageAlt="carousel"
+                        linkUrl="listing"
+                      />
+                    </div>
+                    <div className="item">
+                      <ProductBox
+                        image="img/Top Sliders/Hyderabadi Paya.jpg"
+                        imageClass="img-fluid rounded"
+                        imageAlt="carousel"
+                        linkUrl="listing"
+                      />
+                    </div>
+                    <div className="item">
+                      <ProductBox
+                        image="img/Top Sliders/Italian Pizza.jpg"
+                        imageClass="img-fluid rounded"
+                        imageAlt="carousel"
+                        linkUrl="listing"
+                      />
+                    </div>
+                    <div className="item">
+                      <ProductBox
+                        image="img/Top Sliders/kashmiri Dal Makhni.jpg"
+                        imageClass="img-fluid rounded"
+                        imageAlt="carousel"
+                        linkUrl="listing"
+                      />
+                    </div>
+                    <div className="item">
+                      <ProductBox
+                        image="img/Top Sliders/Kolkata ke Rasgulle.jpg"
+                        imageClass="img-fluid rounded"
+                        imageAlt="carousel"
+                        linkUrl="listing"
+                      />
+                    </div>
+                    <div className="item">
+                      <ProductBox
+                        image="img/Top Sliders/Mumbai ki VadaPav.jpg"
+                        imageClass="img-fluid rounded"
+                        imageAlt="carousel"
+                        linkUrl="listing"
+                      />
+                    </div>
+                    <div className="item">
+                      <ProductBox
+                        image="img/Top Sliders/Mysore Bonda.jpg"
+                        imageClass="img-fluid rounded"
+                        imageAlt="carousel"
+                        linkUrl="listing"
+                      />
+                    </div>
+                    <div className="item">
+                      <ProductBox
+                        image="img/Top Sliders/Noida Bandi wale Momos.jpg"
+                        imageClass="img-fluid rounded"
+                        imageAlt="carousel"
+                        linkUrl="listing"
+                      />
+                    </div>
+                    <div className="item">
+                      <ProductBox
+                        image="img/Top Sliders/Pune ki Bhel Puri.jpg"
+                        imageClass="img-fluid rounded"
+                        imageAlt="carousel"
+                        linkUrl="listing"
+                      />
+                    </div>
+                    <div className="item">
+                      <ProductBox
+                        image="img/Top Sliders/Punjabi Kadi Chawal.jpg"
                         imageClass="img-fluid rounded"
                         imageAlt="carousel"
                         linkUrl="listing"

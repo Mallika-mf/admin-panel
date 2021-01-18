@@ -100,16 +100,16 @@ class CategoriesCarousel extends React.Component {
             imageAlt="carousel"
             // linkUrl="#"
           />
-          {/* <div className="item">
-            <ProductBox
-              boxClass="osahan-category-item"
-              title="Indian"
-              image="img/list/Vegeterianj.jpg"
-              imageClass="img-fluid"
-              imageAlt="carousel"
-              // linkUrl="#"
-            />
-          </div> */}
+        </div>
+        <div className="item">
+          <ProductBox
+            boxClass="osahan-category-item"
+            title="Indian"
+            image="img/list/Vegeterianj.jpg"
+            imageClass="img-fluid"
+            imageAlt="carousel"
+            // linkUrl="#"
+          />
         </div>
       </OwlCarousel>
     );
