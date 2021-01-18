@@ -237,7 +237,23 @@ class Login extends React.Component {
     return (
       <Container fluid className="bg-white">
         <Row>
-          <Col md={4} lg={6} className="d-none d-md-flex bg-image"></Col>
+          <Col md={4} lg={6} className="d-none d-md-flex bg-image">
+            <div
+              className="bg_image_holder_ride"
+              style={{ backgroundColor: "#edf3f5" }}
+            >
+              <img
+                src="./assets/img/partnerwithusNew.png"
+                style={{
+                  minHeight: "30.33333rem",
+                  Width: "500px",
+                  maxWidth: "100%",
+                  height: "450px",
+                }}
+                alt=""
+              />
+            </div>
+          </Col>
           <Col md={8} lg={6}>
             <div className="login d-flex align-items-center py-5">
               <Container>

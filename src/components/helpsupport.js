@@ -2,7 +2,7 @@
 import React, { Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import Header from "../header/faqheader";
-// import "../style copy.css";
+import "../style copy.css";
 
 const noAction = (e) => e.preventDefault();
 const Project = () => {
@@ -46,7 +46,7 @@ const Project = () => {
                                 className="text-left"
                                 data-toggle="collapse"
                                 data-target="#c1"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="c1"
                               >
                                 How to register with MothersFood as a home-chef?
@@ -77,7 +77,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c2"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseTwo"
                               >
                                 What happens after I register as a home-chef
@@ -119,7 +119,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c3"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseThree"
                               >
                                 What is the Taste Audit?
@@ -150,7 +150,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c4"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseFour"
                               >
                                 Can restaurants be a partner with MothersFood?
@@ -180,7 +180,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c5"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseFive"
                               >
                                 How can I contact support?
@@ -211,7 +211,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c6"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseFive"
                               >
                                 How long is the package valid for?
@@ -242,7 +242,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c7"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseFive"
                               >
                                 Can I move from one package to another in
@@ -273,7 +273,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c8"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseFive"
                               >
                                 How do I access the app?
@@ -305,7 +305,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c9"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseFive"
                               >
                                 Is there any limit to the number of food items
@@ -335,7 +335,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c10"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseFive"
                               >
                                 What if my preferred dish is not available in
@@ -366,7 +366,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c11"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseFive"
                               >
                                 How many orders can I take in a day?
@@ -396,7 +396,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c12"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseFive"
                               >
                                 Is there any minimum number of orders that I
@@ -427,7 +427,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c13"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseFive"
                               >
                                 What if I’m unable to fulfill the order in the
@@ -461,7 +461,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c14"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseFive"
                               >
                                 Can I change my address if I relocate?
@@ -492,7 +492,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c15"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseFive"
                               >
                                 Can I change my phone number?
@@ -522,7 +522,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c16"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseFive"
                               >
                                 Can I refer anyone else to join as a MothersFood
@@ -554,7 +554,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c17"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseFive"
                               >
                                 What are MFood Coins?
@@ -588,7 +588,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c18"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseFive"
                               >
                                 How can I receive the invoice for my earnings?
@@ -620,7 +620,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c19"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseFive"
                               >
                                 How does Bulk order / Catering service request
@@ -652,7 +652,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c20"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseFive"
                               >
                                 What about the delivery services?
@@ -684,7 +684,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c21"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseFive"
                               >
                                 Who provides the packaging material?
@@ -770,7 +770,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c23"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseTwo"
                               >
                                 How to order food through MothersFood?
@@ -801,7 +801,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c24"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseThree"
                               >
                                 How can I launch feedback?
@@ -830,7 +830,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c25"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseFour"
                               >
                                 How can I cancel the order?
@@ -862,7 +862,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c26"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseFive"
                               >
                                 How does the refund process work?
@@ -893,7 +893,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c27"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseFive"
                               >
                                 How much do you charge for delivery?
@@ -926,7 +926,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c28"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseFive"
                               >
                                 How to rate the service?
@@ -957,7 +957,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c29"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseFive"
                               >
                                 Can I get a lunch/dinner delivery service daily
@@ -989,7 +989,7 @@ const Project = () => {
                                 className="collapsed text-left"
                                 data-toggle="collapse"
                                 data-target="#c30"
-                                aria-expanded="false"
+                                aria-expanded="True"
                                 aria-controls="collapseFive"
                               >
                                 Can I raise a Bulk order request or catering

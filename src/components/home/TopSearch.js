@@ -66,7 +66,7 @@ class TopSearch extends React.Component {
                       </Form.Group>
                       <Form.Group className="col-lg-2 col-md-2 col-sm-12">
                         <Link
-                          to="listing"
+                          to="#"
                           className="btn btn-danger btn-block btn-lg btn-gradient"
                         >
                           Search
@@ -93,7 +93,7 @@ class TopSearch extends React.Component {
                         image="img/Top Sliders/Bengaluru Masala Dosa.jpg"
                         imageClass="img-fluid rounded"
                         imageAlt="carousel"
-                        linkUrl="listing"
+                        linkUrl="#"
                       />
                     </div>
                     <div className="item">
@@ -101,7 +101,7 @@ class TopSearch extends React.Component {
                         image="img/Top Sliders/Chatpata Chole Bhature.jpg"
                         imageClass="img-fluid rounded"
                         imageAlt="carousel"
-                        linkUrl="listing"
+                        linkUrl="#"
                       />
                     </div>
                     <div className="item">
@@ -109,7 +109,7 @@ class TopSearch extends React.Component {
                         image="img/Top Sliders/Crazy Custoomized Cakes.jpg"
                         imageClass="img-fluid rounded"
                         imageAlt="carousel"
-                        linkUrl="listing"
+                        linkUrl="#"
                       />
                     </div>
                     <div className="item">
@@ -117,7 +117,7 @@ class TopSearch extends React.Component {
                         image="img/Top Sliders/Delhi ka Parota.jpg"
                         imageClass="img-fluid rounded"
                         imageAlt="carousel"
-                        linkUrl="listing"
+                        linkUrl="#"
                       />
                     </div>
                     <div className="item">
@@ -125,7 +125,7 @@ class TopSearch extends React.Component {
                         image="img/Top Sliders/Delhi ki Rajma Chawal.jpg"
                         imageClass="img-fluid rounded"
                         imageAlt="carousel"
-                        linkUrl="listing"
+                        linkUrl="#"
                       />
                     </div>
                     <div className="item">
@@ -133,7 +133,7 @@ class TopSearch extends React.Component {
                         image="img/Top Sliders/Freshly Baked Burgers.jpg"
                         imageClass="img-fluid rounded"
                         imageAlt="carousel"
-                        linkUrl="listing"
+                        linkUrl="#"
                       />
                     </div>
                     <div className="item">
@@ -141,7 +141,7 @@ class TopSearch extends React.Component {
                         image="img/Top Sliders/Healthy HomeMade Pickles.jpg"
                         imageClass="img-fluid rounded"
                         imageAlt="carousel"
-                        linkUrl="listing"
+                        linkUrl="#"
                       />
                     </div>
                     <div className="item">
@@ -149,7 +149,7 @@ class TopSearch extends React.Component {
                         image="img/Top Sliders/Hyderabadi Biryani.jpg"
                         imageClass="img-fluid rounded"
                         imageAlt="carousel"
-                        linkUrl="listing"
+                        linkUrl="#"
                       />
                     </div>
                     <div className="item">
@@ -157,7 +157,7 @@ class TopSearch extends React.Component {
                         image="img/Top Sliders/Hyderabadi Paya.jpg"
                         imageClass="img-fluid rounded"
                         imageAlt="carousel"
-                        linkUrl="listing"
+                        linkUrl="#"
                       />
                     </div>
                     <div className="item">
@@ -165,7 +165,7 @@ class TopSearch extends React.Component {
                         image="img/Top Sliders/Italian Pizza.jpg"
                         imageClass="img-fluid rounded"
                         imageAlt="carousel"
-                        linkUrl="listing"
+                        linkUrl="#"
                       />
                     </div>
                     <div className="item">
@@ -173,7 +173,7 @@ class TopSearch extends React.Component {
                         image="img/Top Sliders/kashmiri Dal Makhni.jpg"
                         imageClass="img-fluid rounded"
                         imageAlt="carousel"
-                        linkUrl="listing"
+                        linkUrl="#"
                       />
                     </div>
                     <div className="item">
@@ -181,7 +181,7 @@ class TopSearch extends React.Component {
                         image="img/Top Sliders/Kolkata ke Rasgulle.jpg"
                         imageClass="img-fluid rounded"
                         imageAlt="carousel"
-                        linkUrl="listing"
+                        linkUrl="#"
                       />
                     </div>
                     <div className="item">
@@ -189,7 +189,7 @@ class TopSearch extends React.Component {
                         image="img/Top Sliders/Mumbai ki VadaPav.jpg"
                         imageClass="img-fluid rounded"
                         imageAlt="carousel"
-                        linkUrl="listing"
+                        linkUrl="#"
                       />
                     </div>
                     <div className="item">
@@ -197,7 +197,7 @@ class TopSearch extends React.Component {
                         image="img/Top Sliders/Mysore Bonda.jpg"
                         imageClass="img-fluid rounded"
                         imageAlt="carousel"
-                        linkUrl="listing"
+                        linkUrl="#"
                       />
                     </div>
                     <div className="item">
@@ -205,7 +205,7 @@ class TopSearch extends React.Component {
                         image="img/Top Sliders/Noida Bandi wale Momos.jpg"
                         imageClass="img-fluid rounded"
                         imageAlt="carousel"
-                        linkUrl="listing"
+                        linkUrl="#"
                       />
                     </div>
                     <div className="item">
@@ -213,7 +213,7 @@ class TopSearch extends React.Component {
                         image="img/Top Sliders/Pune ki Bhel Puri.jpg"
                         imageClass="img-fluid rounded"
                         imageAlt="carousel"
-                        linkUrl="listing"
+                        linkUrl="#"
                       />
                     </div>
                     <div className="item">
@@ -221,7 +221,7 @@ class TopSearch extends React.Component {
                         image="img/Top Sliders/Punjabi Kadi Chawal.jpg"
                         imageClass="img-fluid rounded"
                         imageAlt="carousel"
-                        linkUrl="listing"
+                        linkUrl="#"
                       />
                     </div>
                   </OwlCarousel>

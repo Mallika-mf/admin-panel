@@ -45,10 +45,7 @@ const SinglePage = (props) => {
           <div className="row">
             <div className="col-md-12">
               <div className="breadcrumb_wrapper d-flex flex-column align-items-center">
-                <h1
-                  className="page_title"
-                  style={{ marginTop: "-20%", color: "white", fontWeight: 500 }}
-                >
+                <h1 className="page_title" style={{ fontWeight: 500 }}>
                   {props.pageTitle}
                 </h1>
                 <nav aria-label="breadcrumb"></nav>

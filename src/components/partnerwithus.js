@@ -225,7 +225,7 @@ class GeneralRules extends React.Component {
                   <div className="col-lg-7">
                     <h1
                       className="display-4 text-left"
-                      style={{ fontWeight: 500, marginTop: "-60%" }}
+                      style={{ fontWeight: 500, marginTop: "-30%" }}
                     >
                       Partner With Us
                     </h1>
@@ -561,7 +561,7 @@ class GeneralRules extends React.Component {
             {/*<!-- ends: .icon-boxes -->*/}
           </section>
         </MediaQuery>
-        <MediaQuery minDeviceWidth={360}>
+        <MediaQuery maxDeviceWidth={360}>
           <div
             className="intro-four bgimage"
             style={{ minHeight: "30.33333rem" }}

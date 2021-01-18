@@ -1825,7 +1825,7 @@ footer.footer4.footer--light
   margin: 0;
 }
 .bg-image {
-  background: url(img/list-bg.jpg) center/cover no-repeat;
+  background: url(/public/assets/img/list-bg.jpg) center/cover no-repeat;
   padding: 6rem;
 }
 .bg-image ol,
@@ -7331,7 +7331,7 @@ footer.footer6.footer--dark .footer__bottom .footer__bottom-content {
 footer.footer7 {
   position: relative;
   overflow: hidden;
-  background: url(img/shape-wave3.png) center/100% 100% no-repeat;
+  background: url(/public/assets/img/shape-wave3.png) center/100% 100% no-repeat;
   padding-top: 4.66667rem;
 }
 footer.footer7.footer--dark .widget .widget__title2 {
@@ -8199,7 +8199,7 @@ footer.footer7.footer--dark .footer__bottom .footer__bottom-content {
   margin-right: 1rem;
 }
 .testimonial-carousel-six-wrapper {
-  background: url(img/shape-wave.png);
+  background: url(/public/assets/img/shape-wave.png);
   -webkit-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
@@ -8839,7 +8839,7 @@ footer.footer7.footer--dark .footer__bottom .footer__bottom-content {
   height: 5.06667rem;
   left: 0;
   bottom: 0;
-  background: url(img/sb2.png);
+  background: url(/public/assets/img/sb2.png);
   background-repeat: no-repeat;
   -webkit-background-size: cover;
   background-size: cover;
@@ -8900,7 +8900,7 @@ footer.footer7.footer--dark .footer__bottom .footer__bottom-content {
 }
 .subscribe-seven {
   padding: 7.66667rem 0;
-  background: url(img/map-bg.png);
+  background: url(/public/assets/img/map-bg.png);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -9025,7 +9025,7 @@ footer.footer7.footer--dark .footer__bottom .footer__bottom-content {
   height: 5.06667rem;
   left: 0;
   bottom: 0;
-  background: url(img/sb2.png);
+  background: url(/public/assets/img/sb2.png);
   background-repeat: no-repeat;
   -webkit-background-size: cover;
   background-size: cover;
@@ -9173,7 +9173,7 @@ footer.footer7.footer--dark .footer__bottom .footer__bottom-content {
   padding: 0 1rem;
 }
 .process-one .process-single:nth-child(2n + 1) .icon:before {
-  content: url(img/arrow-up.png);
+  content: url(/public/assets/img/arrow-up.png);
 }
 .process-one .process-single .icon {
   width: 9.33333rem;
@@ -9233,7 +9233,7 @@ footer.footer7.footer--dark .footer__bottom .footer__bottom-content {
 }
 .process-one .process-single .icon:before {
   position: absolute;
-  content: url(img/arrow-down.png);
+  content: url(/public/assets/img/arrow-down.png);
   right: -90%;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -9891,7 +9891,7 @@ footer.footer6.footer--dark .footer__bottom .footer__bottom-content {
 footer.footer7 {
   position: relative;
   overflow: hidden;
-  background: url(img/shape-wave3.png) center/100% 100% no-repeat;
+  background: url(/public/assets/img/shape-wave3.png) center/100% 100% no-repeat;
   padding-top: 4.66667rem;
 }
 footer.footer7.footer--dark .widget .widget__title2 {
@@ -10320,7 +10320,7 @@ footer.footer7.footer--dark .footer__bottom .footer__bottom-content {
   margin-left: 0.66667rem;
 }
 .intro-area-11 {
-  background-image: url(img/intro-bg.png);
+  background-image: url(/public/assets/img/intro-bg.png);
   -webkit-background-size: 100% 100%;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -10373,13 +10373,13 @@ footer.footer7.footer--dark .footer__bottom .footer__bottom-content {
   height: 100%;
   left: 0;
   top: 0;
-  background-image: url(img/svg/shape2.svg),
+  background-image: url(/public/assets/img/svg/shape2.svg),
     -webkit-gradient(linear, left top, right top, from(#413aa4), to(#06b590));
-  background-image: url(img/svg/shape2.svg),
+  background-image: url(/public/assets/img/svg/shape2.svg),
     -webkit-linear-gradient(left, #413aa4, #06b590);
-  background-image: url(img/svg/shape2.svg),
+  background-image: url(/public/assets/img/svg/shape2.svg),
     -o-linear-gradient(left, #413aa4, #06b590);
-  background-image: url(img/svg/shape2.svg),
+  background-image: url(/public/assets/img/svg/shape2.svg),
     linear-gradient(to right, #413aa4, #06b590);
   background-repeat: no-repeat;
   background-position: right;
@@ -10523,7 +10523,7 @@ footer.footer7.footer--dark .footer__bottom .footer__bottom-content {
   content: "";
   width: 100%;
   height: 100%;
-  background: url(img/shape2.png) top right/auto no-repeat;
+  background: url(/public/assets/img/shape2.png) top right/auto no-repeat;
 }
 .intro-three .intro-three--img {
   position: absolute;
@@ -10659,19 +10659,19 @@ footer.footer7.footer--dark .footer__bottom .footer__bottom-content {
   width: 100%;
 }
 .shape-wrapper.img-shape-one:before {
-  background: url(img/img_shape1.png);
+  background: url(/public/assets/img/img_shape1.png);
   -webkit-background-size: 100% 100%;
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 .shape-wrapper.img-shape-two:before {
-  background: url(img/img_shape2.png);
+  background: url(/public/assets/img/img_shape2.png);
   -webkit-background-size: 100% 101%;
   background-size: 100% 101%;
   background-repeat: no-repeat;
 }
 .shape-wrapper.img-shape-three:before {
-  background: url(img/img_shape3.png);
+  background: url(/public/assets/img/img_shape3.png);
   -webkit-background-size: 100% 101%;
   background-size: 100% 101%;
   background-repeat: no-repeat;
@@ -11029,7 +11029,7 @@ footer.footer7.footer--dark .footer__bottom .footer__bottom-content {
 }
 .service-two {
   padding: 7.33333rem 0 5.33333rem;
-  background: url(img/shape-wave2.png) center/100% 100% no-repeat;
+  background: url(/public/assets/img/shape-wave2.png) center/100% 100% no-repeat;
 }
 .p-box {
   padding: 2rem 2.66667rem 2.33333rem;
@@ -12302,7 +12302,7 @@ footer.footer7.footer--dark .footer__bottom .footer__bottom-content {
   font-weight: 500;
 }
 .team-wrapper {
-  background: url(img/shape1.png) center/100% 100% no-repeat;
+  background: url(/public/assets/img/shape1.png) center/100% 100% no-repeat;
   padding: 7.33333rem 0;
   position: relative;
 }
@@ -12395,10 +12395,10 @@ footer.footer7.footer--dark .footer__bottom .footer__bottom-content {
     content: none;
   }
   .process-one .process-single:nth-child(2n + 1) .icon:before {
-    content: url(img/arrow-up-sm.png);
+    content: url(/public/assets/img/arrow-up-sm.png);
   }
   .process-one .process-single .icon:before {
-    content: url(img/arrow-down-sm.png);
+    content: url(/public/assets/img/arrow-down-sm.png);
   }
   .process-one .process-single .icon:before {
     right: -58%;

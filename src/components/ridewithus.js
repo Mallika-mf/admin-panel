@@ -488,7 +488,7 @@ class GeneralRules extends React.Component {
             {/*<!-- ends: .icon-boxes -->*/}
           </section>
         </MediaQuery>
-        <MediaQuery minDeviceWidth={320}>
+        <MediaQuery maxDeviceWidth={320}>
           <div
             className="intro-four bgimage"
             style={{ minHeight: "25.33333rem" }}
