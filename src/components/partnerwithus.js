@@ -258,310 +258,314 @@ class GeneralRules extends React.Component {
             </div>
           </div>
           {/*<!-- ends: .intro-four-contents -->*/}
-
-          <section className="features-area  p-top-20 p-bottom-20">
-            <div className="icon-boxes">
-              <div className="container">
-                <div className="row" style={{ marginTop: "10px" }}>
-                  <div
-                    className="col-lg-12 col-md-12 col-sm-6"
-                    style={{ margin: "auto", fontSize: "15px" }}
-                  >
-                    <h3 style={{ color: "#E41C39" }} className="text-left">
-                      <b>Why partner with us?</b>
-                    </h3>
-                    <div className=" icon-box-fourteen text-left">
-                      <p
-                        className="m-top-0 p-top-0 text-left"
-                        style={{ fontSize: "15px" }}
-                      >
-                        Either choose to sit at home and cry for attention, or
-                        get on board to rock your kitchen and be successful,
-                        being awesome is your own choice.
-                      </p>
-                      <ul className="bullet--list2">
-                        <li className="bullet_list text-left">
-                          What’s something that you can cook like no one else
-                          can?
-                        </li>
-                        <li className="bullet_list text-left">
-                          What are your splendid dishes that your family wars
-                          for a bigger piece?
-                        </li>
-                        <li className="bullet_list text-left">
-                          {" "}
-                          What is that one famous dish of yours that everyone in
-                          the party awaits?
-                        </li>
-                      </ul>
-                      If you happened to have an answer to the above questions,
-                      we’re out looking for you. MothersFood is designed to
-                      empower the home chefs, especially women whose impressive
-                      dishes are limited to home till now. Who doesn’t wanna get
-                      recognized for something they’re really good at? I hope
-                      everyone, but there’s always some reason to hold you back.
-                      But remember, nothing works unless you start to do it.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section className="section-bg p-top-50 p-bottom-80">
-            <div className="card-style-nine">
-              <div className="container">
-                <div className="row" style={{ marginTop: "10px" }}>
-                  <div className="col-lg-8 offset-lg-2 section-title text-center">
-                    <h3 style={{ color: "#E41C39" }}>
-                      <b>Why MothersFood?</b>
-                    </h3>
-                    <p>
-                      But why us? Let us take the pleasure to brag about our
-                      excellent features that didn’t exist in the market to
-                      date.
-                    </p>
-                  </div>
-                  <div className="col-lg-4 col-md-6">
-                    <div className="card">
-                      <div class="card-body text-center">
-                        <img
-                          src="../assets/img/partnericon1.png"
-                          width="80px"
-                          height="80px"
-                          className="img-responsive"
-                          alt=""
-                        />
-                        <h6 style={{ fontSize: "20px" }}>
-                          <b>Only The Best</b>
-                        </h6>
-                        <p className="text-left" style={{ fontSize: "15px" }}>
-                          You don’t have to have a complete menu to work with
-                          us. If you can make only one dish that everyone loves,
-                          you’re welcome on board.
-                          <br />
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-4 col-md-6">
-                    <div className="card">
-                      <div class="card-body text-center">
-                        <img
-                          src="../assets/img/partnericon2.png"
-                          width="80px"
-                          height="80px"
-                          className="img-responsive"
-                          alt=""
-                        />
-                        <h6 style={{ fontSize: "20px" }}>
-                          <b>Delivery</b>
-                        </h6>
+          <div className="card">
+            <section className="features-area  p-top-20 p-bottom-20">
+              <div className="icon-boxes">
+                <div className="container">
+                  <div className="row" style={{ marginTop: "10px" }}>
+                    <div
+                      className="col-lg-12 col-md-12 col-sm-6"
+                      style={{ margin: "auto", fontSize: "15px" }}
+                    >
+                      <h3 style={{ color: "#E41C39" }} className="text-left">
+                        <b>Why partner with us?</b>
+                      </h3>
+                      <div className=" icon-box-fourteen text-left">
                         <p
-                          className="text-left"
-                          style={{ wordSpacing: "-0.2px", fontSize: "15px" }}
+                          className="m-top-0 p-top-0 text-left"
+                          style={{ fontSize: "15px" }}
                         >
-                          We’re here to share your burden. You just cook and
-                          relax, our delivery partners make sure to take it to
-                          the right place at the right time.
-                          <br />
+                          Either choose to sit at home and cry for attention, or
+                          get on board to rock your kitchen and be successful,
+                          being awesome is your own choice.
                         </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-4 col-md-6">
-                    <div className="card">
-                      <div class="card-body text-center">
-                        <img
-                          src="../assets/img/partnericon3.png"
-                          width="80px"
-                          height="80px"
-                          className="img-responsive"
-                          alt=""
-                        />
-                        <h6 style={{ fontSize: "20px" }}>
-                          <b>License</b>
-                        </h6>
-                        <p
-                          className="text-left"
-                          style={{ wordSpacing: "-0.2px", fontSize: "15px" }}
-                        >
-                          Don’t worry about the licenses, registrations or
-                          permissions anymore. As per your state laws, we’ll
-                          stack everything required to start you off.
-                          <br />
-                        </p>
+                        <ul className="bullet--list2">
+                          <li className="bullet_list text-left">
+                            What’s something that you can cook like no one else
+                            can?
+                          </li>
+                          <li className="bullet_list text-left">
+                            What are your splendid dishes that your family wars
+                            for a bigger piece?
+                          </li>
+                          <li className="bullet_list text-left">
+                            {" "}
+                            What is that one famous dish of yours that everyone
+                            in the party awaits?
+                          </li>
+                        </ul>
+                        If you happened to have an answer to the above
+                        questions, we’re out looking for you. MothersFood is
+                        designed to empower the home chefs, especially women
+                        whose impressive dishes are limited to home till now.
+                        Who doesn’t wanna get recognized for something they’re
+                        really good at? I hope everyone, but there’s always some
+                        reason to hold you back. But remember, nothing works
+                        unless you start to do it.
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            {/*<!-- ends: .card-style-nine -->*/}
-          </section>
+            </section>
 
-          <section className="features-area  p-top-20 p-bottom-20">
-            <div className="icon-boxes">
-              <div className="container">
-                <div className="row" style={{ marginTop: "10px" }}>
-                  <div
-                    className="col-lg-6 col-md-6 col-sm-6"
-                    style={{ margin: "auto" }}
-                  >
-                    <h3 style={{ color: "#E41C39" }} className="text-left">
-                      <b>M-Food Star Chef Recognition</b>
-                    </h3>
-                    <div className=" icon-box-fourteen text-center">
-                      <p
-                        className="m-top-0 p-top-0"
-                        style={{ textAlign: "justify", fontSize: "15px" }}
-                      >
-                        We believe in recognizing the talents that are
-                        impeccable at their job. To bring it to reality, we’ve
-                        come up with “M-Food Star Chef Recognition” to keep your
-                        competitive spirit motivated. Once in a month, we’ll
-                        evaluate your performance based on the customer ratings,
-                        your efficiency to finish an order smoothly, and several
-                        other factors and announce our best chef-partner as
-                        “M-Food Star Chef” of that specific month. <br />
-                        This will help you improve your rating as the best chef
-                        in your area and more likely to be recognized by more
-                        people. So, as John Wooden says, make each day your
-                        masterpiece
+            <section className="section-bg p-top-50 p-bottom-80">
+              <div className="card-style-nine">
+                <div className="container">
+                  <div className="row" style={{ marginTop: "10px" }}>
+                    <div className="col-lg-8 offset-lg-2 section-title text-center">
+                      <h3 style={{ color: "#E41C39" }}>
+                        <b>Why MothersFood?</b>
+                      </h3>
+                      <p>
+                        But why us? Let us take the pleasure to brag about our
+                        excellent features that didn’t exist in the market to
+                        date.
                       </p>
                     </div>
-                    {/*<!-- ends: .icon-box -->*/}
+                    <div className="col-lg-4 col-md-6">
+                      <div className="card">
+                        <div class="card-body text-center">
+                          <img
+                            src="../assets/img/partnericon1.png"
+                            width="80px"
+                            height="80px"
+                            className="img-responsive"
+                            alt=""
+                          />
+                          <h6 style={{ fontSize: "20px" }}>
+                            <b>Only The Best</b>
+                          </h6>
+                          <p className="text-left" style={{ fontSize: "15px" }}>
+                            You don’t have to have a complete menu to work with
+                            us. If you can make only one dish that everyone
+                            loves, you’re welcome on board.
+                            <br />
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-lg-4 col-md-6">
+                      <div className="card">
+                        <div class="card-body text-center">
+                          <img
+                            src="../assets/img/partnericon2.png"
+                            width="80px"
+                            height="80px"
+                            className="img-responsive"
+                            alt=""
+                          />
+                          <h6 style={{ fontSize: "20px" }}>
+                            <b>Delivery</b>
+                          </h6>
+                          <p
+                            className="text-left"
+                            style={{ wordSpacing: "-0.2px", fontSize: "15px" }}
+                          >
+                            We’re here to share your burden. You just cook and
+                            relax, our delivery partners make sure to take it to
+                            the right place at the right time.
+                            <br />
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-lg-4 col-md-6">
+                      <div className="card">
+                        <div class="card-body text-center">
+                          <img
+                            src="../assets/img/partnericon3.png"
+                            width="80px"
+                            height="80px"
+                            className="img-responsive"
+                            alt=""
+                          />
+                          <h6 style={{ fontSize: "20px" }}>
+                            <b>License</b>
+                          </h6>
+                          <p
+                            className="text-left"
+                            style={{ wordSpacing: "-0.2px", fontSize: "15px" }}
+                          >
+                            Don’t worry about the licenses, registrations or
+                            permissions anymore. As per your state laws, we’ll
+                            stack everything required to start you off.
+                            <br />
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  {/*<!-- ends: .col-lg-3 -->*/}
+                </div>
+              </div>
+              {/*<!-- ends: .card-style-nine -->*/}
+            </section>
 
-                  <div
-                    className="col-lg-6 col-md-6 col-sm-6"
-                    style={{ margin: "auto" }}
-                  >
-                    <div className="icon-box-fourteen text-center">
+            <section className="features-area  p-top-20 p-bottom-20">
+              <div className="icon-boxes">
+                <div className="container">
+                  <div className="row" style={{ marginTop: "10px" }}>
+                    <div
+                      className="col-lg-6 col-md-6 col-sm-6"
+                      style={{ margin: "auto" }}
+                    >
+                      <h3 style={{ color: "#E41C39" }} className="text-left">
+                        <b>M-Food Star Chef Recognition</b>
+                      </h3>
+                      <div className=" icon-box-fourteen text-center">
+                        <p
+                          className="m-top-0 p-top-0"
+                          style={{ textAlign: "justify", fontSize: "15px" }}
+                        >
+                          We believe in recognizing the talents that are
+                          impeccable at their job. To bring it to reality, we’ve
+                          come up with “M-Food Star Chef Recognition” to keep
+                          your competitive spirit motivated. Once in a month,
+                          we’ll evaluate your performance based on the customer
+                          ratings, your efficiency to finish an order smoothly,
+                          and several other factors and announce our best
+                          chef-partner as “M-Food Star Chef” of that specific
+                          month. <br />
+                          This will help you improve your rating as the best
+                          chef in your area and more likely to be recognized by
+                          more people. So, as John Wooden says, make each day
+                          your masterpiece
+                        </p>
+                      </div>
+                      {/*<!-- ends: .icon-box -->*/}
+                    </div>
+                    {/*<!-- ends: .col-lg-3 -->*/}
+
+                    <div
+                      className="col-lg-6 col-md-6 col-sm-6"
+                      style={{ margin: "auto" }}
+                    >
+                      <div className="icon-box-fourteen text-center">
+                        <img
+                          src="../assets/img/chefs/Pallavi Mohan Shahi3.jpg"
+                          width="300px"
+                          className="img-responsive"
+                          alt="mf"
+                        ></img>
+                      </div>
+                      {/*<!-- ends: .icon-box -->*/}
+                    </div>
+                    {/*<!-- ends: .col-lg-3 -->*/}
+                  </div>
+                </div>
+              </div>
+              {/*<!-- ends: .icon-boxes -->*/}
+            </section>
+
+            <section className="features-area  p-top-20 p-bottom-20">
+              <div className="icon-boxes">
+                <div className="container">
+                  <div className="row" style={{ margin: "auto" }}>
+                    <div
+                      className="col-lg-12 col-md-12 col-sm-6"
+                      style={{ margin: "auto" }}
+                    >
+                      <h3 style={{ color: "#E41C39" }} className="text-left">
+                        <b>Bulk Orders</b>
+                      </h3>
+                      <div className=" icon-box-fourteen ">
+                        <p
+                          className="m-top-0 p-top-0 text-left"
+                          style={{ fontSize: "15px" }}
+                        >
+                          People usually don’t want to take a chance in parties
+                          or larger gatherings and tend to order from the places
+                          that they already tasted and liked it much. Makes
+                          sense. Right? If you get a customer of that kind,
+                          we’ll be happy to be a part of your growth. <br />
+                          Under the same subscription fee, we’ll forward you the
+                          bulk order leads that ranks your talent.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section className="features-area  p-top-40 p-bottom-40">
+              <div className="icon-boxes">
+                <div className="container">
+                  <div className="row" style={{ margin: "auto" }}>
+                    <div
+                      className="col-lg-6 col-md-6 col-sm-6 text-center"
+                      style={{ margin: "auto" }}
+                    >
                       <img
-                        src="../assets/img/chefs/Pallavi Mohan Shahi3.jpg"
-                        width="300px"
+                        src="../assets/img/giftvouchers.png"
+                        width="150px"
                         className="img-responsive"
                         alt="mf"
                       ></img>
+                      <h3 style={{ color: "#E41C39" }}>
+                        <b>Gifts &amp; Vouchers</b>
+                      </h3>
+                      <div className=" icon-box-fourteen text-justify">
+                        <p
+                          className="m-top-0 p-top-0 text-left"
+                          style={{ fontSize: "15px" }}
+                        >
+                          Our customers will get to rate the taste once the
+                          order is completed. The chef-partners who strive to
+                          satisfy the taste-buds of our customers, we’ve got
+                          something for you too. Every month we’ll evaluate the
+                          taste ratings and announce one chef-partner with a
+                          High-taste rating as the winner. The winner will
+                          receive many exciting prizes like Microwave oven, Mini
+                          Refrigerators, Cutlery set, and a lot more worth of
+                          5,000 to 10,000. Sounds exciting. Right?
+                        </p>
+                      </div>
+                      {/*<!-- ends: .icon-box -->*/}
                     </div>
-                    {/*<!-- ends: .icon-box -->*/}
+                    {/*<!-- ends: .col-lg-3 -->*/}
+
+                    <div
+                      className="col-lg-6 col-md-6 col-sm-6 text-center"
+                      style={{ margin: "auto" }}
+                    >
+                      <img
+                        src="../assets/img/grocerydeals.png"
+                        width="150px"
+                        className="img-responsive"
+                        alt="mf"
+                      ></img>
+                      <h3 style={{ color: "#E41C39" }}>
+                        <b>Grocery Deals</b>
+                      </h3>
+                      <div className=" icon-box-fourteen text-justify">
+                        <p
+                          className="m-top-0 p-top-0 text-left"
+                          style={{ fontSize: "15px" }}
+                        >
+                          We want to make everything that we can do keep our
+                          chef-partners happy b. In the process, we came up with
+                          an M-food Grocery store, where you can buy all the
+                          required groceries to save more than usual. How is it
+                          different from buying from local markets or other
+                          supermarkets around? We’ve established connections
+                          with brands directly to get groceries for the best
+                          possible deals. So, all the wholesale or retail
+                          charges are grounded, and you can take the complete
+                          benefit of it.
+                        </p>
+                      </div>
+                      {/*<!-- ends: .icon-box -->*/}
+                    </div>
+                    {/*<!-- ends: .col-lg-3 -->*/}
                   </div>
-                  {/*<!-- ends: .col-lg-3 -->*/}
                 </div>
               </div>
-            </div>
-            {/*<!-- ends: .icon-boxes -->*/}
-          </section>
-
-          <section className="features-area  p-top-20 p-bottom-20">
-            <div className="icon-boxes">
-              <div className="container">
-                <div className="row" style={{ margin: "auto" }}>
-                  <div
-                    className="col-lg-12 col-md-12 col-sm-6"
-                    style={{ margin: "auto" }}
-                  >
-                    <h3 style={{ color: "#E41C39" }} className="text-left">
-                      <b>Bulk Orders</b>
-                    </h3>
-                    <div className=" icon-box-fourteen ">
-                      <p
-                        className="m-top-0 p-top-0 text-left"
-                        style={{ fontSize: "15px" }}
-                      >
-                        People usually don’t want to take a chance in parties or
-                        larger gatherings and tend to order from the places that
-                        they already tasted and liked it much. Makes sense.
-                        Right? If you get a customer of that kind, we’ll be
-                        happy to be a part of your growth. <br />
-                        Under the same subscription fee, we’ll forward you the
-                        bulk order leads that ranks your talent.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section className="features-area  p-top-40 p-bottom-40">
-            <div className="icon-boxes">
-              <div className="container">
-                <div className="row" style={{ margin: "auto" }}>
-                  <div
-                    className="col-lg-6 col-md-6 col-sm-6 text-center"
-                    style={{ margin: "auto" }}
-                  >
-                    <img
-                      src="../assets/img/giftvouchers.png"
-                      width="150px"
-                      className="img-responsive"
-                      alt="mf"
-                    ></img>
-                    <h3 style={{ color: "#E41C39" }}>
-                      <b>Gifts &amp; Vouchers</b>
-                    </h3>
-                    <div className=" icon-box-fourteen text-justify">
-                      <p
-                        className="m-top-0 p-top-0 text-left"
-                        style={{ fontSize: "15px" }}
-                      >
-                        Our customers will get to rate the taste once the order
-                        is completed. The chef-partners who strive to satisfy
-                        the taste-buds of our customers, we’ve got something for
-                        you too. Every month we’ll evaluate the taste ratings
-                        and announce one chef-partner with a High-taste rating
-                        as the winner. The winner will receive many exciting
-                        prizes like Microwave oven, Mini Refrigerators, Cutlery
-                        set, and a lot more worth of 5,000 to 10,000. Sounds
-                        exciting. Right?
-                      </p>
-                    </div>
-                    {/*<!-- ends: .icon-box -->*/}
-                  </div>
-                  {/*<!-- ends: .col-lg-3 -->*/}
-
-                  <div
-                    className="col-lg-6 col-md-6 col-sm-6 text-center"
-                    style={{ margin: "auto" }}
-                  >
-                    <img
-                      src="../assets/img/grocerydeals.png"
-                      width="150px"
-                      className="img-responsive"
-                      alt="mf"
-                    ></img>
-                    <h3 style={{ color: "#E41C39" }}>
-                      <b>Grocery Deals</b>
-                    </h3>
-                    <div className=" icon-box-fourteen text-justify">
-                      <p
-                        className="m-top-0 p-top-0 text-left"
-                        style={{ fontSize: "15px" }}
-                      >
-                        We want to make everything that we can do keep our
-                        chef-partners happy b. In the process, we came up with
-                        an M-food Grocery store, where you can buy all the
-                        required groceries to save more than usual. How is it
-                        different from buying from local markets or other
-                        supermarkets around? We’ve established connections with
-                        brands directly to get groceries for the best possible
-                        deals. So, all the wholesale or retail charges are
-                        grounded, and you can take the complete benefit of it.
-                      </p>
-                    </div>
-                    {/*<!-- ends: .icon-box -->*/}
-                  </div>
-                  {/*<!-- ends: .col-lg-3 -->*/}
-                </div>
-              </div>
-            </div>
-            {/*<!-- ends: .icon-boxes -->*/}
-          </section>
+              {/*<!-- ends: .icon-boxes -->*/}
+            </section>
+          </div>
         </MediaQuery>
-        <MediaQuery maxDeviceWidth={360}>
+        <MediaQuery maxDeviceWidth={480} minDeviceWidth={300}>
           <div
             className="intro-four bgimage"
             style={{ minHeight: "30.33333rem" }}
@@ -591,7 +595,7 @@ class GeneralRules extends React.Component {
                       className="display-4 text-left"
                       style={{
                         fontWeight: 500,
-                        marginTop: "40px",
+                        marginTop: "-10%",
                         backgroundColor: "#edf3f5",
                       }}
                     >
@@ -626,308 +630,312 @@ class GeneralRules extends React.Component {
             </div>
           </div>
           {/*<!-- ends: .intro-four-contents -->*/}
-
-          <section className="features-area  p-top-20 p-bottom-20">
-            <div className="icon-boxes">
-              <div className="container">
-                <div className="row" style={{ marginTop: "-30%" }}>
-                  <div
-                    className="col-lg-12 col-md-12 col-sm-6"
-                    style={{ margin: "auto", fontSize: "10px" }}
-                  >
-                    <h3 style={{ color: "#E41C39" }} className="text-left">
-                      <b>Why partner with us?</b>
-                    </h3>
-                    <div className=" icon-box-fourteen text-left">
-                      <p
-                        className="m-top-0 p-top-0 text-left"
-                        style={{ fontSize: "15px" }}
-                      >
-                        Either choose to sit at home and cry for attention, or
-                        get on board to rock your kitchen and be successful,
-                        being awesome is your own choice.
-                      </p>
-                      <ul className="bullet--list2">
-                        <li className="bullet_list text-left">
-                          What’s something that you can cook like no one else
-                          can?
-                        </li>
-                        <li className="bullet_list text-left">
-                          What are your splendid dishes that your family wars
-                          for a bigger piece?
-                        </li>
-                        <li className="bullet_list text-left">
-                          {" "}
-                          What is that one famous dish of yours that everyone in
-                          the party awaits?
-                        </li>
-                      </ul>
-                      If you happened to have an answer to the above questions,
-                      we’re out looking for you. MothersFood is designed to
-                      empower the home chefs, especially women whose impressive
-                      dishes are limited to home till now. Who doesn’t wanna get
-                      recognized for something they’re really good at? I hope
-                      everyone, but there’s always some reason to hold you back.
-                      But remember, nothing works unless you start to do it.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section className="section-bg p-top-50 p-bottom-80">
-            <div className="card-style-nine">
-              <div className="container">
-                <div className="row" style={{ marginTop: "10px" }}>
-                  <div className="col-lg-8 offset-lg-2 section-title text-center">
-                    <h3 style={{ color: "#E41C39" }}>
-                      <b>Why MothersFood?</b>
-                    </h3>
-                    <p>
-                      But why us? Let us take the pleasure to brag about our
-                      excellent features that didn’t exist in the market to
-                      date.
-                    </p>
-                  </div>
-                  <div className="col-lg-4 col-md-6">
-                    <div className="card">
-                      <div class="card-body text-center">
-                        <img
-                          src="../assets/img/partnericon1.png"
-                          width="80px"
-                          height="80px"
-                          className="img-responsive"
-                          alt=""
-                        />
-                        <h6 style={{ fontSize: "20px" }}>
-                          <b>Only The Best</b>
-                        </h6>
-                        <p className="text-left" style={{ fontSize: "15px" }}>
-                          You don’t have to have a complete menu to work with
-                          us. If you can make only one dish that everyone loves,
-                          you’re welcome on board.
-                          <br />
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-4 col-md-6">
-                    <div className="card">
-                      <div class="card-body text-center">
-                        <img
-                          src="../assets/img/partnericon2.png"
-                          width="80px"
-                          height="80px"
-                          className="img-responsive"
-                          alt=""
-                        />
-                        <h6 style={{ fontSize: "20px" }}>
-                          <b>Delivery</b>
-                        </h6>
+          <div className="card">
+            <section className="features-area  p-top-20 p-bottom-20">
+              <div className="icon-boxes">
+                <div className="container">
+                  <div className="row" style={{ marginTop: "-30%" }}>
+                    <div
+                      className="col-lg-12 col-md-12 col-sm-6"
+                      style={{ marginTop: "30%", fontSize: "10px" }}
+                    >
+                      <h3 style={{ color: "#E41C39" }} className="text-left">
+                        <b>Why partner with us?</b>
+                      </h3>
+                      <div className=" icon-box-fourteen text-left">
                         <p
-                          className="text-left"
-                          style={{ wordSpacing: "-0.2px", fontSize: "15px" }}
+                          className="m-top-0 p-top-0 text-left"
+                          style={{ fontSize: "15px" }}
                         >
-                          We’re here to share your burden. You just cook and
-                          relax, our delivery partners make sure to take it to
-                          the right place at the right time.
-                          <br />
+                          Either choose to sit at home and cry for attention, or
+                          get on board to rock your kitchen and be successful,
+                          being awesome is your own choice.
                         </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-4 col-md-6">
-                    <div className="card">
-                      <div class="card-body text-center">
-                        <img
-                          src="../assets/img/partnericon3.png"
-                          width="80px"
-                          height="80px"
-                          className="img-responsive"
-                          alt=""
-                        />
-                        <h6 style={{ fontSize: "20px" }}>
-                          <b>License</b>
-                        </h6>
-                        <p
-                          className="text-left"
-                          style={{ wordSpacing: "-0.2px", fontSize: "15px" }}
-                        >
-                          Don’t worry about the licenses, registrations or
-                          permissions anymore. As per your state laws, we’ll
-                          stack everything required to start you off.
-                          <br />
-                        </p>
+                        <ul className="bullet--list2">
+                          <li className="bullet_list text-left">
+                            What’s something that you can cook like no one else
+                            can?
+                          </li>
+                          <li className="bullet_list text-left">
+                            What are your splendid dishes that your family wars
+                            for a bigger piece?
+                          </li>
+                          <li className="bullet_list text-left">
+                            {" "}
+                            What is that one famous dish of yours that everyone
+                            in the party awaits?
+                          </li>
+                        </ul>
+                        If you happened to have an answer to the above
+                        questions, we’re out looking for you. MothersFood is
+                        designed to empower the home chefs, especially women
+                        whose impressive dishes are limited to home till now.
+                        Who doesn’t wanna get recognized for something they’re
+                        really good at? I hope everyone, but there’s always some
+                        reason to hold you back. But remember, nothing works
+                        unless you start to do it.
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            {/*<!-- ends: .card-style-nine -->*/}
-          </section>
+            </section>
 
-          <section className="features-area  p-top-20 p-bottom-20">
-            <div className="icon-boxes">
-              <div className="container">
-                <div className="row" style={{ marginTop: "10px" }}>
-                  <div
-                    className="col-lg-6 col-md-6 col-sm-6"
-                    style={{ margin: "auto" }}
-                  >
-                    <h3 style={{ color: "#E41C39" }} className="text-left">
-                      <b>M-Food Star Chef Recognition</b>
-                    </h3>
-                    <div className=" icon-box-fourteen text-center">
-                      <p
-                        className="m-top-0 p-top-0"
-                        style={{ textAlign: "justify", fontSize: "15px" }}
-                      >
-                        We believe in recognizing the talents that are
-                        impeccable at their job. To bring it to reality, we’ve
-                        come up with “M-Food Star Chef Recognition” to keep your
-                        competitive spirit motivated. Once in a month, we’ll
-                        evaluate your performance based on the customer ratings,
-                        your efficiency to finish an order smoothly, and several
-                        other factors and announce our best chef-partner as
-                        “M-Food Star Chef” of that specific month. <br />
-                        This will help you improve your rating as the best chef
-                        in your area and more likely to be recognized by more
-                        people. So, as John Wooden says, make each day your
-                        masterpiece
+            <section className="section-bg p-top-50 p-bottom-80">
+              <div className="card-style-nine">
+                <div className="container">
+                  <div className="row" style={{ marginTop: "10px" }}>
+                    <div className="col-lg-8 offset-lg-2 section-title text-center">
+                      <h3 style={{ color: "#E41C39" }}>
+                        <b>Why MothersFood?</b>
+                      </h3>
+                      <p>
+                        But why us? Let us take the pleasure to brag about our
+                        excellent features that didn’t exist in the market to
+                        date.
                       </p>
                     </div>
-                    {/*<!-- ends: .icon-box -->*/}
+                    <div className="col-lg-4 col-md-6">
+                      <div className="card">
+                        <div class="card-body text-center">
+                          <img
+                            src="../assets/img/partnericon1.png"
+                            width="80px"
+                            height="80px"
+                            className="img-responsive"
+                            alt=""
+                          />
+                          <h6 style={{ fontSize: "20px" }}>
+                            <b>Only The Best</b>
+                          </h6>
+                          <p className="text-left" style={{ fontSize: "15px" }}>
+                            You don’t have to have a complete menu to work with
+                            us. If you can make only one dish that everyone
+                            loves, you’re welcome on board.
+                            <br />
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-lg-4 col-md-6">
+                      <div className="card">
+                        <div class="card-body text-center">
+                          <img
+                            src="../assets/img/partnericon2.png"
+                            width="80px"
+                            height="80px"
+                            className="img-responsive"
+                            alt=""
+                          />
+                          <h6 style={{ fontSize: "20px" }}>
+                            <b>Delivery</b>
+                          </h6>
+                          <p
+                            className="text-left"
+                            style={{ wordSpacing: "-0.2px", fontSize: "15px" }}
+                          >
+                            We’re here to share your burden. You just cook and
+                            relax, our delivery partners make sure to take it to
+                            the right place at the right time.
+                            <br />
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-lg-4 col-md-6">
+                      <div className="card">
+                        <div class="card-body text-center">
+                          <img
+                            src="../assets/img/partnericon3.png"
+                            width="80px"
+                            height="80px"
+                            className="img-responsive"
+                            alt=""
+                          />
+                          <h6 style={{ fontSize: "20px" }}>
+                            <b>License</b>
+                          </h6>
+                          <p
+                            className="text-left"
+                            style={{ wordSpacing: "-0.2px", fontSize: "15px" }}
+                          >
+                            Don’t worry about the licenses, registrations or
+                            permissions anymore. As per your state laws, we’ll
+                            stack everything required to start you off.
+                            <br />
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  {/*<!-- ends: .col-lg-3 -->*/}
+                </div>
+              </div>
+              {/*<!-- ends: .card-style-nine -->*/}
+            </section>
 
-                  <div
-                    className="col-lg-6 col-md-6 col-sm-6"
-                    style={{ margin: "auto" }}
-                  >
-                    <div className="icon-box-fourteen text-center">
+            <section className="features-area  p-top-20 p-bottom-20">
+              <div className="icon-boxes">
+                <div className="container">
+                  <div className="row" style={{ marginTop: "10px" }}>
+                    <div
+                      className="col-lg-6 col-md-6 col-sm-6"
+                      style={{ margin: "auto" }}
+                    >
+                      <h3 style={{ color: "#E41C39" }} className="text-left">
+                        <b>M-Food Star Chef Recognition</b>
+                      </h3>
+                      <div className=" icon-box-fourteen text-center">
+                        <p
+                          className="m-top-0 p-top-0"
+                          style={{ textAlign: "justify", fontSize: "15px" }}
+                        >
+                          We believe in recognizing the talents that are
+                          impeccable at their job. To bring it to reality, we’ve
+                          come up with “M-Food Star Chef Recognition” to keep
+                          your competitive spirit motivated. Once in a month,
+                          we’ll evaluate your performance based on the customer
+                          ratings, your efficiency to finish an order smoothly,
+                          and several other factors and announce our best
+                          chef-partner as “M-Food Star Chef” of that specific
+                          month. <br />
+                          This will help you improve your rating as the best
+                          chef in your area and more likely to be recognized by
+                          more people. So, as John Wooden says, make each day
+                          your masterpiece
+                        </p>
+                      </div>
+                      {/*<!-- ends: .icon-box -->*/}
+                    </div>
+                    {/*<!-- ends: .col-lg-3 -->*/}
+
+                    <div
+                      className="col-lg-6 col-md-6 col-sm-6"
+                      style={{ margin: "auto" }}
+                    >
+                      <div className="icon-box-fourteen text-center">
+                        <img
+                          src="../assets/img/chefs/Pallavi Mohan Shahi3.jpg"
+                          width="300px"
+                          className="img-responsive"
+                          alt="mf"
+                        ></img>
+                      </div>
+                      {/*<!-- ends: .icon-box -->*/}
+                    </div>
+                    {/*<!-- ends: .col-lg-3 -->*/}
+                  </div>
+                </div>
+              </div>
+              {/*<!-- ends: .icon-boxes -->*/}
+            </section>
+
+            <section className="features-area  p-top-20 p-bottom-20">
+              <div className="icon-boxes">
+                <div className="container">
+                  <div className="row" style={{ margin: "auto" }}>
+                    <div
+                      className="col-lg-12 col-md-12 col-sm-6"
+                      style={{ margin: "auto" }}
+                    >
+                      <h3 style={{ color: "#E41C39" }} className="text-left">
+                        <b>Bulk Orders</b>
+                      </h3>
+                      <div className=" icon-box-fourteen ">
+                        <p
+                          className="m-top-0 p-top-0 text-left"
+                          style={{ fontSize: "15px" }}
+                        >
+                          People usually don’t want to take a chance in parties
+                          or larger gatherings and tend to order from the places
+                          that they already tasted and liked it much. Makes
+                          sense. Right? If you get a customer of that kind,
+                          we’ll be happy to be a part of your growth. <br />
+                          Under the same subscription fee, we’ll forward you the
+                          bulk order leads that ranks your talent.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section className="features-area  p-top-40 p-bottom-40">
+              <div className="icon-boxes">
+                <div className="container">
+                  <div className="row" style={{ margin: "auto" }}>
+                    <div
+                      className="col-lg-6 col-md-6 col-sm-6 text-center"
+                      style={{ margin: "auto" }}
+                    >
                       <img
-                        src="../assets/img/chefs/Pallavi Mohan Shahi3.jpg"
-                        width="300px"
+                        src="../assets/img/giftvouchers.png"
+                        width="150px"
                         className="img-responsive"
                         alt="mf"
                       ></img>
+                      <h3 style={{ color: "#E41C39" }}>
+                        <b>Gifts &amp; Vouchers</b>
+                      </h3>
+                      <div className=" icon-box-fourteen text-justify">
+                        <p
+                          className="m-top-0 p-top-0 text-left"
+                          style={{ fontSize: "15px" }}
+                        >
+                          Our customers will get to rate the taste once the
+                          order is completed. The chef-partners who strive to
+                          satisfy the taste-buds of our customers, we’ve got
+                          something for you too. Every month we’ll evaluate the
+                          taste ratings and announce one chef-partner with a
+                          High-taste rating as the winner. The winner will
+                          receive many exciting prizes like Microwave oven, Mini
+                          Refrigerators, Cutlery set, and a lot more worth of
+                          5,000 to 10,000. Sounds exciting. Right?
+                        </p>
+                      </div>
+                      {/*<!-- ends: .icon-box -->*/}
                     </div>
-                    {/*<!-- ends: .icon-box -->*/}
+                    {/*<!-- ends: .col-lg-3 -->*/}
+
+                    <div
+                      className="col-lg-6 col-md-6 col-sm-6 text-center"
+                      style={{ margin: "auto" }}
+                    >
+                      <img
+                        src="../assets/img/grocerydeals.png"
+                        width="150px"
+                        className="img-responsive"
+                        alt="mf"
+                      ></img>
+                      <h3 style={{ color: "#E41C39" }}>
+                        <b>Grocery Deals</b>
+                      </h3>
+                      <div className=" icon-box-fourteen text-justify">
+                        <p
+                          className="m-top-0 p-top-0 text-left"
+                          style={{ fontSize: "15px" }}
+                        >
+                          We want to make everything that we can do keep our
+                          chef-partners happy b. In the process, we came up with
+                          an M-food Grocery store, where you can buy all the
+                          required groceries to save more than usual. How is it
+                          different from buying from local markets or other
+                          supermarkets around? We’ve established connections
+                          with brands directly to get groceries for the best
+                          possible deals. So, all the wholesale or retail
+                          charges are grounded, and you can take the complete
+                          benefit of it.
+                        </p>
+                      </div>
+                      {/*<!-- ends: .icon-box -->*/}
+                    </div>
+                    {/*<!-- ends: .col-lg-3 -->*/}
                   </div>
-                  {/*<!-- ends: .col-lg-3 -->*/}
                 </div>
               </div>
-            </div>
-            {/*<!-- ends: .icon-boxes -->*/}
-          </section>
-
-          <section className="features-area  p-top-20 p-bottom-20">
-            <div className="icon-boxes">
-              <div className="container">
-                <div className="row" style={{ margin: "auto" }}>
-                  <div
-                    className="col-lg-12 col-md-12 col-sm-6"
-                    style={{ margin: "auto" }}
-                  >
-                    <h3 style={{ color: "#E41C39" }} className="text-left">
-                      <b>Bulk Orders</b>
-                    </h3>
-                    <div className=" icon-box-fourteen ">
-                      <p
-                        className="m-top-0 p-top-0 text-left"
-                        style={{ fontSize: "15px" }}
-                      >
-                        People usually don’t want to take a chance in parties or
-                        larger gatherings and tend to order from the places that
-                        they already tasted and liked it much. Makes sense.
-                        Right? If you get a customer of that kind, we’ll be
-                        happy to be a part of your growth. <br />
-                        Under the same subscription fee, we’ll forward you the
-                        bulk order leads that ranks your talent.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section className="features-area  p-top-40 p-bottom-40">
-            <div className="icon-boxes">
-              <div className="container">
-                <div className="row" style={{ margin: "auto" }}>
-                  <div
-                    className="col-lg-6 col-md-6 col-sm-6 text-center"
-                    style={{ margin: "auto" }}
-                  >
-                    <img
-                      src="../assets/img/giftvouchers.png"
-                      width="150px"
-                      className="img-responsive"
-                      alt="mf"
-                    ></img>
-                    <h3 style={{ color: "#E41C39" }}>
-                      <b>Gifts &amp; Vouchers</b>
-                    </h3>
-                    <div className=" icon-box-fourteen text-justify">
-                      <p
-                        className="m-top-0 p-top-0 text-left"
-                        style={{ fontSize: "15px" }}
-                      >
-                        Our customers will get to rate the taste once the order
-                        is completed. The chef-partners who strive to satisfy
-                        the taste-buds of our customers, we’ve got something for
-                        you too. Every month we’ll evaluate the taste ratings
-                        and announce one chef-partner with a High-taste rating
-                        as the winner. The winner will receive many exciting
-                        prizes like Microwave oven, Mini Refrigerators, Cutlery
-                        set, and a lot more worth of 5,000 to 10,000. Sounds
-                        exciting. Right?
-                      </p>
-                    </div>
-                    {/*<!-- ends: .icon-box -->*/}
-                  </div>
-                  {/*<!-- ends: .col-lg-3 -->*/}
-
-                  <div
-                    className="col-lg-6 col-md-6 col-sm-6 text-center"
-                    style={{ margin: "auto" }}
-                  >
-                    <img
-                      src="../assets/img/grocerydeals.png"
-                      width="150px"
-                      className="img-responsive"
-                      alt="mf"
-                    ></img>
-                    <h3 style={{ color: "#E41C39" }}>
-                      <b>Grocery Deals</b>
-                    </h3>
-                    <div className=" icon-box-fourteen text-justify">
-                      <p
-                        className="m-top-0 p-top-0 text-left"
-                        style={{ fontSize: "15px" }}
-                      >
-                        We want to make everything that we can do keep our
-                        chef-partners happy b. In the process, we came up with
-                        an M-food Grocery store, where you can buy all the
-                        required groceries to save more than usual. How is it
-                        different from buying from local markets or other
-                        supermarkets around? We’ve established connections with
-                        brands directly to get groceries for the best possible
-                        deals. So, all the wholesale or retail charges are
-                        grounded, and you can take the complete benefit of it.
-                      </p>
-                    </div>
-                    {/*<!-- ends: .icon-box -->*/}
-                  </div>
-                  {/*<!-- ends: .col-lg-3 -->*/}
-                </div>
-              </div>
-            </div>
-            {/*<!-- ends: .icon-boxes -->*/}
-          </section>
+              {/*<!-- ends: .icon-boxes -->*/}
+            </section>
+          </div>
         </MediaQuery>
 
         <section
