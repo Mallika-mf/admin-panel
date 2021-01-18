@@ -170,7 +170,7 @@ class GeneralRules extends React.Component {
               >
                 <img src="./assets/img/drivewithus.png" alt="" />
               </div>
-              <div className="intro-four--contents content_above">
+              <div className="intro-four--contents content_above ">
                 <div className="container">
                   <div className="row">
                     <div className=" col-lg-7">
@@ -506,7 +506,7 @@ class GeneralRules extends React.Component {
             >
               <img src="./assets/img/drivewithus.png" alt="" />
             </div> */}
-              <div className="intro-four--contents content_above">
+              <div className="intro-four--contents content_above card">
                 <div className="container">
                   <div className="row">
                     <div className=" col-lg-7">

@@ -124,7 +124,7 @@ class Footer extends React.Component {
                 </div>
               </Col>
               <Col md={1} sm={6} className="mobile-none"></Col>
-              <Col md={2} sm={4} xs={6}>
+              <Col md={2} sm={4} xs={4}>
                 <h6 style={{ textAlign: "justify" }} className="mb-3">
                   Company
                 </h6>
@@ -146,7 +146,7 @@ class Footer extends React.Component {
                   </li>
                 </ul>
               </Col>
-              <Col md={2} sm={4} xs={6}>
+              <Col md={2} sm={4} xs={4}>
                 <h6 style={{ textAlign: "justify" }} className="mb-3">
                   Contact
                 </h6>
@@ -169,7 +169,7 @@ class Footer extends React.Component {
                   </li> */}
                 </ul>
               </Col>
-              <Col md={2} sm={4} xs={4} className="m-none">
+              <Col md={2} sm={4} xs={3}>
                 <h6 style={{ textAlign: "justify" }} className="mb-3">
                   Legal
                 </h6>
