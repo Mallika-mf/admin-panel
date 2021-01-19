@@ -85,7 +85,9 @@ class TopSearch extends React.Component {
                   </Form>
                 </div>
                 <h6 className="mt-4 text-shadow font-weight-normal">
-                  E.g. Beverages, Pizzas, Chinese, Bakery, Indian...
+                  <span className=" text-black" style={{ color: "darkRed" }}>
+                    E.g. Beverages, Pizzas, Chinese, Bakery, Indian...
+                  </span>
                 </h6>
                 <CategoriesCarousel />
               </Col>

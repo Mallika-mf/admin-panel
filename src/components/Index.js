@@ -69,70 +69,70 @@ class Index extends React.Component {
                 >
                   <div className="item">
                     <CardItem
-                      title="Reeta Bhardwaj (Hyderabad)"
-                      subTitle="South Indian • Pure veg"
+                      title="Kusum Dwivedi(Hyderabad)"
+                      subTitle="Lunch • Dinner • Breakfast"
                       imageAlt="Product"
                       image="./assets/img/chefs/Kusum Dwivedi.jpg"
                       imageClass="img-fluid item-img"
                       linkUrl="detail"
-                      offerText="35% off | Use Coupon "
-                      time="20–25 min"
+                      // offerText="35% off | Use Coupon "
+                      time="11AM to 10PM "
                       // price="$250 FOR TWO"
                       showPromoted={true}
                       promotedVariant="dark"
                       favIcoIconColor="text-danger"
-                      rating="4.5 (300+)"
+                      rating="5.0"
                     />
                   </div>
                   <div className="item">
                     <CardItem
                       title="Reeta Bharadwaj (Hyderabad)"
-                      subTitle="North Indian • Pure veg"
+                      subTitle="Lunch • Dinner • Breakfast"
                       imageAlt="Product"
                       image="./assets/img/chefs/Reeta Bharadwaj.jpg"
                       imageClass="img-fluid item-img"
                       linkUrl="detail"
-                      offerText="65% off | Use Coupon"
-                      time="15–25 min"
+                      // offerText="65% off | Use Coupon"
+                      time="11AM to 10PM"
                       // price="$100 FOR TWO"
                       showPromoted={true}
                       promotedVariant="dark"
                       favIcoIconColor="text-danger"
-                      rating="3.9 (300+)"
+                      rating="5.0"
                     />
                   </div>
                   <div className="item">
                     <CardItem
                       title="Simi(Hyderabad)"
-                      subTitle="North Indian • Pure veg"
+                      subTitle="Lunch • Dinner • Breakfast"
                       imageAlt="Product"
                       image="./assets/img/chefs/Simi.jpg"
                       imageClass="img-fluid item-img"
                       linkUrl="detail"
-                      offerText="65% off | Use Coupon"
-                      time="20–25 min"
+                      // offerText="65% off | Use Coupon"
+                      time="11AM to 10PM"
                       // price="$500 FOR TWO"
                       showPromoted={true}
                       promotedVariant="danger"
                       favIcoIconColor="text-dark"
-                      rating="4.2 (300+)"
+                      rating="5.0"
                     />
                   </div>
                   <div className="item">
                     <CardItem
                       title="Pallavi Mohan Shahi"
-                      subTitle="North Indian • Pure veg"
+                      subTitle="Lunch • Dinner • Breakfast"
                       imageAlt="Product"
                       image="./assets/img/chefs/Pallavi Mohan Shahi2.jpg"
                       imageClass="img-fluid item-img"
                       linkUrl="detail"
-                      offerText="65% off | Use Coupon"
-                      time="20–25 min"
+                      // offerText="65% off | Use Coupon"
+                      time="11AM to 10PM"
                       // price="$250 FOR TWO"
                       showPromoted={true}
                       promotedVariant="dark"
                       favIcoIconColor="text-danger"
-                      rating="4.1 (300+)"
+                      rating="5.0"
                     />
                   </div>
                 </OwlCarousel>
@@ -162,9 +162,9 @@ class Index extends React.Component {
                       image="img/list/1.png"
                       imageClass="img-fluid item-img"
                       linkUrl="#"
-                      offerText="65% off | Use Coupon OSAHAN50"
+                      // offerText="65% off | Use Coupon OSAHAN50"
                       time="20–25 min"
-                      price="$250 FOR TWO"
+                      // price="$250 FOR TWO"
                       showPromoted={true}
                       promotedVariant="dark"
                       favIcoIconColor="text-danger"
@@ -179,9 +179,9 @@ class Index extends React.Component {
                       image="img/list/3.png"
                       imageClass="img-fluid item-img"
                       linkUrl="#"
-                      offerText="65% off | Use Coupon OSAHAN50"
+                      // offerText="65% off | Use Coupon OSAHAN50"
                       time="15–25 min"
-                      price="$100 FOR TWO"
+                      // price="$100 FOR TWO"
                       showPromoted={true}
                       promotedVariant="dark"
                       favIcoIconColor="text-danger"
@@ -196,9 +196,9 @@ class Index extends React.Component {
                       image="img/list/6.png"
                       imageClass="img-fluid item-img"
                       linkUrl="#"
-                      offerText="65% off | Use Coupon OSAHAN50"
+                      // offerText="65% off | Use Coupon OSAHAN50"
                       time="20–25 min"
-                      price="$500 FOR TWO"
+                      // price="$500 FOR TWO"
                       showPromoted={true}
                       promotedVariant="danger"
                       favIcoIconColor="text-dark"
@@ -213,9 +213,9 @@ class Index extends React.Component {
                       image="img/list/9.png"
                       imageClass="img-fluid item-img"
                       linkUrl="#"
-                      offerText="65% off | Use Coupon OSAHAN50"
+                      // offerText="65% off | Use Coupon OSAHAN50"
                       time="20–25 min"
-                      price="$250 FOR TWO"
+                      // price="$250 FOR TWO"
                       showPromoted={true}
                       promotedVariant="dark"
                       favIcoIconColor="text-danger"
