@@ -9,7 +9,6 @@ import CategoriesCarousel from "../common/CategoriesCarousel";
 import LocationBox from './locationbox';
 import { AppContext   } from './context/appContext';
 import {openDrawer} from './features/drawer';
-import { withRouter } from 'react-router-dom';
 
 // import "./style.css";
 
@@ -35,7 +34,7 @@ class TopSearch extends React.Component {
 
   updateLocation = ()=>{
       this.props.history.push({
-          pathname: `/listing`,
+          pathname: `/order`,
           search: `?cityName=${localStorage.getItem('cityname')}`,
       });
   }
@@ -307,4 +306,4 @@ const options2 = {
   autoplayHoverPause: true,
 };
 
-export default withRouter(TopSearch);
+export default TopSearch;
