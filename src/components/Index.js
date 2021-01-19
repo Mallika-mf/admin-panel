@@ -156,70 +156,70 @@ class Index extends React.Component {
                 >
                   <div className="item">
                     <CardItem
-                      title="World Famous"
-                      subTitle="North Indian • American • Pure veg"
+                      title="Al Saba (Hyderabad)"
+                      subTitle="South Indian • Non veg • Veg"
                       imageAlt="Product"
-                      image="img/list/1.png"
+                      image="./assets/img/vendors/Al Saba_Hyderabad.jpg"
                       imageClass="img-fluid item-img"
                       linkUrl="#"
                       // offerText="65% off | Use Coupon OSAHAN50"
-                      time="20–25 min"
+                      time="11AM to 12PM"
                       // price="$250 FOR TWO"
                       showPromoted={true}
-                      promotedVariant="dark"
+                      promotedVariant="danger"
                       favIcoIconColor="text-danger"
-                      rating="3.1 (300+)"
+                      rating="5.0"
                     />
                   </div>
                   <div className="item">
                     <CardItem
-                      title="Bite Me Sandwiches"
-                      subTitle="North Indian • American • Pure veg"
+                      title="Grill 5 Kitchen (Hyderabad)"
+                      subTitle="South Indian • Non veg • Veg"
                       imageAlt="Product"
-                      image="img/list/3.png"
+                      image="./assets/img/vendors/Grill 5 Kitchen_Hyderabad.jpg"
                       imageClass="img-fluid item-img"
                       linkUrl="#"
                       // offerText="65% off | Use Coupon OSAHAN50"
-                      time="15–25 min"
+                      time="11AM to 12PM"
                       // price="$100 FOR TWO"
                       showPromoted={true}
                       promotedVariant="dark"
                       favIcoIconColor="text-danger"
-                      rating="4.1 (300+)"
+                      rating="5.0"
                     />
                   </div>
                   <div className="item">
                     <CardItem
-                      title="The osahan Restaurant"
-                      subTitle="North Indian • American • Pure veg"
+                      title="MomoS Junction (Gurugaon)"
+                      subTitle="North Indian • Non veg • Veg"
                       imageAlt="Product"
-                      image="img/list/6.png"
+                      image="./assets/img/vendors/MomoS Junction_Gurugaon.jpg"
                       imageClass="img-fluid item-img"
                       linkUrl="#"
                       // offerText="65% off | Use Coupon OSAHAN50"
-                      time="20–25 min"
+                      time="11AM to 12PM"
                       // price="$500 FOR TWO"
                       showPromoted={true}
                       promotedVariant="danger"
                       favIcoIconColor="text-dark"
-                      rating="4.2 (300+)"
+                      rating="5.0"
                     />
                   </div>
                   <div className="item">
                     <CardItem
-                      title="Polo Lounge"
-                      subTitle="North Indian • American • Pure veg"
+                      title="Prince ki Choice (Gurugoan)"
+                      subTitle="North Indian • Non veg • Veg"
                       imageAlt="Product"
-                      image="img/list/9.png"
+                      image="./assets/img/vendors/Prince ki Choice_Gurugoan.jpg"
                       imageClass="img-fluid item-img"
                       linkUrl="#"
                       // offerText="65% off | Use Coupon OSAHAN50"
-                      time="20–25 min"
+                      time="11AM to 12PM"
                       // price="$250 FOR TWO"
                       showPromoted={true}
                       promotedVariant="dark"
                       favIcoIconColor="text-danger"
-                      rating="4.1 (300+)"
+                      rating="5.0"
                     />
                   </div>
                 </OwlCarousel>

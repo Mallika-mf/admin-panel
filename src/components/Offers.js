@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import PageTitle from "./common/PageTitle";
@@ -23,6 +24,7 @@ const Offerpage = () => {
             let val = snap.val();
             content.push(val);
           });
+          console.log(content);
           setOffer(content);
         }
       });
@@ -37,7 +39,7 @@ const Offerpage = () => {
       <section className="section pt-5 pb-5">
         <Container>
           <Row>
-		  <Col md={12}>
+            <Col md={12}>
               <h4 className="font-weight-bold mt-0 mb-3">Available Coupons</h4>
             </Col>
             {offer.map((item, index) => {
@@ -45,15 +47,14 @@ const Offerpage = () => {
                 <Col md={4} key={index}>
                   <CouponCard
                     title={`Get ${item.Discount}% OFF on your first Mothersfood  eat order`}
-                    logoImage="img/bank/1.png"
-                    subTitle={`Use code ${item.Name}& get ${item.Discount}% off on your  order value above ${item.MinAmount} on Website and Mobile site. Maximum discount:Rs${item.MaxAmount}`}
+                    logoImage="img/offer.png"
+                    subTitle={`Use code ${item.Name} & get ${item.Discount}% off on your  order value above ₹${item.MinAmount} on Website and Mobile site. Maximum discount: ₹${item.MaxAmount}`}
                     copyBtnText="COPY CODE"
                     couponCode={`${item.Name}`}
                   />
                 </Col>
               );
             })}
-            
 
             {/* <Col md={4}>
               <CouponCard
