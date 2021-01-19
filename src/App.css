@@ -302,7 +302,7 @@ h6 {
   padding: 6px 7px;
 }
 .osahan-category-item {
-  background: rgb(255 255 255);
+  background: "red";
   margin: 5px 3px;
   border-radius: 5px;
   overflow: hidden;
