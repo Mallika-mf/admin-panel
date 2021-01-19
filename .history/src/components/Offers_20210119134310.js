@@ -49,7 +49,7 @@ const Offerpage = () => {
                     logoImage="img/bank/1.png"
                     subTitle={`Use code ${item.Name}& get ${item.Discount}% off on your  order value above ${item.MinAmount} on Website and Mobile site. Maximum discount:Rs${item.MaxAmount}`}
                     copyBtnText="COPY CODE"
-                    couponCode={`${item.Name}`}
+                    // couponCode={`${item.Name}`}
                   />
                 </Col>
               );

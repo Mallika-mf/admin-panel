@@ -33,10 +33,10 @@ class CouponCard extends React.Component {
 	                	<Button variant="link" className="card-btn mr-3 p-0">{this.props.copyBtnText}</Button>
 	                	:""
 	                }
-	                {/* {this.props.moreLinkText?
+	                {this.props.moreLinkText?
 	                	<Link to={this.props.morelinkUrl} className="card-link">{this.props.moreLinkText}</Link>
 	                	:""
-	                } */}
+	                }
 	             </div>
 	        </div>
     	);
@@ -61,7 +61,7 @@ CouponCard.defaultProps = {
   imageAlt: '',
   imageclassName: '',
   morelinkUrl: '#',
-//   moreLinkText: 'KNOW MORE',
+  moreLinkText: 'KNOW MORE',
   copyBtnText: '',
   couponCode: '',
   noBorder: true,

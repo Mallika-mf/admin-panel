@@ -38,25 +38,24 @@ const Offerpage = () => {
       <section className="section pt-5 pb-5">
         <Container>
           <Row>
-		  <Col md={12}>
-              <h4 className="font-weight-bold mt-0 mb-3">Available Coupons</h4>
-            </Col>
             {offer.map((item, index) => {
               return (
                 <Col md={4} key={index}>
                   <CouponCard
                     title={`Get ${item.Discount}% OFF on your first Mothersfood  eat order`}
                     logoImage="img/bank/1.png"
-                    subTitle={`Use code ${item.Name}& get ${item.Discount}% off on your  order value above ${item.MinAmount} on Website and Mobile site. Maximum discount:Rs${item.MaxAmount}`}
+                    subTitle={`Use code ${item.Name}& get ${item.Discount}% off on your  order value above ${item.MaxAmount} on Website and Mobile site. Maximum discount:Rs${item.MaxAmount}`}
                     copyBtnText="COPY CODE"
                     couponCode={`${item.Name}`}
                   />
                 </Col>
               );
             })}
-            
+            <Col md={12}>
+              <h4 className="font-weight-bold mt-0 mb-3">Available Coupons</h4>
+            </Col>
 
-            {/* <Col md={4}>
+            <Col md={4}>
               <CouponCard
                 title="Get 50% OFF on your first osahan eat order"
                 logoImage="img/bank/2.png"
@@ -121,7 +120,7 @@ const Offerpage = () => {
                 imageclassName="card-img"
                 subTitle="Get flat $.30 cashback on orders above $.99 for 10 orders. No code required."
               />
-            </Col> */}
+            </Col>
           </Row>
         </Container>
       </section>
