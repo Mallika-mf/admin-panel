@@ -7,38 +7,10 @@ import OwlCarousel from "react-owl-carousel3";
 import ProductBox from "./ProductBox";
 import CategoriesCarousel from "../common/CategoriesCarousel";
 import LocationBox from './locationbox';
-import { AppContext   } from './context/appContext';
-import {openDrawer} from './features/drawer';
-import { withRouter } from 'react-router-dom';
 
 // import "./style.css";
 
 class TopSearch extends React.Component {
-  static contextType = AppContext;
-
-  constructor(props) {
-      super(props);
-      this.state = {
-          error: '',
-      }
-    
-  }
-
-   shopAction = () => {
-      if(this.context.appState.cityname){
-          this.updateLocation();
-      }else{
-          openDrawer();
-          return false;
-      }
-  };
-
-  updateLocation = ()=>{
-      this.props.history.push({
-          pathname: `/listing`,
-          search: `?cityName=${localStorage.getItem('cityname')}`,
-      });
-  }
   render() {
     return (
       <section
@@ -307,4 +279,4 @@ const options2 = {
   autoplayHoverPause: true,
 };
 
-export default withRouter(TopSearch);
+export default TopSearch;

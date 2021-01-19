@@ -1,44 +1,14 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Row, Col, Container, Form } from "react-bootstrap";
 import Select2 from "react-select2-wrapper";
 import Icofont from "react-icofont";
 import OwlCarousel from "react-owl-carousel3";
 import ProductBox from "./ProductBox";
 import CategoriesCarousel from "../common/CategoriesCarousel";
-import LocationBox from './locationbox';
-import { AppContext   } from './context/appContext';
-import {openDrawer} from './features/drawer';
-import { withRouter } from 'react-router-dom';
-
 // import "./style.css";
 
 class TopSearch extends React.Component {
-  static contextType = AppContext;
-
-  constructor(props) {
-      super(props);
-      this.state = {
-          error: '',
-      }
-    
-  }
-
-   shopAction = () => {
-      if(this.context.appState.cityname){
-          this.updateLocation();
-      }else{
-          openDrawer();
-          return false;
-      }
-  };
-
-  updateLocation = ()=>{
-      this.props.history.push({
-          pathname: `/listing`,
-          search: `?cityName=${localStorage.getItem('cityname')}`,
-      });
-  }
   render() {
     return (
       <section
@@ -89,9 +59,7 @@ class TopSearch extends React.Component {
                           />
                         </div>
                       </Form.Group>
-                        <LocationBox updateLocation={this.updateLocation} />
-
-                      {/* <Form.Group className="col-lg-7 col-md-7 col-sm-12">
+                      <Form.Group className="col-lg-7 col-md-7 col-sm-12">
                         <Form.Control
                           type="text"
                           placeholder="Enter your delivery location"
@@ -112,7 +80,7 @@ class TopSearch extends React.Component {
                         >
                           Search
                         </Link>
-                      </Form.Group> */}
+                      </Form.Group>
                     </div>
                   </Form>
                 </div>
@@ -307,4 +275,4 @@ const options2 = {
   autoplayHoverPause: true,
 };
 
-export default withRouter(TopSearch);
+export default TopSearch;
