@@ -56,7 +56,7 @@ class Header extends React.Component {
         >
           <Container>
             <Navbar.Brand to="/">
-              <Image style={{ width: "200px" }} src="/img/logo.png" alt="" />
+              <Image style={{ width: "225px" }} src="/img/logo.png" alt="" />
             </Navbar.Brand>
             <Navbar.Toggle />
             <Navbar.Collapse id="navbarNavDropdown">

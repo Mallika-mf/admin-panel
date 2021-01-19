@@ -21,15 +21,20 @@ class TopSearch extends React.Component {
               <Col md={8}>
                 <div className="homepage-search-title">
                   <h1 className="mb-2 font-weight-normal">
-                    <span className="font-weight-bold text-white">
+                    <span
+                      className="font-weight-bold text-black"
+                      style={{ color: "darkRed", fontSize: "40px" }}
+                    >
                       Choose from the best appetizers, main course, desserts and
                       beverages!
                     </span>{" "}
                   </h1>
-                  <h5 className="mb-5 text-secondary font-weight-normal">
-                    Offering wide variety of cuisines at affordable prices!
-                    Hygienic preparation, Offers, Cashbacks, Tasty dishes and
-                    much more!
+                  <h5 className="mb-5 text-secondary font-weight-normal text-black">
+                    <span className=" text-black" style={{ color: "darkRed" }}>
+                      Offering wide variety of cuisines at affordable prices!
+                      Hygienic preparation, Offers, Cashbacks, Tasty dishes and
+                      much more!
+                    </span>
                   </h5>
                 </div>
                 <div className="homepage-search-form">
@@ -60,14 +65,18 @@ class TopSearch extends React.Component {
                           placeholder="Enter your delivery location"
                           size="lg"
                         />
-                        <Link className="locate-me" to="#">
+                        <Link
+                          className="locate-me"
+                          to="#"
+                          style={{ borderRadius: "50px", marginTop: "-4px" }}
+                        >
                           <Icofont icon="ui-pointer" /> Locate Me
                         </Link>
                       </Form.Group>
                       <Form.Group className="col-lg-2 col-md-2 col-sm-12">
                         <Link
                           to="#"
-                          className="btn btn-danger btn-block btn-lg btn-gradient"
+                          className="btn btn-danger btn-block btn-lg btn-round"
                         >
                           Search
                         </Link>
