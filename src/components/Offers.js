@@ -5,6 +5,7 @@ import PageTitle from "./common/PageTitle";
 import firebase from "./Firebase";
 import CouponCard from "./common/CouponCard";
 import BankOffers from "./common/BankOffers";
+import Header from "./common/Header";
 
 const Offerpage = () => {
   // eslint-disable-next-line no-unused-vars
@@ -32,6 +33,7 @@ const Offerpage = () => {
 
   return (
     <>
+      <Header />
       <PageTitle
         title="Offers for you"
         subTitle="Explore top deals and offers exclusively for you!"

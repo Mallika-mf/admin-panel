@@ -14,7 +14,7 @@ class CategoriesCarousel extends React.Component {
         <div className="item">
           <ProductBox
             boxClass="osahan-category-item"
-            title="American"
+            title="Pancake"
             image="img/list/American Food.jpg"
             imageClass="img-fluid"
             imageAlt="carousel"
@@ -34,7 +34,7 @@ class CategoriesCarousel extends React.Component {
         <div className="item">
           <ProductBox
             boxClass="osahan-category-item"
-            title="Chinese"
+            title="Noodels"
             image="img/list/Chinese.jpg"
             imageClass="img-fluid"
             imageAlt="carousel"

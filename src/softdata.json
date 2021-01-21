@@ -1,0 +1,671 @@
+[{
+    "clients": [{
+            "imgSrc": "./assets/img/cl14.png",
+            "id": "1"
+        },
+        {
+            "imgSrc": "./assets/img/cl15.png",
+            "id": "2"
+        },
+        {
+            "imgSrc": "./assets/img/cl16.png",
+            "id": "3"
+        },
+        {
+            "imgSrc": "./assets/img/cl17.png",
+            "id": "4"
+        },
+        {
+            "imgSrc": "./assets/img/cl18.png",
+            "id": "5"
+        },
+        {
+            "imgSrc": "./assets/img/cl14.png",
+            "id": "6"
+        },
+        {
+            "imgSrc": "./assets/img/cl15.png",
+            "id": "7"
+        },
+        {
+            "imgSrc": "./assets/img/cl16.png",
+            "id": "8"
+        }
+
+    ],
+    "testimonial": [{
+            "imgSrc": "./assets/img/client2.jpg",
+            "id": "1",
+            "name": "Steve Rogers",
+            "subTitle": "Best Strategists Around",
+            "content": "Demons trave runt lectores legere lius quod ii legunt saepius clary tyitas Investig ationes demon trave rungt. Investig ationes trave lector ompanies that responsibility in our core business. We work systematically to integrate corporate responsibility in our core business."
+        },
+        {
+            "imgSrc": "./assets/img/client3.jpg",
+            "id": "2",
+            "name": "Jeff Collins",
+            "subTitle": "Business is doing great",
+            "content": "Demons trave runt lectores legere lius quod ii legunt saepius clary tyitas Investig ationes demon trave rungt. Investig ationes trave lector ompanies that responsibility in our core business. We work systematically to integrate corporate responsibility in our core business."
+        },
+        {
+            "imgSrc": "./assets/img/client4.jpg",
+            "id": "3",
+            "name": "Amanda Richards",
+            "subTitle": "Customer Relations",
+            "content": "Demons trave runt lectores legere lius quod ii legunt saepius clary tyitas Investig ationes demon trave rungt. Investig ationes trave lector ompanies that responsibility in our core business. We work systematically to integrate corporate responsibility in our core business."
+        }
+    ],
+    "blog": [{
+            "imgSrc": "./assets/img/blog-1.jpg",
+            "id": "1",
+            "title": "How to Run a Successful Business Meeting",
+            "date": "12 Jun 2019",
+            "content": "Investig ationes demons trave runt lec tores legere liusry quod ii legunt saepius claritas Investig ationes.",
+            "industry": "Industry"
+        },
+        {
+            "imgSrc": "./assets/img/blog-2.jpg",
+            "id": "2",
+            "title": "Gold Prices Soar, but Many People don’t Believe it",
+            "date": "12 Jun 2019",
+            "content": "Investig ationes demons trave runt lec tores legere liusry quod ii legunt saepius claritas Investig ationes.",
+            "industry": "Industry"
+        },
+        {
+            "imgSrc": "./assets/img/blog-3.jpg",
+            "id": "3",
+            "title": "Global Automative Market Grows to $600 Billion",
+            "date": "12 Jun 2019",
+            "content": "Investig ationes demons trave runt lec tores legere liusry quod ii legunt saepius claritas Investig ationes.",
+            "industry": "Industry"
+        },
+        {
+            "imgSrc": "./assets/img/c4.jpg",
+            "id": "4",
+            "title": "Global Automative Market Grows to $600 Billion",
+            "date": "12 Jun 2019",
+            "content": "Investig ationes demons trave runt lec tores legere liusry quod ii legunt saepius claritas Investig ationes.",
+            "industry": "Industry"
+        },
+        {
+            "imgSrc": "./assets/img/c5.jpg",
+            "id": "5",
+            "title": "Global Automative Market Grows to $600 Billion",
+            "date": "12 Jun 2019",
+            "content": "Investig ationes demons trave runt lec tores legere liusry quod ii legunt saepius claritas Investig ationes.",
+            "industry": "Industry"
+        },
+        {
+            "imgSrc": "./assets/img/c6.jpg",
+            "id": "6",
+            "title": "Global Automative Market Grows to $600 Billion",
+            "date": "12 Jun 2019",
+            "content": "Investig ationes demons trave runt lec tores legere liusry quod ii legunt saepius claritas Investig ationes.",
+            "industry": "Industry"
+        },
+        {
+            "imgSrc": "./assets/img/b1.jpg",
+            "id": "7",
+            "title": "Gold Prices Soar, but Many People don’t Believe it",
+            "date": "12 Jun 2019",
+            "content": "Investig ationes demons trave runt lec tores legere liusry quod ii legunt saepius claritas Investig ationes.",
+            "industry": "Industry"
+        },
+        {
+            "imgSrc": "./assets/img/b2.jpg",
+            "id": "8",
+            "title": "Global Automative Market Grows to $600 Billion",
+            "date": "12 Jun 2019",
+            "content": "Investig ationes demons trave runt lec tores legere liusry quod ii legunt saepius claritas Investig ationes.",
+            "industry": "Industry"
+        },
+        {
+            "imgSrc": "./assets/img/b3.jpg",
+            "id": "9",
+            "title": "Global Automative Market Grows to $600 Billion",
+            "date": "12 Jun 2019",
+            "content": "Investig ationes demons trave runt lec tores legere liusry quod ii legunt saepius claritas Investig ationes.",
+            "industry": "Industry"
+        },
+        {
+            "imgSrc": "./assets/img/b4.jpg",
+            "id": "10",
+            "title": "Global Automative Market Grows to $600 Billion",
+            "date": "12 Jun 2019",
+            "content": "Investig ationes demons trave runt lec tores legere liusry quod ii legunt saepius claritas Investig ationes.",
+            "industry": "Industry"
+        },
+        {
+            "imgSrc": "./assets/img/b1.jpg",
+            "id": "11",
+            "title": "Gold Prices Soar, but Many People don’t Believe it",
+            "date": "12 Jun 2019",
+            "content": "Investig ationes demons trave runt lec tores legere liusry quod ii legunt saepius claritas Investig ationes.",
+            "industry": "Industry"
+        },
+        {
+            "imgSrc": "./assets/img/b2.jpg",
+            "id": "12",
+            "title": "Global Automative Market Grows to $600 Billion",
+            "date": "12 Jun 2019",
+            "content": "Investig ationes demons trave runt lec tores legere liusry quod ii legunt saepius claritas Investig ationes.",
+            "industry": "Industry"
+        },
+        {
+            "imgSrc": "./assets/img/b3.jpg",
+            "id": "13",
+            "title": "Global Automative Market Grows to $600 Billion",
+            "date": "12 Jun 2019",
+            "content": "Investig ationes demons trave runt lec tores legere liusry quod ii legunt saepius claritas Investig ationes.",
+            "industry": "Industry"
+        },
+        {
+            "imgSrc": "./assets/img/b4.jpg",
+            "id": "14",
+            "title": "Global Automative Market Grows to $600 Billion",
+            "date": "12 Jun 2019",
+            "content": "Investig ationes demons trave runt lec tores legere liusry quod ii legunt saepius claritas Investig ationes.",
+            "industry": "Industry"
+        }
+
+
+    ],
+    "team": [{
+            "imgSrc": "./assets/img/client-big.png",
+            "id": "1",
+            "name": "Adam Richardson",
+            "designation": "CEO & Founder",
+            "speach": "Totam rem aperiam eaque ipsa quae ab inventore veri tatis et quasi archi. Totam rem aperiam eaque ipsa was quae."
+        },
+        {
+            "imgSrc": "./assets/img/client-big.png",
+            "id": "2",
+            "name": "Philip Wilson",
+            "expert": "Strategy Advisory",
+            "designation": "Chief Marketing Officer",
+            "speach": "Totam rem aperiam eaque ipsa quae ab inventore veri tatis et quasi archi. Totam rem aperiam eaque ipsa was quae."
+        },
+        {
+            "imgSrc": "./assets/img/client-big.png",
+            "id": "3",
+            "expert": "Business And Consulting",
+            "name": "Hughes Verdier",
+            "designation": "Chief Operating Officer",
+            "speach": "Totam rem aperiam eaque ipsa quae ab inventore veri tatis et quasi archi. Totam rem aperiam eaque ipsa was quae."
+        },
+        {
+            "imgSrc": "./assets/img/t8.jpg",
+            "id": "4",
+            "name": "Adam Richardson",
+            "designation": "CEO & Founder",
+            "speach": "Investig ationes demons trave runt lectores legere liusry quod ilegunt saepius claritas Investig ationes. Our management team is led by the Managing Partner Peter Mockler who successfully accomplished the European management buyout."
+        },
+        {
+            "imgSrc": "./assets/img/t9.jpg",
+            "id": "5",
+            "name": "Philip Wilson",
+            "expert": "Strategy Advisory",
+            "designation": "Chief Marketing Officer",
+            "speach": "Investig ationes demons trave runt lectores legere liusry quod ilegunt saepius claritas Investig ationes. Our management team is led by the Managing Partner Peter Mockler who successfully accomplished the European management buyout."
+        },
+        {
+            "imgSrc": "./assets/img/t10.jpg",
+            "id": "6",
+            "expert": "Business And Consulting",
+            "name": "Hughes Verdier",
+            "designation": "Chief Operating Officer",
+            "speach": "Investig ationes demons trave runt lectores legere liusry quod ilegunt saepius claritas Investig ationes. Our management team is led by the Managing Partner Peter Mockler who successfully accomplished the European management buyout."
+        },
+        {
+            "imgSrc": "./assets/img/t12.jpg",
+            "id": "7",
+            "name": "Adam Richardson",
+            "designation": "CEO & Founder",
+            "speach": "Totam rem aperiam eaque ipsa quae ab inventore veri tatis et quasi archi. Totam rem aperiam eaque ipsa was quae."
+        },
+        {
+            "imgSrc": "./assets/img/t13.jpg",
+            "id": "8",
+            "name": "Philip Wilson",
+            "expert": "Strategy Advisory",
+            "designation": "Chief Marketing Officer",
+            "speach": "Totam rem aperiam eaque ipsa quae ab inventore veri tatis et quasi archi. Totam rem aperiam eaque ipsa was quae."
+        },
+        {
+            "imgSrc": "./assets/img/t14.jpg",
+            "id": "9",
+            "expert": "Business And Consulting",
+            "name": "Hughes Verdier",
+            "designation": "Chief Operating Officer",
+            "speach": "Totam rem aperiam eaque ipsa quae ab inventore veri tatis et quasi archi. Totam rem aperiam eaque ipsa was quae."
+        },
+        {
+            "imgSrc": "./assets/img/t15.jpg",
+            "id": "10",
+            "expert": "Insurance And Finance",
+            "name": "Jack Semper",
+            "designation": "Chief Finance Officer",
+            "speach": "Totam rem aperiam eaque ipsa quae ab inventore veri tatis et quasi archi. Totam rem aperiam eaque ipsa was quae."
+        } ,
+        {
+            "imgSrc": "./assets/img/t1.jpg",
+            "id": "11",
+            "name": "Adam Richardson",
+            "designation": "CEO & Founder",
+            "speach": "Totam rem aperiam eaque ipsa quae ab inventore veri tatis et quasi archi. Totam rem aperiam eaque ipsa was quae."
+        },
+        {
+            "imgSrc": "./assets/img/t2.jpg",
+            "id": "12",
+            "name": "Philip Wilson",
+            "expert": "Strategy Advisory",
+            "designation": "Chief Marketing Officer",
+            "speach": "Totam rem aperiam eaque ipsa quae ab inventore veri tatis et quasi archi. Totam rem aperiam eaque ipsa was quae."
+        },
+        {
+            "imgSrc": "./assets/img/t3.jpg",
+            "id": "13",
+            "expert": "Business And Consulting",
+            "name": "Hughes Verdier",
+            "designation": "Chief Operating Officer",
+            "speach": "Totam rem aperiam eaque ipsa quae ab inventore veri tatis et quasi archi. Totam rem aperiam eaque ipsa was quae."
+        },
+        {
+            "imgSrc": "./assets/img/t1.jpg",
+            "id": "14",
+            "expert": "Insurance And Finance",
+            "name": "Jack Semper",
+            "designation": "Chief Finance Officer",
+            "speach": "Totam rem aperiam eaque ipsa quae ab inventore veri tatis et quasi archi. Totam rem aperiam eaque ipsa was quae."
+        },
+        {
+            "imgSrc": "./assets/img/t4.jpg",
+            "id": "15",
+            "name": "Adam Richardson",
+            "designation": "CEO & Founder",
+            "speach": "Totam rem aperiam eaque ipsa quae ab inventore veri tatis et quasi archi. Totam rem aperiam eaque ipsa was quae."
+        },
+        {
+            "imgSrc": "./assets/img/t5.jpg",
+            "id": "16",
+            "name": "Philip Wilson",
+            "expert": "Strategy Advisory",
+            "designation": "Chief Marketing Officer",
+            "speach": "Totam rem aperiam eaque ipsa quae ab inventore veri tatis et quasi archi. Totam rem aperiam eaque ipsa was quae."
+        },
+        {
+            "imgSrc": "./assets/img/t6.jpg",
+            "id": "17",
+            "expert": "Business And Consulting",
+            "name": "Hughes Verdier",
+            "designation": "Chief Operating Officer",
+            "speach": "Totam rem aperiam eaque ipsa quae ab inventore veri tatis et quasi archi. Totam rem aperiam eaque ipsa was quae."
+        },
+        {
+            "imgSrc": "./assets/img/t7.jpg",
+            "id": "18",
+            "expert": "Insurance And Finance",
+            "name": "Jack Semper",
+            "designation": "Chief Finance Officer",
+            "speach": "Totam rem aperiam eaque ipsa quae ab inventore veri tatis et quasi archi. Totam rem aperiam eaque ipsa was quae."
+        },
+        {
+            "imgSrc": "./assets/img/t4.jpg",
+            "id": "19",
+            "expert": "Insurance And Finance",
+            "name": "Jack Semper",
+            "designation": "Chief Finance Officer",
+            "speach": "Totam rem aperiam eaque ipsa quae ab inventore veri tatis et quasi archi. Totam rem aperiam eaque ipsa was quae."
+        },
+        {
+            "imgSrc": "./assets/img/t8.jpg",
+            "id": "20",
+            "name": "Adam Richardson",
+            "expert": "Strategy Advisory",
+            "designation": "CEO & Founder",
+            "speach": "Totam rem aperiam eaque ipsa quae ab inventore veri tatis et quasi archi. Totam rem aperiam eaque ipsa was quae."
+        },
+        {
+            "imgSrc": "./assets/img/t9.jpg",
+            "id": "21",
+            "name": "Philip Wilson",
+            "expert": "Strategy Advisory",
+            "designation": "Chief Marketing Officer",
+            "speach": "Totam rem aperiam eaque ipsa quae ab inventore veri tatis et quasi archi. Totam rem aperiam eaque ipsa was quae."
+        },
+        {
+            "imgSrc": "./assets/img/t10.jpg",
+            "id": "22",
+            "expert": "Business And Consulting",
+            "name": "Hughes Verdier",
+            "designation": "Chief Operating Officer",
+            "speach": "Totam rem aperiam eaque ipsa quae ab inventore veri tatis et quasi archi. Totam rem aperiam eaque ipsa was quae."
+        },
+        {
+            "imgSrc": "./assets/img/t16.jpg",
+            "id": "23",
+            "expert": "Insurance And Finance",
+            "name": "Jack Semper",
+            "designation": "Chief Finance Officer",
+            "speach": "Totam rem aperiam eaque ipsa quae ab inventore veri tatis et quasi archi. Totam rem aperiam eaque ipsa was quae."
+        }
+
+    ],
+    "slider": [{
+            "imgSrc": "./assets/img/slider_bg7.jpg",
+            "thumb": "./assets/img/slider_bg7_thumb.jpg",
+            "id": "1",
+            "title": "Work With World class  Business Consultant",
+            "tagline": "Tejarat is one of the world’s top business consulting firms.",
+            "tagline2": "We help global leaders with their issues."
+        },
+        {
+            "imgSrc": "./assets/img/slider_bg2.jpg",
+            "thumb": "./assets/img/slider_bg2_thumb.jpg",
+            "id": "2",
+            "title": "Work With World class Financial Experts",
+            "tagline": "Tejarat is one of the world’s top business consulting firms.",
+            "tagline2": "We help global leaders with their issues."
+        }
+    ],
+    "project": [{
+            "id": "1",
+            "imgSrc": "./assets/img/s1.jpg",
+            "title": "Financial Sustainability",
+            "subtitle": "Business Services",
+            "category": "2,4",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "2",
+            "imgSrc": "./assets/img/s2.jpg",
+            "title": "Make Business Strategy",
+            "category": "3,2",
+            "subtitle": "Business Services",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "3",
+            "imgSrc": "./assets/img/s3.jpg",
+            "category": "3,1",
+            "title": "Social Media Strategy",
+            "subtitle": "Business Services",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "4",
+            "imgSrc": "./assets/img/s4.jpg",
+            "category": "3,2,4",
+            "title": "Financial Sustainability",
+            "subtitle": "Consulting & Finance",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "5",
+            "imgSrc": "./assets/img/s1.jpg",
+            "category": "1,4",
+            "title": "Make Business Strategy",
+            "subtitle": "Finance Services",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "6",
+            "imgSrc": "./assets/img/s2.jpg",
+            "category": "3,2",
+            "title": "Financial Sustainability",
+            "subtitle": "Consulting & Finance",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "7",
+            "imgSrc": "./assets/img/img1.jpg",
+            "category": "3,2",
+            "title": "Financial Sustainability",
+            "subtitle": "Consulting & Finance",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "8",
+            "imgSrc": "./assets/img/img1.jpg",
+            "category": "3,2",
+            "title": "Financial Sustainability",
+            "subtitle": "Consulting & Finance",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "9",
+            "imgSrc": "./assets/img/c12.jpg",
+            "category": "3,2",
+            "title": "HR Managing Strategies",
+            "subtitle": "Consulting & Finance",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "10",
+            "imgSrc": "./assets/img/c12.jpg",
+            "category": "3,2",
+            "title": "Financial Sustainability",
+            "subtitle": "Consulting & Finance",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "11",
+            "imgSrc": "./assets/img/c7.jpg",
+            "title": "Financial Sustainability",
+            "subtitle": "Business Services",
+            "category": "2,4",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "12",
+            "imgSrc": "./assets/img/c8.jpg",
+            "title": "Make Business Strategy",
+            "category": "3,2",
+            "subtitle": "Business Services",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "13",
+            "imgSrc": "./assets/img/about2.jpg",
+            "category": "3,1",
+            "title": "Social Media Strategy",
+            "subtitle": "Business Services",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "14",
+            "imgSrc": "./assets/img/v2.jpg",
+            "category": "3,2,4",
+            "title": "Financial Sustainability",
+            "subtitle": "Consulting & Finance",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        }
+
+    ],
+    "product": [{
+            "id": "1",
+            "quantity": "1",
+            "imgSrc": "./assets/img/c9.jpg",
+            "view": ["./assets/img/c9.jpg", "./assets/img/c10.jpg", "./assets/img/c11.jpg"],
+            "title": "Marketing Presentation",
+            "category": "Business",
+            "price": "250.00",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "2",
+            "quantity": "1",
+            "imgSrc": "./assets/img/c10.jpg",
+            "view": ["./assets/img/c10.jpg", "./assets/img/c9.jpg", "./assets/img/c11.jpg"],
+            "title": "Marketing Presentation",
+            "category": "Marketing",
+            "price": "280.00",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "3",
+            "quantity": "1",
+            "imgSrc": "./assets/img/c11.jpg",
+            "view": ["./assets/img/c11.jpg", "./assets/img/c10.jpg", "./assets/img/c9.jpg"],
+            "title": "Finance Presentation",
+            "category": "Finance",
+            "price": "280.00",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "4",
+            "quantity": "1",
+            "imgSrc": "./assets/img/c9.jpg",
+            "view": ["./assets/img/c9.jpg", "./assets/img/c10.jpg", "./assets/img/c11.jpg"],
+            "title": "Marketing Presentation",
+            "category": "Business",
+            "price": "250.00",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "5",
+            "quantity": "1",
+            "imgSrc": "./assets/img/c10.jpg",
+            "view": ["./assets/img/c10.jpg", "./assets/img/c9.jpg", "./assets/img/c11.jpg"],
+            "title": "Marketing Presentation",
+            "category": "Marketing",
+            "price": "280.00",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "6",
+            "quantity": "1",
+            "imgSrc": "./assets/img/c11.jpg",
+            "view": ["./assets/img/c11.jpg", "./assets/img/c10.jpg", "./assets/img/c9.jpg"],
+            "title": "Finance Presentation",
+            "category": "Finance",
+            "price": "280.00",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "7",
+            "quantity": "1",
+            "imgSrc": "./assets/img/c9.jpg",
+            "view": ["./assets/img/c9.jpg", "./assets/img/c10.jpg", "./assets/img/c11.jpg"],
+            "title": "Marketing Presentation",
+            "category": "Business",
+            "price": "250.00",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "8",
+            "quantity": "1",
+            "imgSrc": "./assets/img/c10.jpg",
+            "view": ["./assets/img/c10.jpg", "./assets/img/c9.jpg", "./assets/img/c11.jpg"],
+            "title": "Marketing Presentation",
+            "category": "Marketing",
+            "price": "280.00",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "9",
+            "quantity": "1",
+            "imgSrc": "./assets/img/c11.jpg",
+            "view": ["./assets/img/c11.jpg", "./assets/img/c10.jpg", "./assets/img/c9.jpg"],
+            "title": "Finance Presentation",
+            "category": "Finance",
+            "price": "280.00",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "10",
+            "quantity": "1",
+            "imgSrc": "./assets/img/c9.jpg",
+            "view": ["./assets/img/c9.jpg", "./assets/img/c10.jpg", "./assets/img/c11.jpg"],
+            "title": "Marketing Presentation",
+            "category": "Business",
+            "price": "250.00",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "11",
+            "quantity": "1",
+            "imgSrc": "./assets/img/c10.jpg",
+            "view": ["./assets/img/c10.jpg", "./assets/img/c9.jpg", "./assets/img/c11.jpg"],
+            "title": "Marketing Presentation",
+            "category": "Marketing",
+            "price": "280.00",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "12",
+            "quantity": "1",
+            "imgSrc": "./assets/img/c11.jpg",
+            "view": ["./assets/img/c11.jpg", "./assets/img/c10.jpg", "./assets/img/c9.jpg"],
+            "title": "Finance Presentation",
+            "category": "Finance",
+            "price": "280.00",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "13",
+            "quantity": "1",
+            "imgSrc": "./assets/img/c9.jpg",
+            "view": ["./assets/img/c9.jpg", "./assets/img/c10.jpg", "./assets/img/c11.jpg"],
+            "title": "Marketing Presentation",
+            "category": "Business",
+            "price": "250.00",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "14",
+            "quantity": "1",
+            "imgSrc": "./assets/img/c10.jpg",
+            "view": ["./assets/img/c10.jpg", "./assets/img/c9.jpg", "./assets/img/c11.jpg"],
+            "title": "Marketing Presentation",
+            "category": "Marketing",
+            "price": "280.00",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "15",
+            "quantity": "1",
+            "imgSrc": "./assets/img/c11.jpg",
+            "view": ["./assets/img/c11.jpg", "./assets/img/c10.jpg", "./assets/img/c9.jpg"],
+            "title": "Finance Presentation",
+            "category": "Finance",
+            "price": "280.00",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        }
+
+    ],
+    "event": [{
+            "id": "1",
+            "imgSrc": "./assets/img/e1.jpg",
+            "title": "International SAP Conference",
+            "date": "14 December 2019",
+            "countDate": "14/12/18",
+            "time": "8:00 AM - 5:00 PM",
+            "category": "Conference",
+            "duration": "Wednesday, 20 May - Friday, 30 May, 2018",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "2",
+            "imgSrc": "./assets/img/e2.jpg",
+            "title": "MIT Platform Strategy",
+            "date": "12 December 2018",
+            "countDate": "12/12/19",
+            "time": "8:00 AM - 5:00 PM",
+            "category": "Event",
+            "duration": "Wednesday, 20 May - Friday, 30 May, 2018",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        },
+        {
+            "id": "3",
+            "imgSrc": "./assets/img/e3.jpg",
+            "title": "Euro Finance Week 2019",
+            "date": "23 March 2018",
+            "countDate": "23/03/19",
+            "time": "8:00 AM - 5:00 PM",
+            "category": "Seminar",
+            "duration": "Wednesday, 20 May - Friday, 30 May, 2018",
+            "content": "Investig ationes demons trave runt lectores legere liusry quod ii legunt saepius claritas Investig ationes."
+        }
+    ]
+}]

@@ -308,12 +308,14 @@ const LocationBox = (props) => {
         {error ? <div className="error">{error}</div> : null}
       </Form.Group>
       <Form.Group className="col-lg-2 col-md-2 col-sm-12">
-        <button
-          onClick={changeLocation}
-          className="btn btn-danger btn-block btn-lg btn-round"
-        >
-          Search
-        </button>
+        <Link>
+          <button
+            onClick={changeLocation}
+            className="btn btn-danger btn-block btn-lg btn-round"
+          >
+            Search
+          </button>
+        </Link>
       </Form.Group>
       {/* <form >
                 <div className="form-group mt-4" >

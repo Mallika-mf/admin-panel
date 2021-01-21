@@ -16,34 +16,48 @@ class Index extends React.Component {
         <TopSearch />
         <section className="section pt-5 pb-5 bg-white homepage-add-section">
           <Container>
-            <Row>
-              <Col md={3} xs={6}>
+            <Row
+              style={{
+                marginLeft: "10%",
+                marginTop: "-2%",
+                marginBottom: "-1%",
+              }}
+            >
+              <Col md={2} xs={6}>
                 <ProductBox
-                  image="img/pro1.jpg"
+                  image="./assets/img/Coupons/Coupon (1).jpeg"
                   imageClass="img-fluid rounded"
                   imageAlt="product"
                   linkUrl="#"
                 />
               </Col>
-              <Col md={3} xs={6}>
+              <Col md={2} xs={6}>
                 <ProductBox
-                  image="img/2.jpg"
+                  image="./assets/img/Coupons/Coupon (2).jpeg"
                   imageClass="img-fluid rounded"
                   imageAlt="product"
                   linkUrl="#"
                 />
               </Col>
-              <Col md={3} xs={6}>
+              <Col md={2} xs={6}>
                 <ProductBox
-                  image="img/pro3.jpg"
+                  image="./assets/img/Coupons/Coupon (3).jpeg"
                   imageClass="img-fluid rounded"
                   imageAlt="product"
                   linkUrl="#"
                 />
               </Col>
-              <Col md={3} xs={6}>
+              <Col md={2} xs={6}>
                 <ProductBox
-                  image="img/pro4.jpg"
+                  image="./assets/img/Coupons/Coupon (4).jpeg"
+                  imageClass="img-fluid rounded"
+                  imageAlt="product"
+                  linkUrl="#"
+                />
+              </Col>
+              <Col md={2} xs={6}>
+                <ProductBox
+                  image="./assets/img/Coupons/Coupon (5).jpeg"
                   imageClass="img-fluid rounded"
                   imageAlt="product"
                   linkUrl="#"
@@ -54,7 +68,7 @@ class Index extends React.Component {
         </section>
 
         <section className="section pt-5 pb-5 products-section">
-          <Container>
+          <Container style={{ marginTop: "-2%" }}>
             <SectionHeading
               heading="Popular Home-Chefs"
               subHeading="Top  Home-cafes in MothersFood based on trends"
@@ -141,10 +155,10 @@ class Index extends React.Component {
           </Container>
         </section>
         <section className="section pt-5 pb-5 products-section">
-          <Container>
+          <Container style={{ marginTop: "-5%" }}>
             <SectionHeading
-              heading="Popular Vendor's"
-              subHeading="Top  Vendor's in MothersFood based on trends"
+              heading="Popular kitchen's"
+              subHeading="Top  Kitchen's in MothersFood based on trends"
             />
             <Row>
               <Col md={12}>

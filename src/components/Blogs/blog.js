@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+
 // import Clients from '../container/clients/clients1';
 // import Fetures from '../content/fetures/fetures';
 // import ContentBlock from '../content/contentBlock/contentBlock';
@@ -8,6 +9,7 @@ import React, { Fragment } from "react";
 // import Subscribe from '../content/subscribe/subscribe7';
 // import Footer from '../layout/footer/footer-dark-3'
 import { NavLink } from "react-router-dom";
+import Header from "../common/Header";
 // import PlacesAutocomplete from 'react-places-autocomplete';
 // import {
 //     geocodeByAddress,
@@ -46,9 +48,7 @@ class Index extends React.Component {
 
     return (
       <Fragment>
-        {/* <Navbar /> */}
-
-        {/* <Header /> */}
+        <Header />
         <div className="card">
           <section className="p-top-10 p-bottom-10">
             <div className="intro-five">

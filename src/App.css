@@ -24,7 +24,7 @@ body {
   background: #f3f7f8;
   font-size: 13px;
   font-weight: 500;
-  word-spacing: 5px;
+  word-spacing: 1px;
   line-height: 20pt;
 }
 button,
@@ -319,9 +319,9 @@ h6 {
 }
 .osahan-category-item h6 {
   margin-bottom: "2px";
-  font-weight: 600;
-  font-size: 13px;
-  color: #ff3008;
+  font-weight: 700;
+  font-size: 14px;
+  color: #330603;
 }
 .osahan-category-item p {
   margin: 0 0 4px 0;

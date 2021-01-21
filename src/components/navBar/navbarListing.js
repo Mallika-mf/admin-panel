@@ -14,7 +14,7 @@ import CartDropdownHeader from "../cart/CartDropdownHeader";
 import CartDropdownItem from "../cart/CartDropdownItem";
 import Icofont from "react-icofont";
 
-class Header extends React.Component {
+class NavbarListing extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -56,7 +56,11 @@ class Header extends React.Component {
         >
           <Container style={{ marginTop: "-1%", marginBottom: "-1%" }}>
             <Navbar.Brand to="/">
-              <Image style={{ width: "120px" }} src="/img/logo.png" alt="" />
+              <Image
+                style={{ width: "120px", marginTop: "-15px" }}
+                src="/img/logo.png"
+                alt=""
+              />
             </Navbar.Brand>
             <Navbar.Toggle />
             <Navbar.Collapse id="navbarNavDropdown">
@@ -69,6 +73,24 @@ class Header extends React.Component {
                   to="/"
                 >
                   Home <span className="sr-only">(current)</span>
+                </Nav.Link>
+                <Nav.Link
+                  eventKey={0}
+                  as={NavLink}
+                  activeclassname="active"
+                  exact
+                  to="/localDishes"
+                >
+                  Local Food <span className="sr-only">(current)</span>
+                </Nav.Link>
+                <Nav.Link
+                  eventKey={0}
+                  as={NavLink}
+                  activeclassname="active"
+                  exact
+                  to="/homefood"
+                >
+                  Home Food <span className="sr-only">(current)</span>
                 </Nav.Link>
                 <Nav.Link
                   eventKey={1}
@@ -159,7 +181,7 @@ class Header extends React.Component {
                     Extra
                   </NavDropdown.Item>
                 </NavDropdown> */}
-                <NavDropdown
+                {/* <NavDropdown
                   alignRight
                   title={
                     <DropDownTitle
@@ -211,7 +233,7 @@ class Header extends React.Component {
                   >
                     <Icofont icon="location-pin" /> Addresses
                   </NavDropdown.Item>
-                </NavDropdown>
+                </NavDropdown> */}
                 {/* <NavDropdown 
                   activeclassname="active"
                   alignRight
@@ -297,9 +319,9 @@ class Header extends React.Component {
                   as={NavLink}
                   activeclassname="active"
                   exact
-                  to="/home"
+                  to="/login"
                 >
-                  Logout <span className="sr-only">(current)</span>
+                  Login <span className="sr-only">(current)</span>
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>
@@ -310,4 +332,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default NavbarListing;
