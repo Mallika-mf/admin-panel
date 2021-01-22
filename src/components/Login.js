@@ -1,13 +1,17 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { Row, Col, Container, Form, Button } from "react-bootstrap";
 import FontAwesome from "./common/FontAwesome";
 import firebase from "./Firebase";
 import Loader from "react-loader-spinner";
 import Moment from "moment";
+import { useHistory } from "react-router-dom";
+
 import { get } from "lodash";
+import { Video } from "styled-icons/boxicons-regular";
+import backgroundVideo from "../vid/login video.mp4";
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -26,6 +30,7 @@ class Login extends React.Component {
       registerLoader: false,
     };
   }
+
   handleLogout = () => {
     localStorage.setItem("isLogging", false);
     localStorage.removeItem("UserName");
@@ -178,6 +183,7 @@ class Login extends React.Component {
 
           // localStorage.setItem('phoneNumber', user.phoneNumber);
           localStorage.setItem("phoneNumber", mobile);
+
           this.setState((prevState) => {
             return { ...prevState, showRegister: !prevState.showRegister };
           });
@@ -220,6 +226,76 @@ class Login extends React.Component {
     return true;
   };
 
+  onSubmitOtp = (e) => {
+    e.preventDefault();
+    this.setState({ otpLoader: true });
+    let { otp, mobile } = this.state;
+    let optConfirm = window.confirmationResult;
+    optConfirm
+      .confirm(otp)
+      .then(async (result) => {
+        this.setState({ otpLoader: false });
+        // User signed in successfully.
+        // console.log("Result" + result.verificationID);
+        // let user = result.user;
+        // const isUserExist = await firebase.database().ref("Users").orderByChild("Number").equalTo(user.phoneNumber).once("value");
+        const isUserExist = await firebase
+          .database()
+          .ref("Users")
+          .orderByChild("Number")
+          .equalTo(mobile)
+          .once("value");
+        if (isUserExist.exists()) {
+          const userExist = Object.values(isUserExist.val());
+          localStorage.setItem("isLogging", true);
+          localStorage.setItem("UserName", userExist[0].UserName);
+          localStorage.setItem("Name", userExist[0].Name);
+          // localStorage.setItem('phoneNumber', userExist[0].Number);
+          localStorage.setItem("phoneNumber", mobile);
+          this.setState({ menuOpen: false });
+
+          localStorage.removeItem("chefId");
+          console.log(
+            "USER LOGIN CART",
+            get(isUserExist.val()[userExist[0].UserName], "Cart", [])
+          );
+          Object.values(
+            get(isUserExist.val()[userExist[0].UserName], "Cart", [])
+          ).map((cartItem) => {
+            console.log("cartItem Deleted", cartItem.PushId);
+            cartItem.Qty = 0;
+            this.props.setCart(cartItem);
+            //firebaserefUser.child("Cart").child(cartItem.PushId).remove().then((res)=> console.log('cart removed successfullt')).caatch((err) => console.log('cart remoed error', err))
+          });
+          document.getElementById("rightMenu").style.display = "none";
+          window.location.reload();
+        } else {
+          this.setState({ otpLoader: false });
+          let UniqueIdTransaction = firebase.database().ref("UniqueId");
+          UniqueIdTransaction.transaction((data) => {
+            return data + 1;
+          })
+            .then(() => {
+              console.log("UniqueIdTransaction Done");
+              this.props.history.push({
+                pathname: `/register`,
+              });
+            })
+            .catch((error) => console.log("UniqueIdTransaction error", error));
+
+          // localStorage.setItem('phoneNumber', user.phoneNumber);
+          localStorage.setItem("phoneNumber", mobile);
+          this.setState((prevState) => {
+            return { ...prevState, showRegister: !prevState.showRegister };
+          });
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+        // alert("Incorrect OTP");
+      });
+  };
+
   render() {
     const {
       showRegister,
@@ -242,15 +318,13 @@ class Login extends React.Component {
               className="bg_image_holder_ride"
               style={{ backgroundColor: "#edf3f5" }}
             >
-              <img
-                src="./assets/img/partnerwithusNew.png"
-                style={{
-                  minHeight: "30.33333rem",
-                  Width: "500px",
-                  maxWidth: "100%",
-                  height: "450px",
-                }}
-                alt=""
+              <video
+                autoPlay
+                loop
+                muted
+                style={{ alignContent: "left" }}
+                src={backgroundVideo}
+                type="video/mp4"
               />
             </div>
           </Col>
@@ -403,4 +477,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);
