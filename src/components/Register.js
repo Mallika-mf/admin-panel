@@ -1,11 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { Row, Col, Container, Form } from "react-bootstrap";
 import firebase from "./Firebase";
 // import MediaQuery from "react-responsive";
 // import { connect } from "react-redux";
 import Moment from "moment";
+import Loader from "react-loader-spinner";
 // import { get } from "lodash";
 //import { Loader } from "styled-icons/boxicons-regular";
 
@@ -76,6 +77,9 @@ class Register extends React.Component {
 
       // this.setState({ menuOpen: false });
       this.setState({ registerLoader: false });
+      this.props.history.push({
+        pathname: `/homefood`,
+      });
       //    firebase.database().ref('Users').push({
       //     Email: emailId,
       //     JoiningDate: new Date().toString(),
@@ -106,7 +110,7 @@ class Register extends React.Component {
     const phoneNumber = localStorage.getItem("phoneNumber");
     const isLoggedin = localStorage.getItem("isLogging");
     const userName = localStorage.getItem("Name");
-    var imgurl = window.location.origin + "/assets/img/";
+    //var imgurl = window.location.origin + "/assets/img/";
     return (
       <Container fluid className="bg-white">
         <Row>
@@ -181,14 +185,23 @@ class Register extends React.Component {
                         </Form.Label>
                       </div>
 
-                      <Link to="#">
-                        <button
-                          type="submit"
-                          className="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
-                        >
-                          Sign Up
-                        </button>
-                      </Link>
+                      <button
+                        type="submit"
+                        className="btn btn-lg btn-outline-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
+                      >
+                        {registerLoader ? (
+                          <div style={{ marginTop: "7px" }}>
+                            <Loader
+                              type="Circles"
+                              color="#FFF"
+                              height={25}
+                              width={100}
+                            />
+                          </div>
+                        ) : (
+                          "Sign Up"
+                        )}
+                      </button>
 
                       <div className="text-center pt-3">
                         Already have an account?{" "}
@@ -208,4 +221,4 @@ class Register extends React.Component {
   }
 }
 
-export default Register;
+export default withRouter(Register);
