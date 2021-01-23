@@ -4,6 +4,8 @@ import firebase from "./Firebase";
 import { HashLink as Link } from "react-router-hash-link";
 import SimpleReactValidator from "simple-react-validator";
 import MediaQuery from "react-responsive";
+import NavBarListing from "./navBar/navbarListing";
+import NavBarlisting2 from "./navBar/Navbarlisting2";
 class GeneralRules extends React.Component {
   constructor(props) {
     super(props);
@@ -155,9 +157,10 @@ class GeneralRules extends React.Component {
 
       // window.location.reload(false);
     }
-
+    var isLoggedin = localStorage.getItem("isLogging");
     return (
       <Fragment>
+        {isLoggedin === "true" ? <NavBarListing /> : <NavBarlisting2 />}
         <div className="card">
           <MediaQuery minDeviceWidth={1224}>
             <div

@@ -59,7 +59,11 @@ class NavbarListing extends React.Component {
           <Container style={{ marginTop: "-1%", marginBottom: "-1%" }}>
             <Navbar.Brand to="/">
               <Image
-                style={{ width: "120px", marginTop: "-15px" }}
+                style={{
+                  width: "125px",
+                  marginTop: "-13px",
+                  marginBottom: "-10%",
+                }}
                 src="/img/logo.png"
                 alt=""
               />

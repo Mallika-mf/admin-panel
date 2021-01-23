@@ -1,10 +1,14 @@
 /* eslint-disable no-unused-vars */
 import React, { Fragment } from "react";
+import NavBarListing from "./navBar/navbarListing";
+import NavBarlisting2 from "./navBar/Navbarlisting2";
 
 const About = () => {
   const noAction = (e) => e.preventDefault();
+  var isLoggedin = localStorage.getItem("isLogging");
   return (
     <Fragment>
+      {isLoggedin === "true" ? <NavBarListing /> : <NavBarlisting2 />}
       <section
         className="section-bg p-top-50 p-bottom-50"
         style={{ background: "#ffffff" }}

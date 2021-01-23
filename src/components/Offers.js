@@ -4,8 +4,10 @@ import { Row, Col, Container } from "react-bootstrap";
 import PageTitle from "./common/PageTitle";
 import firebase from "./Firebase";
 import CouponCard from "./common/CouponCard";
+import NavBarListing from "./navBar/navbarListing";
+import NavBarlisting2 from "./navBar/Navbarlisting2";
 import BankOffers from "./common/BankOffers";
-import Header from "./common/Header";
+// import Header from "./common/Header";
 
 const Offerpage = () => {
   // eslint-disable-next-line no-unused-vars
@@ -30,10 +32,11 @@ const Offerpage = () => {
         }
       });
   }, []);
+  var isLoggedin = localStorage.getItem("isLogging");
 
   return (
     <>
-      <Header />
+      {isLoggedin === "true" ? <NavBarListing /> : <NavBarlisting2 />}
       <PageTitle
         title="Offers for you"
         subTitle="Explore top deals and offers exclusively for you!"

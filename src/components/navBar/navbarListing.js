@@ -70,7 +70,11 @@ class NavbarListing extends React.Component {
           <Container style={{ marginTop: "-1%", marginBottom: "-1%" }}>
             <Navbar.Brand to="/">
               <Image
-                style={{ width: "120px", marginTop: "-15px" }}
+                style={{
+                  width: "125px",
+                  marginTop: "-13px",
+                  marginBottom: "-10%",
+                }}
                 src="/img/logo.png"
                 alt=""
               />
@@ -274,7 +278,7 @@ class NavbarListing extends React.Component {
                   </NavDropdown.Item>
                 </NavDropdown>
 
-                {/* <NavDropdown 
+                <NavDropdown
                   activeclassname="active"
                   alignRight
                   className="dropdown-cart"
@@ -353,7 +357,16 @@ class NavbarListing extends React.Component {
                       </NavDropdown.Item>
                     </div>
                   </div>
-                </NavDropdown>*/}
+                </NavDropdown>
+                {/* <Nav.Link
+                  eventKey={1}
+                  as={NavLink}
+                  activeclassname="active"
+                  to="#"
+                >
+                  <Icofont icon="food-cart" /> Cart{" "}
+                </Nav.Link> */}
+
                 <Nav.Link
                   eventKey={0}
                   onClick={this.handleLogout}

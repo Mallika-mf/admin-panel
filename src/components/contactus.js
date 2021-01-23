@@ -1,6 +1,8 @@
 import React, { Fragment } from "react";
 import firebase from "./Firebase";
 import SimpleReactValidator from "simple-react-validator";
+import NavBarListing from "./navBar/navbarListing";
+import NavBarlisting2 from "./navBar/Navbarlisting2";
 
 class GeneralRules extends React.Component {
   constructor(props) {
@@ -69,9 +71,10 @@ class GeneralRules extends React.Component {
 
       document.getElementById("create-course-form").reset();
     }
-
+    var isLoggedin = localStorage.getItem("isLogging");
     return (
       <Fragment>
+        {isLoggedin === "true" ? <NavBarListing /> : <NavBarlisting2 />}
         {/* <div className="list-inline-wrapper p-top-80 p-bottom-50">
             <div className="container">
                 <div className="row">
