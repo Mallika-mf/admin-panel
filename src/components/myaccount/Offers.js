@@ -1,81 +1,72 @@
-import React from 'react';
-import {Row,Col} from 'react-bootstrap';
-import CouponCard from '../common/CouponCard';
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect } from "react";
+import { Row, Col, Container } from "react-bootstrap";
+import PageTitle from "../common/PageTitle";
+import firebase from "../Firebase";
+import CouponCard from "../common/CouponCard";
+import bannerImg from "../AbotUs/AboutUs-images/Banner_MyProfile.png";
 
-class Offers extends React.Component {
+const Offerpage = () => {
+  // eslint-disable-next-line no-unused-vars
+  const [offer, setOffer] = useState([]);
 
-	render() {
-    	return (
-    		<>
-    		    <div className='p-4 bg-white shadow-sm'>
-	              <Row>
-	               <Col md={12}>
-	                  <h4 className="font-weight-bold mt-0 mb-3">Offers</h4>
-	               </Col>
-	               <Col md={6}>
-	               	  <CouponCard 
-						  title= 'Get 50% OFF on your first osahan eat order'
-						  logoImage= 'img/bank/1.png'
-						  subTitle= 'Use code OSAHANEAT50 & get 50% off on your first osahan order on Website and Mobile site. Maximum discount: $200'
-						  copyBtnText= 'COPY CODE'
-						  couponCode= 'OSAHANEAT50'
-						  noBorder={false}
-	               	  />
-	               </Col>
-	               <Col md={6}>
-	               	  <CouponCard 
-						  title= 'Get 50% OFF on your first osahan eat order'
-						  logoImage= 'img/bank/2.png'
-						  subTitle= 'Use code EAT730 & get 50% off on your first osahan order on Website and Mobile site. Maximum discount: $600'
-						  copyBtnText= 'COPY CODE'
-						  couponCode= 'EAT730'
-						  noBorder={false}
-	               	  />
-	               </Col>
-	               <Col md={6}>
-	               	  <CouponCard 
-						  title= 'Get 50% OFF on your first osahan eat order'
-						  logoImage= 'img/bank/3.png'
-						  subTitle= 'Use code SAHAN50 & get 50% off on your first osahan order on Website and Mobile site. Maximum discount: $200'
-						  copyBtnText= 'COPY CODE'
-						  couponCode= 'SAHAN50'
-						  noBorder={false}
-	               	  />
-	               </Col>
-	               <Col md={6}>
-	               	  <CouponCard 
-						  title= 'Get 50% OFF on your first osahan eat order'
-						  logoImage= 'img/bank/4.png'
-						  subTitle= 'Use code GURDEEP50 & get 50% off on your first osahan order on Website and Mobile site. Maximum discount: $600'
-						  copyBtnText= 'COPY CODE'
-						  couponCode= 'GURDEEP50'
-						  noBorder={false}
-	               	  />
-	               </Col>
-	               <Col md={6}>
-	               	  <CouponCard 
-						  title= 'Get 50% OFF on your first osahan eat order'
-						  logoImage= 'img/bank/5.png'
-						  subTitle= 'Use code OSAHANEAT50 & get 50% off on your first osahan order on Website and Mobile site. Maximum discount: $200'
-						  copyBtnText= 'COPY CODE'
-						  couponCode= 'OSAHANEAT50'
-						  noBorder={false}
-	               	  />
-	               </Col>
-	               <Col md={6}>
-	               	  <CouponCard 
-						  title= 'Get 50% OFF on your first osahan eat order'
-						  logoImage= 'img/bank/6.png'
-						  subTitle= 'Use code OSAHANEAT50 & get 50% off on your first osahan order on Website and Mobile site. Maximum discount: $200'
-						  copyBtnText= 'COPY CODE'
-						  couponCode= 'OSAHANEAT50'
-						  noBorder={false}
-	               	  />
-	               </Col>
-	            </Row>
-			    </div>
-		    </>
-    	);
-    }
-}
-export default Offers;
+  useEffect(() => {
+    firebase
+      .database()
+      .ref()
+      .child("Users")
+      .child("Address")
+      .on("value", function (snapshot) {
+        if (snapshot.exists()) {
+          const content = [];
+          snapshot.forEach((snap) => {
+            console.log(snap.val());
+            let val = snap.val();
+            content.push(val);
+          });
+          console.log(content);
+          setOffer(content);
+        }
+      });
+  }, []);
+
+  return (
+    <>
+      <div className="about-container">
+        <img src={bannerImg} alt="img" width="100%"></img>
+        {/* <div className="banner_title">My Cash</div> */}
+      </div>
+      <h1
+        className="breadcrumb-osahan pt-5 pb-5 bg-light position-relative text-center"
+        style={{ marginBottom: "-5%", marginTop: "-2%" }}
+      >
+        {" "}
+        Offers
+      </h1>
+      <section className="section pt-5 pb-5">
+        <Container>
+          <Row>
+            <Col md={12}>
+              <h4 className="font-weight-bold mt-0 mb-3">Available Coupons</h4>
+            </Col>
+            {offer.map((item, index) => {
+              return (
+                <Col md={4} key={index}>
+                  <CouponCard
+                    title={`Get ${item.Discount}% OFF on your first Mothersfood  eat order`}
+                    logoImage="img/offer.png"
+                    subTitle={`Use code ${item.Name} & get ${item.Discount}% off on your  order value above ₹${item.MinAmount} on Website and Mobile site. Maximum discount: ₹${item.MaxAmount}`}
+                    copyBtnText="COPY CODE"
+                    couponCode={`${item.Name}`}
+                  />
+                </Col>
+              );
+            })}
+          </Row>
+        </Container>
+      </section>
+    </>
+  );
+};
+
+export default Offerpage;

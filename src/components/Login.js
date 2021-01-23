@@ -25,6 +25,7 @@ class Login extends React.Component {
       otp: "",
       showRegister: false,
       showOtpForm: false,
+      isLoggedin: false,
       loginLoader: false,
       otpLoader: false,
       registerLoader: false,
@@ -37,6 +38,7 @@ class Login extends React.Component {
     localStorage.removeItem("phoneNumber");
     localStorage.removeItem("Name");
     window.location.reload();
+    localStorage.setItem("isLogging", false);
   };
 
   handleRegisterSubmit = async (e) => {
@@ -155,7 +157,8 @@ class Login extends React.Component {
           localStorage.setItem("Name", userExist[0].Name);
           // localStorage.setItem('phoneNumber', userExist[0].Number);
           localStorage.setItem("phoneNumber", mobile);
-          this.setState({ menuOpen: false });
+          localStorage.setItem("isLoggedin", true);
+          //this.setState({ menuOpen: false });
 
           localStorage.removeItem("chefId");
           console.log(
@@ -250,11 +253,15 @@ class Login extends React.Component {
           localStorage.setItem("isLogging", true);
           localStorage.setItem("UserName", userExist[0].UserName);
           localStorage.setItem("Name", userExist[0].Name);
+          localStorage.setItem("Email", userExist[0].Email);
           // localStorage.setItem('phoneNumber', userExist[0].Number);
           localStorage.setItem("phoneNumber", mobile);
-          this.setState({ menuOpen: false });
+          //this.setState({ menuOpen: false });
 
           localStorage.removeItem("chefId");
+          this.props.history.push({
+            pathname: `/listing`,
+          });
           console.log(
             "USER LOGIN CART",
             get(isUserExist.val()[userExist[0].UserName], "Cart", [])
@@ -265,10 +272,11 @@ class Login extends React.Component {
             console.log("cartItem Deleted", cartItem.PushId);
             cartItem.Qty = 0;
             this.props.setCart(cartItem);
+
             //firebaserefUser.child("Cart").child(cartItem.PushId).remove().then((res)=> console.log('cart removed successfullt')).caatch((err) => console.log('cart remoed error', err))
           });
           document.getElementById("rightMenu").style.display = "none";
-          window.location.reload();
+          //window.location.reload();
         } else {
           this.setState({ otpLoader: false });
           let UniqueIdTransaction = firebase.database().ref("UniqueId");
@@ -363,7 +371,7 @@ class Login extends React.Component {
                               name="mobile"
                               id="inputEmail"
                               onChange={this.handleInputChange}
-                              placeholder="Email address"
+                              //placeholder="Email address"
                             />
                             <Form.Label htmlFor="inputEmail">
                               {" "}

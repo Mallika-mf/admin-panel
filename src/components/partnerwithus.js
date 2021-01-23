@@ -10,6 +10,8 @@ import { HashLink as Link } from "react-router-hash-link";
 import SimpleReactValidator from "simple-react-validator";
 import axios from "axios";
 import MediaQuery from "react-responsive";
+import NavBarListing from "./navBar/navbarListing";
+import NavBarlisting2 from "./navBar/Navbarlisting2";
 
 class GeneralRules extends React.Component {
   constructor(props) {
@@ -194,9 +196,10 @@ class GeneralRules extends React.Component {
 
       // window.location.reload(false);
     }
-
+    var isLoggedin = localStorage.getItem("isLogging");
     return (
       <Fragment>
+        {isLoggedin === "true" ? <NavBarListing /> : <NavBarlisting2 />}
         <MediaQuery minDeviceWidth={1224}>
           <div
             className="intro-four bgimage"

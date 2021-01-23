@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
-import Header from "../navBar/navbarListing";
+import NavBarListing from "../navBar/navbarListing";
+import NavBarlisting2 from "../navBar/Navbarlisting2";
 // import { NavLink } from 'react-router-dom';
 // import Header from '../layout/header/slider-header-2';
 // import Footer from '../layout/footer/footer-dark-3';
@@ -7,9 +8,10 @@ import Header from "../navBar/navbarListing";
 
 // const noAction = e => e.preventDefault();
 const Project = () => {
+  var isLoggedin = localStorage.getItem("isLogging");
   return (
     <Fragment>
-      <Header />
+      {isLoggedin === "true" ? <NavBarListing /> : <NavBarlisting2 />}
       <section className="section-bg p-top-100 p-bottom-110">
         <div className="container">
           <div className="row">

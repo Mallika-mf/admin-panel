@@ -1,6 +1,8 @@
 import React, { Fragment, useState } from "react";
 // import {NavLink} from 'react-router-dom';
-import Header from "../navBar/navbarListing";
+
+import NavBarListing from "../navBar/navbarListing";
+import NavBarlisting2 from "../navBar/Navbarlisting2";
 // import Footer from '../layout/footer/footer-dark-3';
 // import Split from '../container/split/section-split';
 // import Team from '../container/element/carousel/team-carousel-one';
@@ -17,10 +19,10 @@ const About = () => {
   function submit() {
     window.location = "/apply";
   }
-
+  var isLoggedin = localStorage.getItem("isLogging");
   return (
     <Fragment>
-      <Header />
+      {isLoggedin === "true" ? <NavBarListing /> : <NavBarlisting2 />}
       <div className="card">
         <section
           className="section-bg p-top-50 p-bottom-50"
