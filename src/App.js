@@ -46,7 +46,7 @@ import NewsDetail11 from "./page/news-detail-11";
 import NewsDetail12 from "./page/news-detail-12";
 import NewsDetail13 from "./page/news-detail-13";
 import NewsDetail14 from "./page/news-detail-14";
-import LocalFood from "./components/localFood"
+import LocalFood from "./components/localFood";
 class App extends React.Component {
   render() {
     return (

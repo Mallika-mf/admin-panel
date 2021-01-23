@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { NavLink, Link, withRouter } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import {
   Navbar,
   Nav,
@@ -36,16 +36,6 @@ class NavbarListing extends React.Component {
       this.setState({ isNavExpanded: false });
     }
   };
-  handleLogout = () => {
-    localStorage.setItem("isLogging", false);
-    localStorage.removeItem("UserName");
-    localStorage.removeItem("phoneNumber");
-    localStorage.removeItem("Name");
-    window.location.reload();
-    this.props.history.push({
-      pathname: `/`,
-    });
-  };
 
   componentDidMount() {
     document.addEventListener("click", this.handleClick, false);
@@ -56,7 +46,6 @@ class NavbarListing extends React.Component {
   }
 
   render() {
-    const name = localStorage.getItem("Name");
     return (
       // {isLoggedin === "true" ? (
       <div ref={(node) => (this.node = node)}>
@@ -195,20 +184,19 @@ class NavbarListing extends React.Component {
                   </NavDropdown.Item>
                 </NavDropdown> */}
 
-                <NavDropdown
+                {/* <NavDropdown
                   alignRight
                   title={
                     <DropDownTitle
                       className="d-inline-block"
-                      image="img/offer.png"
+                      image="img/user/4.png"
                       imageAlt="user"
                       imageClass="nav-osahan-pic rounded-pill"
-                      title={name}
+                      title="My Account"
                     />
                   }
                 >
                   <NavDropdown.Item
-                    style={{ marginTop: "10%" }}
                     eventKey={4.1}
                     as={NavLink}
                     activeclassname="active"
@@ -224,14 +212,14 @@ class NavbarListing extends React.Component {
                   >
                     <Icofont icon="sale-discount" /> Offers
                   </NavDropdown.Item>
-                  {/* <NavDropdown.Item
+                  <NavDropdown.Item
                     eventKey={4.3}
                     as={NavLink}
                     activeclassname="active"
                     to="/myaccount/favourites"
                   >
                     <Icofont icon="heart" /> Favourites
-                  </NavDropdown.Item> */}
+                  </NavDropdown.Item>
                   <NavDropdown.Item
                     eventKey={4.4}
                     as={NavLink}
@@ -248,31 +236,7 @@ class NavbarListing extends React.Component {
                   >
                     <Icofont icon="location-pin" /> Addresses
                   </NavDropdown.Item>
-                  <NavDropdown.Item
-                    eventKey={4.5}
-                    as={NavLink}
-                    activeclassname="active"
-                    to="/myaccount/MFCash"
-                  >
-                    <Icofont icon="money-bag" /> MFCash
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    eventKey={4.5}
-                    as={NavLink}
-                    activeclassname="active"
-                    to="/myaccount/MyCash"
-                  >
-                    <Icofont icon="money" /> MyCash
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    eventKey={4.5}
-                    as={NavLink}
-                    activeclassname="active"
-                    to="/myaccount/SratchCard"
-                  >
-                    <Icofont icon="sale-discount" /> ScratchCard
-                  </NavDropdown.Item>
-                </NavDropdown>
+                </NavDropdown> */}
 
                 {/* <NavDropdown 
                   activeclassname="active"
@@ -356,12 +320,12 @@ class NavbarListing extends React.Component {
                 </NavDropdown>*/}
                 <Nav.Link
                   eventKey={0}
-                  onClick={this.handleLogout}
+                  as={NavLink}
                   activeclassname="active"
                   exact
-                  to="/"
+                  to="/login"
                 >
-                  Logout <span className="sr-only">(current)</span>
+                  Login <span className="sr-only">(current)</span>
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>
@@ -372,4 +336,4 @@ class NavbarListing extends React.Component {
   }
 }
 
-export default withRouter(NavbarListing);
+export default NavbarListing;

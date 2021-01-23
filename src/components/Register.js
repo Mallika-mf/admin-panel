@@ -22,6 +22,7 @@ class Register extends React.Component {
       showRegister: false,
       otpLoader: false,
       registerLoader: false,
+      isLoggedin: false,
       mobileNumber: "",
     };
   }
@@ -74,6 +75,7 @@ class Register extends React.Component {
       firebaseref.child("Status").set("Active");
       firebaseref.child("Wallet").set(0);
       console.log(userName);
+      localStorage.setItem("isLogging", true);
 
       // this.setState({ menuOpen: false });
       this.setState({ registerLoader: false });

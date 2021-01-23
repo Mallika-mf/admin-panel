@@ -1,5 +1,6 @@
 /* eslint-disable array-callback-return */
 import React from "react";
+// eslint-disable-next-line no-unused-vars
 import { Link } from "react-router-dom";
 import {
   Row,
@@ -19,6 +20,7 @@ import { AppContext } from "./home/context/appContext";
 import { get } from "lodash";
 // import $ from "jquery";
 import NavBarListing from "./navBar/navbarListing";
+import NavBarlisting2 from "./navBar/Navbarlisting2";
 class List extends React.Component {
   static contextType = AppContext;
   previousContext;
@@ -326,10 +328,12 @@ class List extends React.Component {
   };
   render() {
     const { availableChefs } = this.state;
+    var isLoggedin = localStorage.getItem("isLogging");
 
     return (
       <>
-        <NavBarListing />
+        {isLoggedin === "true" ? <NavBarListing /> : <NavBarlisting2 />}
+        {/* {!isLogging ? <NavBarlisting2 /> : ""} */}
         <PageTitle
           title="Offers Near You"
           subTitle="Best deals at your favourite restaurants"
@@ -389,7 +393,7 @@ class List extends React.Component {
                   </div>
                   <div className="filters-body">
                     <Accordion defaultActiveKey="0">
-                      <div className="filters-card border-bottom p-4">
+                      {/* <div className="filters-card border-bottom p-4">
                         <div className="filters-card-header" id="headingOne">
                           <h6 className="mb-0">
                             <Accordion.Toggle
@@ -473,7 +477,7 @@ class List extends React.Component {
                             </div>
                           </div>
                         </Accordion.Collapse>
-                      </div>
+                      </div> */}
                       <div className="filters-card border-bottom p-4">
                         <div className="filters-card-header" id="headingTwo">
                           <h6 className="mb-0">
@@ -484,7 +488,7 @@ class List extends React.Component {
                               className="text-left d-flex align-items-center p-0"
                               eventKey="1"
                             >
-                              All cuisines{" "}
+                              Category{" "}
                               <Icofont icon="arrow-down" className="ml-auto" />
                             </Accordion.Toggle>
                           </h6>
@@ -508,7 +512,7 @@ class List extends React.Component {
                               id="custom-cb6"
                               label={
                                 <React.Fragment>
-                                  American{" "}
+                                  Veg{" "}
                                   <small className="text-black-50">156</small>
                                 </React.Fragment>
                               }
@@ -520,13 +524,13 @@ class List extends React.Component {
                               id="custom-cb7"
                               label={
                                 <React.Fragment>
-                                  Pizza{" "}
+                                  Non/Veg{" "}
                                   <small className="text-black-50">120</small>
                                 </React.Fragment>
                               }
                             />
 
-                            <Form.Check
+                            {/* <Form.Check
                               custom
                               type="checkbox"
                               id="custom-cb8"
@@ -608,8 +612,8 @@ class List extends React.Component {
                                   <small className="text-black-50">156</small>
                                 </React.Fragment>
                               }
-                            />
-                            <div className="mt-2">
+                            /> */}
+                            {/* <div className="mt-2">
                               <Link to="#" className="link">
                                 See all
                               </Link>
@@ -669,11 +673,11 @@ class List extends React.Component {
                                   <small className="text-black-50">85</small>
                                 </React.Fragment>
                               }
-                            />
+                            /> */}
                           </div>
                         </Accordion.Collapse>
                       </div>
-                      <div className="filters-card border-bottom p-4">
+                      {/* <div className="filters-card border-bottom p-4">
                         <div className="filters-card-header" id="headingOne">
                           <h6 className="mb-0">
                             <Accordion.Toggle
@@ -730,10 +734,10 @@ class List extends React.Component {
                                 See all
                               </Link>
                             </div>
-                          </div>
+                          </div> 
                         </Accordion.Collapse>
-                      </div>
-                      <div className="filters-card border-bottom p-4">
+                      </div>*/}
+                      {/* <div className="filters-card border-bottom p-4">
                         <div className="filters-card-header" id="headingOne">
                           <h6 className="mb-0">
                             <Accordion.Toggle
@@ -788,7 +792,7 @@ class List extends React.Component {
                             />
                           </div>
                         </Accordion.Collapse>
-                      </div>
+                      </div> */}
                     </Accordion>
                   </div>
                 </div>
@@ -817,12 +821,12 @@ class List extends React.Component {
                             type="radio"
                             name="partner"
                             id="custom-cb28"
-                            label="Osahan Eat"
+                            label="Mothersfood Eat"
                           />
                           <hr />
                           <small className="text-success">
-                            Use code OSAHAN50 to get 50% OFF (up to $30) on
-                            first 5 orders. T&Cs apply.
+                            Use code MOTHERSFOOD to get 50% OFF (up to Rs 75) on
+                            first order. T&Cs apply.
                           </small>
                         </div>
                       </div>
