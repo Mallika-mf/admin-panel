@@ -11,6 +11,7 @@ import "jquery-ui/ui/widgets/slider";
 // import Card from '../container/element/card/shop-product';
 import MediaQuery from "react-responsive";
 import firebase from "../Firebase";
+import bannerImg from "../AbotUs/AboutUs-images/Banner_MyProfile.png";
 // import { get } from "lodash";
 //import bannerImg from "../abotUs/AboutUs-images/Banner_MyProfile.png";
 import "../../style copy.css";
@@ -84,7 +85,7 @@ class SratchCard extends React.Component {
           <img src={bannerImg} alt="img" width="100%"></img>
           {/* <div className="banner_title">Rewards</div> 
         </div> */}
-        <section className="MyProfile products-wrapper p-top-60 p-bottom-110">
+        <section className="MyProfile products-wrapper p-top-40 p-bottom-110">
           <div className="container">
             <div className="row">
               {/* <div className="col-lg-3 col-md-3 order-0 order-md-0">
@@ -173,7 +174,14 @@ class SratchCard extends React.Component {
               </div> */}
               {/*<!-- ends: .col-lg-3 -->*/}
 
-              <div className="col-lg-10 col-md-10 order-1 order-md-1">
+              <div
+                className="col-lg-14 col-md-14 order-1 order-md-1 "
+                style={{ marginTop: "-5%" }}
+              >
+                <div className="about-container">
+                  <img src={bannerImg} alt="img" width="100%"></img>
+                  {/* <div className="banner_title">My Cash</div> */}
+                </div>
                 <div className="sidebar-right">
                   <div
                     className="col-12 text-left pt-2 "

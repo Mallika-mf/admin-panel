@@ -4,6 +4,7 @@ import { Row, Col } from "react-bootstrap";
 import AddAddressModal from "../modals/AddAddressModal";
 import DeleteAddressModal from "../modals/DeleteAddressModal";
 import AddressCard from "../common/AddressCard";
+import bannerImg from "../AbotUs/AboutUs-images/Banner_MyProfile.png";
 import firebase from "../Firebase";
 
 const Addresses = () => {
@@ -55,6 +56,10 @@ const Addresses = () => {
 
       <div className="p-4 bg-white shadow-sm">
         <Row>
+          <div className="about-container">
+            <img src={bannerImg} alt="img" width="100%"></img>
+            {/* <div className="banner_title">My Cash</div> */}
+          </div>
           <Col md={12}>
             <h4 className="font-weight-bold mt-0 mb-3">Manage Addresses</h4>
           </Col>
