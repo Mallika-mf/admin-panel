@@ -178,10 +178,6 @@ class SratchCard extends React.Component {
                 className="col-lg-14 col-md-14 order-1 order-md-1 "
                 style={{ marginTop: "-5%" }}
               >
-                <div className="about-container">
-                  <img src={bannerImg} alt="img" width="100%"></img>
-                  {/* <div className="banner_title">My Cash</div> */}
-                </div>
                 <div className="sidebar-right">
                   <div
                     className="col-12 text-left pt-2 "

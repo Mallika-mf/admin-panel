@@ -32,10 +32,6 @@ const Offerpage = () => {
 
   return (
     <>
-      <div className="about-container">
-        <img src={bannerImg} alt="img" width="100%"></img>
-        {/* <div className="banner_title">My Cash</div> */}
-      </div>
       <h1
         className="breadcrumb-osahan pt-5 pb-5 bg-light position-relative text-center"
         style={{ marginBottom: "-5%", marginTop: "-2%" }}

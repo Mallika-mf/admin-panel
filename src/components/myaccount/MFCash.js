@@ -236,10 +236,6 @@ class MfCash extends React.Component {
     const { user, wallet, name, number, email } = this.state;
     return (
       <Fragment>
-        <div className="about-container">
-          <img src={bannerImg} alt="img" width="100%"></img>
-          {/* <div className="banner_title">MF Cash</div>  */}
-        </div>
         <section className="MyProfile products-wrapper ">
           <div className="container">
             <div className="row">

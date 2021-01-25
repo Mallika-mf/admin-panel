@@ -86,10 +86,6 @@ class Orders extends React.Component {
     const { user, orders } = this.state;
     return (
       <>
-        <div className="about-container">
-          <img src={bannerImg} alt="img" width="100%"></img>
-          {/* <div className="banner_title">Profile</div> */}
-        </div>
         <div className="col-lg-9 col-md-9 order-1 order-md-1">
           <div className="sidebar-right">
             <div className="col-12 text-left pt-2 pb-3">

@@ -13,6 +13,7 @@ import SratchCard from "./myaccount/SratchCard";
 import EditProfileModal from "./modals/EditProfileModal";
 import NavBarListing from "./navBar/navbarListing";
 import NavBarlisting2 from "./navBar/Navbarlisting2";
+import bannerImg from "./AbotUs/AboutUs-images/Banner_MyProfile.png";
 
 class MyAccount extends React.Component {
   constructor(props, context) {
@@ -36,6 +37,10 @@ class MyAccount extends React.Component {
           show={this.state.showEditProfile}
           onHide={this.hideEditProfile}
         />
+        <div className="about-container">
+          <img src={bannerImg} alt="img" width="100%"></img>
+          {/* <div className="banner_title">MF Cash</div>  */}
+        </div>
         <section className="section pt-4 pb-4 osahan-account-page">
           <Container>
             <Row>

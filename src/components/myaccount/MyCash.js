@@ -237,10 +237,6 @@ class MyCash extends React.Component {
     const { user, wallet, name, number, email } = this.state;
     return (
       <Fragment>
-        <div className="about-container">
-          <img src={bannerImg} alt="img" width="100%"></img>
-          {/* <div className="banner_title">My Cash</div> */}
-        </div>
         <section className="MyProfile products-wrapper p-top-60 p-bottom-110">
           <div className="container">
             <div className="row">
