@@ -313,16 +313,39 @@ h6 {
   backdrop-filter: saturate(180%) blur(5px);
   /* border: 1px solid #fff; */
 }
+.osahan-category-item1 {
+  background: "red";
+  margin: 5px 3px;
+  border-radius: 5px;
+  overflow: hidden;
+  text-align: center;
+  padding: 0px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  -webkit-backdrop-filter: saturate(180%) blur(5px);
+  backdrop-filter: saturate(180%) blur(5px);
+  /* border: 1px solid #fff; */
+}
 .osahan-category-item:hover {
+  border: 1px solid #ff3008;
+  transform: scale(1.1);
+}
+.osahan-category-item1:hover {
   border: 1px solid #ff3008;
   transform: scale(1.1);
 }
 .osahan-category-item h6 {
   margin-bottom: "2px";
+  font-weight: 500;
+  font-size: 14px;
+  color: #ffffff;
+}
+.osahan-category-item1 h6 {
+  margin-bottom: "2px";
   font-weight: 700;
   font-size: 14px;
-  color: #330603;
+  color: #ad1818;
 }
+
 .osahan-category-item p {
   margin: 0 0 4px 0;
   font-size: 10px;
@@ -336,6 +359,21 @@ h6 {
   margin: 0px 0 7px 0;
 }
 .osahan-category-item img:hover {
+  transform: scale(1.1);
+}
+.osahan-category-item1 p {
+  margin: 0 0 4px 0;
+  font-size: 10px;
+}
+.osahan-category-item1 img {
+  width: 100%;
+  height: 60px;
+  object-fit: cover;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  transition: transform 0.7s ease;
+  margin: 0px 0 7px 0;
+}
+.osahan-category-item1 img:hover {
   transform: scale(1.1);
 }
 .line {
@@ -1548,15 +1586,14 @@ footer {
     font-size: 13px;
     text-transform: capitalize;
   }
-  
 }
-.ChefCardProfileButton{
-  width : 120px;
-  height : 40px;
-  background-color : rgb(228, 28, 57);
-  color : white;
+.ChefCardProfileButton {
+  width: 120px;
+  height: 40px;
+  background-color: rgb(228, 28, 57);
+  color: white;
   text-decoration: none;
-  border-radius : 20px;
+  border-radius: 20px;
   /* display : flex; */
   align-items: center;
   justify-content: center;
@@ -1565,8 +1602,8 @@ footer {
   outline: 0 !important;
 }
 
-.ChefCardProfileButton :hover{
-  color : white;
+.ChefCardProfileButton :hover {
+  color: white;
 }
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199.98px) {

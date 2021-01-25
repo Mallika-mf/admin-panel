@@ -44,7 +44,7 @@ class TopSearch extends React.Component {
           className="pt-5 pb-5 homepage-search-block position-relative "
           style={{
             backgroundImage: "URL('img/background.jpg')",
-            //backgroundRepeat: "no-repeat",
+            width: "100%",
           }}
         >
           <div className="banner-overlay background">

@@ -16,7 +16,7 @@ import Icofont from "react-icofont";
 import PageTitle from "./common/PageTitle";
 import CardItem from "./common/cardItemChef";
 import backgroundImage from "../vid/Home chef.jpeg";
-import CategoriesCarousel from "./common/CategoriesCarousel";
+import CategoriesCarousel1 from "./common/CategoriesCarousel1";
 import firebase from "./Firebase";
 import { AppContext } from "./home/context/appContext";
 import { get } from "lodash";
@@ -853,7 +853,7 @@ class List extends React.Component {
                 </div>
               </Col>
               <Col md={9}>
-                <CategoriesCarousel />
+                <CategoriesCarousel1 />
                 <Row>
                   {this.paginate(this.state.page).map((item, index) => {
                     var cuisinesitems = [];

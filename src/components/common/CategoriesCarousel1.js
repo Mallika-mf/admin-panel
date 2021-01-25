@@ -13,7 +13,7 @@ class CategoriesCarousel extends React.Component {
       >
         <div className="item">
           <ProductBox
-            boxClass="osahan-category-item"
+            boxClass="osahan-category-item1"
             title="Pancake"
             image="img/list/American Food.jpg"
             imageClass="img-fluid"
@@ -23,7 +23,7 @@ class CategoriesCarousel extends React.Component {
         </div>
         <div className="item">
           <ProductBox
-            boxClass="osahan-category-item"
+            boxClass="osahan-category-item1"
             title="Chicken"
             image="img/list/Chicken.jpg"
             imageClass="img-fluid"
@@ -33,7 +33,7 @@ class CategoriesCarousel extends React.Component {
         </div>
         <div className="item">
           <ProductBox
-            boxClass="osahan-category-item"
+            boxClass="osahan-category-item1"
             title="Noodels"
             image="img/list/Chinese.jpg"
             imageClass="img-fluid"
@@ -43,7 +43,7 @@ class CategoriesCarousel extends React.Component {
         </div>
         <div className="item">
           <ProductBox
-            boxClass="osahan-category-item"
+            boxClass="osahan-category-item1"
             title="Dessert"
             image="img/list/Dessert.jpg"
             imageClass="img-fluid"
@@ -53,8 +53,8 @@ class CategoriesCarousel extends React.Component {
         </div>
         <div className="item">
           <ProductBox
-            boxClass="osahan-category-item"
-            title="Curry"
+            boxClass="osahan-category-item1"
+            title="Veg curry"
             image="img/list/Vegeterianj.jpg"
             imageClass="img-fluid"
             imageAlt="carousel"
@@ -63,7 +63,7 @@ class CategoriesCarousel extends React.Component {
         </div>
         <div className="item">
           <ProductBox
-            boxClass="osahan-category-item"
+            boxClass="osahan-category-item1"
             title="Hamburgers"
             image="img/list/Hamburgers.jpg"
             imageClass="img-fluid"
@@ -73,7 +73,7 @@ class CategoriesCarousel extends React.Component {
         </div>
         <div className="item">
           <ProductBox
-            boxClass="osahan-category-item"
+            boxClass="osahan-category-item1"
             title="Healthy"
             image="img/list/Healthy.jpg"
             imageClass="img-fluid"
@@ -83,7 +83,7 @@ class CategoriesCarousel extends React.Component {
         </div>
         <div className="item">
           <ProductBox
-            boxClass="osahan-category-item"
+            boxClass="osahan-category-item1"
             title="Veg mix"
             image="img/list/Indian.jpg"
             imageClass="img-fluid"
@@ -93,7 +93,7 @@ class CategoriesCarousel extends React.Component {
         </div>
         <div className="item">
           <ProductBox
-            boxClass="osahan-category-item"
+            boxClass="osahan-category-item1"
             title="Pizza"
             image="img/list/Pizza.jpg"
             imageClass="img-fluid"
@@ -103,8 +103,8 @@ class CategoriesCarousel extends React.Component {
         </div>
         <div className="item">
           <ProductBox
-            boxClass="osahan-category-item"
-            title="Pasta"
+            boxClass="osahan-category-item1"
+            title="Vegies"
             image="img/list/Vegeterianj.jpg"
             imageClass="img-fluid"
             imageAlt="carousel"

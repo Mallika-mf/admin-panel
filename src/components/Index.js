@@ -18,9 +18,9 @@ class Index extends React.Component {
           <Container>
             <Row
               style={{
-                marginLeft: "10%",
+                marginLeft: "20%",
                 marginTop: "-2%",
-                marginBottom: "-1%",
+                marginBottom: "-2%",
               }}
             >
               <Col md={2} xs={6}>
@@ -31,14 +31,14 @@ class Index extends React.Component {
                   linkUrl="#"
                 />
               </Col>
-              <Col md={2} xs={6}>
+              {/* <Col md={2} xs={6}>
                 <ProductBox
                   image="./assets/img/Coupons/Coupon (2).jpeg"
                   imageClass="img-fluid rounded"
                   imageAlt="product"
                   linkUrl="#"
                 />
-              </Col>
+              </Col> */}
               <Col md={2} xs={6}>
                 <ProductBox
                   image="./assets/img/Coupons/Coupon (3).jpeg"

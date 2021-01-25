@@ -5,7 +5,6 @@ import "firebase/database";
 // Your web app's Firebase configuration
 var firebaseConfig = {
   apiKey: "AIzaSyBZyni8I9vDxeZfcnH_cfY1N4597cZp_9g",
-
   authDomain: "mothersfood-a1de8.firebaseapp.com",
   databaseURL: "https://mothersfood-a1de8.firebaseio.com",
   projectId: "mothersfood-a1de8",

@@ -882,7 +882,7 @@ class List extends React.Component {
                       return (
                         <Col md={4} sm={6} className="mb-4 pb-2">
                           <CardItem
-                            title={item.Name}
+                            title={item.KitchenName}
                             subTitle={cuisinesitems}
                             imageAlt="Product"
                             image={profileImage}

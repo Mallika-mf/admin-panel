@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { NavLink, Link } from "react-router-dom";
@@ -59,7 +60,7 @@ class MyAccount extends React.Component {
                           <p className="mb-1">{number}</p>
                           <p>{email}</p>
                           <p className="mb-0 text-black font-weight-bold">
-                            <Link
+                            {/* <Link
                               disabled
                               to="#"
                               onClick={() =>
@@ -68,7 +69,7 @@ class MyAccount extends React.Component {
                               className="text-primary mr-3"
                             >
                               <i className="icofont-ui-edit"></i> EDIT
-                            </Link>
+                            </Link> */}
                           </p>
                         </div>
                       </div>
