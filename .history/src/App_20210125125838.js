@@ -58,7 +58,7 @@ class App extends React.Component {
         ) : (
           ""
         )} */}
-          {/* <BrowserRouter basename={`/`}> */}
+          <BrowserRouter basename={`/`}>
          <ScrollToTop />
 
         <Switch>
@@ -107,7 +107,7 @@ class App extends React.Component {
 
           <Route exact component={NotFound} />
         </Switch>
-        {/* </BrowserRouter> */}
+        </BrowserRouter>
         {this.props.location.pathname !== "/login" &&
         this.props.location.pathname !== "/register" ? (
           <Footer />
