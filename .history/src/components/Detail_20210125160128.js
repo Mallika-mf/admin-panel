@@ -29,23 +29,27 @@ class Detail extends React.Component {
 
 	componentDidMount() {
 		let userName = localStorage.getItem('UserName');
+		console.log("username"+userName)
 		let chef = this.props.match.params["chef"];
 		this.loadVendors(chef);
 		//   this.loadUserCart();
-		if(userName!==null){
+		if(userName!==""){
 			firebase.database().ref().child("Users").child(userName).child("Cart")
 			.on("value",snapshot=>{
 				if(snapshot.exists()){
+					console.log(snapshot.val())
 					let content =[]
 					let num = 0
 					snapshot.forEach(snap=>{
 						if(snap.exists()){
 							num = num + +parseFloat(snap.val().Total)
 							content.push(num)
+							console.log(num)
 						}
 					
 					})
 					this.setState({num:content})
+					console.log(content)
 				}
 			
 			},()=>{})
@@ -105,9 +109,11 @@ class Detail extends React.Component {
 		if (user.exists()) {
 			this.setState({ userCart: Object.values(get(user.val()[userName], 'Cart', [])) });
 		}
+		console.log(this.state.product.data)
 	}
 
 	loadVendors = (chef) => {
+		console.log(chef)
 		this.loadUserCart();
 		// const cityId = this.context.appState.cityinfo.PushId;
 		let isLoggedIn = localStorage.getItem('isLogging');
@@ -128,8 +134,8 @@ class Detail extends React.Component {
 				.child(chef)
 				.once("value", snapshot => {
 					if (snapshot.exists()) {
-						// console.log('vendor single', snapshot.val());
-						// console.log(this.state.userCart)
+						console.log('vendor single', snapshot.val());
+						console.log(this.state.userCart)
 						this.setState({ product: { data: snapshot.val(), loading: false } });
 						let userCart = this.state.userCart;
 						// console.log(...this.state.userCart)
@@ -154,6 +160,7 @@ class Detail extends React.Component {
 						}
 					} else {
 						this.setState({ product: { data: {}, loading: false } });
+						console.log("i m here")
 					}
 				}, () => { });
 
@@ -181,6 +188,7 @@ class Detail extends React.Component {
 		}
 		if (storedChef) {
 			if (chef !== storedChef) {
+				console.log("show Model")
 				// message.warning('you can order from one chef only!');
 				this.setState({ showClearCartModal: true });
 				return;
@@ -491,7 +499,7 @@ class Detail extends React.Component {
 		//console.log(quantity);
 	}
 	getStarValue = ({ value }) => {
-		// console.log(value);
+		console.log(value);
 		//console.log(quantity);
 	}
 
@@ -772,8 +780,9 @@ class Detail extends React.Component {
 																	return '';
 																}
 																return (
-																	<div key={index}>
+																	<>
 																		<QuickBite
+																			key={index}
 																			id={1}
 																			itemClass="menu-list"
 																			image={item.Image}
@@ -813,13 +822,14 @@ class Detail extends React.Component {
 													priceUnit='$'
 													getValue={this.getQty}
 											   	/>  */}
-																	</div>
+																	</>
 																)
 															})}
 													{inActiveFoodItems.map((item,index)=>{
 													return(
-														<div key={index}>
+														<>
 														<QuickBite
+															key={index}
 															id={1}
 															itemClass="menu-list"
 															image={item.Image}
@@ -834,7 +844,7 @@ class Detail extends React.Component {
 															getValue={this.getQty}
 															showCart = {true}
 														/>
-														</div>
+														</>
 													)
 												})}
 														</div>
@@ -1081,8 +1091,9 @@ class Detail extends React.Component {
                       userCart.map((cartItem, index) => {
 						  let cartType=cartItem.Type
 						  return(
-							  <div key={index}>
+							  <>
 											<CheckoutItem
+											key={index}
 												itemName={cartItem.Name}
 												price={parseInt(get(cartItem, 'Total', '3500$'))}
 												priceUnit="₹"
@@ -1141,7 +1152,7 @@ class Detail extends React.Component {
 												maxValue={7}
 												getValue={this.getQty}
 											/> */}
-											</div>
+											</>
 					  )})}</>:'Cart Empty'}
 										</div>
 										<div className="mb-2 bg-white rounded p-2 clearfix">

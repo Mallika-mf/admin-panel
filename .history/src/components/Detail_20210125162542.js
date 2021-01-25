@@ -772,8 +772,9 @@ class Detail extends React.Component {
 																	return '';
 																}
 																return (
-																	<div key={index}>
+																	<>
 																		<QuickBite
+																			key={index}
 																			id={1}
 																			itemClass="menu-list"
 																			image={item.Image}
@@ -813,13 +814,14 @@ class Detail extends React.Component {
 													priceUnit='$'
 													getValue={this.getQty}
 											   	/>  */}
-																	</div>
+																	</>
 																)
 															})}
 													{inActiveFoodItems.map((item,index)=>{
 													return(
-														<div key={index}>
+														<>
 														<QuickBite
+															key={index}
 															id={1}
 															itemClass="menu-list"
 															image={item.Image}
@@ -834,7 +836,7 @@ class Detail extends React.Component {
 															getValue={this.getQty}
 															showCart = {true}
 														/>
-														</div>
+														</>
 													)
 												})}
 														</div>
@@ -1081,8 +1083,9 @@ class Detail extends React.Component {
                       userCart.map((cartItem, index) => {
 						  let cartType=cartItem.Type
 						  return(
-							  <div key={index}>
+							  <>
 											<CheckoutItem
+											key={index}
 												itemName={cartItem.Name}
 												price={parseInt(get(cartItem, 'Total', '3500$'))}
 												priceUnit="₹"
@@ -1141,7 +1144,7 @@ class Detail extends React.Component {
 												maxValue={7}
 												getValue={this.getQty}
 											/> */}
-											</div>
+											</>
 					  )})}</>:'Cart Empty'}
 										</div>
 										<div className="mb-2 bg-white rounded p-2 clearfix">
