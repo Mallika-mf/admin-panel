@@ -60,6 +60,7 @@ class MyAccount extends React.Component {
                           <p>{email}</p>
                           <p className="mb-0 text-black font-weight-bold">
                             <Link
+                              disabled
                               to="#"
                               onClick={() =>
                                 this.setState({ showEditProfile: true })

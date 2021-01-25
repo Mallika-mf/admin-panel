@@ -1,8 +1,7 @@
-/* eslint-disable no-unused-vars */
 import React from "react";
-import { Switch, Route, BrowserRouter } from "react-router-dom";
+import { Switch, Route,BrowserRouter } from "react-router-dom";
 // import Header from "./components/common/Header";
-import ScrollToTop from "./components/common/ScrollToTop";
+import ScrollToTop from './components/common/ScrollToTop'
 import Footer from "./components/common/Footer";
 import Index from "./components/Index";
 import Offers from "./components/Offers";
@@ -59,8 +58,8 @@ class App extends React.Component {
         ) : (
           ""
         )} */}
-        {/* <BrowserRouter basename={`/`}> */}
-        <ScrollToTop />
+          {/* <BrowserRouter basename={`/`}> */}
+         <ScrollToTop />
 
         <Switch>
           <Route path="/" exact component={Index} />
@@ -112,7 +111,8 @@ class App extends React.Component {
         {this.props.location.pathname !== "/login" &&
         this.props.location.pathname !== "/register" ? (
           <Footer />
-        ) : (
+        )
+         : (
           ""
         )}
       </>

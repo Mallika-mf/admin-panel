@@ -56,10 +56,6 @@ const Addresses = () => {
 
       <div className="p-4 bg-white shadow-sm">
         <Row>
-          <div className="about-container">
-            <img src={bannerImg} alt="img" width="100%"></img>
-            {/* <div className="banner_title">My Cash</div> */}
-          </div>
           <Col md={12}>
             <h4 className="font-weight-bold mt-0 mb-3">Manage Addresses</h4>
           </Col>

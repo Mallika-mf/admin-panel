@@ -14,8 +14,8 @@ const Offerpage = () => {
     firebase
       .database()
       .ref()
-      .child("Users")
-      .child("Address")
+      .child("Promocode")
+      .child("User")
       .on("value", function (snapshot) {
         if (snapshot.exists()) {
           const content = [];

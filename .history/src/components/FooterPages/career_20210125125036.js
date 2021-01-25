@@ -3,12 +3,10 @@ import React, { Fragment, useState } from "react";
 
 import NavBarListing from "../navBar/navbarListing";
 import NavBarlisting2 from "../navBar/Navbarlisting2";
-
 // import Footer from '../layout/footer/footer-dark-3';
 // import Split from '../container/split/section-split';
 // import Team from '../container/element/carousel/team-carousel-one';
 import "react-responsive-modal/styles.css";
-import "../../style copy.css";
 
 import { Modal } from "react-responsive-modal";
 
@@ -28,7 +26,7 @@ const About = () => {
       <div className="card">
         <section
           className="section-bg p-top-50 p-bottom-50"
-          style={{ background: "#ffffff", marginTop: "-3%" }}
+          style={{ background: "#ffffff", marginTop: "-1%" }}
         >
           <div className="container">
             <div className="row">
@@ -42,7 +40,7 @@ const About = () => {
               </div>
               <div
                 className="col-md-12 text-center"
-                style={{ marginTop: "1%", marginBottom: "-3%" }}
+                style={{ marginTop: "1%", marginBottom: "3%" }}
               >
                 <h2>
                   <b>
@@ -96,7 +94,7 @@ const About = () => {
           {/*<!-- ends: .intro-four-contents -->*/}
         </div>
 
-        <li className="m-bottom-30" style={{ marginBottom: "-2%" }}></li>
+        <li className="m-bottom-30" style={{ marginBottom: "30%" }}></li>
 
         <section className="features-area  p-top-105 p-bottom-75">
           <div className="icon-boxes">

@@ -44,32 +44,34 @@ class Detail extends React.Component {
     let chef = this.props.match.params["chef"];
     this.loadVendors(chef);
     //   this.loadUserCart();
-    firebase
-      .database()
-      .ref()
-      .child("Users")
-      .child(userName)
-      .child("Cart")
-      .on(
-        "value",
-        (snapshot) => {
-          if (snapshot.exists()) {
-            console.log(snapshot.val());
-            let content = [];
-            let num = 0;
-            snapshot.forEach((snap) => {
-              if (snap.exists()) {
-                num = num + +parseFloat(snap.val().Total);
-                content.push(num);
-                console.log(num);
-              }
-            });
-            this.setState({ num: content });
-            console.log(content);
-          }
-        },
-        () => {}
-      );
+    if (userName !== null) {
+      firebase
+        .database()
+        .ref()
+        .child("Users")
+        .child(userName)
+        .child("Cart")
+        .on(
+          "value",
+          (snapshot) => {
+            if (snapshot.exists()) {
+              console.log(snapshot.val());
+              let content = [];
+              let num = 0;
+              snapshot.forEach((snap) => {
+                if (snap.exists()) {
+                  num = num + +parseFloat(snap.val().Total);
+                  content.push(num);
+                  console.log(num);
+                }
+              });
+              this.setState({ num: content });
+              console.log(content);
+            }
+          },
+          () => {}
+        );
+    }
   }
   // Start Template State
   constructor(props, context) {

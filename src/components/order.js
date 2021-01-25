@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable array-callback-return */
 import React from "react";
 // eslint-disable-next-line no-unused-vars
@@ -15,6 +16,7 @@ import Icofont from "react-icofont";
 import PageTitle from "./common/PageTitle";
 import CardItem from "./common/cardItemChef";
 import CategoriesCarousel from "./common/CategoriesCarousel";
+import backgroundImage from "../vid/Home chef.jpeg";
 import firebase from "./Firebase";
 import { AppContext } from "./home/context/appContext";
 import { get } from "lodash";
@@ -334,9 +336,11 @@ class order extends React.Component {
       <>
         {isLoggedin === "true" ? <NavBarListing /> : <NavBarlisting2 />}
         {/* {!isLogging ? <NavBarlisting2 /> : ""} */}
-        <PageTitle
-          title="Offers Near You"
-          subTitle="Best deals at your favourite restaurants"
+        <img
+          src={backgroundImage}
+          width="100%"
+          style={{ marginBottom: "-3%" }}
+          alt=""
         />
         <section className="section pt-5 pb-5 products-listing">
           <Container>

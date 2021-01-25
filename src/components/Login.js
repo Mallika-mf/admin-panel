@@ -11,7 +11,7 @@ import { useHistory } from "react-router-dom";
 
 import { get } from "lodash";
 import { Video } from "styled-icons/boxicons-regular";
-import backgroundVideo from "../vid/login video.mp4";
+import backgroundImage from "../vid/login.jpeg";
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -321,19 +321,20 @@ class Login extends React.Component {
     return (
       <Container fluid className="bg-white">
         <Row>
-          <Col md={4} lg={6} className="d-none d-md-flex bg-image">
+          <Col md={4} lg={6} className="d-none d-md-flex ">
             <div
               className="bg_image_holder_ride"
               style={{ backgroundColor: "#edf3f5" }}
             >
-              <video
+              <img src={backgroundImage} width="100%" alt="" />
+              {/* <video
                 autoPlay
                 loop
                 muted
                 style={{ alignContent: "left" }}
                 src={backgroundVideo}
                 type="video/mp4"
-              />
+              /> */}
             </div>
           </Col>
           <Col md={8} lg={6}>

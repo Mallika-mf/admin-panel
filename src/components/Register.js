@@ -8,6 +8,7 @@ import firebase from "./Firebase";
 import Moment from "moment";
 import Loader from "react-loader-spinner";
 // import { get } from "lodash";
+import backgroundImage from "../vid/signup.jpeg";
 //import { Loader } from "styled-icons/boxicons-regular";
 
 class Register extends React.Component {
@@ -116,21 +117,12 @@ class Register extends React.Component {
     return (
       <Container fluid className="bg-white">
         <Row>
-          <Col md={4} lg={6} className="d-none d-md-flex bg-image">
+          <Col md={4} lg={6} className="d-none d-md-flex ">
             <div
               className="bg_image_holder_ride"
-              style={{ backgroundColor: "#edf3f5" }}
+              style={{ backgroundColor: "#edf3f5", marginTop: "-5%" }}
             >
-              <img
-                src="./assets/img/partnerwithusNew.png"
-                style={{
-                  minHeight: "30.33333rem",
-                  Width: "500px",
-                  maxWidth: "100%",
-                  height: "450px",
-                }}
-                alt=""
-              />
+              <img src={backgroundImage} width="100%" alt="" />
             </div>
           </Col>
           <Col md={8} lg={6}>

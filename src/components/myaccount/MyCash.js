@@ -329,7 +329,7 @@ class MyCash extends React.Component {
               </div> */}
               {/*<!-- ends: .col-lg-3 -->*/}
 
-              <div className="col-lg-9 col-md-9 order-1 order-md-1">
+              <div className="col-lg-12 col-md-12 order-1 order-md-1">
                 <div className="sidebar-right">
                   <div className="col-12 text-left pt-2 pb-3">
                     <h3 className="text-left mt-2">My Cash</h3>

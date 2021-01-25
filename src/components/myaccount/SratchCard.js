@@ -175,17 +175,17 @@ class SratchCard extends React.Component {
               {/*<!-- ends: .col-lg-3 -->*/}
 
               <div
-                className="col-lg-14 col-md-14 order-1 order-md-1 "
+                className="col-lg-8 col-md-8 col-sm-8 order-1 order-md-1 "
                 style={{ marginTop: "-5%" }}
               >
                 <div className="sidebar-right">
                   <div
                     className="col-12 text-left pt-2 "
-                    style={{ backgroundColor: "red" }}
+                    style={{ backgroundColor: "orange" }}
                   >
                     <div
                       className="card  mt-2 border-0 p-0 full-length"
-                      style={{ backgroundColor: "red" }}
+                      style={{ backgroundColor: "orange" }}
                     >
                       <div className="cardbody">
                         <div className="row">

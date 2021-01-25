@@ -41,6 +41,7 @@ class NavbarListing extends React.Component {
     localStorage.removeItem("UserName");
     localStorage.removeItem("phoneNumber");
     localStorage.removeItem("Name");
+    localStorage.removeItem("Email");
     window.location.reload();
     this.props.history.push({
       pathname: `/`,
@@ -284,7 +285,7 @@ class NavbarListing extends React.Component {
                   exact
                   to="/checkout"
                 >
-                  Cart 
+                  Cart
                 </Nav.Link>
                 {/* <NavDropdown
                   activeclassname="active"

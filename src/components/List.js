@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable array-callback-return */
 import React from "react";
 // eslint-disable-next-line no-unused-vars
@@ -14,6 +15,7 @@ import {
 import Icofont from "react-icofont";
 import PageTitle from "./common/PageTitle";
 import CardItem from "./common/cardItemChef";
+import backgroundImage from "../vid/Home chef.jpeg";
 import CategoriesCarousel from "./common/CategoriesCarousel";
 import firebase from "./Firebase";
 import { AppContext } from "./home/context/appContext";
@@ -28,8 +30,7 @@ class List extends React.Component {
     super();
     this.limit = 9;
     this.filter = [];
-	this.allProducts = [];
-	
+    this.allProducts = [];
   }
 
   state = {
@@ -41,7 +42,7 @@ class List extends React.Component {
     nonAvailableChefs: [],
     count: 0,
     page: 1,
-	pages: 0,
+    pages: 0,
   };
   componentDidMount() {
     // $(document).ready(() => {
@@ -328,27 +329,32 @@ class List extends React.Component {
     this.applyFilter();
   };
   render() {
-	const { availableChefs } = this.state;
-	var isLoggedin = localStorage.getItem("isLogging");
-	if(this.state.product.loading){
-		return(
-<Col md={12} className="text-center load-more">
-	<Button variant="primary" type="button" disabled="">
-	  <Spinner animation="grow" size="sm" className="mr-1" />
-	  Loading...
-	</Button>
-  </Col>
-		)
-	}
-	
+    const { availableChefs } = this.state;
+    var isLoggedin = localStorage.getItem("isLogging");
+    if (this.state.product.loading) {
+      return (
+        <Col md={12} className="text-center load-more">
+          <Button variant="primary" type="button" disabled="">
+            <Spinner animation="grow" size="sm" className="mr-1" />
+            Loading...
+          </Button>
+        </Col>
+      );
+    }
 
     return (
       <>
         {isLoggedin === "true" ? <NavBarListing /> : <NavBarlisting2 />}
         {/* {!isLogging ? <NavBarlisting2 /> : ""} */}
-        <PageTitle
+        {/* <PageTitle
           title="Offers Near You"
           subTitle="Best deals at your favourite restaurants"
+        /> */}
+        <img
+          src={backgroundImage}
+          width="100%"
+          style={{ marginBottom: "-3%" }}
+          alt=""
         />
         <section className="section pt-5 pb-5 products-listing">
           <Container>
@@ -908,9 +914,8 @@ class List extends React.Component {
                             }
                             available={false}
                             product={item}
-							id={"detail/" + item.UserId}
-							showList={false}
-
+                            id={"detail/" + item.UserId}
+                            showList={false}
                           />
                         </Col>
                       );
@@ -963,8 +968,8 @@ class List extends React.Component {
                             }
                             product={item}
                             id={"detail/" + item.UserId}
-							available={true}
-							showList={true}
+                            available={true}
+                            showList={true}
                           />
                         </Col>
                       );
@@ -1106,7 +1111,6 @@ class List extends React.Component {
 										rating='3.1 (300+)'
 								   	/>
 			                     </Col> */}
-                 
                 </Row>
               </Col>
             </Row>
