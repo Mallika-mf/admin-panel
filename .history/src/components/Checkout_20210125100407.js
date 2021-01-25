@@ -1840,7 +1840,7 @@ class Checkout extends React.Component {
 											</InputGroup>
 										</> :
 										<div className="input-group mb-4">
-											<div className="input-group-append" onClick={this.handleRemovePromo} id="promocodeButton" style={{ "cursor": "pointer" }} >
+											<div className="input-group-append" onClick={this.handleRemovePromo} id="promocodeButton" style={{ "cursor": "pointer" }} disabled={(!this.state.removeDiscount.length === 0).toString()}>
 												<span className="input-group-text" ><i className="fa fa-check-square mr-2"></i>Remove Promo</span>
 											</div>
 										</div>}

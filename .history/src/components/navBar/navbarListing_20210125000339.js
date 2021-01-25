@@ -379,7 +379,7 @@ class NavbarListing extends React.Component {
                   eventKey={0}
                   onClick={this.handleLogout}
                   activeclassname="active"
-                  exact="true"
+                  exact
                   to="/"
                 >
                   Logout <span className="sr-only">(current)</span>

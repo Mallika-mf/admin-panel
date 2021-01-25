@@ -17,6 +17,7 @@
     <script defer src="/__/firebase/8.2.2/firebase-analytics.js"></script>
     <script defer src="/__/firebase/8.2.2/firebase-remote-config.js"></script>
     <script defer src="/__/firebase/8.2.2/firebase-performance.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/assets/vendor_assets/css/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="/assets/vendor_assets/css/fontawesome.min.css">
@@ -50,7 +51,8 @@
       <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
     </div>
     <p id="load">Firebase SDK Loading&hellip;</p>
-
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPhxfpptoIc1yca5U8mXIigIajoERQCdE&libraries=places&sensor=false"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=geometry"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         const loadEl = document.querySelector('#load');

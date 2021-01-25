@@ -26,7 +26,8 @@
       to avoid connecting the SDK to running emulators.
     -->
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPhxfpptoIc1yca5U8mXIigIajoERQCdE&libraries=places&sensor=false"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=geometry"></script>
     <style media="screen">
       body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
       #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
@@ -50,9 +51,10 @@
       <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
     </div>
     <p id="load">Firebase SDK Loading&hellip;</p>
-
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPhxfpptoIc1yca5U8mXIigIajoERQCdE&libraries=places&sensor=false"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=geometry"></script> -->
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function() { 
         const loadEl = document.querySelector('#load');
         // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
         // // The Firebase SDK is initialized and available here!

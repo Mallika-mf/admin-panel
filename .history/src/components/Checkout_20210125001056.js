@@ -1835,12 +1835,12 @@ class Checkout extends React.Component {
 
 												<Form.Control type="text" value={this.state.promocode} onChange={this.promocodeHandler} placeholder="Enter promo code" />
 												<InputGroup.Append>
-													<Button variant="primary" type="button" onClick={this.handlePromo} id="button-addon2" disabled={this.state.promocode.length === 0}><Icofont icon="sale-discount" /> APPLY</Button>
+													<Button variant="primary" type="button" onClick={this.handlePromo} id="button-addon2" disbaled={(this.state.promocode.length === 0).toString()}><Icofont icon="sale-discount" /> APPLY</Button>
 												</InputGroup.Append>
 											</InputGroup>
 										</> :
 										<div className="input-group mb-4">
-											<div className="input-group-append" onClick={this.handleRemovePromo} id="promocodeButton" style={{ "cursor": "pointer" }} >
+											<div className="input-group-append" onClick={this.handleRemovePromo} id="promocodeButton" style={{ "cursor": "pointer" }} disbaled={(!this.state.removeDiscount.length === 0).toString()}>
 												<span className="input-group-text" ><i className="fa fa-check-square mr-2"></i>Remove Promo</span>
 											</div>
 										</div>}
