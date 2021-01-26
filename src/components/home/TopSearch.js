@@ -44,7 +44,6 @@ class TopSearch extends React.Component {
           className="pt-5 pb-5 homepage-search-block position-relative "
           style={{
             backgroundImage: "URL('img/background.jpg')",
-            width: "100%",
           }}
         >
           <div className="banner-overlay background">
@@ -56,7 +55,7 @@ class TopSearch extends React.Component {
                       className="mb-2 font-weight-normal"
                       style={{
                         //color: "darkRed",
-                        fontSize: "70px",
+                        fontSize: "80px",
                         fontWeight: "bolder",
                         textAlign: "justify",
                         marginTop: "-2%",
@@ -64,8 +63,8 @@ class TopSearch extends React.Component {
                       }}
                     >
                       <span
-                        className="font-weight-bold text-black"
-                        style={{ color: "white" }}
+                        className="font-weight-bolder text-black"
+                        style={{ color: "white", fontFamily: "Comic Sans MS" }}
                       >
                         Hungry?
                       </span>{" "}
