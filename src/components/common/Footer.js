@@ -58,7 +58,7 @@ class Footer extends React.Component {
                 {/* <<<<<<< HEAD */}
                 <div style={{ textAlign: "justify" }} className="app">
                   <p className="mb-2" style={{ textAlign: "justify" }}>
-                    DOWNLOAD APP(Customers)
+                    DOWNLOAD APP
                   </p>
                   <a
                     href="https://play.google.com/store/apps/details?id=mothers.food.mothersfood"
@@ -87,7 +87,7 @@ class Footer extends React.Component {
                 </div>
                 <div style={{ textAlign: "justify" }} className="app">
                   <p style={{ textAlign: "justify" }} className="mb-2 mt-2">
-                    DOWNLOAD APP(Venders)
+                    DOWNLOAD Venders APP
                   </p>
                   {/* ======= */}
                   {/* <div className="app">
@@ -169,7 +169,7 @@ class Footer extends React.Component {
                   </li> */}
                 </ul>
               </Col>
-              <Col md={2} sm={4} xs={3}>
+              <Col md={2} sm={4} xs={2}>
                 <h6 style={{ textAlign: "justify" }} className="mb-3">
                   Legal
                 </h6>
@@ -349,6 +349,49 @@ class Footer extends React.Component {
                 {this.props.secondLinkText}
               </Link> */}
             </small>
+            <div
+              className="social-basic"
+              style={{ marginTop: "-3%", marginBottom: "0" }}
+            >
+              <ul className="d-flex justify-content-end ">
+                <li>
+                  <a
+                    target="_blank"
+                    href="https://www.facebook.com/MothersFoodIndia/"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="fa fa-facebook-f"></span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    target="_blank"
+                    href="https://www.instagram.com/mothersfoodindia/"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="fa fa-instagram"></span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    target="_blank"
+                    href="https://www.youtube.com/channel/UCdaLAl8sc_FyLhR-ch40AoA"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="fa fa-youtube"></span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    target="_blank"
+                    href="https://twitter.com/mothersfood1"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="fa fa-twitter"></span>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </Container>
         </footer>
       </>
@@ -378,8 +421,8 @@ Footer.defaultProps = {
   popularFood: [],
   copyrightText: "© 2020 MothersFood. All rights reserved.",
   madewithIconclassName: "heart heart-icon text-danger",
-  firstLinkText: "Mr.Naga Babu",
-  firstLink: "//www.instagram.com/nagababu_v/",
+  firstLinkText: "Mothers Kitchens & Catering Services",
+  firstLink: "//www.instagram.com/mothersfoodindia/",
   // secondLinkText: "Askbootstrap",
   // secondLink: "//askbootstrap.com/",
 };

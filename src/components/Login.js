@@ -10,7 +10,7 @@ import Moment from "moment";
 import { useHistory } from "react-router-dom";
 
 import { get } from "lodash";
-import { Video } from "styled-icons/boxicons-regular";
+
 import backgroundImage from "../vid/login.jpeg";
 class Login extends React.Component {
   constructor(props) {

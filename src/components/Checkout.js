@@ -2,6 +2,8 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import NavBarListing from "./navBar/navbarListing";
+import NavBarlisting2 from "./navBar/Navbarlisting2";
 import {
   Row,
   Col,
@@ -27,7 +29,6 @@ import "antd/lib/message/style/index.css";
 import "antd/dist/antd.css";
 import CartItem from "./home/Promocode";
 import OwlCarousel from "react-owl-carousel3";
-import NavBarListing from "./navBar/navbarListing";
 
 // import AddAddressModal from './modals/AddAddressModal';
 import Icofont from "react-icofont";
@@ -1528,11 +1529,11 @@ class Checkout extends React.Component {
       discount1,
     } = this.state;
     // const { deliveryDate, deliveryTime, userCart, userAddresses, showAddressModal, packingCharges, deliveryCharges, subTotal, total, addressError, showCashOnDeliveryOption, ActiveCashOnDelivery, lat, lng, userAddressSelected, taxes, discount1 } = this.state;
-
+    var isLoggedin = localStorage.getItem("isLogging");
     const preOrder = get(this.props, "location.state.preorder", "");
     return (
       <section className="offer-dedicated-body mt-4 mb-4 pt-2 pb-2">
-        <NavBarListing />
+        {isLoggedin === "true" ? <NavBarListing /> : <NavBarlisting2 />}
 
         {this.state.showAddress ? (
           <SweetAlert

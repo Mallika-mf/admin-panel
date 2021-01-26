@@ -89,7 +89,7 @@ class Orders extends React.Component {
         <div className="col-lg-9 col-md-9 order-1 order-md-1">
           <div className="sidebar-right">
             <div className="col-12 text-left pt-2 pb-3">
-              <h3 className="text-left mt-2">Past Orders</h3>
+              <h3 className="text-left mt-2 center">Past Orders</h3>
 
               <div className="product-grid">
                 {orders &&
@@ -99,16 +99,16 @@ class Orders extends React.Component {
                     return (
                       <div>
                         <div
-                          className="row past-orders-grid"
+                          className="row past-orders-grid col-md-8"
                           style={{
                             marginTop: "5%",
-                            background: "black",
+                            background: "white",
                           }}
                         >
                           <div className="col-md-12">
-                            <div className="row" style={{ padding: "4%" }}>
+                            <div className="row" style={{ padding: "2%" }}>
                               <div class="OrderDetailsFoodItem no-box">
-                                <div class="OrderDetailsFoodRightImage mt-1 mr-4">
+                                <div class="OrderDetailsFoodRightImage mt-1 mr-2">
                                   <img src={order.ChefImage} alt="" />
                                 </div>
                                 <div
@@ -142,18 +142,18 @@ class Orders extends React.Component {
                                         {get(order, "Total", "")}
                                       </span>
                                     </div>
-                                    <div className="col-lg-8 col-md-4 p-0">
+                                    <div className="col-lg-8 col-md-4 ">
                                       <Link
                                         to={{
                                           pathname: "/detailsOrder",
                                           state: { order: order },
                                         }}
-                                        className="OrderDetailsAddButton pull-right mr-2"
+                                        className="OrderDetailsAddButton pull-right mr-3 btn-success"
                                       >
-                                        <i className="fa fa-info mr-1"></i>{" "}
+                                        <i className="fa fa-info"></i>
                                         Details
                                       </Link>
-                                      <button class="OrderDetailsAddButton pull-right mr-2">
+                                      <button class="OrderDetailsAddButton pull-right mr-3 btn-danger">
                                         <i className="fa fa-headphones mr-1"></i>
                                         Help
                                       </button>
