@@ -63,6 +63,7 @@ class Detail extends React.Component {
                   content.push(num);
                 }
               });
+              console.log(content)
               this.setState({ num: content });
             }
           },
@@ -546,7 +547,7 @@ class Detail extends React.Component {
             <b key={index}>
               &nbsp;{index > 0 ? "•" : ""}&nbsp;
               {prd.Cuisines[key].Name}
-            </b>
+            </>
           );
         }
       });

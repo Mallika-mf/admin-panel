@@ -63,6 +63,7 @@ class Detail extends React.Component {
                   content.push(num);
                 }
               });
+              console.log(content)
               this.setState({ num: content });
             }
           },

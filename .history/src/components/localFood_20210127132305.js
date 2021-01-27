@@ -652,8 +652,8 @@ class List extends React.Component {
                             </Accordion.Toggle>
                           </h6>
                         </div>
-                         <Accordion.Collapse eventKey="2">
-                          {/*<div className="filters-card-body card-shop-filters">
+                        {/* <Accordion.Collapse eventKey="2">
+                          <div className="filters-card-body card-shop-filters">
                             <Form.Check
                               custom
                               type="checkbox"
@@ -704,8 +704,8 @@ class List extends React.Component {
                                 </React.Fragment>
                               }
                             /> */}
-                          {/* </div> */}
-                        </Accordion.Collapse>
+                          {/* </div>
+                        </Accordion.Collapse> */}
                       </div>
                       {/* <div className="filters-card border-bottom p-4">
                         <div className="filters-card-header" id="headingOne">

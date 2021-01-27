@@ -524,7 +524,6 @@ class List extends React.Component {
                               custom
                               type="checkbox"
                               defaultChecked={true}
-                              
                               id="custom-cb6"
                               label={
                                 <React.Fragment>
@@ -629,7 +628,7 @@ class List extends React.Component {
                                 </React.Fragment>
                               }
                             /> */}
-                            <div className="mt-2">
+                            {/* <div className="mt-2">
                               <Link to="#" className="link">
                                 See all
                               </Link>
@@ -647,13 +646,13 @@ class List extends React.Component {
                               className="text-left d-flex align-items-center p-0"
                               eventKey="2"
                             >
-                              Food Types{" "}
+                              Feature{" "}
                               <Icofont icon="arrow-down" className="ml-auto" />
                             </Accordion.Toggle>
                           </h6>
                         </div>
-                         <Accordion.Collapse eventKey="2">
-                          {/*<div className="filters-card-body card-shop-filters">
+                        <Accordion.Collapse eventKey="2">
+                          <div className="filters-card-body card-shop-filters">
                             <Form.Check
                               custom
                               type="checkbox"
@@ -665,23 +664,9 @@ class List extends React.Component {
                                   <small className="text-black-50">156</small>
                                 </React.Fragment>
                               }
-                            /> */}
-                            <ul>
-                            {this.state.cusines.items.map((item) => {
-                               if(item.Name!=="Brunch"&&item.Name!=="Supper"){
-                              return (
-                                <li className="arrow-list text-left">
-                                  
-                                    <input type="checkbox" onChange={(e) => {
-                                      return this.filterCategory(item, e);
-                                    }} className="mr-2  " />{item.Name}
-                                </li>
-                              );
-                                  }
-                            })}
-                          </ul>
+                            />
 
-                            {/* <Form.Check
+                            <Form.Check
                               custom
                               type="checkbox"
                               id="custom-cb16"
@@ -704,7 +689,7 @@ class List extends React.Component {
                                 </React.Fragment>
                               }
                             /> */}
-                          {/* </div> */}
+                          </div>
                         </Accordion.Collapse>
                       </div>
                       {/* <div className="filters-card border-bottom p-4">
