@@ -9,8 +9,6 @@ import rootReducers from "./components/Store/Reducers/rootReducer";
 import { Provider } from "react-redux";
 import { AppProvider } from "./components/home/context/app.provider";
 import App from "./App";
-import "./index.css";
-import "antd/dist/antd.css";
 import * as serviceWorker from "./serviceWorker";
 
 const store = createStore(

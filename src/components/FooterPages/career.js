@@ -51,7 +51,7 @@ const About = () => {
                     Change takes effort.
                   </b>
                 </h2>
-                <p style={{ fontWeight: "600" }}>
+                <p style={{ fontWeight: "600", fontSize: "15px" }}>
                   We believe in bringing change to the world by making it a
                   better place for women. We need your support with that. If
                   you’re ready to make that taboo of women empowerment
@@ -81,7 +81,7 @@ const About = () => {
                     Why Mothers Food?
                   </h1>
                   <div className="col-lg-6 offset-lg-3">
-                    <p className="text-justify ">
+                    <p className="text-justify " style={{ fontSize: "15px" }}>
                       Because you’ll be heard and supported. Building a new
                       career is nothing less than making life, and we value it.
                       And what if we say your career with us can bring a unique

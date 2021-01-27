@@ -527,13 +527,16 @@ class GeneralRules extends React.Component {
             >
               <img src="./assets/img/drivewithus.png" alt="" />
             </div> */}
-              <div className="intro-four--contents content_above card">
+              <div
+                className="intro-four--contents content_above card"
+                style={{ marginTop: "-1%" }}
+              >
                 <div className="container">
                   <div className="row">
                     <div className=" col-lg-7">
                       <h1
                         className="display-3 text-left"
-                        style={{ marginTop: "-3%", fontWeight: 400 }}
+                        style={{ marginTop: "1%", fontWeight: 400 }}
                       >
                         Drive With Us
                       </h1>
@@ -566,7 +569,7 @@ class GeneralRules extends React.Component {
               </div>
             </div>
 
-            {/* <section className="features-area p-top-20 p-bottom-20">
+            <section className="features-area p-top-20 p-bottom-20">
               <div className="icon-boxes">
                 <div className="container">
                   <div className="row" style={{ margin: "auto" }}>
@@ -578,7 +581,10 @@ class GeneralRules extends React.Component {
                         <b>Why partner with us?</b>
                       </h3>
                       <div className=" icon-box-fourteen text-left">
-                        <p className="m-top-0 p-top-0 text-left" style={{ fontSize: "15px" }}>
+                        <p
+                          className="m-top-0 p-top-0 text-left"
+                          style={{ fontSize: "15px" }}
+                        >
                           As much as the chef partners are essential to cook the
                           delicious food, driver-partners are vital to
                           delivering that food to the destination right on time.{" "}
@@ -611,9 +617,9 @@ class GeneralRules extends React.Component {
                   </div>
                 </div>
               </div>
-            </section> */}
+            </section>
 
-            {/* <section className="section-bg p-top-50 p-bottom-80">
+            <section className="section-bg p-top-50 p-bottom-80">
               <div className="card-style-nine">
                 <div className="container">
                   <div className="row">
@@ -704,10 +710,10 @@ class GeneralRules extends React.Component {
                   </div>
                 </div>
               </div>
-              {/*<!-- ends: .card-style-nine 
-            </section> */}
+              {/*<!-- ends: .card-style-nine -->*/}
+            </section>
 
-            {/* <section className="features-area  p-top-20 p-bottom-20">
+            <section className="features-area  p-top-20 p-bottom-20">
               <div className="icon-boxes">
                 <div className="container">
                   <div className="row" style={{ margin: "auto" }}>
@@ -734,9 +740,9 @@ class GeneralRules extends React.Component {
                   </div>
                 </div>
               </div>
-            </section> */}
+            </section>
 
-            {/* <section className="section-bg " style={{ background: "#ffffff" }}>
+            <section className="section-bg " style={{ background: "#ffffff" }}>
               <div className="card-style-nine">
                 <div className="container">
                   <div className="row">
@@ -797,8 +803,8 @@ class GeneralRules extends React.Component {
                   </div>
                 </div>
               </div>
-              {/*<!-- ends: .card-style-nine 
-            </section> */}
+              {/*<!-- ends: .card-style-nine -->*/}
+            </section>
 
             <section className="features-area ">
               <div className="icon-boxes">

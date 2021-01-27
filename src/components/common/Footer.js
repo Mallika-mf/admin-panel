@@ -421,7 +421,7 @@ Footer.defaultProps = {
   popularFood: [],
   copyrightText: "© 2020 MothersFood. All rights reserved.",
   madewithIconclassName: "heart heart-icon text-danger",
-  firstLinkText: "Mothers Kitchens & Catering Services",
+  firstLinkText: "Mothers Kitchens & Catering Services Pvt Ltd",
   firstLink: "//www.instagram.com/mothersfoodindia/",
   // secondLinkText: "Askbootstrap",
   // secondLink: "//askbootstrap.com/",

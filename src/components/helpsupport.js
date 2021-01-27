@@ -7,8 +7,8 @@ import NavBarlisting2 from "./navBar/Navbarlisting2";
 import "../style copy.css";
 
 const noAction = (e) => e.preventDefault();
+var isLoggedin = localStorage.getItem("isLogging");
 const Project = () => {
-  var isLoggedin = localStorage.getItem("isLogging");
   return (
     <Fragment>
       {isLoggedin === "true" ? <NavBarListing /> : <NavBarlisting2 />}
@@ -18,7 +18,7 @@ const Project = () => {
           <div className="accordion-styles accordion--one">
             <div className="container">
               <div className="row">
-                <div className="col-lg-6 col-md-6">
+                <div className="col-lg-6 col-md-6" style={{ marginTop: "-7%" }}>
                   <div className="row">
                     <div className="col-lg-12">
                       <div className="mb-4">
@@ -45,7 +45,6 @@ const Project = () => {
                           >
                             <h6 className="mb-0 text-left">
                               <NavLink
-                                style={{ color: "black" }}
                                 to="#"
                                 className="text-left"
                                 data-toggle="collapse"
@@ -717,7 +716,7 @@ const Project = () => {
                   </div>
                 </div>
 
-                <div className="col-lg-6 col-md-6">
+                <div className="col-lg-6 col-md-6" style={{ marginTop: "-7%" }}>
                   <div className="row">
                     <div className="col-lg-12">
                       <div className="mb-5">
@@ -735,6 +734,7 @@ const Project = () => {
                       <div
                         className="accordion accordion_two"
                         id="accordion_two"
+                        style={{ marginTop: "-4%" }}
                       >
                         <div className="accordion-single">
                           <div className="accordion-heading" id="headingOne">

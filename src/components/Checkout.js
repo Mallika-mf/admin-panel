@@ -1329,89 +1329,165 @@ class Checkout extends React.Component {
   updatevalueFunc = (event) => {
     const { searchedPlaceAPIData } = event;
     const { cities, subTotal, discount1 } = this.state;
-    this.setState({ lat: '' });
-    this.setState({ lng: '' });
+    this.setState({ lat: "" });
+    this.setState({ lng: "" });
     // console.log('searchedPlaceAPIData', searchedPlaceAPIData);
     if (!isEmpty(searchedPlaceAPIData)) {
-        this.setState({ searchedPlaceAPIData: searchedPlaceAPIData });
-        Geocode.fromAddress(searchedPlaceAPIData[0].formatted_address).then(response => {
-            const { lat, lng } = response.results[0].geometry.location;
-            this.setState({ lat: lat });
-            this.setState({ lng: lng });
-            for (let city of cities) {
-                console.log(cities)
-               if(response.results[0].formatted_address.includes("Secunderabad")){
-                    firebase.database().ref().child("Masters").child("City").child("-M7Rt3hrXVXrmglMhgMb")
-                    .once('value',snapshot=>{
-                        let val= snapshot.val()
-                        this.setState({ cityName: val.Name });        
-                        this.setState({ pushid: val.PushId });
-                        this.setState({ radius: val.Radius });
-                        this.setState({ packingCharges: val.PackingCharges});
-                        this.setState({ deliveryCharges: val.DeliveryCharges });
-                        this.setState({ taxes: (parseInt(val.PackingCharges) + parseInt(val.DeliveryCharges)) * 0.18 });
-                        this.setState({ total: subTotal + (parseInt(val.PackingCharges) + parseInt(val.DeliveryCharges)) + (parseInt(val.PackingCharges) + parseInt(val.DeliveryCharges) * 0.18) - parseFloat(discount1) });
-                        this.setState({ addressError: '' });
-                        return false;
-                    })
-                    
-                }else if(response.results[0].formatted_address.includes("Delhi")||
-                response.results[0].formatted_address.includes("Gurugram")||
-                response.results[0].formatted_address.includes("New Delhi")||
-                response.results[0].formatted_address.includes("Noida")||
-                response.results[0].formatted_address.includes("Ghaziabad")||
-                response.results[0].formatted_address.includes("Faridabad")||
-                response.results[0].formatted_address.includes("Gurgaon")){
-                    firebase.database().ref().child("Masters").child("City").child("-M9w7qfvWoy4sRUCqcGQ")
-                    .once('value',snapshot=>{
-                        let val= snapshot.val()
-                        this.setState({ cityName: val.Name })        
-                        this.setState({ pushid: val.PushId })
-                        this.setState({ radius: val.Radius })
-                        this.setState({ packingCharges: val.PackingCharges})
-                        this.setState({ deliveryCharges: val.DeliveryCharges })
-                        this.setState({ taxes: (parseInt(val.PackingCharges) + parseInt(val.DeliveryCharges)) * 0.18 })
-                        this.setState({ total: subTotal + (parseInt(val.PackingCharges) + parseInt(val.DeliveryCharges)) + (parseInt(val.PackingCharges) + parseInt(val.DeliveryCharges) * 0.18) - parseFloat(discount1) })
-                        this.setState({ addressError: '' })
-                        return false;
-                })
-            }else if(response.results[0].formatted_address.includes("Mumbai")||response.results[0].formatted_address.includes("Navi Mumbai")){
-                firebase.database().ref().child("Masters").child("City").child("-M9w7Zq9xfj87uqB2Se8")
-                .once('value',snapshot=>{
-                    let val= snapshot.val()
-                    this.setState({ cityName: val.Name })        
-                    this.setState({ pushid: val.PushId })
-                    this.setState({ radius: val.Radius })
-                    this.setState({ packingCharges: val.PackingCharges})
-                    this.setState({ deliveryCharges: val.DeliveryCharges })
-                    this.setState({ taxes: (parseInt(val.PackingCharges) + parseInt(val.DeliveryCharges)) * 0.18 })
-                    this.setState({ total: subTotal + (parseInt(val.PackingCharges) + parseInt(val.DeliveryCharges)) + (parseInt(val.PackingCharges) + parseInt(val.DeliveryCharges) * 0.18) - parseFloat(discount1) })
-                    this.setState({ addressError: '' })
-                    return false;
-            })
-            } else if (response.results[0].formatted_address.includes(city.Name)) {
-                //if ("Bengaluru".includes(city.Name)) {
-                    console.log(lat+","+lng)
-                this.setState({ cityName: city.Name });
-                this.setState({ pushid: city.PushId });
-                this.setState({ radius: city.Radius });
-                this.setState({ packingCharges: city.PackingCharges });
-                this.setState({ deliveryCharges: city.DeliveryCharges });
-                this.setState({ taxes: (parseInt(city.PackingCharges) + parseInt(city.DeliveryCharges)) * 0.18 });
-                this.setState({ total: subTotal + (parseInt(city.PackingCharges) + parseInt(city.DeliveryCharges)) + (parseInt(city.PackingCharges) + parseInt(city.DeliveryCharges) * 0.18) - parseFloat(discount1) });
-                this.setState({ addressError: '' });
-                return false;
-            }else{
-                    this.setState({ addressError: 'not serviceable in this area' });
-                    
-                    //return false;
-                    // alert('not serviceable in this area');
-                }
-            }
-        })
-    }
+      this.setState({ searchedPlaceAPIData: searchedPlaceAPIData });
+      Geocode.fromAddress(searchedPlaceAPIData[0].formatted_address).then(
+        (response) => {
+          const { lat, lng } = response.results[0].geometry.location;
+          this.setState({ lat: lat });
+          this.setState({ lng: lng });
+          for (let city of cities) {
+            console.log(cities);
+            if (
+              response.results[0].formatted_address.includes("Secunderabad")
+            ) {
+              firebase
+                .database()
+                .ref()
+                .child("Masters")
+                .child("City")
+                .child("-M7Rt3hrXVXrmglMhgMb")
+                .once("value", (snapshot) => {
+                  let val = snapshot.val();
+                  this.setState({ cityName: val.Name });
+                  this.setState({ pushid: val.PushId });
+                  this.setState({ radius: val.Radius });
+                  this.setState({ packingCharges: val.PackingCharges });
+                  this.setState({ deliveryCharges: val.DeliveryCharges });
+                  this.setState({
+                    taxes:
+                      (parseInt(val.PackingCharges) +
+                        parseInt(val.DeliveryCharges)) *
+                      0.18,
+                  });
+                  this.setState({
+                    total:
+                      subTotal +
+                      (parseInt(val.PackingCharges) +
+                        parseInt(val.DeliveryCharges)) +
+                      (parseInt(val.PackingCharges) +
+                        parseInt(val.DeliveryCharges) * 0.18) -
+                      parseFloat(discount1),
+                  });
+                  this.setState({ addressError: "" });
+                  return false;
+                });
+            } else if (
+              response.results[0].formatted_address.includes("Delhi") ||
+              response.results[0].formatted_address.includes("Gurugram") ||
+              response.results[0].formatted_address.includes("New Delhi") ||
+              response.results[0].formatted_address.includes("Noida") ||
+              response.results[0].formatted_address.includes("Ghaziabad") ||
+              response.results[0].formatted_address.includes("Faridabad") ||
+              response.results[0].formatted_address.includes("Gurgaon")
+            ) {
+              firebase
+                .database()
+                .ref()
+                .child("Masters")
+                .child("City")
+                .child("-M9w7qfvWoy4sRUCqcGQ")
+                .once("value", (snapshot) => {
+                  let val = snapshot.val();
+                  this.setState({ cityName: val.Name });
+                  this.setState({ pushid: val.PushId });
+                  this.setState({ radius: val.Radius });
+                  this.setState({ packingCharges: val.PackingCharges });
+                  this.setState({ deliveryCharges: val.DeliveryCharges });
+                  this.setState({
+                    taxes:
+                      (parseInt(val.PackingCharges) +
+                        parseInt(val.DeliveryCharges)) *
+                      0.18,
+                  });
+                  this.setState({
+                    total:
+                      subTotal +
+                      (parseInt(val.PackingCharges) +
+                        parseInt(val.DeliveryCharges)) +
+                      (parseInt(val.PackingCharges) +
+                        parseInt(val.DeliveryCharges) * 0.18) -
+                      parseFloat(discount1),
+                  });
+                  this.setState({ addressError: "" });
+                  return false;
+                });
+            } else if (
+              response.results[0].formatted_address.includes("Mumbai") ||
+              response.results[0].formatted_address.includes("Navi Mumbai")
+            ) {
+              firebase
+                .database()
+                .ref()
+                .child("Masters")
+                .child("City")
+                .child("-M9w7Zq9xfj87uqB2Se8")
+                .once("value", (snapshot) => {
+                  let val = snapshot.val();
+                  this.setState({ cityName: val.Name });
+                  this.setState({ pushid: val.PushId });
+                  this.setState({ radius: val.Radius });
+                  this.setState({ packingCharges: val.PackingCharges });
+                  this.setState({ deliveryCharges: val.DeliveryCharges });
+                  this.setState({
+                    taxes:
+                      (parseInt(val.PackingCharges) +
+                        parseInt(val.DeliveryCharges)) *
+                      0.18,
+                  });
+                  this.setState({
+                    total:
+                      subTotal +
+                      (parseInt(val.PackingCharges) +
+                        parseInt(val.DeliveryCharges)) +
+                      (parseInt(val.PackingCharges) +
+                        parseInt(val.DeliveryCharges) * 0.18) -
+                      parseFloat(discount1),
+                  });
+                  this.setState({ addressError: "" });
+                  return false;
+                });
+            } else if (
+              response.results[0].formatted_address.includes(city.Name)
+            ) {
+              //if ("Bengaluru".includes(city.Name)) {
+              console.log(lat + "," + lng);
+              this.setState({ cityName: city.Name });
+              this.setState({ pushid: city.PushId });
+              this.setState({ radius: city.Radius });
+              this.setState({ packingCharges: city.PackingCharges });
+              this.setState({ deliveryCharges: city.DeliveryCharges });
+              this.setState({
+                taxes:
+                  (parseInt(city.PackingCharges) +
+                    parseInt(city.DeliveryCharges)) *
+                  0.18,
+              });
+              this.setState({
+                total:
+                  subTotal +
+                  (parseInt(city.PackingCharges) +
+                    parseInt(city.DeliveryCharges)) +
+                  (parseInt(city.PackingCharges) +
+                    parseInt(city.DeliveryCharges) * 0.18) -
+                  parseFloat(discount1),
+              });
+              this.setState({ addressError: "" });
+              return false;
+            } else {
+              this.setState({ addressError: "not serviceable in this area" });
 
-};
+              //return false;
+              // alert('not serviceable in this area');
+            }
+          }
+        }
+      );
+    }
+  };
   isDate = (val) => {
     // Cross realm comptatible
     return Object.prototype.toString.call(val) === "[object Date]";
@@ -1991,7 +2067,7 @@ class Checkout extends React.Component {
                   {get(userCart, "length", 0) > 0 ? (
                     <>
                       {userCart.map((cartItem, index) => {
-                       let cartType = cartItem.Type;
+                        let cartType = cartItem.Type;
                         return (
                           <div key={index}>
                             <OwlCarousel

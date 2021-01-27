@@ -524,12 +524,11 @@ class List extends React.Component {
                               custom
                               type="checkbox"
                               defaultChecked={true}
-                              
                               id="custom-cb6"
                               label={
                                 <React.Fragment>
                                   Veg{" "}
-                                  <small className="text-black-50">156</small>
+                                  <small className="text-black-50">15</small>
                                 </React.Fragment>
                               }
                             />
@@ -541,7 +540,7 @@ class List extends React.Component {
                               label={
                                 <React.Fragment>
                                   Non/Veg{" "}
-                                  <small className="text-black-50">120</small>
+                                  <small className="text-black-50">12</small>
                                 </React.Fragment>
                               }
                             />
@@ -652,7 +651,7 @@ class List extends React.Component {
                             </Accordion.Toggle>
                           </h6>
                         </div>
-                         <Accordion.Collapse eventKey="2">
+                        <Accordion.Collapse eventKey="2">
                           {/*<div className="filters-card-body card-shop-filters">
                             <Form.Check
                               custom
@@ -666,22 +665,29 @@ class List extends React.Component {
                                 </React.Fragment>
                               }
                             /> */}
-                            <ul>
+                          <ul>
                             {this.state.cusines.items.map((item) => {
-                               if(item.Name!=="Brunch"&&item.Name!=="Supper"){
-                              return (
-                                <li className="arrow-list text-left">
-                                  
-                                    <input type="checkbox" onChange={(e) => {
-                                      return this.filterCategory(item, e);
-                                    }} className="mr-2  " />{item.Name}
-                                </li>
-                              );
-                                  }
+                              if (
+                                item.Name !== "Brunch" &&
+                                item.Name !== "Supper"
+                              ) {
+                                return (
+                                  <li className="arrow-list text-left">
+                                    <input
+                                      type="checkbox"
+                                      onChange={(e) => {
+                                        return this.filterCategory(item, e);
+                                      }}
+                                      className="mr-2  "
+                                    />
+                                    {item.Name}
+                                  </li>
+                                );
+                              }
                             })}
                           </ul>
 
-                            {/* <Form.Check
+                          {/* <Form.Check
                               custom
                               type="checkbox"
                               id="custom-cb16"

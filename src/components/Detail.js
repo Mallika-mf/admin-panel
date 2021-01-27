@@ -691,7 +691,7 @@ class Detail extends React.Component {
             <Container>
               <Row>
                 <Col md={12}>
-                  <span className="restaurant-detailed-action-btn float-right">
+                  {/* <span className="restaurant-detailed-action-btn float-right">
                     <Button
                       variant="light"
                       size="sm"
@@ -713,29 +713,29 @@ class Detail extends React.Component {
                     <Button variant="outline-danger" size="sm" type="button">
                       <Icofont icon="sale-discount" /> OFFERS
                     </Button>
-                  </span>
+                  </span> */}
                   <Nav id="pills-tab">
                     <Nav.Item>
                       <Nav.Link eventKey="first">Order Online</Nav.Link>
                     </Nav.Item>
-                    <Nav.Item>
+                    {/* <Nav.Item>
                       <Nav.Link eventKey="second">Gallery</Nav.Link>
-                    </Nav.Item>
+                    </Nav.Item> */}
                     {/* <Nav.Item>
 											<Nav.Link eventKey="third">Restaurant Info</Nav.Link>
 										</Nav.Item>
 										<Nav.Item>
 											<Nav.Link eventKey="fourth">Book A Table</Nav.Link>
 										</Nav.Item> */}
-                    <Nav.Item>
+                    {/* <Nav.Item>
                       <Nav.Link eventKey="fifth">Ratings & Reviews</Nav.Link>
-                    </Nav.Item>
+                    </Nav.Item> */}
                   </Nav>
                 </Col>
               </Row>
             </Container>
           </section>
-          <section className="offer-dedicated-body pt-2 pb-2 mt-4 mb-4">
+          <section className="offer-dedicated-body pt-2 pb-2 mt-2 mb-4">
             <Container>
               <Row>
                 <Col md={8}>
@@ -889,7 +889,11 @@ class Detail extends React.Component {
                                       onAddClick={() =>
                                         this.handleAddToCart(item)
                                       }
-                                      quantity={item.quantity===undefined?item.quantity=0:parseInt(item.quantity)}
+                                      quantity={
+                                        item.quantity === undefined
+                                          ? (item.quantity = 0)
+                                          : parseInt(item.quantity)
+                                      }
                                       getValue={this.getQty}
                                       showCart={false}
                                     />
@@ -1400,7 +1404,9 @@ class Detail extends React.Component {
                       />
                       <h6 className="font-weight-bold text-right mb-2">
                         Subtotal :&nbsp;
-                        <span className="text-danger">₹{this.state.num[(this.state.num).length-1]}</span>
+                        <span className="text-danger">
+                          ₹{this.state.num[this.state.num.length - 1]}
+                        </span>
                       </h6>
                       <p className="seven-color mb-1 text-right">
                         Extra charges may apply
