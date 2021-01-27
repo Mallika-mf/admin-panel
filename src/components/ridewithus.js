@@ -223,21 +223,36 @@ class GeneralRules extends React.Component {
                       <h3 className="text-left" style={{ color: "#E41C39" }}>
                         <b>Why partner with us?</b>
                       </h3>
-                      <div className=" icon-box-fourteen text-left">
-                        <p className="m-top-0 p-top-0 text-left">
+                      <div
+                        className=" icon-box-fourteen text-left"
+                        style={{ fontSize: "15px" }}
+                      >
+                        <p
+                          className="m-top-0 p-top-0 text-left"
+                          style={{ fontSize: "15px" }}
+                        >
                           As much as the chef partners are essential to cook the
                           delicious food, driver-partners are vital to
                           delivering that food to the destination right on time.{" "}
                         </p>
                         <ul className="bullet--list2">
-                          <li className="bullet_list">
+                          <li
+                            className="bullet_list text-left"
+                            style={{ fontSize: "15px" }}
+                          >
                             Serving the steaming hot food at your doorstep
                           </li>
-                          <li className="bullet_list text-left">
+                          <li
+                            className="bullet_list text-left"
+                            style={{ fontSize: "15px" }}
+                          >
                             Ensuring the customer not to worry about eating food
                             from their favorite place.
                           </li>
-                          <li className="bullet_list text-left">
+                          <li
+                            className="bullet_list text-left"
+                            style={{ fontSize: "15px" }}
+                          >
                             Satisfying their tummy monster with goodie good food
                           </li>
                         </ul>
@@ -267,7 +282,7 @@ class GeneralRules extends React.Component {
                       <h3 className="" style={{ color: "#E41C39" }}>
                         <b>Rider Benefits?</b>
                       </h3>
-                      <p className="">
+                      <p className="" style={{ fontSize: "15px" }}>
                         Read through and find the benefits of being an M-Food
                         Delivery partner
                       </p>
@@ -287,7 +302,7 @@ class GeneralRules extends React.Component {
                               <b>Awards &amp; Rewards</b>
                             </NavLink>
                           </h6>
-                          <p className="text-left">
+                          <p className="text-left" style={{ fontSize: "15px" }}>
                             Customer satisfaction is what we aim for-good food
                             with good delivery services. Ride with us and earn
                             amazing awards and rewards according to your
@@ -312,7 +327,7 @@ class GeneralRules extends React.Component {
                               <b>Your life is at our protection</b>
                             </NavLink>
                           </h6>
-                          <p className="text-left">
+                          <p className="text-left" style={{ fontSize: "15px" }}>
                             Emergency and unpredictable situations are
                             unavoidable. MothersFood provides insurance for all
                             our delivery partners to support their families in
@@ -337,7 +352,7 @@ class GeneralRules extends React.Component {
                               <b>We are a family</b>
                             </NavLink>
                           </h6>
-                          <p className="text-left">
+                          <p className="text-left" style={{ fontSize: "15px" }}>
                             Everyone who gets on board, becomes a part of the
                             MothersFood family. MothersFood kit- t-shirt, cap,
                             bag is a small gesture from our side to show that
@@ -362,7 +377,10 @@ class GeneralRules extends React.Component {
                       style={{ margin: "auto" }}
                     >
                       <div className=" icon-box-fourteen ">
-                        <p className="m-top-0 p-top-0 text-left">
+                        <p
+                          className="m-top-0 p-top-0 text-left"
+                          style={{ fontSize: "15px" }}
+                        >
                           Sounds exciting? Don’t wait anymore. Register with us
                           now and start your exciting journey with MothersFood.
                           Well, we believe that our happiness lies in yours,
@@ -400,7 +418,7 @@ class GeneralRules extends React.Component {
                               <b>Attractive Incentives</b>
                             </NavLink>
                           </h4>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             Reached your delivery limit successfully? Pushed
                             yourself to serve more people? Arrived before the
                             expected time? Then you should surely be rewarded.
@@ -426,7 +444,7 @@ class GeneralRules extends React.Component {
                               <b>Performance Rewards</b>
                             </NavLink>
                           </h4>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             There’s nothing that matters to you more than your
                             job? MothersFood considers several factors like
                             average delivery time, no. Of order completed in a
@@ -460,7 +478,7 @@ class GeneralRules extends React.Component {
                       <div className=" icon-box-fourteen text-center">
                         <p
                           className="m-top-0 p-top-0"
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                         >
                           If our customers love your service, so do we. The more
                           the positive ratings you get, the closer you move
@@ -548,7 +566,7 @@ class GeneralRules extends React.Component {
               </div>
             </div>
 
-            <section className="features-area p-top-20 p-bottom-20">
+            {/* <section className="features-area p-top-20 p-bottom-20">
               <div className="icon-boxes">
                 <div className="container">
                   <div className="row" style={{ margin: "auto" }}>
@@ -560,7 +578,7 @@ class GeneralRules extends React.Component {
                         <b>Why partner with us?</b>
                       </h3>
                       <div className=" icon-box-fourteen text-left">
-                        <p className="m-top-0 p-top-0 text-left">
+                        <p className="m-top-0 p-top-0 text-left" style={{ fontSize: "15px" }}>
                           As much as the chef partners are essential to cook the
                           delicious food, driver-partners are vital to
                           delivering that food to the destination right on time.{" "}
@@ -593,9 +611,9 @@ class GeneralRules extends React.Component {
                   </div>
                 </div>
               </div>
-            </section>
+            </section> */}
 
-            <section className="section-bg p-top-50 p-bottom-80">
+            {/* <section className="section-bg p-top-50 p-bottom-80">
               <div className="card-style-nine">
                 <div className="container">
                   <div className="row">
@@ -686,10 +704,10 @@ class GeneralRules extends React.Component {
                   </div>
                 </div>
               </div>
-              {/*<!-- ends: .card-style-nine -->*/}
-            </section>
+              {/*<!-- ends: .card-style-nine 
+            </section> */}
 
-            <section className="features-area  p-top-20 p-bottom-20">
+            {/* <section className="features-area  p-top-20 p-bottom-20">
               <div className="icon-boxes">
                 <div className="container">
                   <div className="row" style={{ margin: "auto" }}>
@@ -716,9 +734,9 @@ class GeneralRules extends React.Component {
                   </div>
                 </div>
               </div>
-            </section>
+            </section> */}
 
-            <section className="section-bg " style={{ background: "#ffffff" }}>
+            {/* <section className="section-bg " style={{ background: "#ffffff" }}>
               <div className="card-style-nine">
                 <div className="container">
                   <div className="row">
@@ -779,8 +797,8 @@ class GeneralRules extends React.Component {
                   </div>
                 </div>
               </div>
-              {/*<!-- ends: .card-style-nine -->*/}
-            </section>
+              {/*<!-- ends: .card-style-nine 
+            </section> */}
 
             <section className="features-area ">
               <div className="icon-boxes">

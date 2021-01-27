@@ -1,17 +1,19 @@
 import React from "react";
 import "./AboutUs.css";
 import Content from "./Content";
-import Header from "../navBar/navbarListing";
+import NavBarListing from "../navBar/navbarListing";
+import NavBarlisting2 from "../navBar/Navbarlisting2";
 // import HowItWorks from './HowItWorks';
 import OurApp from "./OurApp";
 import Partnership from "./PartnerShipWithUs";
 
 function AboutUs() {
+  var isLoggedin = localStorage.getItem("isLogging");
   return (
     <>
-      <Header />
       <div>
         <div className="card">
+          {isLoggedin === "true" ? <NavBarListing /> : <NavBarlisting2 />}
           {/* <Header /> */}
           <Content />
           {/* <HowItWorks /> */}

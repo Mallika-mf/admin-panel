@@ -814,7 +814,7 @@ class List extends React.Component {
                     </Accordion>
                   </div>
                 </div>
-                <div className="filters pt-2">
+                {/* <div className="filters pt-2">
                   <div className="filters-body rounded shadow-sm bg-white">
                     <div className="filters-card p-4">
                       <div>
@@ -850,7 +850,7 @@ class List extends React.Component {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </Col>
               <Col md={9}>
                 <CategoriesCarousel1 />
@@ -902,8 +902,8 @@ class List extends React.Component {
                                 ? item.CostTwo + " For Two"
                                 : "250 For Two"
                             }
-                            showPromoted={true}
-                            promotedVariant="dark"
+                            // showPromoted={true}
+                            // promotedVariant="dark"
                             favIcoIconColor={
                               item.Veg === "Yes" ? "text-green" : "text-danger"
                             }
@@ -956,8 +956,8 @@ class List extends React.Component {
                                 ? item.CostTwo + " For Two"
                                 : "250 For Two"
                             }
-                            showPromoted={true}
-                            promotedVariant="dark"
+                            // showPromoted={true}
+                            // promotedVariant="dark"
                             favIcoIconColor={
                               item.Veg === "Yes" ? "text-green" : "text-danger"
                             }

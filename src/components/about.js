@@ -280,7 +280,7 @@ const About = () => {
                   <b>Women Empowerment - PAN India</b>
                 </h3>
                 <div className=" icon-box-fourteen ">
-                  <p className="m-top-0 p-top-0">
+                  <p className="m-top-0 p-top-0" style={{ fontSize: "15px" }}>
                     <b>Mom, why is it taking so long to cook something?</b>
                     <br />
                     <b>

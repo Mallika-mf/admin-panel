@@ -443,14 +443,14 @@ class GeneralRules extends React.Component {
                       className="col-lg-6 col-md-6 col-sm-6"
                       style={{ margin: "auto" }}
                     >
-                      <div className="icon-box-fourteen text-center">
+                      {/* <div className="icon-box-fourteen text-center">
                         <img
                           src="../assets/img/chefs/Pallavi Mohan Shahi3.jpg"
                           width="300px"
                           className="img-responsive"
                           alt="mf"
                         ></img>
-                      </div>
+                      </div> */}
                       {/*<!-- ends: .icon-box -->*/}
                     </div>
                     {/*<!-- ends: .col-lg-3 -->*/}

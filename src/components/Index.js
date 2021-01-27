@@ -28,7 +28,7 @@ class Index extends React.Component {
                   image="./assets/img/Coupons/Coupon (1).jpeg"
                   imageClass="img-fluid rounded"
                   imageAlt="product"
-                  linkUrl="#"
+                  linkUrl="/offers"
                 />
               </Col>
               {/* <Col md={2} xs={6}>
@@ -44,7 +44,7 @@ class Index extends React.Component {
                   image="./assets/img/Coupons/Coupon (3).jpeg"
                   imageClass="img-fluid rounded"
                   imageAlt="product"
-                  linkUrl="#"
+                  linkUrl="/offers"
                 />
               </Col>
               <Col md={2} xs={6}>
@@ -52,7 +52,7 @@ class Index extends React.Component {
                   image="./assets/img/Coupons/Coupon (4).jpeg"
                   imageClass="img-fluid rounded"
                   imageAlt="product"
-                  linkUrl="#"
+                  linkUrl="/offers"
                 />
               </Col>
               <Col md={2} xs={6}>
@@ -60,7 +60,7 @@ class Index extends React.Component {
                   image="./assets/img/Coupons/Coupon (5).jpeg"
                   imageClass="img-fluid rounded"
                   imageAlt="product"
-                  linkUrl="#"
+                  linkUrl="/offers"
                 />
               </Col>
             </Row>
@@ -92,8 +92,8 @@ class Index extends React.Component {
                       // offerText="35% off | Use Coupon "
                       time="11AM to 10PM "
                       // price="$250 FOR TWO"
-                      showPromoted={true}
-                      promotedVariant="dark"
+                      // showPromoted={true}
+                      // promotedVariant="dark"
                       favIcoIconColor="text-danger"
                       rating="5.0"
                     />
@@ -109,8 +109,8 @@ class Index extends React.Component {
                       // offerText="65% off | Use Coupon"
                       time="11AM to 10PM"
                       // price="$100 FOR TWO"
-                      showPromoted={true}
-                      promotedVariant="dark"
+                      // showPromoted={true}
+                      // promotedVariant="dark"
                       favIcoIconColor="text-danger"
                       rating="5.0"
                     />
@@ -126,9 +126,9 @@ class Index extends React.Component {
                       // offerText="65% off | Use Coupon"
                       time="11AM to 10PM"
                       // price="$500 FOR TWO"
-                      showPromoted={true}
-                      promotedVariant="danger"
-                      favIcoIconColor="text-dark"
+                      // showPromoted={true}
+                      // promotedVariant="danger"
+                      favIcoIconColor="text-danger"
                       rating="5.0"
                     />
                   </div>
@@ -143,8 +143,8 @@ class Index extends React.Component {
                       // offerText="65% off | Use Coupon"
                       time="11AM to 10PM"
                       // price="$250 FOR TWO"
-                      showPromoted={true}
-                      promotedVariant="dark"
+                      // showPromoted={true}
+                      // promotedVariant="dark"
                       favIcoIconColor="text-danger"
                       rating="5.0"
                     />
@@ -179,8 +179,8 @@ class Index extends React.Component {
                       // offerText="65% off | Use Coupon OSAHAN50"
                       time="11AM to 12PM"
                       // price="$250 FOR TWO"
-                      showPromoted={true}
-                      promotedVariant="danger"
+                      // showPromoted={true}
+                      // promotedVariant="danger"
                       favIcoIconColor="text-danger"
                       rating="5.0"
                     />
@@ -196,8 +196,8 @@ class Index extends React.Component {
                       // offerText="65% off | Use Coupon OSAHAN50"
                       time="11AM to 12PM"
                       // price="$100 FOR TWO"
-                      showPromoted={true}
-                      promotedVariant="dark"
+                      // showPromoted={true}
+                      // promotedVariant="dark"
                       favIcoIconColor="text-danger"
                       rating="5.0"
                     />
@@ -213,25 +213,25 @@ class Index extends React.Component {
                       // offerText="65% off | Use Coupon OSAHAN50"
                       time="11AM to 12PM"
                       // price="$500 FOR TWO"
-                      showPromoted={true}
-                      promotedVariant="danger"
-                      favIcoIconColor="text-dark"
+                      // showPromoted={true}
+                      // promotedVariant="danger"
+                      favIcoIconColor="text-danger"
                       rating="5.0"
                     />
                   </div>
                   <div className="item">
                     <CardItem
-                      title="Prince ki Choice (Gurugoan)"
+                      title="Prince ki Choice (Gurugram)"
                       subTitle="North Indian • Non veg • Veg"
                       imageAlt="Product"
                       image="./assets/img/vendors/Prince ki Choice_Gurugoan.jpg"
                       imageClass="img-fluid item-img"
-                      linkUrl="#"
+                      //linkUrl="#"
                       // offerText="65% off | Use Coupon OSAHAN50"
                       time="11AM to 12PM"
                       // price="$250 FOR TWO"
-                      showPromoted={true}
-                      promotedVariant="dark"
+                      // showPromoted={true}
+                      // promotedVariant="dark"
                       favIcoIconColor="text-danger"
                       rating="5.0"
                     />

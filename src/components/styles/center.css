@@ -1,0 +1,538 @@
+.OverrideCenter{
+    display : flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding : 10px !important;
+    box-sizing: border-box !important;
+    /* position : relative !important;
+    z-index: 1000000 !important; */
+}
+
+.NoMargin{
+    margin : 0px !important;
+    margin-bottom : 0px !important;
+
+}
+.fa {
+    margin-right: 5px;
+}
+.text-white {
+    color: #fff;
+}
+.DetailsContainer{
+    width : 100%;
+    height : auto;
+}
+
+.DetailsContainerRow{
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.DetailsContainerRowImage{
+    width : 150px;
+    height : 150px;
+    overflow: hidden;
+    border-radius: 50%;
+    display : flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.DetailsContainerRowImage img{
+    object-fit: cover;
+}
+
+.DetailsContainerRowMain{
+    width : 100%;
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top : 30px;
+}
+
+.DetailsContainerRowMain span{
+    text-align: left;
+    margin-top : 5px;
+    white-space: normal;
+    word-break: break-all;
+    width: 100%;
+}
+.DetailsContainerRowMain span.intersection {
+    text-align: center;
+    font-weight: 600;
+    padding: 10px;
+}
+
+.DetailsContainerTable{
+    width: 100%;
+    display : flex;
+    justify-content: flex-start;
+    padding : 0px;
+    margin-top : 30px;
+}
+
+
+.ChefCard{
+    width : 265px;
+    object-fit: cover;
+    /* height : 300px; */
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position : relative;
+    overflow: hidden;
+    /* background-color: rgba(237, 237, 237, 0.604); */
+    border-radius : 8px;
+    /* padding : 10px; */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow : 0px 0px 8px rgba(0, 0, 0, 0.172);
+}
+
+.card-img-top {
+    position: relative;
+}
+.ChefCard .label-promoted {
+    position: absolute;
+    left: 6px;
+    color: #fff;
+    text-transform: unset;
+    font-size: 11px;
+    font-weight: bold;
+    top: 8px;
+    background: #000;
+    border-radius: 13px;
+    padding: 1px 6px;
+}
+
+.ChefCard .label-ratings {
+    position: absolute;
+    right: 6px;
+    color: #fff;
+    text-transform: unset;
+    font-size: 11px;
+    font-weight: bold;
+    bottom: 8px;
+    background: #3ECF8E;
+    border-radius: 13px;
+    padding: 1px 6px;
+}
+
+.ChefCard .card-img-top img {
+    object-fit: none;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+}
+.ChefCard .card-img-top img.svgimg {
+    width: auto;
+    max-width: 100%;
+}
+.ChefCardLink{
+    width : 100%;
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top : 10px;
+    
+}
+
+.ChefCardBody{
+    width : 100%;
+    display : flex;
+    flex-direction: column;
+    align-items: left;
+    padding:5%;
+    
+}
+
+.ChefCardBody h4{
+    font-size : 1rem;
+    font-weight: 600;
+    text-align: left;
+    margin-bottom: 0;
+    padding: 0 !important;
+}
+.ChefCardBody li {
+    margin-top: 1rem;
+}
+.ChefCardBody li {
+    float: left;
+    font-size: 13px;
+}
+
+.ChefCardBody li i.fa.fa-circle {
+    font-size: 8px;
+    margin: 0 5px;
+}
+
+.ChefCardBody .available_offer .col-12 {
+    text-align: left;
+    font-size: 12px;
+}
+.ChefCardBody .offer_tag.open {
+    background: #3ECF8E;
+}
+.ChefCardBody .offer_tag.close {
+    background: #E41C39;
+}
+.ChefCardBody .offer_tag {
+    padding: 2px 7px;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 8px;
+    margin-right: 5px;
+}
+.ChefCardBody .seprator {
+    margin: 0 4px;
+    border-right: 2px solid #ccc;
+}
+.ChefCardBody .coupon_code_section  {
+    text-align: left;
+}
+/*
+.ChefCardBody li span {
+    position: relative;
+    left: -8px;
+} */
+/* .ChefCardBody li:first-child span {
+    left: 0px;
+} */
+
+.ChefCardBody .VegIcon{
+    position : absolute;
+    width : 20px;
+    height : 20px;
+    top : 10px;
+    right : 10px;
+}
+
+.ChefCardProfileButton{
+    width : 120px;
+    height : 40px;
+    background-color : rgb(228, 28, 57);
+    color : white;
+    text-decoration: none;
+    border-radius : 20px;
+    display : flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border: 0;
+    outline: 0 !important;
+}
+
+.ChefCardProfileButton :hover{
+    color : white;
+}
+.category-widget .widget-title {
+    color: #F00D33;
+}
+.category-widget .fa {
+    font-size: 13px;
+    color: #F00D33;
+}
+.category-widget li {
+    margin-bottom: 5px;
+}
+.category-widget li input {
+    vertical-align: middle;
+    margin-top: -2px;
+}
+.category-widget li.arrow-list {
+    font-weight: 600;
+}
+
+
+.OrderDetailsFoodItems{
+    padding-top : 10px;
+}
+
+.OrderDetailsFoodGrid{
+    width : 100%;
+    display : flex;
+    flex-direction: column;
+    padding : 10px 20px;
+}
+
+.OrderDetailsFoodItem {
+    display : flex;
+    width : 100%;
+    border-radius : 10px;
+    box-sizing: border-box;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.118);
+    margin-bottom : 10px;
+}
+
+.OrderDetailsFoodDetails {
+    display : flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    padding-left : 20px;
+    width : 70%;
+}
+
+
+.OrderDetailsFoodRight{
+    padding : 10px;
+    width : 30%;
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.OrderDetailsFoodRightImage {
+    width : 58px;
+    height : 50px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.OrderDetailsFoodRightImage img{
+    object-fit: cover;
+}
+
+.OrderDetailsAddButton{
+    width : 100px;
+    height : 30px;
+    /* background-color: #F00D33; */
+    border : 1px solid #F00D33;
+    color : #F00D33;
+    /* border-radius : 15px; */
+    font-weight: 600;
+    display : flex;
+    align-items: center;
+    justify-content: center;
+    margin-top : 10px;
+    outline: 0 !important;
+}
+.OrderDetailsAddButton .orderQuantity {
+    background: #F00D03;
+    color:#fff;
+    padding: 3px 5px;
+    width: 30px;
+    font-size: 13px;
+    line-height: 1.7rem;
+}
+.OrderDetailsAddButton:hover{
+    cursor: pointer;
+}
+
+.OrderDetailsAddButton button{
+    background-color: transparent;
+    border : none;
+    color : #F00D33;
+    font-weight: 600;
+    padding : 0px 3px;
+    outline: 0 !important;
+    margin: -5px 4px 0;
+    color: #000 !important;
+}
+
+.FoodItemName{
+    font-weight: 600;
+}
+.FoodItemDetails{
+    font-weight: 400;
+    color : grey;
+    display: block;
+    text-align: left;
+}
+.FoodItemName{
+    font-weight: 600;
+}
+
+.OrderDetailsCart{
+    width : 100%;
+    display : flex;
+    flex-direction: column;
+    border : 2px solid #f8f8f8;
+    border-radius : 5px;
+    padding : 0px !important;
+}
+
+.OrderDetailsCartHeading {
+    background-color : #f8f8f8;
+    display : flex;
+    align-items: center;
+    padding : 10px;
+    font-size : 1.5rem;
+    font-weight: 400;
+}
+
+.OrderDetailsCartMain{
+    padding : 10px 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.OrderDetailsCartItem{
+    width : 100%;
+    display : flex;
+    /* justify-content: space-between; */
+    margin-top : 5px;
+    align-items: left;
+}
+.OrderDetailsCartItem .CartItemLeft {
+    text-align: left;
+}
+.OrderDetailsCartItem img{
+    width : 15px;
+    height : 15px;
+}
+.OrderDetailsCartItem .CartItemName{
+    margin-left : 5px;
+    font-weight: 500;
+    font-size: 12px;
+}
+.OrderDetailsCartItem .CartControls{
+    height : 25px;
+    width: 5rem;
+    display : flex;
+    align-items: center;
+    justify-content: space-between;
+    /* width : 60px;
+    border : solid 1px rgba(128, 128, 128, 0.159);
+    color : rgb(143, 191, 120);
+    font-weight: 900;*/
+    margin-right : 5px;
+    margin-top: 0;
+}
+.OrderDetailsCartItem .CartControls{ 
+    line-height: 1.6px;
+}
+.CartControls Button{
+    border : none;
+    background-color : transparent;
+    font-weight: 900;
+    color : rgb(143, 191, 120);
+    outline: 0 !important;
+}
+.CartControls Button:hover{
+    cursor: pointer;
+}
+.CartItemLeft{
+    width : 54%;
+}
+.OrderDetailsCartItem .CartItemPrice{
+    font-weight: 500;
+    color : rgb(48, 48, 48);
+    font-size: 13px;
+}
+
+.bm-burger-button{
+    position : absolute !important;
+    top : 25px !important;
+    left : 25px !important; 
+}
+.bm-burger-button-shifted{
+    position : fixed;
+    top : 20px !important;
+    left : 20px !important; 
+}
+.bm-menu-wrap {
+    position: fixed;
+    height: 100%;
+    left : 0px;
+  }
+.breadcrumb_area.breadcrumb1 {
+     padding: 25px;
+}
+.OrderDetails.breadcrumb_area.breadcrumb1 {
+    padding: 0 !important;
+}
+.OrderDetails.breadcrumb_area .container {
+    /* background: rgb(0,0,0,0.5); */
+    height: 100%;
+    width: 100%;
+    position: inherit;
+    padding: 4rem 3rem 0 5rem;
+    max-width: 100%;
+}  
+.breadcrumb_area .food-details {
+    margin: 44px 0 -33px;
+}
+.breadcrumb_area .food-details .food-section {
+    margin: auto;
+}  
+.breadcrumb_area .food-details .food-section, 
+.breadcrumb_area .food-details .food-section h3,
+.breadcrumb_area .food-details .food-section h6,
+.breadcrumb_area .food-details .food-section span {
+    text-align: left;
+    color: #fff;
+}
+.breadcrumb_area .food-details .food-section .location {
+    margin-left: 10px;
+    padding: 0 11px 3px;
+    border-radius: 12px;
+}
+.breadcrumb_area .food-details .food-section .ratings {
+    margin-right: 8px;
+    padding: 0 11px 3px;
+    border-radius: 12px;
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+}
+.breadcrumb_area .food-details .delivery-time span {
+    background-color: #3ECF8E;
+    padding: 10px;
+    border-radius: 5px;
+}
+.breadcrumb_area .food-details .food-section .location.open { 
+    background-color: #3ECF8E;
+}
+.breadcrumb_area .food-details .food-section .location.close { 
+    background-color: #F00D33;
+}
+.breadcrumb_area .food-details .food-details h6.location-info {
+    text-transform: uppercase;
+}
+
+h6.location-info, h6.food-types {
+    font-size: 14px;
+}
+
+.btn-secondary:not(:disabled):not(.disabled):active:focus, 
+.btn-secondary:not(:disabled):not(.disabled).active:focus, 
+.show > .btn-secondary.dropdown-toggle:focus {
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125), 0 0 0 0.2rem rgba(228, 28, 57, 0.5);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125), 0 0 0 0.2rem  rgba(228, 28, 57, 0.5);
+}
+
+@media(max-width:768px) {
+    .sidebar-cuisines {
+        display: none;
+    }
+    .pt-mb-0 {
+        padding-top: 0 !important;
+    }
+}
+
+@media(max-width : 576px) {
+    .DetailsContainerRow{
+        flex-direction: column;
+
+    }
+    .OrderDetailsFoodItems{
+        padding-top : 30px;
+    }
+    .OrderDetailsFoodItems h1{
+        text-align: center;
+        margin-top : 20px;
+    }
+    .OrderDetailsCart{
+        width : 90%;
+        margin-left : 20px;
+    }
+    .CartItemLeft{
+        width : 55%;
+    }
+}

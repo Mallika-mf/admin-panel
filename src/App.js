@@ -18,6 +18,7 @@ import PartnerWithUs from "./components/partnerwithus";
 import RideWithUs from "./components/ridewithus";
 import HelpSupport from "./components/helpsupport";
 import Invoice from "./components/Invoice";
+import DetailOrder from "./components/DetailsOrder";
 import Checkout from "./components/Checkout";
 import Detail from "./components/Detail";
 import ContactUs from "./components/contactus";
@@ -77,6 +78,7 @@ class App extends React.Component {
           <Route path="/track-order" exact component={TrackOrder} />
           <Route path="/invoice" exact component={Invoice} />
           <Route path="/checkout" exact component={Checkout} />
+          <Route path="/detailsOrder" exact component={DetailOrder} />
           <Route path="/thanks" exact component={Thanks} />
           <Route path="/partnerwithus" exact component={PartnerWithUs} />
           <Route path="/detail/:chef" exact component={Detail} />

@@ -800,7 +800,7 @@ class order extends React.Component {
                     </Accordion>
                   </div>
                 </div>
-                <div className="filters pt-2">
+                {/* <div className="filters pt-2">
                   <div className="filters-body rounded shadow-sm bg-white">
                     <div className="filters-card p-4">
                       <div>
@@ -836,7 +836,7 @@ class order extends React.Component {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </Col>
               <Col md={9}>
                 <CategoriesCarousel />

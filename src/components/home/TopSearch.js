@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 // import { Link } from "react-router-dom";
 import { Row, Col, Container, Form } from "react-bootstrap";
@@ -87,7 +88,7 @@ class TopSearch extends React.Component {
                   <div className="homepage-search-form">
                     <Form className="form-noborder">
                       <div className="form-row">
-                        <Form.Group className="col-lg-3 col-md-3 col-sm-12">
+                        {/* <Form.Group className="col-lg-3 col-md-3 col-sm-12">
                           <div className="location-dropdown">
                             <Icofont icon="location-arrow" />
                             <Select2
@@ -105,7 +106,7 @@ class TopSearch extends React.Component {
                               }}
                             />
                           </div>
-                        </Form.Group>
+                        </Form.Group> */}
                         <LocationBox updateLocation={this.updateLocation} />
 
                         {/* <Form.Group className="col-lg-7 col-md-7 col-sm-12">

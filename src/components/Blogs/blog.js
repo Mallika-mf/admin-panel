@@ -134,7 +134,7 @@ class Index extends React.Component {
                           <ul className="text-left post-meta d-flex">
                             <li className="text-left">10-07-2020</li>
                           </ul>
-                          <p className="text-left">
+                          <p className="text-left" style={{ fontSize: "15px" }}>
                             We all can agree that food is the only thing that
                             can make anyone drool without any racial
                             differences. When tasty, delicious food goes down
@@ -174,7 +174,7 @@ class Index extends React.Component {
                           <ul className="post-meta d-flex">
                             <li className="text-left">10-07-2020</li>
                           </ul>
-                          <p className="text-left">
+                          <p className="text-left" style={{ fontSize: "15px" }}>
                             Cooking is an art and science of experimenting with
                             savory, sweetness, spices in ways that it brings out
                             a drooling essence, flavor, taste, smell, and gets
@@ -234,7 +234,7 @@ unhygienic kitchen equipment, and rotten ingredients?
                           <ul className="post-meta d-flex">
                             <li className="text-left">10-07-2020</li>
                           </ul>
-                          <p className="text-left">
+                          <p className="text-left" style={{ fontSize: "15px" }}>
                             India is a land of a variety of spices and flavors
                             due to its multi-cultural nature. That deduces to
                             Indian food being multi-cultural too. There is a
@@ -276,7 +276,7 @@ unhygienic kitchen equipment, and rotten ingredients?
                           <ul className="post-meta d-flex">
                             <li className="text-left">30-11-2020</li>
                           </ul>
-                          <p className="text-left">
+                          <p className="text-left" style={{ fontSize: "15px" }}>
                             One of the most important aspects of all life, is
                             food. Singularly for humans. As humans have the
                             intellect to understand good food and bad food.
@@ -314,7 +314,7 @@ unhygienic kitchen equipment, and rotten ingredients?
                           <ul className="post-meta d-flex">
                             <li className="text-left">05-12-2020</li>
                           </ul>
-                          <p className="text-left">
+                          <p className="text-left" style={{ fontSize: "15px" }}>
                             India is a land of a variety of spices and flavors
                             due to its multi-cultural nature. That deduces to
                             Indian food being multi-cultural too. There is a
@@ -356,7 +356,7 @@ unhygienic kitchen equipment, and rotten ingredients?
                           <ul className="post-meta d-flex">
                             <li className="text-left">14-12-2020</li>
                           </ul>
-                          <p className="text-left">
+                          <p className="text-left" style={{ fontSize: "15px" }}>
                             There is a lot of variety of food available in the
                             market. Different cuisines, different styles,
                             different outlets and numerous options.
@@ -398,7 +398,7 @@ unhygienic kitchen equipment, and rotten ingredients?
                           <ul className="post-meta d-flex">
                             <li className="text-left">18-12-2020</li>
                           </ul>
-                          <p className="text-left">
+                          <p className="text-left" style={{ fontSize: "15px" }}>
                             We cannot stress enough the importance of homemade
                             food or home cooked meals. Of course, for the kind
                             of nutrition it
@@ -439,7 +439,7 @@ unhygienic kitchen equipment, and rotten ingredients?
                           </ul>
                           <p
                             className="text-left"
-                            style={{ wordSpacing: "-1px" }}
+                            style={{ wordSpacing: "-1px", fontSize: "15px" }}
                           >
                             The most heard of breads or the most consumed breads
                             nationally might be 3 or 4. However, there are over
@@ -479,7 +479,7 @@ unhygienic kitchen equipment, and rotten ingredients?
                           <ul className="post-meta d-flex">
                             <li className="text-left">24-12-2020</li>
                           </ul>
-                          <p className="text-left">
+                          <p className="text-left" style={{ fontSize: "15px" }}>
                             Fitness is all about maintaining a balanced
                             lifestyle and healthy nutrition rather than the
                             misconceived concept of having
@@ -518,7 +518,7 @@ unhygienic kitchen equipment, and rotten ingredients?
                           <ul className="post-meta d-flex">
                             <li className="text-left">02-01-2021</li>
                           </ul>
-                          <p className="text-left">
+                          <p className="text-left" style={{ fontSize: "15px" }}>
                             Biryani, a dish well known in almost all Indian
                             states and loved by majority of Indian population.
                           </p>
@@ -554,7 +554,7 @@ unhygienic kitchen equipment, and rotten ingredients?
                           <ul className="post-meta d-flex">
                             <li className="text-left">06-01-2021</li>
                           </ul>
-                          <p className="text-left">
+                          <p className="text-left" style={{ fontSize: "15px" }}>
                             Comfort foods give comfort to the whole mood. Mostly
                             comfort foods are staple foods.. Majority of the
                             people enjoy comfort foods,
@@ -591,7 +591,7 @@ unhygienic kitchen equipment, and rotten ingredients?
                           <ul className="post-meta d-flex">
                             <li className="text-left">09-01-2021</li>
                           </ul>
-                          <p className="text-left">
+                          <p className="text-left" style={{ fontSize: "15px" }}>
                             Delhi culture is a mix of different cultures and
                             traditions which thus reflect in Delhi flavors,
                             cuisines and food as well.
@@ -635,7 +635,7 @@ unhygienic kitchen equipment, and rotten ingredients?
                           <ul className="post-meta d-flex">
                             <li className="text-left">13-01-2021</li>
                           </ul>
-                          <p className="text-left">
+                          <p className="text-left" style={{ fontSize: "15px" }}>
                             Though India is a tropical country, winters are
                             pretty cold in most parts of the country. And as we
                             all know, winters in India have arrived.
