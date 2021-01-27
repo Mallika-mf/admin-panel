@@ -14,7 +14,7 @@ const Project = () => {
       {isLoggedin === "true" ? <NavBarListing /> : <NavBarlisting2 />}
       <section
         className="section-bg p-top-100 p-bottom-110"
-        style={{ marginTop: "6%" }}
+        style={{ marginTop: "-5%" }}
       >
         <div className="container">
           <div className="row">
@@ -30,13 +30,13 @@ const Project = () => {
             {/*<!-- ends: .col-lg-12 -->*/}
           </div>
 
-          <div className="post-details">
+          <div className="post-details text-left">
             <div className="post-content">
               <div className="post-body">
                 <div className="m-bottom-40">
                   <ul className="number-list number--list3">
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="numbers-roman"
                     >
                       These terms of use (the " Terms of Use") govern your use
@@ -58,7 +58,7 @@ const Project = () => {
                       to abide by the same.
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="numbers-roman"
                     >
                       The Platform is operated and owned by Mothers Kitchens
@@ -76,7 +76,7 @@ const Project = () => {
                       mean MothersFood & Catering Services Private Limited.
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="numbers-roman"
                     >
                       MothersFood enables transactions between participant
@@ -95,10 +95,10 @@ const Project = () => {
                       expressly mentioned)
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="numbers-roman"
                     >
-                      <h6 style={{ textAlign: "justify" }}>
+                      <h6 style={{ textAlign: "justify", fontSize: "15px" }}>
                         <b>AMENDMENTS</b>
                       </h6>
                       These Terms of Use are subject to modifications at any
@@ -123,15 +123,15 @@ const Project = () => {
                       from time to time.
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="numbers-roman"
                     >
-                      <h6 style={{ textAlign: "justify" }}>
+                      <h6 style={{ textAlign: "justify", fontSize: "15px" }}>
                         <b>Use of Platform and Services</b>
                       </h6>
                       <ol className="number-list number--list1">
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           All commercial/contractual terms are offered by and
@@ -152,7 +152,7 @@ const Project = () => {
                           the Merchants.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           MothersFood does not make any representation or
@@ -167,7 +167,7 @@ const Project = () => {
                           such offers.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           MothersFood neither make any representation or
@@ -181,7 +181,7 @@ const Project = () => {
                           whether on behalf of itself or third parties.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           MothersFood is not responsible for any non-performance
@@ -195,7 +195,7 @@ const Project = () => {
                           out of stock, unavailable or back ordered.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           MothersFood is operating an online marketplace and
@@ -210,7 +210,7 @@ const Project = () => {
                           and Merchant.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           MothersFood is only providing a platform for
@@ -231,7 +231,7 @@ const Project = () => {
                           to enable satisfactory resolution of the complaint.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           Please note that there could be risks in dealing with
@@ -239,7 +239,7 @@ const Project = () => {
                           pretence.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           MothersFood - Use of the Website and Apps (Android and
@@ -249,7 +249,7 @@ const Project = () => {
                           Platform shall be strictly governed by the following
                           binding principles:
                           <br />
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>i.</span>{" "}
                             &nbsp;You shall not host, display, upload, download,
@@ -257,13 +257,17 @@ const Project = () => {
                             information which:
                           </p>
                           <ol>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>a.</span>{" "}
                               &nbsp;belongs to another person and which you do
                               not have any right to;
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>b.</span>{" "}
                               &nbsp;is grossly harmful, harassing, blasphemous,
@@ -279,13 +283,17 @@ const Project = () => {
                               meaning of the Indecent Representation of Women
                               (Prohibition) Act, 1986;
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>c.</span>{" "}
                               &nbsp;is misleading or misrepresentative in any
                               way;
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>d.</span>{" "}
                               &nbsp;is patently offensive to the online
@@ -294,27 +302,35 @@ const Project = () => {
                               racism, bigotry, hatred or physical harm of any
                               kind against any group or individual;
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>e.</span>{" "}
                               &nbsp;harasses or advocates harassment of another
                               person;
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>f.</span>{" "}
                               &nbsp;involves the transmission of "junk mail",
                               "chain letters", or unsolicited mass mailing or
                               "spamming";
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>g.</span>{" "}
                               &nbsp;promotes illegal activities or conduct that
                               is abusive, threatening, obscene, defamatory or
                               libellous;
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>h.</span>{" "}
                               &nbsp;infringes upon or violates any third party's
@@ -325,7 +341,9 @@ const Project = () => {
                               physical address or phone number) or rights of
                               publicity];
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>i.</span>{" "}
                               &nbsp;promotes an illegal or unauthorized copy of
@@ -338,21 +356,27 @@ const Project = () => {
                               providing pirated music or links to pirated music
                               files;
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>j.</span>{" "}
                               &nbsp;contains restricted or password-only access
                               pages, or hidden pages or images (those not linked
                               to or from another accessible page);
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>k.</span>{" "}
                               &nbsp;provides material that exploits people in a
                               sexual, violent or otherwise inappropriate manner
                               or solicits personal information from anyone;
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>l.</span>{" "}
                               &nbsp;provides instructional information about
@@ -360,13 +384,17 @@ const Project = () => {
                               illegal weapons, violating someone's privacy, or
                               providing or creating computer viruses;
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>m.</span>{" "}
                               &nbsp;contains video, photographs, or images of
                               another person (with a minor or an adult);
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>n.</span>{" "}
                               &nbsp;tries to gain unauthorized access or exceeds
@@ -377,7 +405,9 @@ const Project = () => {
                               personal identifying information for commercial or
                               unlawful purposes from other users;
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>o.</span>{" "}
                               &nbsp;engages in commercial activities and/or
@@ -392,21 +422,27 @@ const Project = () => {
                               activity or conduct for which you seek
                               authorization;
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>p.</span>{" "}
                               &nbsp;solicits gambling or engages in any gambling
                               activity which is or could be construed as being
                               illegal;
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>q.</span>{" "}
                               &nbsp;interferes with another user's use and
                               enjoyment of the Platform or any third party's
                               user and enjoyment of similar services;
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>r.</span>{" "}
                               &nbsp;refers to any website or URL that, in our
@@ -416,12 +452,16 @@ const Project = () => {
                               or violates the letter or spirit of these Terms of
                               Use;
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>s.</span>{" "}
                               &nbsp;harm minors in any way;
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>t.</span>{" "}
                               &nbsp;infringes any patent, trademark, copyright
@@ -430,13 +470,17 @@ const Project = () => {
                               privacy or shall not be fraudulent or involve the
                               sale of counterfeit or stolen products;
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>u.</span>{" "}
                               &nbsp;violates any law for the time being in
                               force;
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>v.</span>{" "}
                               &nbsp;deceives or misleads the addressee/users
@@ -444,12 +488,16 @@ const Project = () => {
                               any information which is grossly offensive or
                               menacing in nature;
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>w.</span>{" "}
                               &nbsp;impersonate another person;
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>x.</span>{" "}
                               &nbsp;contains software viruses or any other
@@ -471,7 +519,9 @@ const Project = () => {
                               surreptitiously intercept or expropriate any
                               system, data or personal information;
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>y.</span>{" "}
                               &nbsp;threatens the unity, integrity, defence,
@@ -481,12 +531,16 @@ const Project = () => {
                               criminal offence or prevents investigation of any
                               offence or is insulting any other nation;
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>z.</span>{" "}
                               &nbsp;is false, inaccurate or misleading;
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>aa.</span>{" "}
                               &nbsp;directly or indirectly, offers, attempts to
@@ -496,7 +550,9 @@ const Project = () => {
                               applicable law, rule, regulation or guideline for
                               the time being in force; or
                             </p>
-                            <p style={{ textAlign: "justify" }}>
+                            <p
+                              style={{ textAlign: "justify", fontSize: "15px" }}
+                            >
                               {" "}
                               <span style={{ color: "#06b590" }}>bb.</span>{" "}
                               &nbsp;creates liability for us or causes us to
@@ -504,7 +560,7 @@ const Project = () => {
                               internet service provider or other suppliers.
                             </p>
                           </ol>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>ii.</span>{" "}
                             &nbsp;You shall not use any "deep-link",
@@ -520,7 +576,7 @@ const Project = () => {
                             available through the Platform. We reserve our right
                             to prohibit any such activity.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>iii.</span>{" "}
                             &nbsp;You shall not attempt to gain unauthorized
@@ -531,7 +587,7 @@ const Project = () => {
                             Platform, by hacking, "password mining" or any other
                             illegitimate means.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>iv.</span>{" "}
                             &nbsp;You shall not probe, scan or test the
@@ -551,7 +607,7 @@ const Project = () => {
                             your own information, as provided for by the
                             Platform.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>v.</span>{" "}
                             &nbsp;You shall not make any negative, denigrating
@@ -569,7 +625,7 @@ const Project = () => {
                             of the Platform or MothersFood’ systems or networks,
                             or any systems or networks connected to MothersFood.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>vi.</span>{" "}
                             &nbsp;You agree not to use any device, software or
@@ -578,7 +634,7 @@ const Project = () => {
                             transaction being conducted on the Platform, or with
                             any other person's use of the Platform.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>vii.</span>{" "}
                             &nbsp;You may not forge headers or otherwise
@@ -589,7 +645,7 @@ const Project = () => {
                             you are, or that you represent, someone else, or
                             impersonate any other individual or entity.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>viii.</span>{" "}
                             &nbsp;You may not use the Platform or any content on
@@ -599,7 +655,7 @@ const Project = () => {
                             activity that infringes the rights of MothersFood
                             and/or others.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>ix.</span>{" "}
                             &nbsp;You shall at all times ensure full compliance
@@ -621,7 +677,7 @@ const Project = () => {
                             including exchange control laws or regulations for
                             the time being in force.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>x.</span>{" "}
                             &nbsp;In order to allow us to use the information
@@ -637,7 +693,7 @@ const Project = () => {
                             and Privacy Policy applicable to use of the
                             Platform.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>xi.</span>{" "}
                             &nbsp;From time to time, you shall be responsible
@@ -649,7 +705,7 @@ const Project = () => {
                             products or services so as to mislead other users in
                             any manner.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>xii.</span>{" "}
                             &nbsp;You shall not engage in advertising to, or
@@ -687,7 +743,7 @@ const Project = () => {
                             and/or resolution of possible crimes, especially
                             those that may involve personal injury.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>xiii.</span>{" "}
                             &nbsp;We reserve the right, but has no obligation,
@@ -713,7 +769,7 @@ const Project = () => {
                             contain any libellous, tortious, or otherwise
                             unlawful information.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>xiv.</span>{" "}
                             &nbsp;Your correspondence or business dealings with,
@@ -728,7 +784,7 @@ const Project = () => {
                             or as the result of the presence of such advertisers
                             on the Platform.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>xv.</span>{" "}
                             &nbsp;It is possible that other users (including
@@ -747,7 +803,7 @@ const Project = () => {
                             select the type of information that you publicly
                             disclose or share with others on the Platform.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>xvi.</span>{" "}
                             &nbsp;MothersFood shall have all the rights to take
@@ -763,15 +819,15 @@ const Project = () => {
                     </li>
 
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="numbers-roman"
                     >
-                      <h6 style={{ textAlign: "justify" }}>
+                      <h6 style={{ textAlign: "justify", fontSize: "15px" }}>
                         <b>Account Registration or use of the Platform</b>
                       </h6>
                       <ol className="number-list number--list1">
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You may access the Platform by registering to create
@@ -786,13 +842,13 @@ const Project = () => {
                           transferable. As part of the functionality of the
                           Platform services, you may link your MothersFood
                           Account with Third Party Accounts, by either:
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>i.</span>{" "}
                             &nbsp;providing your Third Party Account login
                             information to us through the Platform; or
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>ii.</span>{" "}
                             &nbsp;allowing us to access your Third-Party
@@ -802,7 +858,7 @@ const Project = () => {
                           </p>
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You represent that you are entitled to disclose your
@@ -817,7 +873,7 @@ const Project = () => {
                           service providers.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           By granting us access to any Third Party Accounts, you
@@ -828,7 +884,7 @@ const Project = () => {
                           and through the Platform via your MothersFood Account.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           Unless otherwise specified in these Terms of Use, all
@@ -836,7 +892,7 @@ const Project = () => {
                           content for all purposes of these Terms of Use.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           Depending on the Third Party Accounts, you choose, and
@@ -847,7 +903,7 @@ const Project = () => {
                           Account on the Platform.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           Please note that if a Third Party Account or
@@ -857,7 +913,7 @@ const Project = () => {
                           longer be available on and through the Platform.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           We will create your MothersFood Account for your use
@@ -871,7 +927,7 @@ const Project = () => {
                           compensation.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You agree to provide accurate, current and complete
@@ -880,7 +936,7 @@ const Project = () => {
                           and complete.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           We reserve the right to suspend or terminate your
@@ -893,7 +949,7 @@ const Project = () => {
                           found to be non- compliant with the Terms of Use.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You are responsible for safeguarding your password.
@@ -906,7 +962,7 @@ const Project = () => {
                           MothersFood Account.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           Goods and services purchased from the Platform are
@@ -917,15 +973,15 @@ const Project = () => {
                       </ol>
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="numbers-roman"
                     >
-                      <h6 style={{ textAlign: "justify" }}>
+                      <h6 style={{ textAlign: "justify", fontSize: "15px" }}>
                         <b>Bookings and Financial Terms</b>
                       </h6>
                       <ol className="number-list number--list1">
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           The Platform allows you to place food order bookings
@@ -933,7 +989,7 @@ const Project = () => {
                           out herein, enable delivery of such order to you.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           MothersFood do not own, sell, resell on its own and/or
@@ -945,14 +1001,14 @@ const Project = () => {
                           and delivery location serviceability.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           As a general rule, all food orders placed on the
                           Platform are treated as confirmed.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           However, upon your successful completion of booking an
@@ -967,7 +1023,7 @@ const Project = () => {
                           attention.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           In addition to the foregoing, we may also contact you
@@ -984,7 +1040,7 @@ const Project = () => {
                           applicable.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           All payments made against the purchases/services on
@@ -1010,7 +1066,7 @@ const Project = () => {
                           respect to the transaction or the transaction price.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You acknowledge and agree that we act as the
@@ -1025,7 +1081,7 @@ const Project = () => {
                           made using the Platform.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You agree to pay us for the total amount for the order
@@ -1039,7 +1095,7 @@ const Project = () => {
                           and we disclaim all liability in this regard.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           In connection with your order, you will be asked to
@@ -1065,7 +1121,7 @@ const Project = () => {
                           confirmed booking.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           The final tax bill will be issued by the Merchant to
@@ -1080,7 +1136,7 @@ const Project = () => {
                           the taxes shall reside with the Merchant.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           The prices reflected on the Platform, including
@@ -1099,7 +1155,7 @@ const Project = () => {
                           Merchant may cancel such your order(s).
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           The Merchant shall be solely responsible for any
@@ -1108,7 +1164,7 @@ const Project = () => {
                           MothersFood.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           The transaction is bilateral between the Merchant and
@@ -1119,15 +1175,15 @@ const Project = () => {
                       </ol>
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="numbers-roman"
                     >
-                      <h6 style={{ textAlign: "justify" }}>
+                      <h6 style={{ textAlign: "justify", fontSize: "15px" }}>
                         <b>Account Registration or use of the Platform</b>
                       </h6>
                       <ol className="number-list number--list1">
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You may access the Platform by registering to create
@@ -1142,13 +1198,13 @@ const Project = () => {
                           transferable. As part of the functionality of the
                           Platform services, you may link your MothersFood
                           Account with Third Party Accounts, by either:
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>i.</span>{" "}
                             &nbsp;providing your Third Party Account login
                             information to us through the Platform; or
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>ii.</span>{" "}
                             &nbsp;allowing us to access your Third-Party
@@ -1158,7 +1214,7 @@ const Project = () => {
                           </p>
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You represent that you are entitled to disclose your
@@ -1173,7 +1229,7 @@ const Project = () => {
                           service providers.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           By granting us access to any Third Party Accounts, you
@@ -1184,7 +1240,7 @@ const Project = () => {
                           and through the Platform via your MothersFood Account.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           Unless otherwise specified in these Terms of Use, all
@@ -1192,7 +1248,7 @@ const Project = () => {
                           content for all purposes of these Terms of Use.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           Depending on the Third Party Accounts, you choose, and
@@ -1203,7 +1259,7 @@ const Project = () => {
                           Account on the Platform.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           Please note that if a Third Party Account or
@@ -1213,7 +1269,7 @@ const Project = () => {
                           longer be available on and through the Platform.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           We will create your MothersFood Account for your use
@@ -1227,7 +1283,7 @@ const Project = () => {
                           compensation.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You agree to provide accurate, current and complete
@@ -1236,7 +1292,7 @@ const Project = () => {
                           and complete.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           We reserve the right to suspend or terminate your
@@ -1249,7 +1305,7 @@ const Project = () => {
                           found to be non- compliant with the Terms of Use.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You are responsible for safeguarding your password.
@@ -1262,7 +1318,7 @@ const Project = () => {
                           MothersFood Account.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           Goods and services purchased from the Platform are
@@ -1273,19 +1329,19 @@ const Project = () => {
                       </ol>
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="numbers-roman"
                     >
-                      <h6 style={{ textAlign: "justify" }}>
+                      <h6 style={{ textAlign: "justify", fontSize: "15px" }}>
                         <b>Cancellations and Refunds</b>
                       </h6>
                       <ol className="number-list number--list1">
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           Cancellation
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>i.</span>{" "}
                             &nbsp;As a general rule you shall not be entitled to
@@ -1307,7 +1363,7 @@ const Project = () => {
                             Delivery Partners, MothersFood shall not charge you
                             any cancellation fee.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>ii.</span>{" "}
                             &nbsp;However, in the unlikely event of an item on
@@ -1319,7 +1375,7 @@ const Project = () => {
                             entitled to a refund in accordance with our refund
                             policy.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>ii.</span>{" "}
                             &nbsp;We reserve the sole right to cancel your order
@@ -1327,11 +1383,11 @@ const Project = () => {
                           </p>
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           Refunds
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>i.</span>{" "}
                             &nbsp;You shall be entitled to a refund only if you
@@ -1339,13 +1395,13 @@ const Project = () => {
                             order on the Platform and only in the event of any
                             of the following circumstances:
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>ii.</span>{" "}
                             &nbsp;Our decision on refunds shall be at our sole
                             discretion and shall be final and binding.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>ii.</span>{" "}
                             &nbsp;All refund amounts shall be credited to your
@@ -1355,23 +1411,23 @@ const Project = () => {
                           </p>
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           In case of payment at the time of delivery, you will
                           not be required to pay for:
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>i.</span>{" "}
                             &nbsp;orders where the packaging has been tampered
                             or damaged by us;
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>ii.</span>{" "}
                             &nbsp;wrong order being delivered; or
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>ii.</span>{" "}
                             &nbsp;items missing from your order at the time of
@@ -1381,47 +1437,47 @@ const Project = () => {
                       </ol>
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="numbers-roman"
                     >
-                      <h6 style={{ textAlign: "justify" }}>
+                      <h6 style={{ textAlign: "justify", fontSize: "15px" }}>
                         <b>Terms of service</b>
                       </h6>
                       <ol className="number-list number--list1">
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You agree and acknowledge that we shall not be
                           responsible for:
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>i.</span>{" "}
                             &nbsp;The services or goods provided by the Merchant
                             including, but not limited, serving of food orders
                             suiting your requirements and needs;
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>ii.</span>{" "}
                             &nbsp;The Merchant's services or goods not being up
                             to your expectations or leading to any loss, harm or
                             damage to you;
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>iii.</span>{" "}
                             &nbsp;The availability or unavailability of certain
                             items on the menu; or
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>iv.</span>{" "}
                             &nbsp;The Merchant serving the incorrect orders.
                           </p>
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           The details of the menu and price list available on
@@ -1430,7 +1486,7 @@ const Project = () => {
                           change or cancellation or unavailability.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You may not be able to avail our Services if your
@@ -1439,7 +1495,7 @@ const Project = () => {
                           time of confirming your order booking.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You understand that delivery periods quoted to you at
@@ -1448,7 +1504,7 @@ const Project = () => {
                           any delay in the delivery of your order.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You order will be only delivered to the address
@@ -1461,7 +1517,7 @@ const Project = () => {
                           our sole discretion.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You shall undertake to provide adequate directions,
@@ -1477,18 +1533,18 @@ const Project = () => {
                           final and binding.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You understand that our liability ends once your order
                           has been delivered to you.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           Services provided:
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>i.</span>{" "}
                             &nbsp;You confirm that we shall not be responsible
@@ -1496,7 +1552,7 @@ const Project = () => {
                             payable towards the goods purchased from the
                             Services.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>ii.</span>{" "}
                             &nbsp;Each purchase on the Service shall contain
@@ -1509,14 +1565,14 @@ const Project = () => {
                             redeem the goods within the expiry date or in
                             accordance with the terms therein.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>iii.</span>{" "}
                             &nbsp;You agree and acknowledge that neither us nor
                             the Merchant shall be liable in the event of you
                             failing to adhere to the Terms of Use.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>iv.</span>{" "}
                             &nbsp;You might be required to provide your credit
@@ -1539,7 +1595,7 @@ const Project = () => {
                           </p>
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           We do not offer any refunds against goods already
@@ -1548,7 +1604,7 @@ const Project = () => {
                           purchase of such product or services.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           We constantly strive to provide you with accurate
@@ -1557,14 +1613,14 @@ const Project = () => {
                           with further instructions.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           If you use the Platform, you do the same at your own
                           risk.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You agree that the Services shall be provided by us
@@ -1574,15 +1630,15 @@ const Project = () => {
                       </ol>
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="numbers-roman"
                     >
-                      <h6 style={{ textAlign: "justify" }}>
+                      <h6 style={{ textAlign: "justify", fontSize: "15px" }}>
                         <b>No Endorsement</b>
                       </h6>
                       <ol className="number-list number--list1">
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           We do not endorse any Merchant. In addition, although
@@ -1593,7 +1649,7 @@ const Project = () => {
                           interactions with other Members.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           By using the Services, you agree that any legal remedy
@@ -1608,15 +1664,15 @@ const Project = () => {
                       </ol>
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="numbers-roman"
                     >
-                      <h6 style={{ textAlign: "justify" }}>
+                      <h6 style={{ textAlign: "justify", fontSize: "15px" }}>
                         <b>General terms of use</b>
                       </h6>
                       <ol className="number-list number--list1">
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           Persons who are "incompetent to contract" within the
@@ -1637,7 +1693,7 @@ const Project = () => {
                           years.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           If you choose to use the Platform, it shall be your
@@ -1652,7 +1708,7 @@ const Project = () => {
                           Use.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           As we are providing services in the select cities in
@@ -1671,7 +1727,7 @@ const Project = () => {
                           authorisations, rules and guidelines.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You shall at all times be responsible for the use of
@@ -1682,7 +1738,7 @@ const Project = () => {
                           device.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You understand and agree that the use of the Services
@@ -1696,7 +1752,7 @@ const Project = () => {
                           whatsoever, be responsible or liable for such costs.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You agree and grant permission to MothersFood to
@@ -1706,18 +1762,18 @@ const Project = () => {
                           to support@MothersFood.in.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           By using the Platform you represent and warrant that:
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>i.</span>{" "}
                             &nbsp;All registration information you submit is
                             truthful, lawful and accurate and that you agree to
                             maintain the accuracy of such information.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>ii.</span>{" "}
                             &nbsp;Your use of the Platform shall be solely for
@@ -1732,7 +1788,7 @@ const Project = () => {
                             data privacy, international communications and the
                             transmission of technical or personal data.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>iii.</span>{" "}
                             &nbsp;You will not submit, post, upload, distribute,
@@ -1747,7 +1803,7 @@ const Project = () => {
                             illegal activity or the discussion of illegal
                             activities with the intent to commit them.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>iv.</span>{" "}
                             &nbsp;All necessary licenses, consents, permissions
@@ -1762,7 +1818,7 @@ const Project = () => {
                             upload, distribute or otherwise transmit or make
                             available.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>v.</span>{" "}
                             &nbsp;You will not (a) use any services provided by
@@ -1775,14 +1831,14 @@ const Project = () => {
                             event you want to advertise your product or service
                             contact contact@MothersFood.in.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>vi.</span>{" "}
                             &nbsp;You will not use the Platform in any way that
                             is unlawful, or harms us or any other person or
                             entity, as determined in our sole discretion.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>vii.</span>{" "}
                             &nbsp;You will not post, submit, upload, distribute,
@@ -1793,7 +1849,7 @@ const Project = () => {
                             otherwise interfere with any person or entity's use
                             or enjoyment of the Platform.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>viii.</span>{" "}
                             &nbsp;You will not use another person's username,
@@ -1803,7 +1859,7 @@ const Project = () => {
                             your identity or affiliation with any person or
                             entity.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>ix.</span>{" "}
                             &nbsp;You will not engage in any form of antisocial,
@@ -1812,7 +1868,7 @@ const Project = () => {
                             "griefing" as those terms are commonly understood
                             and used on the Internet.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>x.</span>{" "}
                             &nbsp;You will not delete or modify any content of
@@ -1821,7 +1877,7 @@ const Project = () => {
                             copyright or trademark symbols, logos, that you do
                             not own or have express permission to modify.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>xi.</span>{" "}
                             &nbsp;You will not post or contribute any
@@ -1832,7 +1888,7 @@ const Project = () => {
                             abusive, hateful, menacing, defamatory, untrue or
                             political or contrary to our interest.
                           </p>
-                          <p style={{ textAlign: "justify" }}>
+                          <p style={{ textAlign: "justify", fontSize: "15px" }}>
                             {" "}
                             <span style={{ color: "#06b590" }}>xii.</span>{" "}
                             &nbsp;You shall not access the Platform without
@@ -1841,7 +1897,7 @@ const Project = () => {
                           </p>
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You release and fully indemnify MothersFood and/or any
@@ -1861,15 +1917,15 @@ const Project = () => {
                       </ol>
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="numbers-roman"
                     >
-                      <h6 style={{ textAlign: "justify" }}>
+                      <h6 style={{ textAlign: "justify", fontSize: "15px" }}>
                         <b>Access to the Platform, Accuracy and security</b>
                       </h6>
                       <ol className="number-list number--list1">
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           We endeavour to make the Platform available to during
@@ -1879,7 +1935,7 @@ const Project = () => {
                           components or that such defects will be corrected.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           We do not warrant that the Platform will be compatible
@@ -1894,7 +1950,7 @@ const Project = () => {
                           actions of third parties.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           We do not represent or warranty that the information
@@ -1902,7 +1958,7 @@ const Project = () => {
                           otherwise reliable.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           We reserve the right to suspend or withdraw access to
@@ -1917,10 +1973,10 @@ const Project = () => {
                       </ol>
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="numbers-roman"
                     >
-                      <h6 style={{ textAlign: "justify" }}>
+                      <h6 style={{ textAlign: "justify", fontSize: "15px" }}>
                         <b>
                           Relationship with operators if the Platform is
                           accessed on mobile devices
@@ -1928,7 +1984,7 @@ const Project = () => {
                       </h6>
                       <ol className="number-list number--list1">
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           In the event the Platform is accessed on a mobile
@@ -1939,7 +1995,7 @@ const Project = () => {
                           Operator").
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           Your download, installation, access to or use of the
@@ -1947,7 +2003,7 @@ const Project = () => {
                           the Operator.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You and we acknowledge that these Terms of Use are
@@ -1957,7 +2013,7 @@ const Project = () => {
                           to the extent specified in these Terms of Use.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           The license granted to you for the Platform is limited
@@ -1966,7 +2022,7 @@ const Project = () => {
                           by these Terms of Use.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           We are solely responsible for providing any
@@ -1977,7 +2033,7 @@ const Project = () => {
                           services with respect to the Platform.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You and we acknowledge that we, not the relevant
@@ -1990,7 +2046,7 @@ const Project = () => {
                           protection or similar legislation.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You and we acknowledge that, in the event of any third
@@ -2002,7 +2058,7 @@ const Project = () => {
                           any such intellectual property infringement claim.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You must comply with any applicable third party terms
@@ -2012,7 +2068,7 @@ const Project = () => {
                           wireless data service agreement).
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You and we acknowledge and agree that the relevant
@@ -2026,22 +2082,22 @@ const Project = () => {
                       </ol>
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="numbers-roman"
                     >
-                      <h6 style={{ textAlign: "justify" }}>
+                      <h6 style={{ textAlign: "justify", fontSize: "15px" }}>
                         <b>Disclaimers</b>
                       </h6>
                       <ol className="number-list number--list1">
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           THE PLATFORM MAY BE UNDER CONSTANT UPGRADES, AND SOME
                           FUNCTIONS AND FEATURES MAY NOT BE FULLY OPERATIONAL.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           DUE TO THE VAGARIES THAT CAN OCCUR IN THE ELECTRONIC
@@ -2054,7 +2110,7 @@ const Project = () => {
                           POSTED IS CORRECT IN EVERY CASE.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           WE EXPRESSLY DISCLAIM ALL LIABILITIES THAT MAY ARISE
@@ -2062,7 +2118,7 @@ const Project = () => {
                           DEBIT CARDS.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           YOU ACKNOWLEDGE THAT THIRD PARTY SERVICES ARE
@@ -2082,7 +2138,7 @@ const Project = () => {
                           TO THIRD PARTY'S / MERCHANTS SERVICES.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           MOTHERSFOOD DISCLAIMS AND ALL LIABILITY THAT MAY ARISE
@@ -2092,7 +2148,7 @@ const Project = () => {
                           THE MERCHANT.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           WHILE THE MATERIALS PROVIDED ON THE PLATFORM WERE
@@ -2110,7 +2166,7 @@ const Project = () => {
                           INFORMATION.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           THE INFORMATION PROVIDED HEREUNDER IS PROVIDED "AS
@@ -2130,7 +2186,7 @@ const Project = () => {
                           PROFESSIONAL LIABILITY.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           WE SHALL NOT BE LIABLE TO YOU OR ANYONE ELSE FOR ANY
@@ -2142,7 +2198,7 @@ const Project = () => {
                           CONTAINED HEREIN.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           IN NO EVENT WILL WE BE LIABLE FOR ANY DAMAGES
@@ -2160,15 +2216,15 @@ const Project = () => {
                       </ol>
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="numbers-roman"
                     >
-                      <h6 style={{ textAlign: "justify" }}>
+                      <h6 style={{ textAlign: "justify", fontSize: "15px" }}>
                         <b>Intellectual property</b>
                       </h6>
                       <ol className="number-list number--list1">
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           We are either the owner of intellectual property
@@ -2179,7 +2235,7 @@ const Project = () => {
                           material published on it.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You may print off one copy, and may download extracts,
@@ -2189,7 +2245,7 @@ const Project = () => {
                           Platform.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You must not modify the paper or digital copies of any
@@ -2199,7 +2255,7 @@ const Project = () => {
                           separately from any accompanying text.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You must not use any part of the materials on the
@@ -2207,7 +2263,7 @@ const Project = () => {
                           licence to do so from us or our licensors.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           If you print off, copy or download any part of the
@@ -2219,15 +2275,15 @@ const Project = () => {
                       </ol>
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="numbers-roman"
                     >
-                      <h6 style={{ textAlign: "justify" }}>
+                      <h6 style={{ textAlign: "justify", fontSize: "15px" }}>
                         <b>Treatment of information provided by you</b>
                       </h6>
                       <ol className="number-list number--list1">
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           We process information provided by you to us in
@@ -2237,15 +2293,15 @@ const Project = () => {
                     </li>
 
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="numbers-roman"
                     >
-                      <h6 style={{ textAlign: "justify" }}>
+                      <h6 style={{ textAlign: "justify", fontSize: "15px" }}>
                         <b>Third Party Content</b>
                       </h6>
                       <ol className="number-list number--list1">
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           We cannot and will not assure that other users are or
@@ -2255,7 +2311,7 @@ const Project = () => {
                           or injury resulting from any such lack of compliance.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You acknowledge that when you access a link that
@@ -2270,13 +2326,13 @@ const Project = () => {
                       </ol>
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="numbers-roman"
                     >
-                      <h6 style={{ textAlign: "justify" }}>
+                      <h6 style={{ textAlign: "justify", fontSize: "15px" }}>
                         <b>Severability</b>
                       </h6>
-                      <p style={{ textAlign: "justify" }}>
+                      <p style={{ textAlign: "justify", fontSize: "15px" }}>
                         If any of these Terms of Use should be determined to be
                         illegal, invalid or otherwise unenforceable by reason of
                         the laws of any state or country in which these Terms of
@@ -2289,26 +2345,26 @@ const Project = () => {
                       </p>
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="numbers-roman"
                     >
-                      <h6 style={{ textAlign: "justify" }}>
+                      <h6 style={{ textAlign: "justify", fontSize: "15px" }}>
                         <b>Non-assignment</b>
                       </h6>
-                      <p style={{ textAlign: "justify" }}>
+                      <p style={{ textAlign: "justify", fontSize: "15px" }}>
                         You shall not assign or transfer or purport to assign or
                         transfer the contract between you and us to any other
                         person.
                       </p>
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="numbers-roman"
                     >
-                      <h6 style={{ textAlign: "justify" }}>
+                      <h6 style={{ textAlign: "justify", fontSize: "15px" }}>
                         <b>Governing law and dispute resolution</b>
                       </h6>
-                      <p style={{ textAlign: "justify" }}>
+                      <p style={{ textAlign: "justify", fontSize: "15px" }}>
                         These Terms of Use are governed by the laws of India.
                         Any action, suit, or other legal proceeding, which is
                         commenced to resolve any matter arising under or
@@ -2317,15 +2373,15 @@ const Project = () => {
                       </p>
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="numbers-roman"
                     >
-                      <h6 style={{ textAlign: "justify" }}>
+                      <h6 style={{ textAlign: "justify", fontSize: "15px" }}>
                         <b>IP Notice and Take Down Policy</b>
                       </h6>
                       <ol className="number-list number--list1">
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           MothersFood has put in place IP Notice and Take Down
@@ -2336,7 +2392,7 @@ const Project = () => {
                           Buyer and good Seller trust.
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           Only the intellectual property rights owner can report

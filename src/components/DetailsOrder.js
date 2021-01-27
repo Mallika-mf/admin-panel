@@ -14,6 +14,8 @@ import firebase from "./Firebase";
 import { MinusCircle, PlusCircle } from "@styled-icons/boxicons-regular";
 import { get, cloneDeep } from "lodash";
 import { Modal } from "antd";
+import NavBarListing from "./navBar/navbarListing";
+import NavBarlisting2 from "./navBar/Navbarlisting2";
 import { message } from "antd";
 import * as R from "ramda";
 import "../components/styles/center.css";
@@ -126,8 +128,10 @@ class ShopProduct extends React.Component {
   render() {
     let prd = get(this.props, "location.state.order", {});
     let userCart = Object.values(get(prd, "Cart", []));
+    var isLoggedin = localStorage.getItem("isLogging");
     return (
       <Fragment>
+        {isLoggedin === "true" ? <NavBarListing /> : <NavBarlisting2 />}
         <MediaQuery minDeviceWidth={1224}>
           <section
             className="OrderDetails breadcrumb_area breadcrumb1"

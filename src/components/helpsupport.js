@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { Fragment } from "react";
 import { NavLink } from "react-router-dom";
-// import Header from "../header/faqheader";
+import Header from "../header/faqheader";
 import NavBarListing from "./navBar/navbarListing";
 import NavBarlisting2 from "./navBar/Navbarlisting2";
 import "../style copy.css";
@@ -13,7 +13,7 @@ const Project = () => {
     <Fragment>
       {isLoggedin === "true" ? <NavBarListing /> : <NavBarlisting2 />}
       <div className="card">
-        {/* <Header pageTitle="Help &amp; Support" /> */}
+        <Header pageTitle="Help &amp; Support" />
         <section className="sectionbg p-top-100 p-bottom-110">
           <div className="accordion-styles accordion--one">
             <div className="container">

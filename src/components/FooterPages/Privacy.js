@@ -39,9 +39,9 @@ const Project = () => {
               </div>
               <div className="post-body">
                 <div className="m-bottom-40">
-                  <ul className="bullet--list2">
+                  <ul className="bullet--list2" style={{ fontSize: "15px" }}>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="bullet_list"
                     >
                       The terms "We" / "Us" / "Our"/”Company” individually and
@@ -49,7 +49,7 @@ const Project = () => {
                       /"Your" / "Yourself" refer to the users.
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="bullet_list"
                     >
                       This Privacy Policy is an electronic record in the form of
@@ -61,7 +61,7 @@ const Project = () => {
                       any physical, electronic or digital signature.
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="bullet_list"
                     >
                       This Privacy Policy is a legally binding document between
@@ -74,7 +74,7 @@ const Project = () => {
                       the website “Website” (defined below).
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="bullet_list"
                     >
                       This document is published and shall be construed in
@@ -87,7 +87,7 @@ const Project = () => {
                       information.
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="bullet_list"
                     >
                       Please read this Privacy Policy carefully by using the
@@ -97,7 +97,7 @@ const Project = () => {
                       Website.{" "}
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="bullet_list"
                     >
                       By providing us your Information or by making use of the
@@ -121,7 +121,7 @@ const Project = () => {
                 <div className="m-bottom-40">
                   <ul className="bullet--list2">
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="bullet_list"
                     >
                       To avail certain services on our Websites, users are
@@ -136,7 +136,7 @@ const Project = () => {
                       experience.
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="bullet_list"
                     >
                       All required information is service dependent and we may
@@ -145,7 +145,7 @@ const Project = () => {
                       and for developing new services
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="bullet_list"
                     >
                       Such information will not be considered as sensitive if it
@@ -165,7 +165,7 @@ const Project = () => {
                 <div className="m-bottom-40">
                   <ul className="bullet--list2">
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="bullet_list"
                     >
                       To improve the responsiveness of the sites for our users,
@@ -184,7 +184,7 @@ const Project = () => {
                       click on their ads), a process that we do not control.{" "}
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="bullet_list"
                     >
                       Our web servers automatically collect limited information
@@ -209,7 +209,7 @@ const Project = () => {
                   <b>LINKS TO THE OTHER SITES </b>
                 </h4>
                 <div className="m-bottom-40">
-                  <p style={{ textAlign: "justify" }}>
+                  <p style={{ textAlign: "justify", fontSize: "15px" }}>
                     Our policy discloses the privacy practices for our own web
                     site only. Our site provides links to other websites also
                     that are beyond our control. We shall in no way be
@@ -223,13 +223,13 @@ const Project = () => {
                   <b>INFORMATION SHARING </b>
                 </h4>
                 <div className="m-bottom-40">
-                  <p style={{ textAlign: "justify" }}>
+                  <p style={{ textAlign: "justify", fontSize: "15px" }}>
                     We shares the sensitive personal information to any third
                     party without obtaining the prior consent of the user in the
                     following limited circumstances:
                     <ul className="bullet--list2">
                       <li
-                        style={{ textAlign: "justify" }}
+                        style={{ textAlign: "justify", fontSize: "15px" }}
                         className="bullet_list"
                       >
                         When it is requested or required by law or by any court
@@ -243,7 +243,7 @@ const Project = () => {
                         laws and regulations.{" "}
                       </li>
                       <li
-                        style={{ textAlign: "justify" }}
+                        style={{ textAlign: "justify", fontSize: "15px" }}
                         className="bullet_list"
                       >
                         We proposes to share such information within its group
@@ -268,7 +268,7 @@ const Project = () => {
                 <div className="m-bottom-40">
                   <ul className="bullet--list2">
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="bullet_list"
                     >
                       We take appropriate security measures to protect against
@@ -281,7 +281,7 @@ const Project = () => {
                       data.{" "}
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="bullet_list"
                     >
                       All information gathered on our Website is securely stored
@@ -297,7 +297,7 @@ const Project = () => {
                       anyone with Internet access.{" "}
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="bullet_list"
                     >
                       However the internet is an ever evolving medium. We may
@@ -313,11 +313,11 @@ const Project = () => {
               </div>
 
               <div className="post-body">
-                <h4 style={{ textAlign: "justify" }}>
+                <h4 style={{ textAlign: "justify", fontSize: "15px" }}>
                   <b>Grievance Redressal </b>
                 </h4>
                 <div className="m-bottom-40">
-                  <p style={{ textAlign: "justify" }}>
+                  <p style={{ textAlign: "justify", fontSize: "15px" }}>
                     Redressal Mechanism: Any complaints, abuse or concerns with
                     regards to content and or comment or breach of these terms
                     shall be immediately informed to the designated Grievance
@@ -325,7 +325,7 @@ const Project = () => {
                     signed with the electronic signature to ……………………………..
                     ("Grievance Officer").{" "}
                   </p>
-                  <p style={{ textAlign: "justify" }}>
+                  <p style={{ textAlign: "justify", fontSize: "15px" }}>
                     Mr. Srikanth Reddy <b>(Grievance Officer)</b>
                     <br />
                     <b>www.mothersfood.in</b>

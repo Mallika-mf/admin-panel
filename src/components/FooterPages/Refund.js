@@ -33,15 +33,18 @@ const Project = () => {
           <div className="post-details">
             <div className="post-content">
               <div className="post-header" style={{ textAlign: "justify" }}>
-                <h3 style={{ fontWeight: 340, textAlign: "justify" }}>
+                <h3 style={{ fontWeight: 450, textAlign: "justify" }}>
                   <b>CANCELLATIONS AND REFUNDS</b>
                 </h3>
               </div>
               <div className="post-body">
-                <h4 style={{ fontWeight: 340, textAlign: "justify" }}>
+                <h4 style={{ fontWeight: 450, textAlign: "justify" }}>
                   <b>1. CANCELLATION</b>
                 </h4>
-                <div className="m-bottom-40">
+                <div
+                  className="m-bottom-40 text-left"
+                  style={{ fontSize: "15px" }}
+                >
                   <ul style={{ marginLeft: "2%" }} className="bullet--list2">
                     <li style={{ textAlign: "justify" }} className="menu-listt">
                       As a general rule you shall not be entitled to cancel your
@@ -135,7 +138,10 @@ const Project = () => {
                   <b>2. REFUNDS</b>
                 </h4>
                 <div className="m-bottom-40">
-                  <ul style={{ marginLeft: "2%" }} className="bullet--list2">
+                  <ul
+                    style={{ marginLeft: "2%", fontSize: "15px" }}
+                    className="bullet--list2"
+                  >
                     <li
                       style={{ textAlign: "justify" }}
                       className="bullet_list"
@@ -145,18 +151,18 @@ const Project = () => {
                       Platform and only in the event of any of the following
                       circumstances:
                       <ol
-                        style={{ marginLeft: "2%" }}
+                        style={{ marginLeft: "2%", fontSize: "15px" }}
                         className="number-list number--list1"
                       >
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           your order packaging has been tampered or damaged at
                           the time of delivery;
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           us cancelling your order due to (A) your delivery
@@ -167,7 +173,7 @@ const Project = () => {
                           of confirming the order booking; or
                         </li>
                         <li
-                          style={{ textAlign: "justify" }}
+                          style={{ textAlign: "justify", fontSize: "15px" }}
                           className="numbers-decimal"
                         >
                           You cancelling the order at the time of confirmation
@@ -177,7 +183,7 @@ const Project = () => {
                       </ol>
                     </li>
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="bullet_list"
                     >
                       Our decision on refunds shall be at our sole discretion
@@ -185,7 +191,7 @@ const Project = () => {
                     </li>
 
                     <li
-                      style={{ textAlign: "justify" }}
+                      style={{ textAlign: "justify", fontSize: "15px" }}
                       className="bullet_list"
                     >
                       All refund amounts shall be credited to your account
@@ -409,7 +415,10 @@ const Project = () => {
                 </div>
               </div>
 
-              <div className="post-body" style={{ marginLeft: "2%" }}>
+              <div
+                className="post-body"
+                style={{ marginLeft: "2%", fontSize: "15px" }}
+              >
                 <h4 style={{ textAlign: "justify", marginTop: "5%" }}>
                   <b>
                     3. In case of payment at the time of delivery, you will not
