@@ -63,6 +63,7 @@ class Detail extends React.Component {
                   content.push(num);
                 }
               });
+              console.log(content)
               this.setState({ num: content });
             }
           },
@@ -543,10 +544,10 @@ class Detail extends React.Component {
       Object.keys(prd.Cuisines).forEach(function (key, index) {
         if (index < 3) {
           cuisinesitems.push(
-            <b key={index}>
+            <>
               &nbsp;{index > 0 ? "•" : ""}&nbsp;
               {prd.Cuisines[key].Name}
-            </b>
+            </>
           );
         }
       });
@@ -1399,8 +1400,8 @@ class Detail extends React.Component {
                         src="/img/wallet-icon.png"
                       />
                       <h6 className="font-weight-bold text-right mb-2">
-                        Subtotal :&nbsp;
-                        <span className="text-danger">₹{this.state.num[(this.state.num).length-1]}</span>
+                        Subtotal :{this.state.num[1]}{" "}
+                        <span className="text-danger">{userCart.Price}</span>{console.log(userCart.Price)}{console.log(this.state.num[1])}
                       </h6>
                       <p className="seven-color mb-1 text-right">
                         Extra charges may apply
