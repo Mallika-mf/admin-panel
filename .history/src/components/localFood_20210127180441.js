@@ -303,16 +303,16 @@ class List extends React.Component {
         this.setState({product:{items:this.state.product1.items}})
     }else{
       let filteredCuisines = this.state.filter.cusines;
-        // console.log(filteredCuisines)
+        console.log(filteredCuisines)
       let filteredProducts = this.allProducts;
-      // console.log(this.allProducts);
+      console.log(this.allProducts);
       let activeChef = [];
       this.allProducts.map((products) => {
         if (products.Status === "Active") {
           activeChef.push(products);
         }
       });
-      // console.log(activeChef)
+      console.log(activeChef)
       if (filteredCuisines.length > 0) {
         //  this.allProducts.filter((products) => {
         //    if(products.Status==="Active"){
@@ -321,11 +321,11 @@ class List extends React.Component {
           let productCuisines = product.FoodType
             ? Object.keys(product.FoodType)
             : [];
-          // console.log(productCuisines)
+          console.log(productCuisines)
           let allowedCuisines = productCuisines.filter(function (cusine) {
             return filteredCuisines.indexOf(cusine) !== -1;
           });
-          // console.log(filteredCuisines)
+          console.log(filteredCuisines)
 
           return allowedCuisines.length > 0 ? true : false;
           //   });
@@ -342,7 +342,7 @@ class List extends React.Component {
       // }
 
       filteredProducts = this.sortProducts(filteredProducts);
-      // console.log(filteredProducts);
+      console.log(filteredProducts);
       this.setState({ product: { items: filteredProducts, loading: false } });
       this.setState({
         page:
@@ -372,14 +372,14 @@ class List extends React.Component {
       let index = this.filter.indexOf(item.PushId);
       // if(index!==0){
         this.filter.splice(index, 1);
-      // console.log(index)
+      console.log(index)
       // }else{
       //   this.setState({product:{items:this.state.product1.items}})
       // console.log(this.state.product1.items)
       // }
       
     }
-    // console.log({ ...this.state.filter, cusines: this.filter })
+    console.log({ ...this.state.filter, cusines: this.filter })
     this.setState({ filter: { ...this.state.filter, cusines: this.filter } });
     this.applyFilter();
   };
@@ -406,9 +406,10 @@ class List extends React.Component {
     let vegitemShow = []
     this.setState({vegItems:event.target.checked})
     this.state.product.items.map((item,index)=>{
-      // console.log(event.target.checked)
+      console.log(event.target.checked)
         if(item.Veg==="Yes"){
           vegitemShow.push(item)
+          console.log("i m here")
         }
       
       
@@ -418,8 +419,10 @@ class List extends React.Component {
 
     this.setState({product:{items:vegitemShow}})
 
+    console.log(vegitemShow)
   }else{
     this.setState({product:{items:this.state.product1.items}})
+    console.log(this.state.product1.items)
   }
 
   }
@@ -427,8 +430,10 @@ class List extends React.Component {
     let vegitemShow = []
       this.setState({nonvegItems:event.target.checked})
       this.state.product.items.map((item,index)=>{
+        console.log(event.target.checked)
           if(item.Veg==="No"){
             vegitemShow.push(item)
+            console.log("i m here")
           }
         
         
@@ -437,8 +442,10 @@ class List extends React.Component {
         // this.setState({vegItems:false})
         this.setState({product:{items:vegitemShow}})
     
+        console.log(vegitemShow)
       }else{
         this.setState({product:{items:this.state.product1.items}})
+        console.log(this.state.product1.items)
       }
       }
   render() {
@@ -635,7 +642,6 @@ class List extends React.Component {
                             <Form.Check
                               custom
                               type="checkbox"
-
                               checked={this.state.vegItems}
                               disabled={this.state.nonvegItems===true}
                               onChange={this.onChangeVeg}
@@ -660,7 +666,6 @@ class List extends React.Component {
                               label={
                                 <React.Fragment>
                                   Non/Veg{" "}
-
                                   {this.state.nonvegItems===true?
                                   <small className="text-black-50">{(this.state.product.items).length}</small>:
                                       <small className="text-black-50"></small>}
@@ -774,13 +779,11 @@ class List extends React.Component {
                             </Accordion.Toggle>
                           </h6>
                         </div>
-
                          <Accordion.Collapse eventKey="2">
                           <div className="filters-card-body card-shop-filters">
                           {/* {this.state.cusines.items.map((item) => {
                                if(item.Name!=="Brunch"&&item.Name!=="Supper"){
                               return (
->>>>>>> Stashed changes
                             <Form.Check
                               custom
                               type="checkbox"
@@ -795,7 +798,6 @@ class List extends React.Component {
                                   <small className="text-black-50">156</small>
                                 </React.Fragment>
                               }
-
                             />
                             );
                           }
@@ -815,7 +817,7 @@ class List extends React.Component {
                             })}
                           </ul>
 
-                          {/* <Form.Check
+                            {/* <Form.Check
                               custom
                               type="checkbox"
                               id="custom-cb16"

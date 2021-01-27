@@ -250,7 +250,7 @@ class List extends React.Component {
   };
 
   sortProducts = (filterProducts) => {
-    // console.log(filterProducts);
+    console.log(filterProducts);
     switch (this.state.filter.sort) {
       case "default":
         return filterProducts;
@@ -339,7 +339,7 @@ class List extends React.Component {
       }
 
       filteredProducts = this.sortProducts(filteredProducts);
-      // console.log(filteredProducts);
+      console.log(filteredProducts);
       this.setState({ product: { items: filteredProducts, loading: false } });
       this.setState({
         pages:
@@ -403,9 +403,10 @@ class List extends React.Component {
     let vegitemShow = []
     this.setState({vegItems:event.target.checked})
     this.state.product.items.map((item,index)=>{
-      // console.log(event.target.checked)
+      console.log(event.target.checked)
         if(item.Veg==="Yes"){
           vegitemShow.push(item)
+          console.log("i m here")
         }
       
       
@@ -415,8 +416,10 @@ class List extends React.Component {
 
     this.setState({product:{items:vegitemShow}})
 
+    console.log(vegitemShow)
   }else{
     this.setState({product:{items:this.state.product1.items}})
+    console.log(this.state.product1.items)
   }
 
   }
@@ -424,8 +427,10 @@ class List extends React.Component {
     let vegitemShow = []
       this.setState({nonvegItems:event.target.checked})
       this.state.product.items.map((item,index)=>{
+        console.log(event.target.checked)
           if(item.Veg==="No"){
             vegitemShow.push(item)
+            console.log("i m here")
           }
         
         
@@ -434,8 +439,10 @@ class List extends React.Component {
         // this.setState({vegItems:false})
         this.setState({product:{items:vegitemShow}})
     
+        console.log(vegitemShow)
       }else{
         this.setState({product:{items:this.state.product1.items}})
+        console.log(this.state.product1.items)
       }
       }
   render() {
@@ -1003,10 +1010,10 @@ class List extends React.Component {
                       Object.keys(item.Cuisines).forEach(function (key, index) {
                         if (index < 3) {
                           cuisinesitems.push(
-                            <span key={index}>
+                            <>
                               &nbsp;{index > 0 ? "•" : ""}&nbsp;
                               {item.Cuisines[key].Name}
-                            </span>
+                            </>
                           );
                         }
                       });
@@ -1026,7 +1033,7 @@ class List extends React.Component {
                       return (
                         <Col md={4} sm={6} key={index} className="mb-4 pb-2">
                           <CardItem
-                          
+                            key={index}
                             title={item.Name}
                             subTitle={cuisinesitems}
                             imageAlt="Product"

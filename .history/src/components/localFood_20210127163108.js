@@ -36,7 +36,7 @@ class List extends React.Component {
 
   state = {
     product: { items: [], loading: false },
-    product1: { items: [], loading: false },
+    product1: { items1: [], loading: false },
     cusines: { items: [], loading: false },
     banners: { items: [], bannerloading: false },
     filter: { cusines: [], search: "", sort: "" },
@@ -46,7 +46,8 @@ class List extends React.Component {
     page: 1,
     pages: 0,
     vegItems:false,
-    nonvegItems:false
+    nonvegItems:false,
+    show:true
   };
   componentDidMount() {
     // $(document).ready(() => {
@@ -120,12 +121,9 @@ class List extends React.Component {
     //const cityId = this.context.appState.cityinfo.PushId;
     const cityId = localStorage.getItem("pushid");
     this.setState({ product: { ...this.state.product, loading: true } });
-    this.setState({ product1: { ...this.state.product, loading: true } });
 
     if (!cityId) {
       this.setState({ product: { item: [], loading: false } });
-      this.setState({ product1: { item: [], loading: false } });
-
       return false;
     }
     let availableChefs = [];
@@ -183,14 +181,6 @@ class List extends React.Component {
             items: availableChefs.concat(nonAvailableChefs),
             loading: false,
           },
-          
-        });
-        this.setState({
-          product1: {
-            items: availableChefs.concat(nonAvailableChefs),
-            loading: false,
-          },
-          
         });
 
         this.setState({
@@ -209,24 +199,12 @@ class List extends React.Component {
             loading: false,
           },
         });
-        this.setState({
-          product1: {
-            items: availableChefs.concat(nonAvailableChefs),
-            loading: false,
-          },
-        });
       }
     } catch (e) {
       this.setState({ availableChefs: availableChefs });
       this.setState({ nonAvailableChefs: nonAvailableChefs });
       this.setState({
         product: {
-          items: availableChefs.concat(nonAvailableChefs),
-          loading: false,
-        },
-      });
-      this.setState({
-        product1: {
           items: availableChefs.concat(nonAvailableChefs),
           loading: false,
         },
@@ -299,20 +277,17 @@ class List extends React.Component {
   };
   applyFilter = () => {
     setTimeout(() => {
-      if((this.state.filter.cusines).length===0){
-        this.setState({product:{items:this.state.product1.items}})
-    }else{
       let filteredCuisines = this.state.filter.cusines;
-        // console.log(filteredCuisines)
+        console.log(filteredCuisines)
       let filteredProducts = this.allProducts;
-      // console.log(this.allProducts);
+      console.log(this.allProducts);
       let activeChef = [];
       this.allProducts.map((products) => {
         if (products.Status === "Active") {
           activeChef.push(products);
         }
       });
-      // console.log(activeChef)
+      console.log(activeChef)
       if (filteredCuisines.length > 0) {
         //  this.allProducts.filter((products) => {
         //    if(products.Status==="Active"){
@@ -321,11 +296,11 @@ class List extends React.Component {
           let productCuisines = product.FoodType
             ? Object.keys(product.FoodType)
             : [];
-          // console.log(productCuisines)
+          console.log(productCuisines)
           let allowedCuisines = productCuisines.filter(function (cusine) {
             return filteredCuisines.indexOf(cusine) !== -1;
           });
-          // console.log(filteredCuisines)
+          console.log(filteredCuisines)
 
           return allowedCuisines.length > 0 ? true : false;
           //   });
@@ -342,7 +317,7 @@ class List extends React.Component {
       // }
 
       filteredProducts = this.sortProducts(filteredProducts);
-      // console.log(filteredProducts);
+      console.log(filteredProducts);
       this.setState({ product: { items: filteredProducts, loading: false } });
       this.setState({
         page:
@@ -351,7 +326,6 @@ class List extends React.Component {
             : 1,
       });
       this.setState({ page: 1 });
-    }
     }, 2);
   };
 
@@ -370,16 +344,16 @@ class List extends React.Component {
       
       e.target.parentElement.classList.remove(activeClass);
       let index = this.filter.indexOf(item.PushId);
-      // if(index!==0){
+      if(index!==0){
         this.filter.splice(index, 1);
-      // console.log(index)
-      // }else{
-      //   this.setState({product:{items:this.state.product1.items}})
-      // console.log(this.state.product1.items)
-      // }
+      console.log(index)
+      }else{
+        this.setState({product:{items:this.state.product.items}})
+      console.log(this.state.product.items)
+      }
       
     }
-    // console.log({ ...this.state.filter, cusines: this.filter })
+    console.log({ ...this.state.filter, cusines: this.filter })
     this.setState({ filter: { ...this.state.filter, cusines: this.filter } });
     this.applyFilter();
   };
@@ -404,43 +378,41 @@ class List extends React.Component {
   };
   onChangeVeg = (event)=>{
     let vegitemShow = []
-    this.setState({vegItems:event.target.checked})
+    this.setState({vegItems:event.target.defaultChecked})
     this.state.product.items.map((item,index)=>{
-      // console.log(event.target.checked)
+      if(event.target.defaultChecked===true){
+        this.setState({show:false})
+
         if(item.Veg==="Yes"){
           vegitemShow.push(item)
         }
-      
+      }else{
+        vegitemShow.push(item)
+        this.setState({show:true})
+
+      }
       
     })
-    if(event.target.checked===true){
-      // this.setState({nonvegItems:false})
-
-    this.setState({product:{items:vegitemShow}})
-
-  }else{
-    this.setState({product:{items:this.state.product1.items}})
-  }
+    this.setState({product1:{items1:vegitemShow}})
+    console.log(vegitemShow)
 
   }
   onChangeNonVeg=(event)=>{
-    let vegitemShow = []
-      this.setState({nonvegItems:event.target.checked})
+    
+      this.setState({vegItems:event.target.defaultChecked})
       this.state.product.items.map((item,index)=>{
+        if(event.target.defaultChecked===true){
           if(item.Veg==="No"){
-            vegitemShow.push(item)
+            this.setState({product:{items1:item}})
           }
-        
+        }else{
+          this.setState({product:{items:item}})
+
+        }
         
       })
-      if(event.target.checked===true){
-        // this.setState({vegItems:false})
-        this.setState({product:{items:vegitemShow}})
-    
-      }else{
-        this.setState({product:{items:this.state.product1.items}})
-      }
-      }
+   
+  }
   render() {
     var isLoggedin = localStorage.getItem("isLogging");
     const { availableChefs } = this.state;
@@ -635,17 +607,13 @@ class List extends React.Component {
                             <Form.Check
                               custom
                               type="checkbox"
-
-                              checked={this.state.vegItems}
-                              disabled={this.state.nonvegItems===true}
+                              defaultChecked={this.state.vegItems}
                               onChange={this.onChangeVeg}
                               id="custom-cb6"
                               label={
                                 <React.Fragment>
                                   Veg{" "}
-                                  {this.state.vegItems===true?
-                                  <small className="text-black-50">{(this.state.product.items).length}</small>:
-                                      <small className="text-black-50"></small>}
+                                  <small className="text-black-50">156</small>
                                 </React.Fragment>
                               }
                             />
@@ -654,16 +622,12 @@ class List extends React.Component {
                               custom
                               type="checkbox"
                               id="custom-cb7"
-                              disabled={this.state.vegItems===true}
-                              checked={this.state.nonvegItems}
+                              defaultChecked={this.state.nonvegItems}
                               onChange={this.onChangeNonVeg}
                               label={
                                 <React.Fragment>
                                   Non/Veg{" "}
-
-                                  {this.state.nonvegItems===true?
-                                  <small className="text-black-50">{(this.state.product.items).length}</small>:
-                                      <small className="text-black-50"></small>}
+                                  <small className="text-black-50">120</small>
                                 </React.Fragment>
                               }
                             />
@@ -751,11 +715,11 @@ class List extends React.Component {
                                 </React.Fragment>
                               }
                             /> */}
-                            {/* <div className="mt-2">
+                            <div className="mt-2">
                               <Link to="#" className="link">
                                 See all
                               </Link>
-                            </div> */}
+                            </div>
                           </div>
                         </Accordion.Collapse>
                       </div>
@@ -774,13 +738,11 @@ class List extends React.Component {
                             </Accordion.Toggle>
                           </h6>
                         </div>
-
                          <Accordion.Collapse eventKey="2">
                           <div className="filters-card-body card-shop-filters">
                           {/* {this.state.cusines.items.map((item) => {
                                if(item.Name!=="Brunch"&&item.Name!=="Supper"){
                               return (
->>>>>>> Stashed changes
                             <Form.Check
                               custom
                               type="checkbox"
@@ -795,7 +757,6 @@ class List extends React.Component {
                                   <small className="text-black-50">156</small>
                                 </React.Fragment>
                               }
-
                             />
                             );
                           }
@@ -815,7 +776,7 @@ class List extends React.Component {
                             })}
                           </ul>
 
-                          {/* <Form.Check
+                            {/* <Form.Check
                               custom
                               type="checkbox"
                               id="custom-cb16"
@@ -1000,8 +961,126 @@ class List extends React.Component {
               </Col>
               <Col md={9}>
                 <CategoriesCarousel />
-                <Row>
-                  {this.state.product.items.map((item, index) => {
+                <Row>{
+                  this.state.show===true?
+                  this.state.product.items.map((item, index) => {
+                    //   console.log(item)
+                    var cuisinesitems = [];
+                    if (item.Cuisines) {
+                      Object.keys(item.Cuisines).forEach(function (key, index) {
+                        if (index < 3) {
+                          cuisinesitems.push(
+                            <b key={index}>
+                              &nbsp;{index > 0 ? "•" : ""}&nbsp;
+                              {item.Cuisines[key].Name}
+                            </b>
+                          );
+                        }
+                      });
+                    }
+                    if (
+                      availableChefs.find((chef) => chef.UserId === item.UserId)
+                    ) {
+                      let profileImage = item.PP
+                        ? item.PP
+                        : "../assets/img/chef.png";
+                      if (
+                        profileImage ===
+                        "https://firebasestorage.googleapis.com/v0/b/mothersfood-a1de8.appspot.com/o/CloudKitchen%2F1599912088639-add.png?alt=media&token=60561b4b-af5d-489c-bbc8-28e8de47851f"
+                      ) {
+                        profileImage = "../assets/img/chef.png";
+                      }
+                      return (
+                        <Col md={4} sm={6} className="mb-4 pb-2" key={index}>
+                          <CardItem
+                            title={item.KitchenName}
+                            subTitle={cuisinesitems}
+                            imageAlt="Product"
+                            image={profileImage}
+                            imageClass="img-fluid item-img"
+                            linkUrl={"detail/" + item.UserId}
+                            offerText="65% off | Use Coupon OSAHAN50"
+                            time={
+                              item.DeliveryTime
+                                ? item.DeliveryTime + " mins"
+                                : "40 mins"
+                            }
+                            price={
+                              item.CostTwo
+                                ? item.CostTwo + " For Two"
+                                : "250 For Two"
+                            }
+                            // showPromoted={true}
+                            // promotedVariant="dark"
+                            favIcoIconColor={
+                              item.Veg === "Yes" ? "text-green" : "text-danger"
+                            }
+                            rating={
+                              item.Ratings !== undefined
+                                ? Math.trunc(item.Ratings * 10) / 10
+                                : "5"
+                            }
+                            available={false}
+                            product={item}
+                            id={"detail/" + item.UserId}
+                          />
+                        </Col>
+                      );
+                    } else {
+                      let profileImage = item.PP
+                        ? item.PP
+                        : "../assets/img/chef.png";
+                      if (
+                        profileImage ===
+                        "https://firebasestorage.googleapis.com/v0/b/mothersfood-a1de8.appspot.com/o/CloudKitchen%2F1599912088639-add.png?alt=media&token=60561b4b-af5d-489c-bbc8-28e8de47851f"
+                      ) {
+                        profileImage = "../assets/img/chef.png";
+                      }
+                      return (
+                        <Col
+                          md={4}
+                          sm={6}
+                          className="mb-4 pb-2"
+                          style={{ border: "none", opacity: "0.7" }}
+                          key={index}
+                        >
+                          <CardItem
+                            title={item.KitchenName}
+                            subTitle={cuisinesitems}
+                            imageAlt="Product"
+                            image={profileImage}
+                            imageClass="img-fluid item-img"
+                            linkUrl={"detail/" + item.UserId}
+                            offerText="65% off | Use Coupon OSAHAN50"
+                            time={
+                              item.DeliveryTime
+                                ? item.DeliveryTime + " mins"
+                                : "40 mins"
+                            }
+                            price={
+                              item.CostTwo
+                                ? item.CostTwo + " For Two"
+                                : "250 For Two"
+                            }
+                            // showPromoted={true}
+                            // promotedVariant="dark"
+                            favIcoIconColor={
+                              item.Veg === "Yes" ? "text-green" : "text-danger"
+                            }
+                            rating={
+                              item.Ratings !== undefined
+                                ? Math.trunc(item.Ratings * 10) / 10
+                                : "5"
+                            }
+                            product={item}
+                            id={"detail/" + item.UserId}
+                            available={true}
+                          />
+                        </Col>
+                      );
+                    }
+                  })
+                  :this.state.product.items1.map((item, index) => {
                     //   console.log(item)
                     var cuisinesitems = [];
                     if (item.Cuisines) {
@@ -1118,6 +1197,7 @@ class List extends React.Component {
                       );
                     }
                   })}
+                  
                   {/* <Col md={4} sm={6} className="mb-4 pb-2">
 
 			                        <CardItem 

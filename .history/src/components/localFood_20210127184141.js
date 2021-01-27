@@ -774,7 +774,10 @@ class List extends React.Component {
                             </Accordion.Toggle>
                           </h6>
                         </div>
-
+<<<<<<< Updated upstream
+                        <Accordion.Collapse eventKey="2">
+                          {/*<div className="filters-card-body card-shop-filters">
+=======
                          <Accordion.Collapse eventKey="2">
                           <div className="filters-card-body card-shop-filters">
                           {/* {this.state.cusines.items.map((item) => {
@@ -795,7 +798,28 @@ class List extends React.Component {
                                   <small className="text-black-50">156</small>
                                 </React.Fragment>
                               }
-
+<<<<<<< Updated upstream
+                            /> */}
+                          <ul>
+                            {this.state.cusines.items.map((item) => {
+                              if (
+                                item.Name !== "Brunch" &&
+                                item.Name !== "Supper"
+                              ) {
+                                return (
+                                  <li className="arrow-list text-left">
+                                    <input
+                                      type="checkbox"
+                                      onChange={(e) => {
+                                        return this.filterCategory(item, e);
+                                      }}
+                                      className="mr-2  "
+                                    />
+                                    {item.Name}
+                                  </li>
+                                );
+                              }
+=======
                             />
                             );
                           }
@@ -812,6 +836,7 @@ class List extends React.Component {
                                 </li>
                               );
                                   }
+>>>>>>> Stashed changes
                             })}
                           </ul>
 

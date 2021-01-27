@@ -1003,10 +1003,10 @@ class List extends React.Component {
                       Object.keys(item.Cuisines).forEach(function (key, index) {
                         if (index < 3) {
                           cuisinesitems.push(
-                            <span key={index}>
+                            <>
                               &nbsp;{index > 0 ? "•" : ""}&nbsp;
                               {item.Cuisines[key].Name}
-                            </span>
+                            </>
                           );
                         }
                       });
@@ -1026,7 +1026,7 @@ class List extends React.Component {
                       return (
                         <Col md={4} sm={6} key={index} className="mb-4 pb-2">
                           <CardItem
-                          
+                            key={index}
                             title={item.Name}
                             subTitle={cuisinesitems}
                             imageAlt="Product"

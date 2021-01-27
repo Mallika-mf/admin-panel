@@ -635,7 +635,6 @@ class List extends React.Component {
                             <Form.Check
                               custom
                               type="checkbox"
-
                               checked={this.state.vegItems}
                               disabled={this.state.nonvegItems===true}
                               onChange={this.onChangeVeg}
@@ -660,7 +659,6 @@ class List extends React.Component {
                               label={
                                 <React.Fragment>
                                   Non/Veg{" "}
-
                                   {this.state.nonvegItems===true?
                                   <small className="text-black-50">{(this.state.product.items).length}</small>:
                                       <small className="text-black-50"></small>}
@@ -774,13 +772,11 @@ class List extends React.Component {
                             </Accordion.Toggle>
                           </h6>
                         </div>
-
                          <Accordion.Collapse eventKey="2">
                           <div className="filters-card-body card-shop-filters">
                           {/* {this.state.cusines.items.map((item) => {
                                if(item.Name!=="Brunch"&&item.Name!=="Supper"){
                               return (
->>>>>>> Stashed changes
                             <Form.Check
                               custom
                               type="checkbox"
@@ -795,7 +791,6 @@ class List extends React.Component {
                                   <small className="text-black-50">156</small>
                                 </React.Fragment>
                               }
-
                             />
                             );
                           }
@@ -815,7 +810,7 @@ class List extends React.Component {
                             })}
                           </ul>
 
-                          {/* <Form.Check
+                            {/* <Form.Check
                               custom
                               type="checkbox"
                               id="custom-cb16"
