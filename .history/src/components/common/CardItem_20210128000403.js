@@ -43,7 +43,7 @@ class CardItem extends React.Component {
         <div className="p-3 position-relative">
           <div className="list-card-body">
             <h6 className="mb-1">
-            <button onClick={this.props.onClickLocation} style={{border:"none",color:"black",backgroundColor:"white"}}>
+            <button onClick={this.props.onClickLocation} style={{border:"none"}}>
                 {this.props.title}
               </button>
             </h6>

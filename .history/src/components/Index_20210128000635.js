@@ -70,60 +70,9 @@ const Index = () => {
       })
       .catch((error) => console.log("Geocode ERROR", error));
   };
-  const getCoordinatesLocal = (position) => {
-    setLatitude(position.coords.latitude);
-    setLongitude(position.coords.longitude);
-    localStorage.setItem("lat", position.coords.latitude);
-    localStorage.setItem("lng", position.coords.longitude);
-    Geocode.fromLatLng(
-      get(position, "coords.latitude"),
-      get(position, "coords.longitude")
-    )
-      .then((response) => {
-        localStorage.setItem(
-          "formattedAddress",
-          response.results[0].formatted_address
-        );
-        setLocation({
-          city: response.results[0].address_components[0]["long_name"],
-          query: response.results[0].formatted_address,
-        });
-
-        let cityInfo = "";
-        for (let city of allCities.cities) {
-          if (response.results[0].formatted_address.includes(city.Name)) {
-            cityInfo = city;
-            localStorage.setItem("cityname", city.Name);
-            localStorage.setItem("pushid", city.PushId);
-            localStorage.setItem("radius", city.Radius);
-            // setAppLocation(cityInfo);
-            setError("");
-            if (updateKitchenLocation) {
-              updateKitchenLocation();
-            }
-          } else {
-            setError("not serviceable in this area");
-            //message.error('Not serviceable in this area');
-          }
-        }
-        if (!cityInfo || cityInfo === "") {
-          //setError("not serviceable in this area");
-          message.error("Not serviceable in this area");
-        }
-        // const address = response.results[0].formatted_address;
-        // setAddress(address);
-      })
-      .catch((error) => console.log("Geocode ERROR", error));
-  };
   const updateLocation = () => {
     this.props.history.push({
       pathname: `/listing`,
-      search: `?cityName=${localStorage.getItem("cityname")}`,
-    });
-  };
-  const updateKitchenLocation = () => {
-    this.props.history.push({
-      pathname: `/localDishes`,
       search: `?cityName=${localStorage.getItem("cityname")}`,
     });
   };
@@ -133,13 +82,6 @@ const Index = () => {
       navigator.geolocation.getCurrentPosition(getCoordinates);
     }
   };
-  const getLocationKitchen = (event) => {
-    event.preventDefault();
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(getCoordinatesLocal);
-    }
-  };
-  
   return (
     <>
       <TopSearch />
@@ -304,7 +246,7 @@ const Index = () => {
                     imageAlt="Product"
                     image="./assets/img/vendors/Al Saba_Hyderabad.jpg"
                     imageClass="img-fluid item-img"
-                    onClickLocation={getLocationKitchen}
+                    onClickLocation={getLocation}
                     // offerText="65% off | Use Coupon OSAHAN50"
                     time="11AM to 12PM"
                     // price="$250 FOR TWO"
@@ -321,7 +263,7 @@ const Index = () => {
                     imageAlt="Product"
                     image="./assets/img/vendors/Grill 5 Kitchen_Hyderabad.jpg"
                     imageClass="img-fluid item-img"
-                    onClickLocation={getLocationKitchen}
+                    onClickLocation={getLocation}
                     // offerText="65% off | Use Coupon OSAHAN50"
                     time="11AM to 12PM"
                     // price="$100 FOR TWO"
@@ -338,7 +280,7 @@ const Index = () => {
                     imageAlt="Product"
                     image="./assets/img/vendors/MomoS Junction_Gurugaon.jpg"
                     imageClass="img-fluid item-img"
-                    onClickLocation={getLocationKitchen}
+                    onClickLocation={getLocation}
                     // offerText="65% off | Use Coupon OSAHAN50"
                     time="11AM to 12PM"
                     // price="$500 FOR TWO"
@@ -355,7 +297,7 @@ const Index = () => {
                     imageAlt="Product"
                     image="./assets/img/vendors/Prince ki Choice_Gurugoan.jpg"
                     imageClass="img-fluid item-img"
-                    onClickLocation={getLocationKitchen}
+                    // onClickLocation={getLocation}
                     // offerText="65% off | Use Coupon OSAHAN50"
                     time="11AM to 12PM"
                     // price="$250 FOR TWO"

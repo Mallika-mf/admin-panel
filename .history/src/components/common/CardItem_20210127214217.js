@@ -32,7 +32,7 @@ class CardItem extends React.Component {
           ) : (
             ""
           )}
-          <button onClick={this.props.onClickLocation} style={{border:"none"}}>
+          <button onClick={this.props.onClickLocation}>
             <Image
               src={this.props.image}
               className={this.props.imageClass}
@@ -43,9 +43,9 @@ class CardItem extends React.Component {
         <div className="p-3 position-relative">
           <div className="list-card-body">
             <h6 className="mb-1">
-            <button onClick={this.props.onClickLocation} style={{border:"none",color:"black",backgroundColor:"white"}}>
+              <Link to={this.props.linkUrl} className="text-black">
                 {this.props.title}
-              </button>
+              </Link>
             </h6>
             {this.props.subTitle ? (
               <p className="text-gray mb-3">{this.props.subTitle}</p>
@@ -93,7 +93,7 @@ CardItem.propTypes = {
   imageAlt: PropTypes.string,
   image: PropTypes.string.isRequired,
   imageClass: PropTypes.string,
-  // linkUrl: PropTypes.string.isRequired,
+  linkUrl: PropTypes.string.isRequired,
   offerText: PropTypes.string,
   offerColor: PropTypes.string,
   subTitle: PropTypes.string,

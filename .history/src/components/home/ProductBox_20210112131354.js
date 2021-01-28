@@ -7,7 +7,7 @@ class ProductBox extends React.Component {
 	render() {
     	return (
 	      <div className={this.props.boxClass}>
-	         {/* <Link to={this.props.linkUrl}> */}
+	         <Link to={this.props.linkUrl}>
              <Image src={this.props.image} className={this.props.imageClass} alt={this.props.imageAlt} />
              {this.props.title?
                <h6>{this.props.title}</h6>
@@ -17,7 +17,7 @@ class ProductBox extends React.Component {
               <p>{this.props.counting}</p>
                :""
              }
-           {/* </Link> */}
+           </Link>
 
 	      </div>
 		);
