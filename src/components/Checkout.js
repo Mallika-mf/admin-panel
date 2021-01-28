@@ -1646,194 +1646,194 @@ class Checkout extends React.Component {
     var isLoggedin = localStorage.getItem("isLogging");
     const preOrder = get(this.props, "location.state.preorder", "");
     return (
-      <section className="offer-dedicated-body mt-4 mb-4 pt-2 pb-2">
+      <>
         {isLoggedin === "true" ? <NavBarListing /> : <NavBarlisting2 />}
-
-        {this.state.showAddress ? (
-          <SweetAlert
-            title="Warning!"
-            warning
-            confirmBtnBsStyle="success"
-            onConfirm={() => this.setState({ showAddress: false })}
+        <section className="offer-dedicated-body mt-4 mb-4 pt-2 pb-2">
+          {this.state.showAddress ? (
+            <SweetAlert
+              title="Warning!"
+              warning
+              confirmBtnBsStyle="success"
+              onConfirm={() => this.setState({ showAddress: false })}
+            >
+              The Order cannot be delivered to this location.
+            </SweetAlert>
+          ) : null}
+          {this.state.promocodeSuccess ? (
+            <SweetAlert
+              title="Success!"
+              success
+              confirmBtnBsStyle="success"
+              onConfirm={() => this.setState({ promocodeSuccess: false })}
+            >
+              Promo Code applied Successfully.
+            </SweetAlert>
+          ) : null}
+          {this.state.promocodeFail ? (
+            <SweetAlert
+              title="Warning!"
+              warning
+              confirmBtnBsStyle="success"
+              onConfirm={() => this.setState({ promocodeFail: false })}
+            >
+              Minimum Order Amount is less that required.
+            </SweetAlert>
+          ) : null}
+          {this.state.promocodeNotExits ? (
+            <SweetAlert
+              title="Warning!"
+              warning
+              confirmBtnBsStyle="success"
+              onConfirm={() => this.setState({ promocodeNotExits: false })}
+            >
+              Promcode not exists.
+            </SweetAlert>
+          ) : null}
+          {this.state.promocodeRemoved ? (
+            <SweetAlert
+              title="Success!"
+              success
+              confirmBtnBsStyle="success"
+              onConfirm={() => this.setState({ promocodeRemoved: false })}
+            >
+              Promo Code removed Successfully.
+            </SweetAlert>
+          ) : null}
+          <Modal
+            title="Add New Address"
+            visible={showAddressModal}
+            onOk={this.handleOk}
+            onCancel={this.handleCancel}
           >
-            The Order cannot be delivered to this location.
-          </SweetAlert>
-        ) : null}
-        {this.state.promocodeSuccess ? (
-          <SweetAlert
-            title="Success!"
-            success
-            confirmBtnBsStyle="success"
-            onConfirm={() => this.setState({ promocodeSuccess: false })}
-          >
-            Promo Code applied Successfully.
-          </SweetAlert>
-        ) : null}
-        {this.state.promocodeFail ? (
-          <SweetAlert
-            title="Warning!"
-            warning
-            confirmBtnBsStyle="success"
-            onConfirm={() => this.setState({ promocodeFail: false })}
-          >
-            Minimum Order Amount is less that required.
-          </SweetAlert>
-        ) : null}
-        {this.state.promocodeNotExits ? (
-          <SweetAlert
-            title="Warning!"
-            warning
-            confirmBtnBsStyle="success"
-            onConfirm={() => this.setState({ promocodeNotExits: false })}
-          >
-            Promcode not exists.
-          </SweetAlert>
-        ) : null}
-        {this.state.promocodeRemoved ? (
-          <SweetAlert
-            title="Success!"
-            success
-            confirmBtnBsStyle="success"
-            onConfirm={() => this.setState({ promocodeRemoved: false })}
-          >
-            Promo Code removed Successfully.
-          </SweetAlert>
-        ) : null}
-        <Modal
-          title="Add New Address"
-          visible={showAddressModal}
-          onOk={this.handleOk}
-          onCancel={this.handleCancel}
-        >
-          <div className="card-body">
-            <form>
-              <div className="form-group">
-                <div>
-                  <MapAutoComplete
-                    updatevalue={(value) => this.updatevalueFunc(value)}
-                  />{" "}
-                  {/* <button onClick={getLocation}  style={{ background: "white", color: "#EA6767",border: 'none', margin: "auto", position: 'absolute', left: '65%', cursor: 'pointer'  }} type="button">
+            <div className="card-body">
+              <form>
+                <div className="form-group">
+                  <div>
+                    <MapAutoComplete
+                      updatevalue={(value) => this.updatevalueFunc(value)}
+                    />{" "}
+                    {/* <button onClick={getLocation}  style={{ background: "white", color: "#EA6767",border: 'none', margin: "auto", position: 'absolute', left: '65%', cursor: 'pointer'  }} type="button">
                                     <CurrentLocation size={24} style={{marginRight: '5px'}}/>Locate Me</button> */}
-                  {lat && lng ? (
-                    <div
-                      style={{
-                        position: "relative",
-                        width: "100%",
-                        height: "200px",
-                        marginBottom: "30px",
-                      }}
-                    >
-                      <SingleMap latitude={lat} longitude={lng} />
-                    </div>
-                  ) : null}
-                  {/* <form onSubmit={this.handleAddressSelectionSubmitAdd}> */}
-                  <form>
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        name="flat"
-                        placeholder="HOUSE/FLAT NO"
-                        className="form-control"
-                        onChange={this.handleInputChange}
-                        required
-                      />
-                    </div>
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        name="name"
-                        placeholder="SAVE ADDRESS AS"
-                        className="form-control"
-                        onChange={this.handleInputChange}
-                        required
-                      />
-                    </div>
-                    {/* <button type="submit"  className="btn float-right" style={{ background: "#FFEFED", color: "#EA6767", border: "solid 1px #EA6767", marginRight: "0%", marginTop: "5%" }} >Add</button> */}
-                  </form>
-                </div>
-                {/* {error?
+                    {lat && lng ? (
+                      <div
+                        style={{
+                          position: "relative",
+                          width: "100%",
+                          height: "200px",
+                          marginBottom: "30px",
+                        }}
+                      >
+                        <SingleMap latitude={lat} longitude={lng} />
+                      </div>
+                    ) : null}
+                    {/* <form onSubmit={this.handleAddressSelectionSubmitAdd}> */}
+                    <form>
+                      <div className="form-group">
+                        <input
+                          type="text"
+                          name="flat"
+                          placeholder="HOUSE/FLAT NO"
+                          className="form-control"
+                          onChange={this.handleInputChange}
+                          required
+                        />
+                      </div>
+                      <div className="form-group">
+                        <input
+                          type="text"
+                          name="name"
+                          placeholder="SAVE ADDRESS AS"
+                          className="form-control"
+                          onChange={this.handleInputChange}
+                          required
+                        />
+                      </div>
+                      {/* <button type="submit"  className="btn float-right" style={{ background: "#FFEFED", color: "#EA6767", border: "solid 1px #EA6767", marginRight: "0%", marginTop: "5%" }} >Add</button> */}
+                    </form>
+                  </div>
+                  {/* {error?
                                 <div className="error">{error}</div>:null} */}
-              </div>
+                </div>
 
-              <div className="form-group text-center m-bottom-20">
-                {/* <button onClick={changeLocation}className="btn btn-secondary" style={{ background: "#EA6767", color: "white", border: "#EA6767", margin: "auto" }} type="button">Locate</button> */}
-              </div>
-            </form>
-          </div>
-        </Modal>
-        {/* <AddAddressModal show={this.state.showAddressModal} onHide={this.hideAddressModal} /> */}
-        <Container>
-          <Row>
-            <Col md={8}>
-              <div className="offer-dedicated-body-left">
-                {/* <div className="bg-white rounded shadow-sm p-4 mb-4">
+                <div className="form-group text-center m-bottom-20">
+                  {/* <button onClick={changeLocation}className="btn btn-secondary" style={{ background: "#EA6767", color: "white", border: "#EA6767", margin: "auto" }} type="button">Locate</button> */}
+                </div>
+              </form>
+            </div>
+          </Modal>
+          {/* <AddAddressModal show={this.state.showAddressModal} onHide={this.hideAddressModal} /> */}
+          <Container>
+            <Row>
+              <Col md={8}>
+                <div className="offer-dedicated-body-left">
+                  {/* <div className="bg-white rounded shadow-sm p-4 mb-4">
 									<h6 className="mb-3">You may also like</h6>
 									<ItemsCarousel />
 								</div> */}
-                <div className="pt-2"></div>
-                <div className="bg-white rounded shadow-sm p-4 mb-4">
-                  <h4 className="mb-1">Choose a delivery address</h4>
-                  <h6 className="mb-3 text-black-50">
-                    Multiple addresses in this location
-                  </h6>
-                  <Row>
-                    {get(userAddresses, "length", 0) > 0
-                      ? userAddresses.map((userAddress, index) => {
-                          let currentRedius = localStorage.getItem("radius");
+                  <div className="pt-2"></div>
+                  <div className="bg-white rounded shadow-sm p-4 mb-4">
+                    <h4 className="mb-1">Choose a delivery address</h4>
+                    <h6 className="mb-3 text-black-50">
+                      Multiple addresses in this location
+                    </h6>
+                    <Row>
+                      {get(userAddresses, "length", 0) > 0
+                        ? userAddresses.map((userAddress, index) => {
+                            let currentRedius = localStorage.getItem("radius");
 
-                          this.getUserRadiusBetweenTwoLocations1(
-                            String(userAddress.Coord)
-                          );
-                          if (
                             this.getUserRadiusBetweenTwoLocations1(
                               String(userAddress.Coord)
-                            ) < currentRedius
-                          ) {
-                            // console.log("INSIDE IF",currentRedius,this.getUserRadiusBetweenTwoLocations1(String(userAddress.Coord)))
-                            // console.log(userAddress.Coord)
-                            return (
-                              <Col md={6} key={index}>
-                                <ChooseAddressCard
-                                  boxclassName="border border-success"
-                                  title={userAddress.Name}
-                                  icoIcon="google-map"
-                                  iconclassName="icofont-3x"
-                                  address={userAddress.Address}
-                                  onDeliverHereClick={() =>
-                                    this.handleAddressSelect(userAddress)
-                                  }
-                                />
-                              </Col>
                             );
-                          }
-                        })
-                      : ""}
-                    <button
-                      onClick={this.handleAddressSelectionSubmit}
-                      className="btn btn-sm btn-primary mr-2"
-                      style={{
-                        background: "#FFFFFF",
-                        color: "white",
-                        border: "solid 2px #E41C39",
-                        marginRight: "0%",
-                        fontWeight: "bold",
-                        height: "30px",
-                        float: "right",
-                        marginLeft: "30%",
-                        marginTop: "30%",
-                      }}
-                    >
-                      Add New Address
-                    </button>
-                    {addressError ? (
-                      <div
-                        className="form-group"
-                        style={{ paddingTop: "85px" }}
+                            if (
+                              this.getUserRadiusBetweenTwoLocations1(
+                                String(userAddress.Coord)
+                              ) < currentRedius
+                            ) {
+                              // console.log("INSIDE IF",currentRedius,this.getUserRadiusBetweenTwoLocations1(String(userAddress.Coord)))
+                              // console.log(userAddress.Coord)
+                              return (
+                                <Col md={6} key={index}>
+                                  <ChooseAddressCard
+                                    boxclassName="border border-success"
+                                    title={userAddress.Name}
+                                    icoIcon="google-map"
+                                    iconclassName="icofont-3x"
+                                    address={userAddress.Address}
+                                    onDeliverHereClick={() =>
+                                      this.handleAddressSelect(userAddress)
+                                    }
+                                  />
+                                </Col>
+                              );
+                            }
+                          })
+                        : ""}
+                      <button
+                        onClick={this.handleAddressSelectionSubmit}
+                        className="btn btn-sm btn-primary mr-2"
+                        style={{
+                          background: "#FFFFFF",
+                          color: "white",
+                          border: "solid 2px #E41C39",
+                          marginRight: "0%",
+                          fontWeight: "bold",
+                          height: "40px",
+                          float: "right",
+                          marginLeft: "42%",
+                          marginTop: "30%",
+                        }}
                       >
-                        <div className="error">{addressError}</div>
-                      </div>
-                    ) : null}
-                    {/* <Col md={6}>
+                        Add New Address
+                      </button>
+                      {addressError ? (
+                        <div
+                          className="form-group"
+                          style={{ paddingTop: "85px" }}
+                        >
+                          <div className="error">{addressError}</div>
+                        </div>
+                      ) : null}
+                      {/* <Col md={6}>
 											<ChooseAddressCard
 												title='Work'
 												icoIcon='map'
@@ -1841,7 +1841,7 @@ class Checkout extends React.Component {
 												address='NCC, Model Town Rd, Pritm Nagar, Model Town, Ludhiana, Punjab 141002, India'
 											/>
 										</Col> */}
-                    {/*<Col md={6}>
+                      {/*<Col md={6}>
 											<ChooseAddressCard
 												title='Work'
 												icoIcon='briefcase'
@@ -1859,10 +1859,10 @@ class Checkout extends React.Component {
 												onAddNewClick={() => this.setState({ showAddressModal: true })}
 											/>
 										</Col> */}
-                  </Row>
-                </div>
-                <div className="pt-2"></div>
-                {/* <div className="bg-white rounded shadow-sm p-4 osahan-payment">
+                    </Row>
+                  </div>
+                  <div className="pt-2"></div>
+                  {/* <div className="bg-white rounded shadow-sm p-4 osahan-payment">
 									<h4 className="mb-1">Choose payment method</h4>
 									<h6 className="mb-3 text-black-50">Credit/Debit Cards</h6>
 									<Tab.Container id="left-tabs-example" defaultActiveKey="first">
@@ -2050,54 +2050,54 @@ class Checkout extends React.Component {
 										</Row>
 									</Tab.Container>
 								</div> */}
-              </div>
-            </Col>
-            <Col md={4}>
-              <div className="generator-bg rounded shadow-sm mb-4 p-4 osahan-cart-item">
-                {/* <div className="d-flex mb-4 osahan-cart-item-profile">
+                </div>
+              </Col>
+              <Col md={4}>
+                <div className="generator-bg rounded shadow-sm mb-4 p-4 osahan-cart-item">
+                  {/* <div className="d-flex mb-4 osahan-cart-item-profile">
 									<Image fluid className="mr-3 rounded-pill" alt="osahan" src="/img/2.jpg" />
 									<div className="d-flex flex-column">
 										<h6 className="mb-1 text-white">Spice Hut Indian Restaurant
                            </h6>
 										{/* <p className="mb-0 text-white"><Icofont icon="location-pin" /> 2036 2ND AVE, NEW YORK, NY 10029</p> */}
-                {/* </div>
+                  {/* </div>
 								</div> */}
-                {this.onShowImage()}
-                <div className="bg-white rounded shadow-sm mb-2">
-                  {get(userCart, "length", 0) > 0 ? (
-                    <>
-                      {userCart.map((cartItem, index) => {
-                        let cartType = cartItem.Type;
-                        return (
-                          <div key={index}>
-                            <OwlCarousel
-                              nav
-                              loop
-                              {...options2}
-                              className="homepage-ad owl-theme"
-                            >
-                              <CheckoutItem
-                                cartType={cartType}
-                                itemName={cartItem.Name}
-                                price={parseInt(cartItem.Total)}
-                                priceUnit="₹"
-                                id={1}
-                                qty={2}
-                                show={true}
-                                minValue={0}
-                                maxValue={7}
-                                getValue={this.getQty}
-                                onDecrement={() =>
-                                  this.handleDecreaseQuantity(cartItem)
-                                }
-                                onIncrement={() =>
-                                  this.handleIncreaseQuantity(cartItem)
-                                }
-                                quantity={get(cartItem, "Qty", "3")}
-                              />
-                            </OwlCarousel>
+                  {this.onShowImage()}
+                  <div className="bg-white rounded shadow-sm mb-2">
+                    {get(userCart, "length", 0) > 0 ? (
+                      <>
+                        {userCart.map((cartItem, index) => {
+                          let cartType = cartItem.Type;
+                          return (
+                            <div key={index}>
+                              <OwlCarousel
+                                nav
+                                loop
+                                {...options2}
+                                className="homepage-ad owl-theme"
+                              >
+                                <CheckoutItem
+                                  cartType={cartType}
+                                  itemName={cartItem.Name}
+                                  price={parseInt(cartItem.Total)}
+                                  priceUnit="₹"
+                                  id={1}
+                                  qty={2}
+                                  show={true}
+                                  minValue={0}
+                                  maxValue={7}
+                                  getValue={this.getQty}
+                                  onDecrement={() =>
+                                    this.handleDecreaseQuantity(cartItem)
+                                  }
+                                  onIncrement={() =>
+                                    this.handleIncreaseQuantity(cartItem)
+                                  }
+                                  quantity={get(cartItem, "Qty", "3")}
+                                />
+                              </OwlCarousel>
 
-                            {/* <CheckoutItem
+                              {/* <CheckoutItem
 															itemName="Cheese corn Roll"
 															price={260}
 															priceUnit="$"
@@ -2141,175 +2141,176 @@ class Checkout extends React.Component {
 															maxValue={7}
 															getValue={this.getQty}
 														/> */}
+                            </div>
+                          );
+                        })}
+                      </>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                  <div className="mb-2 bg-white rounded p-2 clearfix">
+                    {this.state.showPromocode === true ? (
+                      <>
+                        <InputGroup className="input-group-sm mb-2">
+                          <Form.Control
+                            type="text"
+                            value={this.state.promocode}
+                            onChange={this.promocodeHandler}
+                            placeholder="Enter promo code"
+                          />
+                          <InputGroup.Append>
+                            <Button
+                              variant="primary"
+                              type="button"
+                              onClick={this.handlePromo}
+                              id="button-addon2"
+                              disabled={this.state.promocode.length === 0}
+                            >
+                              <Icofont icon="sale-discount" /> APPLY
+                            </Button>
+                          </InputGroup.Append>
+                        </InputGroup>
+                      </>
+                    ) : (
+                      <div className="input-group mb-4">
+                        <div
+                          className="input-group-append"
+                          onClick={this.handleRemovePromo}
+                          id="promocodeButton"
+                          style={{ cursor: "pointer" }}
+                        >
+                          <span className="input-group-text">
+                            <i className="fa fa-check-square mr-2"></i>Remove
+                            Promo
+                          </span>
+                        </div>
+                      </div>
+                    )}
+
+                    {this.state.promocodeDisplay &&
+                      this.state.promocodeDisplay.length &&
+                      this.state.promocodeDisplay.map((item, index) => {
+                        return (
+                          <div key={index}>
+                            <CartItem
+                              type={item.Type}
+                              discount={item.Discount}
+                              maxAmount={item.MaxAmount}
+                              minAmount={item.MinAmount}
+                              name={item.Name}
+                            />
                           </div>
                         );
                       })}
-                    </>
-                  ) : (
-                    ""
-                  )}
-                </div>
-                <div className="mb-2 bg-white rounded p-2 clearfix">
-                  {this.state.showPromocode === true ? (
-                    <>
-                      <InputGroup className="input-group-sm mb-2">
-                        <Form.Control
-                          type="text"
-                          value={this.state.promocode}
-                          onChange={this.promocodeHandler}
-                          placeholder="Enter promo code"
-                        />
-                        <InputGroup.Append>
-                          <Button
-                            variant="primary"
-                            type="button"
-                            onClick={this.handlePromo}
-                            id="button-addon2"
-                            disabled={this.state.promocode.length === 0}
-                          >
-                            <Icofont icon="sale-discount" /> APPLY
-                          </Button>
-                        </InputGroup.Append>
-                      </InputGroup>
-                    </>
-                  ) : (
-                    <div className="input-group mb-4">
-                      <div
-                        className="input-group-append"
-                        onClick={this.handleRemovePromo}
-                        id="promocodeButton"
-                        style={{ cursor: "pointer" }}
-                      >
-                        <span className="input-group-text">
-                          <i className="fa fa-check-square mr-2"></i>Remove
-                          Promo
-                        </span>
-                      </div>
-                    </div>
-                  )}
 
-                  {this.state.promocodeDisplay &&
-                    this.state.promocodeDisplay.length &&
-                    this.state.promocodeDisplay.map((item, index) => {
-                      return (
-                        <div key={index}>
-                          <CartItem
-                            type={item.Type}
-                            discount={item.Discount}
-                            maxAmount={item.MaxAmount}
-                            minAmount={item.MinAmount}
-                            name={item.Name}
-                          />
-                        </div>
-                      );
-                    })}
+                    <InputGroup className="mb-0">
+                      <InputGroup.Prepend>
+                        <InputGroup.Text>
+                          <Icofont icon="comment" />
+                        </InputGroup.Text>
+                      </InputGroup.Prepend>
 
-                  <InputGroup className="mb-0">
-                    <InputGroup.Prepend>
-                      <InputGroup.Text>
-                        <Icofont icon="comment" />
-                      </InputGroup.Text>
-                    </InputGroup.Prepend>
-
-                    <Form.Control
-                      as="textarea"
-                      placeholder="Any suggestions? We will pass it on..."
-                      aria-label="With textarea"
-                    />
-                  </InputGroup>
-                </div>
-                <div className="mb-2 bg-white rounded p-2 clearfix">
-                  <p className="mb-1" style={{ textAlign: "justify" }}>
-                    Sub Total{" "}
-                    <span className="float-right text-dark">
-                      ₹ {subTotal ? subTotal.toFixed(2) : 0.0}
-                    </span>
-                  </p>
-                  <p className="mb-1" style={{ textAlign: "justify" }}>
-                    Delivery Fee
-                    <OverlayTrigger
-                      key="top"
-                      placement="top"
-                      overlay={
-                        <Tooltip id="tooltip-top">
-                          Total discount breakup
-                        </Tooltip>
-                      }
-                    >
-                      <span className="text-info ml-1">
-                        <Icofont icon="info-circle" />
+                      <Form.Control
+                        as="textarea"
+                        placeholder="Any suggestions? We will pass it on..."
+                        aria-label="With textarea"
+                      />
+                    </InputGroup>
+                  </div>
+                  <div className="mb-2 bg-white rounded p-2 clearfix">
+                    <p className="mb-1" style={{ textAlign: "justify" }}>
+                      Sub Total{" "}
+                      <span className="float-right text-dark">
+                        ₹ {subTotal ? subTotal.toFixed(2) : 0.0}
                       </span>
-                    </OverlayTrigger>
-                    <span className="float-right text-dark">
-                      ₹{" "}
-                      {deliveryCharges
-                        ? parseFloat(deliveryCharges).toFixed(2)
-                        : 0.0}
-                    </span>
-                  </p>
-                  <p className="mb-1" style={{ textAlign: "justify" }}>
-                    Packing Charges{" "}
-                    <span className="float-right text-dark">
-                      ₹{" "}
-                      {packingCharges
-                        ? parseFloat(packingCharges).toFixed(2)
-                        : 0.0}
-                    </span>
-                  </p>
+                    </p>
+                    <p className="mb-1" style={{ textAlign: "justify" }}>
+                      Delivery Fee
+                      <OverlayTrigger
+                        key="top"
+                        placement="top"
+                        overlay={
+                          <Tooltip id="tooltip-top">
+                            Total discount breakup
+                          </Tooltip>
+                        }
+                      >
+                        <span className="text-info ml-1">
+                          <Icofont icon="info-circle" />
+                        </span>
+                      </OverlayTrigger>
+                      <span className="float-right text-dark">
+                        ₹{" "}
+                        {deliveryCharges
+                          ? parseFloat(deliveryCharges).toFixed(2)
+                          : 0.0}
+                      </span>
+                    </p>
+                    <p className="mb-1" style={{ textAlign: "justify" }}>
+                      Packing Charges{" "}
+                      <span className="float-right text-dark">
+                        ₹{" "}
+                        {packingCharges
+                          ? parseFloat(packingCharges).toFixed(2)
+                          : 0.0}
+                      </span>
+                    </p>
 
-                  <p
-                    className="mb-1 text-success"
-                    style={{ textAlign: "justify" }}
-                  >
-                    Total Discount{" "}
-                    <span className="float-right text-success">
-                      {" "}
-                      ₹ {discount1 ? parseFloat(discount1).toFixed(2) : 0.0}
-                    </span>
-                  </p>
-                  <p
-                    className="mb-1 text-dark"
-                    style={{ textAlign: "justify" }}
-                  >
-                    Taxes &amp; Charges{" "}
-                    <span className="float-right text-dark">
-                      ₹ {taxes ? parseFloat(taxes).toFixed(2) : 0.0}
-                    </span>
-                  </p>
+                    <p
+                      className="mb-1 text-success"
+                      style={{ textAlign: "justify" }}
+                    >
+                      Total Discount{" "}
+                      <span className="float-right text-success">
+                        {" "}
+                        ₹ {discount1 ? parseFloat(discount1).toFixed(2) : 0.0}
+                      </span>
+                    </p>
+                    <p
+                      className="mb-1 text-dark"
+                      style={{ textAlign: "justify" }}
+                    >
+                      Taxes &amp; Charges{" "}
+                      <span className="float-right text-dark">
+                        ₹ {taxes ? parseFloat(taxes).toFixed(2) : 0.0}
+                      </span>
+                    </p>
 
-                  <hr />
-                  <h6
-                    className="font-weight-bold mb-0"
-                    style={{ textAlign: "justify" }}
+                    <hr />
+                    <h6
+                      className="font-weight-bold mb-0"
+                      style={{ textAlign: "justify" }}
+                    >
+                      Total Bill:
+                      <br />
+                      Taxes &amp; Charges Included{" "}
+                      <span className="float-right">
+                        ₹ {total ? total.toFixed(2) : 0.0}
+                      </span>
+                    </h6>
+                  </div>
+                  <Button
+                    onClick={this.handlePlaceOrder}
+                    className="btn btn-success btn-block btn-lg"
                   >
-                    Total Bill:
-                    <br />
-                    Taxes &amp; Charges Included{" "}
-                    <span className="float-right">
-                      ₹ {total ? total.toFixed(2) : 0.0}
-                    </span>
-                  </h6>
+                    PAY ₹ {total ? total.toFixed(2) : 0.0}
+                    <Icofont icon="long-arrow-right" />
+                  </Button>
                 </div>
-                <Button
-                  onClick={this.handlePlaceOrder}
-                  className="btn btn-success btn-block btn-lg"
-                >
-                  PAY ₹ {total ? total.toFixed(2) : 0.0}
-                  <Icofont icon="long-arrow-right" />
-                </Button>
-              </div>
-              <div className="pt-2"></div>
-              {/* <div className="alert alert-success" role="alert" style={{ textAlign: "justify" }}>
+                <div className="pt-2"></div>
+                {/* <div className="alert alert-success" role="alert" style={{ textAlign: "justify" }}>
 								You have saved <strong>$1,884</strong> on the bill
 	                  </div> */}
-              <div className="pt-2"></div>
-              {/* <div className="text-center pt-2">
+                <div className="pt-2"></div>
+                {/* <div className="text-center pt-2">
 								<Image fluid src="https://dummyimage.com/352x504/ccc/ffffff.png&text=Google+ads" />
 							</div> */}
-            </Col>
-          </Row>
-        </Container>
-      </section>
+              </Col>
+            </Row>
+          </Container>
+        </section>
+      </>
     );
   }
 }

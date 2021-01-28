@@ -1,3 +1,14 @@
 .background {
   background-image: "img/background.jpg";
 }
+#autocomplete::placeholder {
+  color: #ffffff;
+  opacity: 0.7;
+}
+#autocomplete::first-line {
+  color: white;
+}
+/* #autocomplete::-webkit-textfield-decoration-container {
+  color: #ffffff;
+  opacity: 1;
+} */

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { Link } from "react-router-dom";
 import { Image, Badge } from "react-bootstrap";
@@ -32,7 +33,10 @@ class CardItem extends React.Component {
           ) : (
             ""
           )}
-          <button onClick={this.props.onClickLocation} style={{border:"none"}}>
+          <button
+            onClick={this.props.onClickLocation}
+            style={{ border: "none" }}
+          >
             <Image
               src={this.props.image}
               className={this.props.imageClass}
@@ -43,7 +47,14 @@ class CardItem extends React.Component {
         <div className="p-3 position-relative">
           <div className="list-card-body">
             <h6 className="mb-1">
-            <button onClick={this.props.onClickLocation} style={{border:"none",color:"black",backgroundColor:"white"}}>
+              <button
+                onClick={this.props.onClickLocation}
+                style={{
+                  border: "none",
+                  color: "black",
+                  backgroundColor: "white",
+                }}
+              >
                 {this.props.title}
               </button>
             </h6>

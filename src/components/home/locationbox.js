@@ -5,6 +5,7 @@ import React, { Fragment, useState } from "react";
 import Script from "react-load-script";
 import Geocode from "react-geocode";
 import firebase from "../Firebase";
+import "./style.css";
 // import {useAppContext} from './context/appContext';
 import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -123,7 +124,8 @@ const LocationBox = (props) => {
     localStorage.setItem("lng", position.coords.longitude);
     Geocode.fromLatLng(
       get(position, "coords.latitude"),
-      get(position, "coords.longitude")
+      get(position, "coords.longitude"),
+      console.log()
     )
       .then((response) => {
         localStorage.setItem(
@@ -142,6 +144,7 @@ const LocationBox = (props) => {
             localStorage.setItem("cityname", city.Name);
             localStorage.setItem("pushid", city.PushId);
             localStorage.setItem("radius", city.Radius);
+
             // setAppLocation(cityInfo);
             setError("");
             if (props.updateLocation) {
@@ -154,6 +157,7 @@ const LocationBox = (props) => {
         }
         if (!cityInfo || cityInfo === "") {
           //setError("not serviceable in this area");
+
           message.error("Not serviceable in this area");
         }
         // const address = response.results[0].formatted_address;
@@ -324,6 +328,7 @@ const LocationBox = (props) => {
 
       <Form.Group className="col-lg-7 col-md-7 col-sm-12">
         <Form.Control
+          style={{ backgroundColor: "transparent", borderRadius: "12px" }}
           type="text"
           placeholder="Enter your delivery location"
           size="lg"
@@ -333,7 +338,13 @@ const LocationBox = (props) => {
           <button
             className="locate-me"
             onClick={getLocation}
-            style={{ borderRadius: "50px", marginTop: "-4px", border: "none" }}
+            style={{
+              borderRadius: "50px",
+              marginTop: "-4px",
+              border: "none",
+              color: "red",
+              backgroundColor: "transparent",
+            }}
           >
             <Icofont icon="ui-pointer" /> Locate Me
           </button>
@@ -351,6 +362,7 @@ const LocationBox = (props) => {
       </Form.Group>
       <Form.Group className="col-lg-2 col-md-2 col-sm-12">
         <button
+          style={{ borderRadius: "12px" }}
           onClick={changeLocation}
           className="btn btn-danger btn-block btn-lg btn-round"
         >

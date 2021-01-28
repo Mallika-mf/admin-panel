@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { Fragment, useState } from "react";
 import { Row, Col, Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import OwlCarousel from "react-owl-carousel3";
 import TopSearch from "./home/TopSearch";
 import Script from "react-load-script";
@@ -14,7 +14,11 @@ import firebase from "./Firebase";
 import { get } from "lodash";
 import FontAwesome from "./common/FontAwesome";
 
-const Index = () => {
+Geocode.setApiKey("AIzaSyCPhxfpptoIc1yca5U8mXIigIajoERQCdE");
+Geocode.setLanguage("en");
+
+const Index = (props) => {
+  const history = useHistory();
   const [error, setError] = useState("");
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
@@ -25,11 +29,47 @@ const Index = () => {
     lat: "",
     lng: "",
   });
+  React.useEffect(() => {
+    let isUnmount = false;
+
+    firebase
+      .database()
+      .ref("Masters")
+      .child("City")
+      .once(
+        "value",
+        (snapshot) => {
+          if (snapshot.exists()) {
+            if (!isUnmount) {
+              setFetchlocation({
+                cities: Object.values(snapshot.val()),
+                loading: false,
+              });
+            }
+            return false;
+          }
+        },
+        () => {}
+      );
+    if (!isUnmount) {
+      setFetchlocation({ cities: [], loading: false });
+    }
+
+    // if(!isUnmount){
+    //     // fetchAllLocation();
+
+    // }
+
+    return () => {
+      isUnmount = true;
+    };
+  }, []);
   const getCoordinates = (position) => {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
     localStorage.setItem("lat", position.coords.latitude);
     localStorage.setItem("lng", position.coords.longitude);
+
     Geocode.fromLatLng(
       get(position, "coords.latitude"),
       get(position, "coords.longitude")
@@ -63,12 +103,13 @@ const Index = () => {
         }
         if (!cityInfo || cityInfo === "") {
           //setError("not serviceable in this area");
+
           message.error("Not serviceable in this area");
         }
         // const address = response.results[0].formatted_address;
         // setAddress(address);
       })
-      .catch((error) => console.log("Geocode ERROR", error));
+      .catch((error) => console.log("Geocode ERROR", error.message));
   };
   const getCoordinatesLocal = (position) => {
     setLatitude(position.coords.latitude);
@@ -108,6 +149,7 @@ const Index = () => {
         }
         if (!cityInfo || cityInfo === "") {
           //setError("not serviceable in this area");
+
           message.error("Not serviceable in this area");
         }
         // const address = response.results[0].formatted_address;
@@ -116,13 +158,13 @@ const Index = () => {
       .catch((error) => console.log("Geocode ERROR", error));
   };
   const updateLocation = () => {
-    this.props.history.push({
+    props.history.push({
       pathname: `/listing`,
       search: `?cityName=${localStorage.getItem("cityname")}`,
     });
   };
   const updateKitchenLocation = () => {
-    this.props.history.push({
+    props.history.push({
       pathname: `/localDishes`,
       search: `?cityName=${localStorage.getItem("cityname")}`,
     });
@@ -139,7 +181,7 @@ const Index = () => {
       navigator.geolocation.getCurrentPosition(getCoordinatesLocal);
     }
   };
-  
+
   return (
     <>
       <TopSearch />

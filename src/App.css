@@ -226,6 +226,7 @@ h6 {
 .homepage-search-form .locate-me:hover {
   background: #666 none repeat scroll 0 0;
   color: #ffffff;
+  font-size: medium;
 }
 .homepage-search-form .btn {
   font-size: 15px;
