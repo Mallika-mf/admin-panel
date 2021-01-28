@@ -1218,7 +1218,7 @@ class Checkout extends React.Component {
                     .child("Address")
                     .set(get(userAddressSelected, "Address", ""));
                   firebaseref.child("CName").set(userName);
-                  firebaseref.child("OrderNo").set(String(orderNo));
+                  firebaseref.child("OrderNo").set(orderNo);
                   firebaseref.child("OrderDate").set(date2);
                   firebaseref.child("OrderDateTime").set(date3);
                   firebaseref
@@ -2149,7 +2149,7 @@ class Checkout extends React.Component {
                       ""
                     )}
                   </div>
-                  <div className="mb-2 bg-white rounded p-2 clearfix">
+                  <div className="mb-2 bg-white rounded p-2 clearfix">{console.log(`${Date.now()},${localStorage.getItem("ChefId")},${parseFloat(total).toFixed(2)},${parseFloat(taxes).toFixed(2)}`)}
                     {this.state.showPromocode === true ? (
                       <>
                         <InputGroup className="input-group-sm mb-2">
