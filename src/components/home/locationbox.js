@@ -346,7 +346,7 @@ const LocationBox = (props) => {
               backgroundColor: "transparent",
             }}
           >
-            <Icofont icon="ui-pointer" /> Locate Me
+            <Icofont icon="location-pin" /> Locate Me
           </button>
         ) : (
           ""

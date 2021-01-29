@@ -329,11 +329,14 @@ class MyCash extends React.Component {
               </div> */}
               {/*<!-- ends: .col-lg-3 -->*/}
 
-              <div className="col-lg-12 col-md-12 order-1 order-md-1">
+              <div
+                className="col-lg-12 col-md-12 order-1 order-md-1"
+                style={{ width: "1000px" }}
+              >
                 <div className="sidebar-right">
-                  <div className="col-12 text-left pt-2 pb-3">
+                  <div className="col-12 text-left pt-0 pb-3 card">
                     <h3 className="text-left mt-2">My Cash</h3>
-                    <div className="card  mt-2 border-0 ">
+                    <div className="  mt-2 border-0 ">
                       <div className="cardbody">
                         <img src="../assets/img/incentives.png" alt=""></img>
                       </div>

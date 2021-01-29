@@ -87,7 +87,7 @@ class NavbarListing extends React.Component {
                   exact
                   to="/localDishes"
                 >
-                  Local Food <span className="sr-only">(current)</span>
+                  Local Kitchen's <span className="sr-only">(current)</span>
                 </Nav.Link>
                 <Nav.Link
                   eventKey={0}

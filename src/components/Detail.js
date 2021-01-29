@@ -588,33 +588,38 @@ class Detail extends React.Component {
           centered
         >
           <Modal.Header closeButton>
-            <Modal.Title>Clear Your Cart</Modal.Title>
+            <Modal.Title style={{ color: "red" }}>Clear Your Cart</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <div className="container">
               <div className="row">
                 <div className="col-md-9">
-                  <h3>Delete your Cart items </h3>
+                  <Icofont size="6" icon="warning-alt" />
+                  <h3>Please clear your cart!</h3>
                 </div>
               </div>
             </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleCancel}>
+            <Button
+              variant="secondary"
+              className="btn--rounded"
+              onClick={this.handleCancel}
+            >
               Close
             </Button>
-            <Button variant="primary" onClick={this.handleOk}>
+            <Button
+              variant="primary"
+              className="btn--rounded"
+              onClick={this.handleOk}
+            >
               Ok
             </Button>
           </Modal.Footer>
         </Modal>
         <section className="restaurant-detailed-banner">
           <div className="text-center">
-            <Image
-              fluid
-              className="cover"
-              src="/img/mall-dedicated-banner.png"
-            />
+            <Image fluid className="cover" src="/assets/img/chef.png" />
           </div>
           <div className="restaurant-detailed-header">
             <Container>
@@ -646,13 +651,13 @@ class Detail extends React.Component {
                       />
                     )}
                     <h2 className="text-white" style={{ textAlign: "justify" }}>
-                      {prd.Name}
+                      {prd.KitchenName}
                     </h2>
                     <h6
                       className="text-white mb-1"
                       style={{ textAlign: "justify" }}
                     >
-                      <Icofont icon="icofont-home" /> {prd.KitchenName}
+                      <Icofont icon="icofont-home" /> {prd.Name}
                       <Badge variant="success">OPEN</Badge>
                     </h6>
 

@@ -87,7 +87,10 @@ class TopSearch extends React.Component {
                   </div>
                   <div className="homepage-search-form">
                     <Form className="form-noborder">
-                      <div className="form-row">
+                      <div
+                        className="form-row"
+                        style={{ marginBottom: "40px" }}
+                      >
                         {/* <Form.Group className="col-lg-3 col-md-3 col-sm-12">
                           <div className="location-dropdown">
                             <Icofont icon="location-arrow" />
@@ -134,14 +137,14 @@ class TopSearch extends React.Component {
                       </div>
                     </Form>
                   </div>
-                  <h6 className="mt-4 text-shadow font-weight-normal">
+                  {/* <h6 className="mt-4 text-shadow font-weight-normal">
                     <span
                       className=" text-black"
                       style={{ color: "white", fontWeight: "600" }}
                     >
                       E.g. Beverages, Pizzas, Chinese, Bakery, Indian...
                     </span>
-                  </h6>
+                  </h6> */}
                   <CategoriesCarousel />
                 </Col>
                 <Col md={4}>
