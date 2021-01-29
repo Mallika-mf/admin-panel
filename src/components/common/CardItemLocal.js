@@ -67,14 +67,14 @@ class CardItem extends React.Component {
               {this.props.time || this.props.price ? (
                 <p className="text-gray mb-3 time">
                   {this.props.time ? (
-                    <span className="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2 center">
+                    <span className="float-left bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2 center">
                       <Icofont icon="wall-clock" /> {this.props.time}
                     </span>
                   ) : (
                     ""
                   )}
                   {this.props.price ? (
-                    <span className=" text-black-50 center ">
+                    <span className="float-right text-black-50 center ">
                       {" "}
                       {this.props.price}
                     </span>
@@ -159,7 +159,7 @@ class CardItem extends React.Component {
               {this.props.time || this.props.price ? (
                 <p className="text-gray mb-3 time">
                   {this.props.time ? (
-                    <span className="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2">
+                    <span className=" float-left bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2">
                       <Icofont icon="wall-clock" /> {this.props.time}
                     </span>
                   ) : (

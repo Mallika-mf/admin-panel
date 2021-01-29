@@ -23,7 +23,7 @@ class Footer extends React.Component {
               <Col sm={12}>
                 <h5 className="m-0" style={{ fontSize: "25px" }}>
                   Operating Cloud Kitchen or Homechef?{" "}
-                  <Link to="login">Work With Us</Link>
+                  <Link to="partnerwithus">Work With Us</Link>
                 </h5>
               </Col>
             </Row>

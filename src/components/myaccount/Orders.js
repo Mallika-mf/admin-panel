@@ -121,16 +121,16 @@ class Orders extends React.Component {
                                         {order.ChefName} ( Order Id:
                                         {order.OrderNo} )
                                       </span>
-                                      <span className="pull-right text-right">
+                                      <span className="pull-left text-left">
                                         Delivery on{" "}
                                         {get(order, "OrderDateTime", "")}{" "}
                                         <i className="fa fa-check-circle"></i>
                                       </span>
                                     </span>
-                                    <span class="FoodItemDetails full-width text-left">
+                                    {/* <span class="FoodItemDetails full-width text-left">
                                       Chicken , basumati rice, curds,
                                       oil(sunflower), ghee, spices .
-                                    </span>
+                                    </span> */}
                                     <span class="FoodItemPrice full-width text-left">
                                       ₹{get(order, "Total", "")}
                                     </span>

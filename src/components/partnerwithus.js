@@ -207,7 +207,7 @@ class GeneralRules extends React.Component {
           >
             <div
               className="bg_image_holder_ride"
-              style={{ backgroundColor: "#edf3f5" }}
+              style={{ backgroundColor: "#e8effd" }}
             >
               <img
                 src="./assets/img/partnerwithusNew.png"

@@ -23,7 +23,7 @@ class ChooseAddressCard extends React.Component {
                 {this.props.type === "hasAddress" ? (
                   <>
                     <Link
-                      className="btn btn-sm btn-success mr-2"
+                      className="btn btn--rounded btn-sm btn-success mr-2"
                       to="#"
                       onClick={this.props.onDeliverHereClick}
                     >
@@ -33,7 +33,7 @@ class ChooseAddressCard extends React.Component {
                   </>
                 ) : (
                   <Link
-                    className="btn btn-sm btn-primary mr-2"
+                    className="btn btn--rounded btn-sm btn-primary mr-2"
                     to="#"
                     onClick={this.props.onAddNewClick}
                   >

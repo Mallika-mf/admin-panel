@@ -595,7 +595,10 @@ class Detail extends React.Component {
               <div className="row">
                 <div className="col-md-9">
                   <Icofont size="6" icon="warning-alt" />
-                  <h3>Please clear your cart!</h3>
+                  <h3>
+                    Please clear your current cart items to add the new items
+                    into your cart!
+                  </h3>
                 </div>
               </div>
             </div>
@@ -677,7 +680,7 @@ class Detail extends React.Component {
                         ? prd.DeliveryTime + " Mins"
                         : "40 Mins"}
                     </Button>
-                    <h6 className="text-white mb-0 restaurant-detailed-ratings">
+                    <h6 className="text-white text-right mb-0 restaurant-detailed-ratings">
                       <span className="generator-bg rounded text-white">
                         <Icofont icon="star" /> {prd.Ratings}
                       </span>{" "}
