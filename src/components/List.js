@@ -1041,7 +1041,7 @@ class List extends React.Component {
                             image={profileImage}
                             imageClass="img-fluid item-img"
                             linkUrl={"detail/" + item.UserId}
-                            offerText="65% off | Use Coupon OSAHAN50"
+                            // offerText="65% off | Use Coupon OSAHAN50"
                             time={
                               item.DeliveryTime
                                 ? item.DeliveryTime + " mins"
