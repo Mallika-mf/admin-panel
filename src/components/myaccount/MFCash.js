@@ -331,7 +331,9 @@ class MfCash extends React.Component {
               <div className="col-lg-12 col-md-12 order-1 order-md-1">
                 <div className="sidebar-right">
                   <div className="col-12 text-left pt-2 pb-3 card">
-                    <h3 className="text-left mt-2">MF Cash</h3>
+                    <h3 className="text-center mt-2" style={{ color: "red" }}>
+                      MF Cash
+                    </h3>
                     <div className=" border-0  mt-2" style={{ border: "none" }}>
                       <div className="cardbody">
                         <img src="../assets/img/incentives.png" alt="img"></img>

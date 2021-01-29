@@ -188,9 +188,9 @@ class CardItem extends React.Component {
                           </div>
                           )
                           :""
-                      } */}
+                      } 
 
-            {/* <button 
+             <button 
                 disabled
                 className="ChefCardProfileButton"
                 >

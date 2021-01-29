@@ -47,6 +47,7 @@ class List extends React.Component {
     pages: 0,
     vegItems: false,
     nonvegItems: false,
+    biryaniItems: false,
   };
   componentDidMount() {
     // $(document).ready(() => {
@@ -429,6 +430,21 @@ class List extends React.Component {
       this.setState({ product: { items: this.state.product1.items } });
     }
   };
+  // onChangeBiryani = (event) => {
+  //   let vegitemShow = [];
+  //   this.setState({ biryaniItems: event.target.checked });
+  //   this.state.product.items.map((item, index) => {
+  //     if (item.Biryani === "Yes") {
+  //       vegitemShow.push(item);
+  //     }
+  //   });
+  //   if (event.target.checked === true) {
+  //     // this.setState({vegItems:false})
+  //     this.setState({ product: { items: vegitemShow } });
+  //   } else {
+  //     this.setState({ product: { items: this.state.product1.items } });
+  //   }
+  // };
   render() {
     const { availableChefs } = this.state;
     var isLoggedin = localStorage.getItem("isLogging");
@@ -670,6 +686,47 @@ class List extends React.Component {
                               custom
                               type="checkbox"
                               id="custom-cb8"
+                              disabled={this.state.biryaniItems === true}
+                              checked={this.state.biryaniItems}
+                              onChange={this.onChangeBiryani}
+                              label={
+                                <React.Fragment>
+                                  Biryani{" "}
+                                  {this.state.biryaniItems === true ? (
+                                    <small className="text-black-50">
+                                      {this.state.product.items.length}
+                                    </small>
+                                  ) : (
+                                    <small className="text-black-50"></small>
+                                  )}
+                                </React.Fragment>
+                              }
+                            /> */}
+                            {/* <Form.Check
+                              custom
+                              type="checkbox"
+                              id="custom-cb9"
+                              disabled={this.state.vegItems === true}
+                              checked={this.state.nonvegItems}
+                              onChange={this.onChangeNonVeg}
+                              label={
+                                <React.Fragment>
+                                  Pizzas{" "}
+                                  {this.state.nonvegItems === true ? (
+                                    <small className="text-black-50">
+                                      {this.state.product.items.length}
+                                    </small>
+                                  ) : (
+                                    <small className="text-black-50"></small>
+                                  )}
+                                </React.Fragment>
+                              }
+                            /> */}
+
+                            {/* <Form.Check
+                              custom
+                              type="checkbox"
+                              id="custom-cb8"
                               label={
                                 <React.Fragment>
                                   Healthy{" "}
@@ -846,6 +903,7 @@ class List extends React.Component {
                           </div>
                         </Accordion.Collapse>
                       </div>
+
                       {/* <div className="filters-card border-bottom p-4">
                         <div className="filters-card-header" id="headingOne">
                           <h6 className="mb-0">

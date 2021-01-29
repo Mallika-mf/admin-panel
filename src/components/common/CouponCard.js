@@ -5,6 +5,12 @@ import { Image, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 
 class CouponCard extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { copySuccess: "" };
+  }
+
   render() {
     return (
       <div
@@ -36,13 +42,18 @@ class CouponCard extends React.Component {
           ) : (
             ""
           )}
-          {this.props.copyBtnText ? (
-            <Button variant="link" className="card-btn mr-3 p-0">
+          {/* {this.props.copyBtnText ? (
+            <Button
+              variant="link"
+              className="card-btn mr-3 p-0"
+              onClick={this.copyToClipboard}
+            >
               {this.props.copyBtnText}
             </Button>
           ) : (
             ""
-          )}
+          )} */}
+
           {/* {this.props.moreLinkText?
 	                	<Link to={this.props.morelinkUrl} className="card-link">{this.props.moreLinkText}</Link>
 	                	:""

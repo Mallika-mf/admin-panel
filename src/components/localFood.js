@@ -47,6 +47,7 @@ class List extends React.Component {
     pages: 0,
     vegItems: false,
     nonvegItems: false,
+    biryaniItems: false,
   };
   componentDidMount() {
     // $(document).ready(() => {
@@ -430,6 +431,21 @@ class List extends React.Component {
       this.setState({ product: { items: this.state.product1.items } });
     }
   };
+  onChangeBiryani = (event) => {
+    let vegitemShow = [];
+    this.setState({ biryaniItems: event.target.checked });
+    this.state.product.items.map((item, index) => {
+      if (item.Biryani === "Yes") {
+        vegitemShow.push(item);
+      }
+    });
+    if (event.target.checked === true) {
+      // this.setState({vegItems:false})
+      this.setState({ product: { items: vegitemShow } });
+    } else {
+      this.setState({ product: { items: this.state.product1.items } });
+    }
+  };
   render() {
     var isLoggedin = localStorage.getItem("isLogging");
     const { availableChefs } = this.state;
@@ -604,7 +620,7 @@ class List extends React.Component {
                               className="text-left d-flex align-items-center p-0"
                               eventKey="1"
                             >
-                              Category{" "}
+                              All Cuisines{" "}
                               <Icofont icon="arrow-down" className="ml-auto" />
                             </Accordion.Toggle>
                           </h6>
@@ -662,6 +678,26 @@ class List extends React.Component {
                                 </React.Fragment>
                               }
                             />
+                            {/* <Form.Check
+                              custom
+                              type="checkbox"
+                              id="custom-cb8"
+                              disabled={this.state.biryaniItems === true}
+                              checked={this.state.biryaniItems}
+                              onChange={this.onChangeBiryani}
+                              label={
+                                <React.Fragment>
+                                  Biryani{" "}
+                                  {this.state.biryaniItems === true ? (
+                                    <small className="text-black-50">
+                                      {this.state.product.items.length}
+                                    </small>
+                                  ) : (
+                                    <small className="text-black-50"></small>
+                                  )}
+                                </React.Fragment>
+                              }
+                            /> */}
 
                             {/* <Form.Check
                               custom

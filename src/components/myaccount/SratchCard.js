@@ -175,7 +175,7 @@ class SratchCard extends React.Component {
               {/*<!-- ends: .col-lg-3 -->*/}
 
               <div
-                className="col-lg-8 col-md-8 col-sm-8 order-1 order-md-1 "
+                className="col-lg-12 col-md-12 col-sm-12 order-1 order-md-1 "
                 style={{ marginTop: "-5%" }}
               >
                 <div className="sidebar-right">

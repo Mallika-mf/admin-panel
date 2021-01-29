@@ -1132,8 +1132,8 @@ class Checkout extends React.Component {
     let cityRadius = localStorage.getItem("radius");
     let userNumber = localStorage.getItem("phoneNumber");
     let userName = localStorage.getItem("Name");
-    const orderNo = Date.now()
-      // userName.substring(3, 6) + date1 + Math.floor(Math.random() * 10000);
+    const orderNo = Date.now();
+    // userName.substring(3, 6) + date1 + Math.floor(Math.random() * 10000);
 
     // console.log(total)
 
@@ -1200,13 +1200,17 @@ class Checkout extends React.Component {
                   firebaseref.child("Payment").set("ONLINE");
                   firebaseref.child("Status").set("1");
                   firebaseref.child("Subtotal").set(`${subTotal}`);
-                  firebaseref.child("Total").set(`${parseFloat(total).toFixed(2)}`);
+                  firebaseref
+                    .child("Total")
+                    .set(`${parseFloat(total).toFixed(2)}`);
                   firebaseref
                     .child("DeliveryCharges")
                     .set(`${deliveryCharges}`);
                   firebaseref.child("Discount").set(`${discount1}`);
                   firebaseref.child("Packing").set(`${packingCharges}`);
-                  firebaseref.child("Taxes").set(`${parseFloat(taxes).toFixed(2)}`);
+                  firebaseref
+                    .child("Taxes")
+                    .set(`${parseFloat(taxes).toFixed(2)}`);
                   firebaseref.child("Number").set(userNumber);
                   firebaseref
                     .child("Flat")
@@ -1595,7 +1599,7 @@ class Checkout extends React.Component {
     if (localFood === "Yes") {
       return (
         <div className="d-flex mb-4 osahan-cart-item-profile">
-          <Image fluid className="mr-3 rounded-pill" alt="osahan" src={image} />
+          <Image fluid className="mr-3 rounded-pill" alt="MF" src={image} />
           <div className="d-flex flex-column">
             <h6 className="mb-1 text-white">{kitchenName}</h6>
             {/* <p className="mb-0 text-white"><Icofont icon="location-pin" /> 2036 2ND AVE, NEW YORK, NY 10029</p> */}
@@ -1605,7 +1609,7 @@ class Checkout extends React.Component {
     } else {
       return (
         <div className="d-flex mb-4 osahan-cart-item-profile">
-          <Image fluid className="mr-3 rounded-pill" alt="osahan" src={image} />
+          <Image fluid className="mr-3 rounded-pill" alt="MF" src={image} />
           <div className="d-flex flex-column">
             <h6 className="mb-1 text-white">{chefName}</h6>
             {/* <p className="mb-0 text-white"><Icofont icon="location-pin" /> 2036 2ND AVE, NEW YORK, NY 10029</p> */}

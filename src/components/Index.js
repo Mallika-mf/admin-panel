@@ -178,7 +178,7 @@ const Index = (props) => {
       navigator.geolocation.getCurrentPosition(getCoordinatesLocal);
     }
   };
-  
+
   return (
     <>
       <TopSearch />
@@ -191,7 +191,7 @@ const Index = (props) => {
               marginBottom: "-2%",
             }}
           >
-            <Col md={2} xs={6}>
+            <Col md={2} xs={5}>
               <ProductBox
                 image="./assets/img/Coupons/Coupon (1).jpeg"
                 imageClass="img-fluid rounded"
@@ -207,7 +207,7 @@ const Index = (props) => {
                   linkUrl="#"
                 />
               </Col> */}
-            <Col md={2} xs={6}>
+            <Col md={2} xs={5}>
               <ProductBox
                 image="./assets/img/Coupons/Coupon (3).jpeg"
                 imageClass="img-fluid rounded"
@@ -215,7 +215,7 @@ const Index = (props) => {
                 linkUrl="/offers"
               />
             </Col>
-            <Col md={2} xs={6}>
+            <Col md={2} xs={5}>
               <ProductBox
                 image="./assets/img/Coupons/Coupon (4).jpeg"
                 imageClass="img-fluid rounded"
@@ -223,7 +223,7 @@ const Index = (props) => {
                 linkUrl="/offers"
               />
             </Col>
-            <Col md={2} xs={6}>
+            <Col md={2} xs={5}>
               <ProductBox
                 image="./assets/img/Coupons/Coupon (5).jpeg"
                 imageClass="img-fluid rounded"
@@ -409,7 +409,7 @@ const Index = (props) => {
           </Row>
         </Container>
       </section>
-      <section className="section pt-5 pb-5 bg-white becomemember-section border-bottom">
+      <section className="section pt-3 pb-5 bg-white becomemember-section border-bottom">
         <Container>
           <SectionHeading
             heading="Become a Member"
@@ -427,7 +427,10 @@ const Index = (props) => {
               <div className="container">
                 <div className="row">
                   <div className="col-lg-6 col-md-6 col-sm-6">
-                    <div className="card">
+                    <div
+                      className="card"
+                      style={{ borderColor: "red", borderWidth: "2px" }}
+                    >
                       <div className="card-body text-center">
                         <div className="icon-box-fourteen text-center">
                           <div className="row">
@@ -448,8 +451,7 @@ const Index = (props) => {
                               </p>
                               <a
                                 href="/partnerwithus#registerwithus"
-                                className="btn btn-info btn-icon icon-right btn-danger "
-                                style={{ borderRadius: "50px" }}
+                                className="btn btn-block btn--rounded btn-info btn-icon icon-right btn-danger mt-3"
                               >
                                 For a Partner
                               </a>
@@ -460,7 +462,10 @@ const Index = (props) => {
                     </div>
                   </div>
                   <div className="col-lg-6 col-md-6 col-sm-6">
-                    <div className="card">
+                    <div
+                      className="card"
+                      style={{ borderColor: "red", borderWidth: "2px" }}
+                    >
                       <div className="card-body text-center">
                         <div className="icon-box-fourteen text-center">
                           <div className="row">
@@ -481,8 +486,7 @@ const Index = (props) => {
                               </p>
                               <a
                                 href="/ridewithus"
-                                className="btn btn-info btn-icon icon-right  btn-danger"
-                                style={{ borderRadius: "50px" }}
+                                className="btn btn-block btn-info btn-icon icon-right btn--rounded  btn-danger mt-3"
                               >
                                 For Delivery
                               </a>

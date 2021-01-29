@@ -39,7 +39,7 @@ const Offerpage = () => {
         {" "}
         Offers
       </h1>
-      <section className="section pt-5 pb-5">
+      <section className="section  pb-3">
         <Container>
           <Row>
             <Col md={12}>

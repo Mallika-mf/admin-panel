@@ -334,8 +334,13 @@ class MyCash extends React.Component {
                 style={{ width: "1000px" }}
               >
                 <div className="sidebar-right">
-                  <div className="col-12 text-left pt-0 pb-3 card">
-                    <h3 className="text-left mt-2">My Cash</h3>
+                  <div
+                    className="col-12 text-left pt-0 pb-3 card"
+                    style={{ marginTop: "-7%" }}
+                  >
+                    <h3 className="text-center mt-2" style={{ color: "red" }}>
+                      MY CASH
+                    </h3>
                     <div className="  mt-2 border-0 ">
                       <div className="cardbody">
                         <img src="../assets/img/incentives.png" alt=""></img>

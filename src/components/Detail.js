@@ -952,11 +952,7 @@ class Detail extends React.Component {
                                       onAddClick={() =>
                                         this.handleAddToCart(item)
                                       }
-                                      quantity={
-                                        item.quantity === undefined
-                                          ? (item.quantity = 0)
-                                          : parseInt(item.quantity)
-                                      }
+                                      quantity={item.quantity}
                                       getValue={this.getQty}
                                       showCart={true}
                                     />
