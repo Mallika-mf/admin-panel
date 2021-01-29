@@ -1810,7 +1810,7 @@ class Checkout extends React.Component {
                         : ""}
                       <button
                         onClick={this.handleAddressSelectionSubmit}
-                        className="btn btn-sm btn-primary btn--rounded mr-2"
+                        className="btn btn-sm btn-primary mr-2"
                         style={{
                           background: "#FFFFFF",
                           color: "white",

@@ -588,41 +588,33 @@ class Detail extends React.Component {
           centered
         >
           <Modal.Header closeButton>
-            <Modal.Title style={{ color: "red" }}>Clear Your Cart</Modal.Title>
+            <Modal.Title>Clear Your Cart</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <div className="container">
               <div className="row">
                 <div className="col-md-9">
-                  <Icofont size="6" icon="warning-alt" />
-                  <h3>
-                    Please clear your current cart items to add the new items
-                    into your cart!
-                  </h3>
+                  <h3>Delete your Cart items </h3>
                 </div>
               </div>
             </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button
-              variant="secondary"
-              className="btn--rounded"
-              onClick={this.handleCancel}
-            >
+            <Button variant="secondary" onClick={this.handleCancel}>
               Close
             </Button>
-            <Button
-              variant="primary"
-              className="btn--rounded"
-              onClick={this.handleOk}
-            >
+            <Button variant="primary" onClick={this.handleOk}>
               Ok
             </Button>
           </Modal.Footer>
         </Modal>
         <section className="restaurant-detailed-banner">
           <div className="text-center">
-            <Image fluid className="cover" src="/assets/img/chef.png" />
+            <Image
+              fluid
+              className="cover"
+              src="/img/mall-dedicated-banner.png"
+            />
           </div>
           <div className="restaurant-detailed-header">
             <Container>
@@ -654,13 +646,13 @@ class Detail extends React.Component {
                       />
                     )}
                     <h2 className="text-white" style={{ textAlign: "justify" }}>
-                      {prd.KitchenName}
+                      {prd.Name}
                     </h2>
                     <h6
                       className="text-white mb-1"
                       style={{ textAlign: "justify" }}
                     >
-                      <Icofont icon="icofont-home" /> {prd.Name}
+                      <Icofont icon="icofont-home" /> {prd.KitchenName}
                       <Badge variant="success">OPEN</Badge>
                     </h6>
 
@@ -680,7 +672,7 @@ class Detail extends React.Component {
                         ? prd.DeliveryTime + " Mins"
                         : "40 Mins"}
                     </Button>
-                    <h6 className="text-white text-right mb-0 restaurant-detailed-ratings">
+                    <h6 className="text-white mb-0 restaurant-detailed-ratings">
                       <span className="generator-bg rounded text-white">
                         <Icofont icon="star" /> {prd.Ratings}
                       </span>{" "}
