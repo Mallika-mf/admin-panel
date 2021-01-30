@@ -250,10 +250,10 @@ class Footer extends React.Component {
                   POPULAR CITIES
                 </p>
                 <div style={{ textAlign: "justify" }} className="search-links">
-                  <Link to="#">Hyderabad</Link> | <Link to="#">Delhi</Link> |
-                  <Link to="#">Mumbai</Link> | <Link to="#">Noida</Link> |
-                  <Link to="#">Greater Noida</Link> |
-                  <Link to="#">Fairdabad</Link> | <Link to="#">Ghazibad</Link> |
+                  <Link to="#">Hyderabad</Link> | <Link to="#">Delhi</Link> |{" "}
+                  <Link to="#">Mumbai</Link> | <Link to="#">Noida</Link> |{" "}
+                  <Link to="#">Greater Noida</Link> |{" "}
+                  <Link to="#">Fairdabad</Link> | <Link to="#">Ghazibad</Link> |{" "}
                   <Link to="#">Pune</Link> | <Link to="#">Banglore</Link>
                   {/* <Link to="#">Australia</Link> |<Link to="#">Brasil</Link> |
                   <Link to="#">Canada</Link> |<Link to="#">Chile</Link> |
@@ -293,30 +293,31 @@ class Footer extends React.Component {
                 </p>
                 <div style={{ textAlign: "justify" }} className="search-links">
                   <Link to="#">South Indian</Link> | <Link to="#">Italian</Link>{" "}
-                  |<Link to="#">Thai</Link> | <Link to="#">Continental</Link> |
+                  | <Link to="#">Thai</Link> | <Link to="#">Continental</Link> |
                   <Link to="#">Gujarati</Link> | <Link to="#">Rajasthani</Link>{" "}
-                  |<Link to="#">Maharashtrian </Link> |{" "}
-                  <Link to="#">Mughlai</Link>|<Link to="#">Awadhi </Link> |{" "}
-                  <Link to="#">Mexican </Link> |<Link to="#">Kerala </Link> |{" "}
+                  | <Link to="#">Maharashtrian </Link> |{" "}
+                  <Link to="#">Mughlai</Link>| <Link to="#">Awadhi </Link> |{" "}
+                  <Link to="#">Mexican </Link> | <Link to="#">Kerala </Link> |{" "}
                   <Link to="#">Odiya</Link>|<Link to="#">Chinese </Link> |{" "}
-                  <Link to="#">American</Link> |<Link to="#">Bengali </Link> |{" "}
-                  <Link to="#">Punjabi </Link> |<Link to="#">Andhra </Link> |{" "}
-                  <Link to="#">Kashmiri </Link> |<Link to="#">Goan </Link> |{" "}
-                  <Link to="#">Tamilian</Link> |<Link to="#">Assamese </Link> |{" "}
-                  <Link to="#">Manipuri </Link> |<Link to="#">Naga </Link> |{" "}
-                  <Link to="#">Meghalayan</Link> |<Link to="#">Mizo </Link> |{" "}
-                  <Link to="#">Sikkimese </Link> |<Link to="#">Spanish </Link> |{" "}
-                  <Link to="#">Indonesian </Link> |<Link to="#">Turkish </Link>{" "}
-                  | <Link to="#">French </Link> |<Link to="#">Vietnamese</Link>{" "}
-                  | <Link to="#">Lebanese </Link> |<Link to="#">Moroccan</Link>{" "}
-                  | <Link to="#">British</Link> |<Link to="#">European</Link> |{" "}
-                  <Link to="#">Asian </Link> |<Link to="#">Bihari</Link> |{" "}
-                  <Link to="#">Malvani</Link> |<Link to="#">Mangalorean</Link> |{" "}
-                  <Link to="#">Sindhi</Link> |<Link to="#">Telangana</Link> |{" "}
-                  <Link to="#">Bhojpuri </Link> |<Link to="#">Kumauni</Link> |{" "}
-                  <Link to="#">Japanese </Link> |<Link to="#"> Korean</Link> |{" "}
-                  <Link to="#"> Russian </Link> |<Link to="#"> Spa </Link> |{" "}
-                  <Link to="#"> Ayurvedic </Link> |<Link to="#"> Vegan </Link> |
+                  <Link to="#">American</Link> | <Link to="#">Bengali </Link> |{" "}
+                  <Link to="#">Punjabi </Link> | <Link to="#">Andhra </Link> |{" "}
+                  <Link to="#">Kashmiri </Link> | <Link to="#">Goan </Link> |{" "}
+                  <Link to="#">Tamilian</Link> | <Link to="#">Assamese </Link> |{" "}
+                  <Link to="#">Manipuri </Link> | <Link to="#">Naga </Link> |{" "}
+                  <Link to="#">Meghalayan</Link> | <Link to="#">Mizo </Link> |{" "}
+                  <Link to="#">Sikkimese </Link> | <Link to="#">Spanish </Link>{" "}
+                  | <Link to="#">Indonesian </Link> |{" "}
+                  <Link to="#">Turkish </Link> | <Link to="#">French </Link> |{" "}
+                  <Link to="#">Vietnamese</Link> | <Link to="#">Lebanese </Link>{" "}
+                  |<Link to="#">Moroccan</Link> | <Link to="#">British</Link> |{" "}
+                  <Link to="#">European</Link> | <Link to="#">Asian </Link> |{" "}
+                  <Link to="#">Bihari</Link> | <Link to="#">Malvani</Link> |{" "}
+                  <Link to="#">Mangalorean</Link> | <Link to="#">Sindhi</Link> |{" "}
+                  <Link to="#">Telangana</Link> | <Link to="#">Bhojpuri </Link>{" "}
+                  | <Link to="#">Kumauni</Link> | <Link to="#">Japanese </Link>{" "}
+                  | <Link to="#"> Korean</Link> | <Link to="#"> Russian </Link>{" "}
+                  | <Link to="#"> Spa </Link> | <Link to="#"> Ayurvedic </Link>{" "}
+                  | <Link to="#"> Vegan </Link> |
                   <Link to="#"> Mediterranean </Link> |
                   <Link to="#"> Mangolian </Link> |
                   <Link to="#"> Cake baking </Link> |

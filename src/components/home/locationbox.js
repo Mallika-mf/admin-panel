@@ -340,13 +340,14 @@ const LocationBox = (props) => {
             onClick={getLocation}
             style={{
               borderRadius: "50px",
-              marginTop: "-4px",
+              marginTop: "-5px",
               border: "none",
               color: "red",
               backgroundColor: "transparent",
             }}
           >
-            <Icofont icon="location-pin" /> Locate Me
+            <Icofont icon="location-pin" size="1" />
+            Locate me
           </button>
         ) : (
           ""
