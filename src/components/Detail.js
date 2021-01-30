@@ -682,7 +682,7 @@ class Detail extends React.Component {
                     </Button>
                     <h6 className="text-white text-right mb-0 restaurant-detailed-ratings">
                       <span className="generator-bg rounded text-white">
-                        <Icofont icon="star" /> {prd.Ratings}
+                        <Icofont icon="ui-rating" /> {prd.Ratings}
                       </span>{" "}
                       Cost for two ₹{prd.CostTwo ? prd.CostTwo : 250}
                       {/* <Icofont icon="speech-comments" className="ml-3" /> 91 reviews */}
@@ -1423,10 +1423,10 @@ class Detail extends React.Component {
                     </div>
                     <Link
                       to="/checkout"
-                      className="btn btn-success btn-block btn-lg"
+                      className="btn btn--rounded btn-success btn-block btn-lg"
                     >
                       Checkout
-                      <Icofont icon="long-arrow-right" />
+                      <Icofont icon="arrow-right" />
                     </Link>
                     <div className="pt-2"></div>
                     {/* <div className="alert alert-success" role="alert">

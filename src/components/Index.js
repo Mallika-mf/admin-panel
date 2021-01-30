@@ -339,7 +339,7 @@ const Index = (props) => {
                 <div className="item">
                   <CardItem
                     title="Al Saba(Hyderabad)"
-                    subTitle=" Non veg • Veg • moghlai • chinese "
+                    subTitle="Non veg • Veg • moghlai • chinese"
                     imageAlt="Product"
                     image="./assets/img/vendors/Al Saba_Hyderabad.jpg"
                     imageClass="img-fluid item-img"
@@ -429,7 +429,11 @@ const Index = (props) => {
                   <div className="col-lg-6 col-md-6 col-sm-6">
                     <div
                       className="card"
-                      style={{ borderColor: "red", borderWidth: "2px" }}
+                      style={{
+                        borderColor: "red",
+                        borderWidth: "3px",
+                        borderRadius: "10px",
+                      }}
                     >
                       <div className="card-body text-center">
                         <div className="icon-box-fourteen text-center">
@@ -464,7 +468,11 @@ const Index = (props) => {
                   <div className="col-lg-6 col-md-6 col-sm-6">
                     <div
                       className="card"
-                      style={{ borderColor: "red", borderWidth: "2px" }}
+                      style={{
+                        borderColor: "red",
+                        borderWidth: "3px",
+                        borderRadius: "10px",
+                      }}
                     >
                       <div className="card-body text-center">
                         <div className="icon-box-fourteen text-center">

@@ -2299,7 +2299,7 @@ class Checkout extends React.Component {
                     className="btn btn-success btn-block btn-lg"
                   >
                     PAY ₹ {total ? total.toFixed(2) : 0.0}
-                    <Icofont icon="long-arrow-right" />
+                    <Icofont icon="arrow-right" />
                   </Button>
                 </div>
                 <div className="pt-2"></div>

@@ -78,7 +78,8 @@ class NavbarListing extends React.Component {
                   exact
                   to="/"
                 >
-                  Home <span className="sr-only">(current)</span>
+                  <Icofont icon="ui-home" /> Home
+                  <span className="sr-only">(current)</span>
                 </Nav.Link>
                 <Nav.Link
                   eventKey={0}
@@ -87,6 +88,7 @@ class NavbarListing extends React.Component {
                   exact
                   to="/localDishes"
                 >
+                  <Icofont icon="food-cart" />
                   Local Kitchen's <span className="sr-only">(current)</span>
                 </Nav.Link>
                 <Nav.Link
@@ -96,6 +98,7 @@ class NavbarListing extends React.Component {
                   exact
                   to="/listing"
                 >
+                  <Icofont icon="home" />
                   Home Food <span className="sr-only">(current)</span>
                 </Nav.Link>
                 <Nav.Link
@@ -329,6 +332,7 @@ class NavbarListing extends React.Component {
                   exact
                   to="/login"
                 >
+                  <Icofont icon="login" />
                   Login <span className="sr-only">(current)</span>
                 </Nav.Link>
               </Nav>

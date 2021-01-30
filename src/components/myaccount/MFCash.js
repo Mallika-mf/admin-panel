@@ -433,7 +433,7 @@ class MfCash extends React.Component {
                                       <span class="FoodItemName full-width">
                                         <span
                                           className="pull-left text-left"
-                                          style={{ color: "black" }}
+                                          style={{ color: "red" }}
                                         >
                                           {" "}
                                           Order Id &nbsp; : &nbsp;

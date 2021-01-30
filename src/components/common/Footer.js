@@ -12,6 +12,7 @@ import {
   Image,
 } from "react-bootstrap";
 import FontAwesome from "./FontAwesome";
+import Icofont from "react-icofont";
 
 class Footer extends React.Component {
   render() {
@@ -59,6 +60,7 @@ class Footer extends React.Component {
                 <div style={{ textAlign: "justify" }} className="app">
                   <p className="mb-2" style={{ textAlign: "justify" }}>
                     DOWNLOAD APP
+                    <Icofont icon="download" />
                   </p>
                   <a
                     href="https://play.google.com/store/apps/details?id=mothers.food.mothersfood"
@@ -88,6 +90,7 @@ class Footer extends React.Component {
                 <div style={{ textAlign: "justify" }} className="app">
                   <p style={{ textAlign: "justify" }} className="mb-2 mt-2">
                     DOWNLOAD Vendors APP
+                    <Icofont icon="download" />
                   </p>
                   {/* ======= */}
                   {/* <div className="app">
@@ -126,7 +129,7 @@ class Footer extends React.Component {
               <Col md={1} sm={6} className="mobile-none"></Col>
               <Col md={2} sm={4} xs={4}>
                 <h6 style={{ textAlign: "justify" }} className="mb-3">
-                  Company
+                  <Icofont icon="ui-office" size="1" /> Company
                 </h6>
                 <ul>
                   <li style={{ textAlign: "justify" }}>
@@ -148,7 +151,7 @@ class Footer extends React.Component {
               </Col>
               <Col md={2} sm={4} xs={4}>
                 <h6 style={{ textAlign: "justify" }} className="mb-3">
-                  Contact
+                  <Icofont icon="contacts" size="1" /> Contact
                 </h6>
                 <ul>
                   <li style={{ textAlign: "justify" }}>
@@ -171,6 +174,7 @@ class Footer extends React.Component {
               </Col>
               <Col md={2} sm={4} xs={2}>
                 <h6 style={{ textAlign: "justify" }} className="mb-3">
+                  <Icofont icon="legal" size="1" />
                   Legal
                 </h6>
                 <ul>
