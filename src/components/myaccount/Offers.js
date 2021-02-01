@@ -49,9 +49,9 @@ const Offerpage = () => {
               return (
                 <Col md={4} key={index}>
                   <CouponCard
-                    title={`Get ${item.Discount}% OFF on your first Mothersfood  eat order`}
+                    title={`Get ₹${item.Discount} OFF on your first Mothersfood  eat order`}
                     logoImage="img/offer.png"
-                    subTitle={`Use code ${item.Name} & get ${item.Discount}% off on your  order value above ₹${item.MinAmount} on Website and Mobile site. Maximum discount: ₹${item.MaxAmount}`}
+                    subTitle={`Use code ${item.Name} & get ₹${item.Discount} off on your  order value above ₹${item.MinAmount} on Website and Mobile site. Maximum discount: ₹${item.MaxAmount}`}
                     copyBtnText="COPY CODE"
                     couponCode={`${item.Name}`}
                   />

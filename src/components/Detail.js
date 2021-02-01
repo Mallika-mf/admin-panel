@@ -622,7 +622,7 @@ class Detail extends React.Component {
         </Modal>
         <section className="restaurant-detailed-banner">
           <div className="text-center">
-            <Image fluid className="cover" src="/assets/img/chef.png" />
+            <Image fluid className="cover" src="./img/chefdetails.jpg" />
           </div>
           <div className="restaurant-detailed-header">
             <Container>
@@ -635,7 +635,7 @@ class Detail extends React.Component {
                       <Image
                         fluid
                         className="mr-3 float-left"
-                        alt="osahan"
+                        alt="MF"
                         src="/assets/img/chef.png"
                         style={{ marginTop: "-2%" }}
                       />
@@ -643,7 +643,7 @@ class Detail extends React.Component {
                       <Image
                         fluid
                         className="mr-3 float-left"
-                        alt="osahan"
+                        alt="MF"
                         style={{
                           width: "170px",
                           height: "170px",

@@ -16,7 +16,7 @@ import Icofont from "react-icofont";
 import PageTitle from "./common/PageTitle";
 import CardItem from "./common/CardItemLocal";
 import CategoriesCarousel from "./common/CategoriesCarousel1";
-import backgroundImage from "../vid/local chef1.png";
+import backgroundImage from "../vid/localkitchens.jpg";
 import firebase from "./Firebase";
 import { AppContext } from "./home/context/appContext";
 import { get } from "lodash";
