@@ -661,7 +661,10 @@ class Detail extends React.Component {
                         src={prd.PP}
                       />
                     )}
-                    <h2 className="text-white" style={{ textAlign: "justify" }}>
+                    <h2
+                      className="text-white"
+                      style={{ textAlign: "justify", color: "" }}
+                    >
                       {prd.KitchenName}
                     </h2>
                     <h6
@@ -889,8 +892,7 @@ class Detail extends React.Component {
                                         className="card"
                                         style={{
                                           borderTop: "none",
-                                          borderBottomColor: "red",
-                                          borderBottomWidth: "2px",
+                                          borderBottom: "none",
                                         }}
                                       >
                                         <h5
@@ -898,19 +900,15 @@ class Detail extends React.Component {
                                           style={{
                                             textAlign: "justify",
                                             fontSize: "25px",
-                                            color: "red",
-                                            fontWeight: "bold",
+                                            color: "purple",
+                                            fontWeight: "normal",
                                             marginTop: "2px",
                                             marginBottom: "1px",
-                                            marginLeft: "20px",
+                                            marginLeft: "15px",
                                           }}
                                         >
                                           {" "}
                                           {itemMenu}{" "}
-                                          <Icofont
-                                            className=" mt-2 float-right"
-                                            icon="arrow-down"
-                                          />
                                         </h5>
                                       </div>
                                       {foodItems.map((item, index) => {
@@ -1034,19 +1032,15 @@ class Detail extends React.Component {
                                     <h5
                                       style={{
                                         textAlign: "justify",
-                                        fontSize: "30px",
-                                        color: "red",
-                                        fontWeight: "bold",
+                                        fontSize: "25px",
+                                        color: "purple",
+                                        fontWeight: "normal",
                                         marginTop: "2px",
                                         marginBottom: "1px",
-                                        marginLeft: "20px",
+                                        marginLeft: "15px",
                                       }}
                                     >
                                       {"All"}{" "}
-                                      <Icofont
-                                        className=" mt-2 float-right"
-                                        icon="arrow-down"
-                                      />
                                     </h5>
                                   </div>
                                   {foodItems.map((item, index) => {
