@@ -107,7 +107,7 @@ class Detail extends React.Component {
       showClearCartModal: false,
       show: false,
       num: [],
-      itemMenu:""
+      itemMenu:[]
     };
   }
   //End Template State
@@ -152,10 +152,12 @@ class Detail extends React.Component {
             if (snapshot.exists()) {
               // console.log('vendor single', snapshot.val());
               // console.log(this.state.userCart)
+              let arrMenu = snapshot.val().ItemMenu.split(",")
+              console.log(arrMenu)
+              this.setState({itemMenu:arrMenu})
               this.setState({
                 product: { data: snapshot.val(), loading: false },
               });
-              this.setState({itemMenu:snapshot.val().ItemMenu})
               let userCart = this.state.userCart;
               // console.log(...this.state.userCart)
               const foodItems = Object.values(
@@ -523,6 +525,19 @@ class Detail extends React.Component {
 
   //End Template code
 
+  showItem = () =>{
+    let arr = this.state.itemMenu
+    for(let i = 0; i<=arr.length; i++){
+      return(
+        <div className="col">
+        <h5>{arr[i]}</h5>
+
+        </div>
+    
+      )      
+    }
+  }
+
   render() {
     var isLoggedin = localStorage.getItem("isLogging");
     if (this.state.product.loading) {
@@ -624,7 +639,7 @@ class Detail extends React.Component {
         </Modal>
         <section className="restaurant-detailed-banner">
           <div className="text-center">
-            <Image fluid className="cover" src="./img/chefdetails.jpg" />
+            <Image fluid className="cover" src="/assets/img/chef.png" />
           </div>
           <div className="restaurant-detailed-header">
             <Container>
@@ -637,7 +652,7 @@ class Detail extends React.Component {
                       <Image
                         fluid
                         className="mr-3 float-left"
-                        alt="MF"
+                        alt="osahan"
                         src="/assets/img/chef.png"
                         style={{ marginTop: "-2%" }}
                       />
@@ -645,7 +660,7 @@ class Detail extends React.Component {
                       <Image
                         fluid
                         className="mr-3 float-left"
-                        alt="MF"
+                        alt="osahan"
                         style={{
                           width: "170px",
                           height: "170px",
@@ -868,10 +883,9 @@ class Detail extends React.Component {
                           </h5>
                           <Col md={12}>
                             <div className="bg-white rounded border shadow-sm mb-4">
-                              {/* {this.state.itemMenu.map((item,index)=>{
-
-                              })} */}
+                              {this.showItem()}
                               {foodItems.map((item, index) => {
+
                                 if (
                                   item.AStatus !== "Active" ||
                                   item.Status !== "Active" ||
