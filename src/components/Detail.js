@@ -899,12 +899,12 @@ class Detail extends React.Component {
                                           id="digital"
                                           style={{
                                             textAlign: "justify",
-                                            fontSize: "25px",
+                                            fontSize: "20px",
                                             color: "purple",
-                                            fontWeight: "normal",
-                                            marginTop: "2px",
-                                            marginBottom: "1px",
-                                            marginLeft: "15px",
+                                            fontWeight: "bold",
+                                            marginTop: "10px",
+                                            marginBottom: "40px",
+                                            marginLeft: "20px",
                                           }}
                                         >
                                           {" "}
@@ -1032,12 +1032,12 @@ class Detail extends React.Component {
                                     <h5
                                       style={{
                                         textAlign: "justify",
-                                        fontSize: "25px",
+                                        fontSize: "20px",
                                         color: "purple",
-                                        fontWeight: "normal",
-                                        marginTop: "2px",
-                                        marginBottom: "1px",
-                                        marginLeft: "15px",
+                                        fontWeight: "bold",
+                                        marginTop: "10px",
+                                        marginBottom: "40px",
+                                        marginLeft: "20px",
                                       }}
                                     >
                                       {"All"}{" "}
