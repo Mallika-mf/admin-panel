@@ -107,7 +107,7 @@ class Detail extends React.Component {
       showClearCartModal: false,
       show: false,
       num: [],
-      itemMenu: [],
+      itemMenu:[]
     };
   }
   //End Template State
@@ -152,16 +152,12 @@ class Detail extends React.Component {
             if (snapshot.exists()) {
               // console.log('vendor single', snapshot.val());
               // console.log(this.state.userCart)
+              let arrMenu = snapshot.val().ItemMenu.split(",")
+              console.log(arrMenu)
+              this.setState({itemMenu:arrMenu})
               this.setState({
                 product: { data: snapshot.val(), loading: false },
               });
-              if (snapshot.val().ItemMenu !== undefined) {
-                this.setState({ itemMenu: snapshot.val().ItemMenu.split(",") });
-              }
-              //else{
-              //   this.setState({itemMenu:["All"]})
-
-              // }
               let userCart = this.state.userCart;
               // console.log(...this.state.userCart)
               const foodItems = Object.values(
@@ -529,6 +525,21 @@ class Detail extends React.Component {
 
   //End Template code
 
+  showItem = () =>{
+    let arr = this.state.itemMenu
+    arr.map((item,index)=>{
+      return(
+        <div className="col" key={index}>
+        <h5>{item}</h5><br/>{console.log(arr[i])}
+
+        </div>
+    
+      )      
+    }
+    })
+    
+  
+
   render() {
     var isLoggedin = localStorage.getItem("isLogging");
     if (this.state.product.loading) {
@@ -630,7 +641,7 @@ class Detail extends React.Component {
         </Modal>
         <section className="restaurant-detailed-banner">
           <div className="text-center">
-            <Image fluid className="cover" src="./img/chefdetails.jpg" />
+            <Image fluid className="cover" src="/assets/img/chef.png" />
           </div>
           <div className="restaurant-detailed-header">
             <Container>
@@ -643,7 +654,7 @@ class Detail extends React.Component {
                       <Image
                         fluid
                         className="mr-3 float-left"
-                        alt="MF"
+                        alt="osahan"
                         src="/assets/img/chef.png"
                         style={{ marginTop: "-2%" }}
                       />
@@ -651,7 +662,7 @@ class Detail extends React.Component {
                       <Image
                         fluid
                         className="mr-3 float-left"
-                        alt="MF"
+                        alt="osahan"
                         style={{
                           width: "170px",
                           height: "170px",
@@ -866,14 +877,7 @@ class Detail extends React.Component {
 			                              </Col>
 			                           </Row> */}
                         <Row>
-                          <h5
-                            className="mb-4 mt-3 col-md-12"
-                            style={{
-                              fontSize: "30px",
-                              color: "red",
-                              fontWeight: "bold",
-                            }}
-                          >
+                          <h5 className="mb-4 mt-3 col-md-12">
                             Food Items{" "}
                             <small className="h6 text-black-50">
                               {foodItems.length} &nbsp;Active ITEMS
@@ -881,274 +885,101 @@ class Detail extends React.Component {
                           </h5>
                           <Col md={12}>
                             <div className="bg-white rounded border shadow-sm mb-4">
-                              {this.state.itemMenu.length > 0 ? (
-                                this.state.itemMenu.map((itemMenu, index) => {
-                                  return (
-                                    <>
-                                      <div
-                                        className="card"
-                                        style={{
-                                          borderTop: "none",
-                                          borderBottomColor: "red",
-                                          borderBottomWidth: "2px",
-                                        }}
-                                      >
-                                        <h5
-                                          id="digital"
-                                          style={{
-                                            textAlign: "justify",
-                                            fontSize: "25px",
-                                            color: "red",
-                                            fontWeight: "bold",
-                                            marginTop: "2px",
-                                            marginBottom: "1px",
-                                            marginLeft: "20px",
-                                          }}
-                                        >
-                                          {" "}
-                                          {itemMenu}{" "}
-                                          <Icofont
-                                            className=" mt-2 float-right"
-                                            icon="arrow-down"
-                                          />
-                                        </h5>
-                                      </div>
-                                      {foodItems.map((item, index) => {
-                                        if (itemMenu === item.Menu) {
-                                          if (
-                                            item.AStatus !== "Active" ||
-                                            item.Status !== "Active" ||
-                                            Date.parse(currenttime) <
-                                              Date.parse(item.SDate) ||
-                                            Date.parse(currenttime) >
-                                              Date.parse(item.EDate)
-                                          ) {
-                                            inActiveFoodItems.push(item);
-                                            return "";
-                                          }
-                                          return (
-                                            <div key={index}>
-                                              <QuickBite
-                                                id={1}
-                                                itemClass="menu-list"
-                                                image={item.Image}
-                                                title={item.Name}
-                                                detail={item.Details}
-                                                price={parseInt(item.Price)}
-                                                priceUnit={`₹ `}
-                                                onIncClicked={() =>
-                                                  this.handleDecreaseQuantity(
-                                                    item
-                                                  )
-                                                }
-                                                onDecClick={() =>
-                                                  this.handleIncreaseQuantity(
-                                                    item
-                                                  )
-                                                }
-                                                onAddClick={() =>
-                                                  this.handleAddToCart(item)
-                                                }
-                                                quantity={
-                                                  item.quantity === undefined
-                                                    ? (item.quantity = 0)
-                                                    : parseInt(item.quantity)
-                                                }
-                                                getValue={this.getQty}
-                                                showCart={false}
-                                              />
-                                              {/* <QuickBite 
-                              id={2}
-                              itemClass="menu-list"
-                                 title='Cheese corn Roll'
-                              image="/img/2.jpg"
-                              price={600}
-                              showBadge={true}
-                              badgeText='BEST SELLER'
-                              qty={1}
-                              priceUnit='$'
-                              getValue={this.getQty}
-                            />*/}
-                                              {/* <QuickBite 
-                              id={3}
-                              itemClass="menu-list"
-                              image="/img/3.jpg"
-                                 title='Chicken Tikka Sub'
-                              price={250}
-                              showBadge={true}
-                              badgeText='Pure Veg'
-                              badgeVariant="success"
-                              priceUnit='$'
-                              getValue={this.getQty}
-                               />  */}
-                                            </div>
-                                          );
-                                        }
-                                        //else if(item.Menu){
-                                        //   return(
-                                        //     <h5 id="digital" style={{display:"none"}}></h5>
-                                        //   )
-                                        // }
-                                      })}
+                              {this.showItem()}
+                              {foodItems.map((item, index) => {
 
-                                      {inActiveFoodItems.map((item, index) => {
-                                        if (itemMenu === item.Menu) {
-                                          return (
-                                            <div key={index}>
-                                              <QuickBite
-                                                id={1}
-                                                itemClass="menu-list"
-                                                image={item.Image}
-                                                title={item.Name}
-                                                detail={item.Details}
-                                                price={parseInt(item.Price)}
-                                                priceUnit={`₹ `}
-                                                onIncClicked={() =>
-                                                  this.handleDecreaseQuantity(
-                                                    item
-                                                  )
-                                                }
-                                                onDecClick={() =>
-                                                  this.handleIncreaseQuantity(
-                                                    item
-                                                  )
-                                                }
-                                                onAddClick={() =>
-                                                  this.handleAddToCart(item)
-                                                }
-                                                quantity={item.quantity}
-                                                getValue={this.getQty}
-                                                showCart={true}
-                                              />
-                                            </div>
-                                          );
-                                        }
-                                      })}
-                                    </>
-                                  );
-                                })
-                              ) : (
-                                <>
-                                  {" "}
-                                  <div className="card">
-                                    <h5
-                                      style={{
-                                        textAlign: "justify",
-                                        fontSize: "30px",
-                                        color: "red",
-                                        fontWeight: "bold",
-                                        marginTop: "2px",
-                                        marginBottom: "1px",
-                                        marginLeft: "20px",
-                                      }}
-                                    >
-                                      {"All"}{" "}
-                                      <Icofont
-                                        className=" mt-2 float-right"
-                                        icon="arrow-down"
-                                      />
-                                    </h5>
-                                  </div>
-                                  {foodItems.map((item, index) => {
-                                    if (item.Menu === undefined) {
-                                      if (
-                                        item.AStatus !== "Active" ||
-                                        item.Status !== "Active" ||
-                                        Date.parse(currenttime) <
-                                          Date.parse(item.SDate) ||
-                                        Date.parse(currenttime) >
-                                          Date.parse(item.EDate)
-                                      ) {
-                                        inActiveFoodItems.push(item);
-                                        return "";
+                                if (
+                                  item.AStatus !== "Active" ||
+                                  item.Status !== "Active" ||
+                                  Date.parse(currenttime) <
+                                    Date.parse(item.SDate) ||
+                                  Date.parse(currenttime) >
+                                    Date.parse(item.EDate)
+                                ) {
+                                  inActiveFoodItems.push(item);
+                                  return "";
+                                }
+                                return (
+                                  <div key={index}>
+                                    <QuickBite
+                                      id={1}
+                                      itemClass="menu-list"
+                                      image={item.Image}
+                                      title={item.Name}
+                                      detail={item.Details}
+                                      price={parseInt(item.Price)}
+                                      priceUnit={`₹ `}
+                                      onIncClicked={() =>
+                                        this.handleDecreaseQuantity(item)
                                       }
-                                      return (
-                                        <div key={index}>
-                                          <QuickBite
-                                            id={1}
-                                            itemClass="menu-list"
-                                            image={item.Image}
-                                            title={item.Name}
-                                            detail={item.Details}
-                                            price={parseInt(item.Price)}
-                                            priceUnit={`₹ `}
-                                            onIncClicked={() =>
-                                              this.handleDecreaseQuantity(item)
-                                            }
-                                            onDecClick={() =>
-                                              this.handleIncreaseQuantity(item)
-                                            }
-                                            onAddClick={() =>
-                                              this.handleAddToCart(item)
-                                            }
-                                            quantity={
-                                              item.quantity === undefined
-                                                ? (item.quantity = 0)
-                                                : parseInt(item.quantity)
-                                            }
-                                            getValue={this.getQty}
-                                            showCart={false}
-                                          />
-                                          {/* <QuickBite 
-                        id={2}
-                        itemClass="menu-list"
-                           title='Cheese corn Roll'
-                        image="/img/2.jpg"
-                        price={600}
-                        showBadge={true}
-                        badgeText='BEST SELLER'
-                        qty={1}
-                        priceUnit='$'
-                        getValue={this.getQty}
-                      />*/}
-                                          {/* <QuickBite 
-                        id={3}
-                        itemClass="menu-list"
-                        image="/img/3.jpg"
-                           title='Chicken Tikka Sub'
-                        price={250}
-                        showBadge={true}
-                        badgeText='Pure Veg'
-                        badgeVariant="success"
-                        priceUnit='$'
-                        getValue={this.getQty}
-                         />  */}
-                                        </div>
-                                      );
-                                    }
-                                  })}
-                                  {inActiveFoodItems.map((item, index) => {
-                                    if (item.Menu === undefined) {
-                                      console.log(item);
-                                      return (
-                                        <div key={index}>
-                                          <QuickBite
-                                            id={1}
-                                            itemClass="menu-list"
-                                            image={item.Image}
-                                            title={item.Name}
-                                            detail={item.Details}
-                                            price={parseInt(item.Price)}
-                                            priceUnit={`₹ `}
-                                            onIncClicked={() =>
-                                              this.handleDecreaseQuantity(item)
-                                            }
-                                            onDecClick={() =>
-                                              this.handleIncreaseQuantity(item)
-                                            }
-                                            onAddClick={() =>
-                                              this.handleAddToCart(item)
-                                            }
-                                            quantity={item.quantity}
-                                            getValue={this.getQty}
-                                            showCart={true}
-                                          />
-                                        </div>
-                                      );
-                                    }
-                                  })}
-                                </>
-                              )}
+                                      onDecClick={() =>
+                                        this.handleIncreaseQuantity(item)
+                                      }
+                                      onAddClick={() =>
+                                        this.handleAddToCart(item)
+                                      }
+                                      quantity={
+                                        item.quantity === undefined
+                                          ? (item.quantity = 0)
+                                          : parseInt(item.quantity)
+                                      }
+                                      getValue={this.getQty}
+                                      showCart={false}
+                                    />
+                                    {/* <QuickBite 
+													id={2}
+													itemClass="menu-list"
+											   		title='Cheese corn Roll'
+													image="/img/2.jpg"
+													price={600}
+													showBadge={true}
+													badgeText='BEST SELLER'
+													qty={1}
+													priceUnit='$'
+													getValue={this.getQty}
+												/>*/}
+                                    {/* <QuickBite 
+													id={3}
+													itemClass="menu-list"
+													image="/img/3.jpg"
+											   		title='Chicken Tikka Sub'
+													price={250}
+													showBadge={true}
+													badgeText='Pure Veg'
+													badgeVariant="success"
+													priceUnit='$'
+													getValue={this.getQty}
+											   	/>  */}
+                                  </div>
+                                );
+                              })}
+                              {inActiveFoodItems.map((item, index) => {
+                                return (
+                                  <div key={index}>
+                                    <QuickBite
+                                      id={1}
+                                      itemClass="menu-list"
+                                      image={item.Image}
+                                      title={item.Name}
+                                      detail={item.Details}
+                                      price={parseInt(item.Price)}
+                                      priceUnit={`₹ `}
+                                      onIncClicked={() =>
+                                        this.handleDecreaseQuantity(item)
+                                      }
+                                      onDecClick={() =>
+                                        this.handleIncreaseQuantity(item)
+                                      }
+                                      onAddClick={() =>
+                                        this.handleAddToCart(item)
+                                      }
+                                      quantity={item.quantity}
+                                      getValue={this.getQty}
+                                      showCart={true}
+                                    />
+                                  </div>
+                                );
+                              })}
                             </div>
                           </Col>
                         </Row>

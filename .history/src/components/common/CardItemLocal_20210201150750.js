@@ -150,7 +150,7 @@ class CardItem extends React.Component {
           </div>
           <div className="p-3 position-relative">
             <div className="list-card-body">
-              {/* <Link to={this.props.linkUrl} className="text-black"> */}
+            {/* <Link to={this.props.linkUrl} className="text-black"> */}
               <h6 className="mb-1">{this.props.title}</h6>
               {/* </Link> */}
               {this.props.subTitle ? (
