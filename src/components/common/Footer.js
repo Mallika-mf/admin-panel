@@ -334,9 +334,7 @@ class Footer extends React.Component {
             <p className="mt-0 mb-0">{this.props.copyrightText}</p>
             <small className="mt-0 mb-0">
               {" "}
-              Made with <FontAwesome
-                icon={this.props.madewithIconclassName}
-              />{" "}
+              Made with <FontAwesome icon={this.props.madewithIconclassName} />
               by
               <Link
                 className="text-danger ml-1"
@@ -356,7 +354,7 @@ class Footer extends React.Component {
             </small>
             <div
               className="social-basic"
-              style={{ marginTop: "-3%", marginBottom: "0" }}
+              style={{ marginTop: "-2%", marginBottom: "0" }}
             >
               <ul className="d-flex justify-content-end ">
                 <li>
