@@ -879,7 +879,7 @@ class Detail extends React.Component {
                               this.state.itemMenu.map((itemMenu,index)=>{
                                 return(
                                   <>
-                                  <div className="card"><h5 id="digital" style={{textAlign:"justify"}}>{itemMenu}</h5></div>
+                                  <h5 id="digital" style={{textAlign:"justify"}}>{itemMenu}</h5>
                                   {foodItems.map((item, index) => {
                                     if(itemMenu===item.Menu){
 
@@ -990,10 +990,11 @@ class Detail extends React.Component {
                               })}
                                </>
                               )
-                            }):   <> <div className="card"><h5 style={{textAlign:"justify"}}>{"All"}</h5></div>
+                            }):   <> <h5 style={{textAlign:"justify"}}>{"All"}</h5>
                             {foodItems.map((item, index) => {
                               
                               if(item.Menu===undefined){
+                                console.log(item)  
                               if (
                                 item.AStatus !== "Active" ||
                                 item.Status !== "Active" ||

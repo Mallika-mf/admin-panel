@@ -879,7 +879,7 @@ class Detail extends React.Component {
                               this.state.itemMenu.map((itemMenu,index)=>{
                                 return(
                                   <>
-                                  <div className="card"><h5 id="digital" style={{textAlign:"justify"}}>{itemMenu}</h5></div>
+                                  <h5 id="digital" style={{textAlign:"justify"}}>{itemMenu}</h5>
                                   {foodItems.map((item, index) => {
                                     if(itemMenu===item.Menu){
 
@@ -947,12 +947,11 @@ class Detail extends React.Component {
                                />  */}
                                       </div>
                                     );
-                               }
-                               //else if(item.Menu){
-                              //   return(
-                              //     <h5 id="digital" style={{display:"none"}}></h5>
-                              //   )
-                              // }
+                              }else if(itemMenu!==item.Menu){
+                                return(
+                                  <h5 id="digital" style={{display:"none"}}></h5>
+                                )
+                              }
                                   })}
                                  
                                 
@@ -990,10 +989,10 @@ class Detail extends React.Component {
                               })}
                                </>
                               )
-                            }):   <> <div className="card"><h5 style={{textAlign:"justify"}}>{"All"}</h5></div>
+                            }):   <> <h5 style={{textAlign:"justify"}}>{"All"}</h5>
                             {foodItems.map((item, index) => {
                               
-                              if(item.Menu===undefined){
+
                               if (
                                 item.AStatus !== "Active" ||
                                 item.Status !== "Active" ||
@@ -1058,13 +1057,10 @@ class Detail extends React.Component {
                          />  */}
                                 </div>
                               );
-                        }
                         })
                             }
                       
                          {inActiveFoodItems.map((item, index) => {
-                           if(item.Menu===undefined){ 
-                             console.log(item)  
                             return (
                               <div key={index}>
                                 <QuickBite
@@ -1090,7 +1086,7 @@ class Detail extends React.Component {
                                 />
                               </div>
                             );
-                                }
+                         
                         })}</>}
                         
                             </div>
