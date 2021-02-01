@@ -254,7 +254,7 @@ class Footer extends React.Component {
                   <Link to="#">Mumbai</Link> | <Link to="#">Noida</Link> |{" "}
                   <Link to="#">Greater Noida</Link> |{" "}
                   <Link to="#">Fairdabad</Link> | <Link to="#">Ghazibad</Link> |{" "}
-                  <Link to="#">Pune</Link> | <Link to="#">Banglore</Link>
+                  <Link to="#">Pune</Link> | <Link to="#">Bangalore</Link>
                   {/* <Link to="#">Australia</Link> |<Link to="#">Brasil</Link> |
                   <Link to="#">Canada</Link> |<Link to="#">Chile</Link> |
                   <Link to="#">Czech Republic</Link> |<Link to="#">India</Link>{" "}
@@ -316,8 +316,8 @@ class Footer extends React.Component {
                   <Link to="#">Telangana</Link> | <Link to="#">Bhojpuri </Link>{" "}
                   | <Link to="#">Kumauni</Link> | <Link to="#">Japanese </Link>{" "}
                   | <Link to="#"> Korean</Link> | <Link to="#"> Russian </Link>{" "}
-                  | <Link to="#"> Spa </Link> | <Link to="#"> Ayurvedic </Link>{" "}
-                  | <Link to="#"> Vegan </Link> |
+                  | <Link to="#"> Ayurvedic </Link> |{" "}
+                  <Link to="#"> Vegan </Link> |
                   <Link to="#"> Mediterranean </Link> |
                   <Link to="#"> Mangolian </Link> |
                   <Link to="#"> Cake baking </Link> |
