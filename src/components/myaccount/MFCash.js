@@ -331,7 +331,10 @@ class MfCash extends React.Component {
               <div className="col-lg-12 col-md-12 order-1 order-md-1">
                 <div className="sidebar-right">
                   <div className="col-12 text-left pt-2 pb-3 card">
-                    <h3 className="text-center mt-2" style={{ color: "red" }}>
+                    <h3
+                      className="text-center mt-2"
+                      style={{ color: "red", fontWeight: "bold" }}
+                    >
                       MF Cash
                     </h3>
                     <div className=" border-0  mt-2" style={{ border: "none" }}>
@@ -368,12 +371,12 @@ class MfCash extends React.Component {
                           </li>
                           <li className="bullet_list">
                             <b>
-                              MF Cash is transferable to any oter MothersFood
-                              Account
+                              MF Cash is not transferable to any other
+                              MothersFood Account
                             </b>
                           </li>
                           <li className="bullet_list">
-                            <b>Valid for the 30 days the day you win it</b>
+                            <b>Valid for 30 days from the day you win</b>
                           </li>
                           <li className="bullet_list">
                             <b>Cannot be transfered to bank account</b>

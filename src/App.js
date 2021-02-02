@@ -34,6 +34,7 @@ import Refund from "./components/FooterPages/Refund";
 import Blog from "./components/Blogs/blog";
 import HomeFood from "./components/order";
 import Privacy from "./components/FooterPages/Privacy";
+import Catering from "./components/FooterPages/catering";
 
 import NewsDetail4 from "./page/news-detail-4";
 import NewsDetail1 from "./page/news-detail-1";
@@ -49,9 +50,9 @@ import NewsDetail11 from "./page/news-detail-11";
 import NewsDetail12 from "./page/news-detail-12";
 import NewsDetail13 from "./page/news-detail-13";
 import NewsDetail14 from "./page/news-detail-14";
-import NewsDetail15 from "./page/news-detail-15";
-
 import LocalFood from "./components/localFood";
+import localkitchens from "./components/FooterPages/localkitchens";
+import homechefs from "./components/FooterPages/homechefs";
 class App extends React.Component {
   render() {
     return (
@@ -79,6 +80,9 @@ class App extends React.Component {
           <Route path="/register" exact component={Register} />
           <Route path="/track-order" exact component={TrackOrder} />
           <Route path="/invoice" exact component={Invoice} />
+          <Route path="/catering" exact component={Catering} />
+          <Route path="/localkitchens" exact component={localkitchens} />
+          <Route path="/homechefs" exact component={homechefs} />
           <Route path="/checkout" exact component={Checkout} />
           <Route path="/detailsOrder" exact component={DetailOrder} />
           <Route path="/thanks" exact component={Thanks} />
@@ -109,7 +113,6 @@ class App extends React.Component {
           <Route exact path="/news-detail-12" component={NewsDetail12} />
           <Route exact path="/news-detail-13" component={NewsDetail13} />
           <Route exact path="/news-detail-14" component={NewsDetail14} />
-          <Route exact path="/news-detail-15" component={NewsDetail15} />
 
           <Route exact component={NotFound} />
         </Switch>

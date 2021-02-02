@@ -19,6 +19,8 @@ const Offerpage = () => {
       .ref()
       .child("Promocode")
       .child("User")
+      .orderByChild("Status")
+      .equalTo("Active")
       .on("value", function (snapshot) {
         if (snapshot.exists()) {
           const content = [];
@@ -48,17 +50,45 @@ const Offerpage = () => {
               <h4 className="font-weight-bold mt-0 mb-3">Available Coupons</h4>
             </Col>
             {offer.map((item, index) => {
-              return (
-                <Col md={3} key={index}>
-                  <CouponCard
-                    title={`Get ₹${item.Discount} OFF on your first Mothersfood  eat order`}
-                    logoImage="img/offer.png"
-                    subTitle={`Use code ${item.Name} & get ₹${item.Discount} off on your  order value above ₹${item.MinAmount} on Website and Mobile site. Maximum discount: ₹${item.MaxAmount}`}
-                    // copyBtnText="COPY CODE"
-                    couponCode={`${item.Name}`}
-                  />
-                </Col>
-              );
+              if (item.Type === "Percentage") {
+                return (
+                  <Col md={3} key={index}>
+                    <CouponCard
+                      title={`Get Up to ${item.Discount}% OFF on your  order`}
+                      logoImage="img/offer.png"
+                      subTitle={`Use code ${item.Name} & get ${item.Discount}% off on your  order value above ₹${item.MinAmount} on Website and Mobile site.`}
+                      condition={` Maximum discount upto: ₹${item.MaxAmount}`}
+                      // copyBtnText="COPY CODE"
+                      couponCode={`${item.Name}`}
+                    />
+                  </Col>
+                );
+              } else if (item.Type === "Delivery") {
+                return (
+                  <Col md={3} key={index}>
+                    <CouponCard
+                      title={`Get Up to ₹${item.MaxAmount}% OFF on your  order`}
+                      logoImage="img/offer.png"
+                      subTitle={`Use code ${item.Name} & get Free Delivery on your  order value above ₹${item.MinAmount} on Website and Mobile site.`}
+                      condition={` Maximum discount upto: ₹${item.MaxAmount}`}
+                      // copyBtnText="COPY CODE"
+                      couponCode={`${item.Name}`}
+                    />
+                  </Col>
+                );
+              } else {
+                return (
+                  <Col md={3} key={index}>
+                    <CouponCard
+                      title={`Get FLAT ₹${item.Discount} OFF on your  order`}
+                      logoImage="img/offer.png"
+                      subTitle={`Use code ${item.Name} & get FLAT ₹${item.Discount} off on your  order value above ₹${item.MinAmount} on Website and Mobile site.`}
+                      condition={` Maximum discount upto: ₹${item.MaxAmount}`}
+                      couponCode={`${item.Name}`}
+                    />
+                  </Col>
+                );
+              }
             })}
 
             {/* <Col md={4}>

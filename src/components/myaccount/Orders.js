@@ -149,14 +149,18 @@ class Orders extends React.Component {
                                           state: { order: order },
                                         }}
                                         className="OrderDetailsAddButton pull-right mr-3 btn-success"
+                                        style={{ color: "white" }}
                                       >
                                         <i className="fa fa-info"></i>
                                         Details
                                       </Link>
-                                      <button class="OrderDetailsAddButton pull-right mr-3 btn-danger">
+                                      {/* <button
+                                        class="OrderDetailsAddButton pull-right mr-3 btn-danger"
+                                        style={{ color: "white" }}
+                                      >
                                         <i className="fa fa-headphones mr-1"></i>
                                         Help
-                                      </button>
+                                      </button> */}
                                     </div>
                                   </div>
                                 </div>

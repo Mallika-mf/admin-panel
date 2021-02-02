@@ -78,17 +78,17 @@ class MyAccount extends React.Component {
                   <ul className="nav flex-column border-0 pt-4 pl-4 pb-4">
                     <li className="nav-item">
                       <NavLink
-                        className="nav-link"
+                        className="nav-link float-left"
                         activeClassName="active"
                         exact
                         to="/myaccount/orders"
                       >
-                        <i className="icofont-food-cart"></i> Orders
+                        <i className="icofont-food-cart "></i> Orders
                       </NavLink>
                     </li>
                     <li className="nav-item">
                       <NavLink
-                        className="nav-link"
+                        className="nav-link float-left"
                         activeClassName="active"
                         exact
                         to="/myaccount/offers"
@@ -98,7 +98,7 @@ class MyAccount extends React.Component {
                     </li>
                     {/* <li className="nav-item">
                       <NavLink
-                        className="nav-link"
+                        className="nav-link float-left"
                         activeClassName="active"
                         exact
                         to="/myaccount/favourites"
@@ -108,7 +108,7 @@ class MyAccount extends React.Component {
                     </li> */}
                     {/* <li className="nav-item">
                       <NavLink
-                        className="nav-link"
+                        className="nav-link float-left"
                         activeClassName="active"
                         exact
                         to="/myaccount/payments"
@@ -118,7 +118,7 @@ class MyAccount extends React.Component {
                     </li> */}
                     <li className="nav-item">
                       <NavLink
-                        className="nav-link"
+                        className="nav-link float-left"
                         activeClassName="active"
                         exact
                         to="/myaccount/addresses"
@@ -128,7 +128,7 @@ class MyAccount extends React.Component {
                     </li>
                     <li className="nav-item">
                       <NavLink
-                        className="nav-link"
+                        className="nav-link float-left"
                         activeClassName="active"
                         exact
                         to="/myaccount/MFCash"
@@ -138,7 +138,7 @@ class MyAccount extends React.Component {
                     </li>
                     <li className="nav-item">
                       <NavLink
-                        className="nav-link"
+                        className="nav-link float-left"
                         activeClassName="active"
                         exact
                         to="/myaccount/MyCash"
@@ -148,7 +148,7 @@ class MyAccount extends React.Component {
                     </li>
                     <li className="nav-item">
                       <NavLink
-                        className="nav-link"
+                        className="nav-link float-left"
                         activeClassName="active"
                         exact
                         to="/myaccount/SratchCard"

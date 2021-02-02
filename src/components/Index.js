@@ -252,7 +252,7 @@ const Index = (props) => {
                 <div className="item">
                   <CardItem
                     title="Kusum Dwivedi(Delhi)"
-                    subTitle="Kadaipaneer"
+                    subTitle="Kadai paneer"
                     imageAlt="Product"
                     image="./assets/img/chefs/Kusum Dwivedi.jpg"
                     imageClass="img-fluid item-img"

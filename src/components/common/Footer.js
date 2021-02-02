@@ -126,10 +126,10 @@ class Footer extends React.Component {
                   {/* </div>  */}
                 </div>
               </Col>
-              <Col md={1} sm={6} className="mobile-none"></Col>
-              <Col md={2} sm={4} xs={4}>
+              {/* <Col md={1} sm={6} className="mobile-none"></Col> */}
+              <Col md={2} sm={3} xs={4} style={{ marginLeft: "3%" }}>
                 <h6 style={{ textAlign: "justify" }} className="mb-3">
-                  <Icofont icon="ui-office" size="1" /> Company
+                  <Icofont icon="building-alt" size="1" /> Company
                 </h6>
                 <ul>
                   <li style={{ textAlign: "justify" }}>
@@ -149,7 +149,7 @@ class Footer extends React.Component {
                   </li>
                 </ul>
               </Col>
-              <Col md={2} sm={4} xs={4}>
+              <Col md={2} sm={3} xs={4} style={{ marginLeft: "-4%" }}>
                 <h6 style={{ textAlign: "justify" }} className="mb-3">
                   <Icofont icon="contacts" size="1" /> Contact
                 </h6>
@@ -172,17 +172,17 @@ class Footer extends React.Component {
                   </li> */}
                 </ul>
               </Col>
-              <Col md={2} sm={4} xs={2}>
+              <Col md={2} sm={3} xs={3} style={{ marginLeft: "-2%" }}>
                 <h6 style={{ textAlign: "justify" }} className="mb-3">
-                  <Icofont icon="legal" size="1" />
+                  <Icofont icon="paper" size="1" />
                   Legal
                 </h6>
                 <ul>
                   <li style={{ textAlign: "justify" }}>
-                    <Link to="term">Terms & Conditions </Link>
+                    <Link to="term">Terms& Conditions </Link>
                   </li>
                   <li style={{ textAlign: "justify" }}>
-                    <Link to="refund">Refund & Cancellation</Link>
+                    <Link to="refund">Refund& Cancellation</Link>
                   </li>
                   <li style={{ textAlign: "justify" }}>
                     <Link to="privacy">Privacy Policy</Link>
@@ -235,6 +235,22 @@ class Footer extends React.Component {
                     </a>
                   </li>
                 </ul> */}
+              </Col>
+              <Col md={2} sm={3} xs={6} style={{}}>
+                <h6 style={{ textAlign: "justify" }} className="mb-3">
+                  <Icofont icon="briefcase" size="1" /> Services
+                </h6>
+                <ul>
+                  <li style={{ textAlign: "justify" }}>
+                    <Link to="homechefs">Home Chef's</Link>
+                  </li>
+                  <li style={{ textAlign: "justify" }}>
+                    <Link to="/localkitchens">Local Kitchen's</Link>
+                  </li>
+                  <li style={{ textAlign: "justify" }}>
+                    <NavLink to="/catering">Caterer's</NavLink>
+                  </li>
+                </ul>
               </Col>
             </Row>
           </Container>
