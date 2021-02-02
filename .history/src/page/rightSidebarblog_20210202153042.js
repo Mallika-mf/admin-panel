@@ -20,7 +20,7 @@ class RightSideBar extends Component {
 
                         <div className="widget-wrapper" >
                             <div className="widget-default">
-                                <div className="widget-header"  >
+                                <div className="widget-header" style={{marginTop:"10%",marginBottom:"10%"}}  >
                                     <h6 className="widget-title" >Popular Post</h6>
                                 </div><hr/>
                                 <div class="row mx-md-n5" style={{marginBottom:"20%"}} >

@@ -155,9 +155,24 @@ class Detail extends React.Component {
               this.setState({
                 product: { data: snapshot.val(), loading: false },
               });
+              let itemMenuShow = []
+              // var intersection = []
               if (snapshot.val().ItemMenu !== undefined) {
-                this.setState({ itemMenu: snapshot.val().ItemMenu.split(",") });
+                itemMenuShow.push(snapshot.val().ItemMenu.split(","))
+                
+                // this.setState({ itemMenu: snapshot.val().ItemMenu.split(",") });
               }
+              let menu = []
+              snapshot.forEach(snap=>{
+                console.log(snap.val())
+                let content = []
+                menu.push(snap.val().Menu)
+                console.log(snap.val().Menu)
+              })
+              var intersection = itemMenuShow.filter(element => menu.includes(element));
+
+              console.log(intersection)
+              this.setState({ itemMenu: intersection});
               //else{
               //   this.setState({itemMenu:["All"]})
 
@@ -737,9 +752,9 @@ class Detail extends React.Component {
                     <Nav.Item>
                       <Nav.Link eventKey="first">Order Online</Nav.Link>
                     </Nav.Item>
-                    <Nav.Item>
+                    {/* <Nav.Item>
                       <Nav.Link eventKey="second">Gallery</Nav.Link>
-                    </Nav.Item>
+                    </Nav.Item> */}
                     {/* <Nav.Item>
 											<Nav.Link eventKey="third">Restaurant Info</Nav.Link>
 										</Nav.Item>
@@ -885,10 +900,11 @@ class Detail extends React.Component {
                           <Col md={12}>
                             <div className="bg-white rounded border shadow-sm mb-4">
                               {this.state.itemMenu.length > 0 ? (
-                                this.state.itemMenu.map((itemMenu, index) => {
+                                this.state.itemMenu.map((itemMenu, indexMenu) => {
                                   return (
                                     <>
                                       <div
+                                      key={indexMenu}
                                         className="card"
                                         style={{
                                           borderTop: "none",

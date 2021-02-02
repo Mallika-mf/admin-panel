@@ -180,7 +180,7 @@ class Index extends React.Component {
                             a drooling essence, flavor, taste, smell, and gets
                             you a smile.{""}
                             {""}
-                            {""} <br /><br />
+                            {""} <br />
                           </p>
                         </div>
                       </div>
@@ -279,7 +279,7 @@ unhygienic kitchen equipment, and rotten ingredients?
                           <p className="text-left" style={{ fontSize: "15px" }}>
                             One of the most important aspects of all life, is
                             food. Singularly for humans. As humans have the
-                            intellect to understand good food and bad food.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            intellect to understand good food and bad food.
                             <br />
                             <br />
                           </p>
@@ -322,7 +322,6 @@ unhygienic kitchen equipment, and rotten ingredients?
                             every household in India.
                             <br />
                             <br />
-                            
                           </p>
                         </div>
                       </div>
@@ -363,7 +362,7 @@ unhygienic kitchen equipment, and rotten ingredients?
                             different outlets and numerous options.
                             <br />
                             <br />
-                            
+                            <br />
                           </p>
                         </div>
                       </div>
@@ -402,8 +401,7 @@ unhygienic kitchen equipment, and rotten ingredients?
                           <p className="text-left" style={{ fontSize: "15px" }}>
                             We cannot stress enough the importance of homemade
                             food or home cooked meals. Of course, for the kind
-                            of nutrition it provides and the hygiene factors maintained. Especially for kids amidst the pandemic 
-                            <br/>
+                            of nutrition it
                           </p>
                         </div>
                       </div>
@@ -484,8 +482,7 @@ unhygienic kitchen equipment, and rotten ingredients?
                           <p className="text-left" style={{ fontSize: "15px" }}>
                             Fitness is all about maintaining a balanced
                             lifestyle and healthy nutrition rather than the
-                            misconceived concept of having  bigger muscles.
-Like all of us already know,
+                            misconceived concept of having
                           </p>
                         </div>
                       </div>
@@ -657,7 +654,7 @@ Like all of us already know,
                       outline: "none",
                     }}
                   >
-                    <NavLink to="/news-detail-15" style={{ color: "gray" }}>
+                    <NavLink to="/news-detail-14" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
                         style={{
@@ -668,7 +665,7 @@ Like all of us already know,
                       >
                         <figure>
                           <img
-                            src="../assets/img/blog-img-15.jpg"
+                            src="../assets/img/blog-img-14.jpeg"
                             alt=""
                             style={{ maxWidth: "350px", height: "auto" }}
                           />

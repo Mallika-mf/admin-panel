@@ -156,6 +156,7 @@ class Detail extends React.Component {
                 product: { data: snapshot.val(), loading: false },
               });
               if (snapshot.val().ItemMenu !== undefined) {
+                
                 this.setState({ itemMenu: snapshot.val().ItemMenu.split(",") });
               }
               //else{
@@ -885,10 +886,11 @@ class Detail extends React.Component {
                           <Col md={12}>
                             <div className="bg-white rounded border shadow-sm mb-4">
                               {this.state.itemMenu.length > 0 ? (
-                                this.state.itemMenu.map((itemMenu, index) => {
+                                this.state.itemMenu.map((itemMenu, indexMenu) => {
                                   return (
                                     <>
                                       <div
+                                      key={indexMenu}
                                         className="card"
                                         style={{
                                           borderTop: "none",
@@ -1028,7 +1030,7 @@ class Detail extends React.Component {
                               ) : (
                                 <>
                                   {" "}
-                                  <div className="card">
+                                  <div className="card" >
                                     <h5
                                       style={{
                                         textAlign: "justify",

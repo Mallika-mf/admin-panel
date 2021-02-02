@@ -737,9 +737,9 @@ class Detail extends React.Component {
                     <Nav.Item>
                       <Nav.Link eventKey="first">Order Online</Nav.Link>
                     </Nav.Item>
-                    <Nav.Item>
+                    {/* <Nav.Item>
                       <Nav.Link eventKey="second">Gallery</Nav.Link>
-                    </Nav.Item>
+                    </Nav.Item> */}
                     {/* <Nav.Item>
 											<Nav.Link eventKey="third">Restaurant Info</Nav.Link>
 										</Nav.Item>
@@ -885,10 +885,11 @@ class Detail extends React.Component {
                           <Col md={12}>
                             <div className="bg-white rounded border shadow-sm mb-4">
                               {this.state.itemMenu.length > 0 ? (
-                                this.state.itemMenu.map((itemMenu, index) => {
+                                this.state.itemMenu.map((itemMenu, indexMenu) => {
                                   return (
                                     <>
                                       <div
+                                      key={indexMenu}
                                         className="card"
                                         style={{
                                           borderTop: "none",

@@ -19,6 +19,7 @@ class GalleryCarousel extends React.Component {
   }
 
   componentDidMount=()=>{
+    this.setState({showImage:false})
     let chefid = this.props.match.params["chef"];
 
     firebase.database().ref().child("CloudKitchen").child(chefid).once('value',snapshot=>{
@@ -38,9 +39,6 @@ class GalleryCarousel extends React.Component {
   onShowImage = (event)=>{
     this.setState({showImage:true})
   }
-  onBack=(event)=>{
-    this.setState({showImage:false})
-  }
 	render() {
     	return (
         <>
@@ -55,10 +53,9 @@ class GalleryCarousel extends React.Component {
               )
             })}
 		      </OwlCarousel>
-	          <div className="position-absolute restaurant-slider-pics bg-dark text-white">Total&nbsp;{this.state.image.length}&nbsp;Images</div>
+	          <div className="position-absolute restaurant-slider-pics bg-dark text-white">{this.state.image.length}&nbsp;Images</div>
             <div className="position-absolute restaurant-slider-view-all"><Button variant='light' type="button" onClick={this.onShowImage} className="bg-white">See all Photos</Button></div>
             </>:
-            <>
             <div className="row">
             {this.state.image.map((item,index)=>{
               return(
@@ -74,8 +71,6 @@ class GalleryCarousel extends React.Component {
               )
             })}
             </div>
-            <Button className="warning" onClick={this.onBack}>Back</Button>
-            </>
              }
            </>
                         	    

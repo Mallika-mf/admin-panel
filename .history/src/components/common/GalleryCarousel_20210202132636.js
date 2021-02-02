@@ -55,7 +55,7 @@ class GalleryCarousel extends React.Component {
               )
             })}
 		      </OwlCarousel>
-	          <div className="position-absolute restaurant-slider-pics bg-dark text-white">Total&nbsp;{this.state.image.length}&nbsp;Images</div>
+	          <div className="position-absolute restaurant-slider-pics bg-dark text-white">{this.state.image.length}&nbsp;Images</div>
             <div className="position-absolute restaurant-slider-view-all"><Button variant='light' type="button" onClick={this.onShowImage} className="bg-white">See all Photos</Button></div>
             </>:
             <>

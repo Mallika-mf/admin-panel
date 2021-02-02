@@ -737,9 +737,9 @@ class Detail extends React.Component {
                     <Nav.Item>
                       <Nav.Link eventKey="first">Order Online</Nav.Link>
                     </Nav.Item>
-                    <Nav.Item>
+                    {/* <Nav.Item>
                       <Nav.Link eventKey="second">Gallery</Nav.Link>
-                    </Nav.Item>
+                    </Nav.Item> */}
                     {/* <Nav.Item>
 											<Nav.Link eventKey="third">Restaurant Info</Nav.Link>
 										</Nav.Item>
@@ -884,8 +884,8 @@ class Detail extends React.Component {
                           </h5>
                           <Col md={12}>
                             <div className="bg-white rounded border shadow-sm mb-4">
-                              {this.state.itemMenu.length > 0 ? (
-                                this.state.itemMenu.map((itemMenu, index) => {
+                              {/* {this.state.itemMenu.length > 0 ? ( */}
+                                {this.state.itemMenu.map((itemMenu, index) => {
                                   return (
                                     <>
                                       <div
@@ -899,12 +899,12 @@ class Detail extends React.Component {
                                           id="digital"
                                           style={{
                                             textAlign: "justify",
-                                            fontSize: "20px",
+                                            fontSize: "25px",
                                             color: "purple",
-                                            fontWeight: "bold",
-                                            marginTop: "10px",
-                                            marginBottom: "40px",
-                                            marginLeft: "20px",
+                                            fontWeight: "normal",
+                                            marginTop: "2px",
+                                            marginBottom: "1px",
+                                            marginLeft: "15px",
                                           }}
                                         >
                                           {" "}
@@ -1032,12 +1032,12 @@ class Detail extends React.Component {
                                     <h5
                                       style={{
                                         textAlign: "justify",
-                                        fontSize: "20px",
+                                        fontSize: "25px",
                                         color: "purple",
-                                        fontWeight: "bold",
-                                        marginTop: "10px",
-                                        marginBottom: "40px",
-                                        marginLeft: "20px",
+                                        fontWeight: "normal",
+                                        marginTop: "2px",
+                                        marginBottom: "1px",
+                                        marginLeft: "15px",
                                       }}
                                     >
                                       {"All"}{" "}

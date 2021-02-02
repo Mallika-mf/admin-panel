@@ -30,7 +30,7 @@ import firebase from "./Firebase";
 import { get } from "lodash";
 import { connect } from "react-redux";
 import { Cart } from "./Store/action/cartActions";
-import {} from "react-bootstrap";
+import { } from "react-bootstrap";
 import SweetAlert from "react-bootstrap-sweetalert";
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -66,7 +66,7 @@ class Detail extends React.Component {
               this.setState({ num: content });
             }
           },
-          () => {}
+          () => { }
         );
     }
   }
@@ -158,10 +158,10 @@ class Detail extends React.Component {
               if (snapshot.val().ItemMenu !== undefined) {
                 this.setState({ itemMenu: snapshot.val().ItemMenu.split(",") });
               }
-              //else{
-              //   this.setState({itemMenu:["All"]})
+              else{
+                this.setState({itemMenu:["All"]})
 
-              // }
+              }
               let userCart = this.state.userCart;
               // console.log(...this.state.userCart)
               const foodItems = Object.values(
@@ -196,7 +196,7 @@ class Detail extends React.Component {
               this.setState({ product: { data: {}, loading: false } });
             }
           },
-          () => {}
+          () => { }
         );
     } catch (e) {
       this.setState({ product: { data: {}, loading: false } });
@@ -639,32 +639,29 @@ class Detail extends React.Component {
                   <div className="restaurant-detailed-header-left">
                     {prd.PP ===
                       "https://firebasestorage.googleapis.com/v0/b/mothersfood-a1de8.appspot.com/o/CloudKitchen%2F1599912088639-add.png?alt=media&token=60561b4b-af5d-489c-bbc8-28e8de47851f" ||
-                    prd.PP === "" ? (
-                      <Image
-                        fluid
-                        className="mr-3 float-left"
-                        alt="MF"
-                        src="/assets/img/chef.png"
-                        style={{ marginTop: "-2%" }}
-                      />
-                    ) : (
-                      <Image
-                        fluid
-                        className="mr-3 float-left"
-                        alt="MF"
-                        style={{
-                          width: "170px",
-                          height: "170px",
-                          borderRadius: "50%",
-                          marginTop: "-5%",
-                        }}
-                        src={prd.PP}
-                      />
-                    )}
-                    <h2
-                      className="text-white"
-                      style={{ textAlign: "justify", color: "" }}
-                    >
+                      prd.PP === "" ? (
+                        <Image
+                          fluid
+                          className="mr-3 float-left"
+                          alt="MF"
+                          src="/assets/img/chef.png"
+                          style={{ marginTop: "-2%" }}
+                        />
+                      ) : (
+                        <Image
+                          fluid
+                          className="mr-3 float-left"
+                          alt="MF"
+                          style={{
+                            width: "170px",
+                            height: "170px",
+                            borderRadius: "50%",
+                            marginTop: "-5%",
+                          }}
+                          src={prd.PP}
+                        />
+                      )}
+                    <h2 className="text-white" style={{ textAlign: "justify" }}>
                       {prd.KitchenName}
                     </h2>
                     <h6
@@ -737,9 +734,9 @@ class Detail extends React.Component {
                     <Nav.Item>
                       <Nav.Link eventKey="first">Order Online</Nav.Link>
                     </Nav.Item>
-                    <Nav.Item>
+                    {/* <Nav.Item>
                       <Nav.Link eventKey="second">Gallery</Nav.Link>
-                    </Nav.Item>
+                    </Nav.Item> */}
                     {/* <Nav.Item>
 											<Nav.Link eventKey="third">Restaurant Info</Nav.Link>
 										</Nav.Item>
@@ -884,31 +881,36 @@ class Detail extends React.Component {
                           </h5>
                           <Col md={12}>
                             <div className="bg-white rounded border shadow-sm mb-4">
-                              {this.state.itemMenu.length > 0 ? (
-                                this.state.itemMenu.map((itemMenu, index) => {
+                              {/* {this.state.itemMenu.length > 0 ? ( */}
+                                {this.state.itemMenu.map((itemMenu, index) => {
                                   return (
                                     <>
                                       <div
                                         className="card"
                                         style={{
                                           borderTop: "none",
-                                          borderBottom: "none",
+                                          borderBottomColor: "red",
+                                          borderBottomWidth: "2px",
                                         }}
                                       >
                                         <h5
                                           id="digital"
                                           style={{
                                             textAlign: "justify",
-                                            fontSize: "20px",
-                                            color: "purple",
+                                            fontSize: "25px",
+                                            color: "red",
                                             fontWeight: "bold",
-                                            marginTop: "10px",
-                                            marginBottom: "40px",
+                                            marginTop: "2px",
+                                            marginBottom: "1px",
                                             marginLeft: "20px",
                                           }}
                                         >
                                           {" "}
                                           {itemMenu}{" "}
+                                          <Icofont
+                                            className=" mt-2 float-right"
+                                            icon="arrow-down"
+                                          />
                                         </h5>
                                       </div>
                                       {foodItems.map((item, index) => {
@@ -917,9 +919,9 @@ class Detail extends React.Component {
                                             item.AStatus !== "Active" ||
                                             item.Status !== "Active" ||
                                             Date.parse(currenttime) <
-                                              Date.parse(item.SDate) ||
+                                            Date.parse(item.SDate) ||
                                             Date.parse(currenttime) >
-                                              Date.parse(item.EDate)
+                                            Date.parse(item.EDate)
                                           ) {
                                             inActiveFoodItems.push(item);
                                             return "";
@@ -955,38 +957,58 @@ class Detail extends React.Component {
                                                 getValue={this.getQty}
                                                 showCart={false}
                                               />
-                                              {/* <QuickBite 
-                              id={2}
-                              itemClass="menu-list"
-                                 title='Cheese corn Roll'
-                              image="/img/2.jpg"
-                              price={600}
-                              showBadge={true}
-                              badgeText='BEST SELLER'
-                              qty={1}
-                              priceUnit='$'
-                              getValue={this.getQty}
-                            />*/}
-                                              {/* <QuickBite 
-                              id={3}
-                              itemClass="menu-list"
-                              image="/img/3.jpg"
-                                 title='Chicken Tikka Sub'
-                              price={250}
-                              showBadge={true}
-                              badgeText='Pure Veg'
-                              badgeVariant="success"
-                              priceUnit='$'
-                              getValue={this.getQty}
-                               />  */}
+                          
                                             </div>
                                           );
                                         }
-                                        //else if(item.Menu){
-                                        //   return(
-                                        //     <h5 id="digital" style={{display:"none"}}></h5>
-                                        //   )
-                                        // }
+                                        else if(item.Menu===undefined){
+                                          console.log(item)
+                                          if (
+                                            item.AStatus !== "Active" ||
+                                            item.Status !== "Active" ||
+                                            Date.parse(currenttime) <
+                                            Date.parse(item.SDate) ||
+                                            Date.parse(currenttime) >
+                                            Date.parse(item.EDate)
+                                          ) {
+                                            inActiveFoodItems.push(item);
+                                            return "";
+                                          }
+                                          return (
+                                            <div key={index}>
+                                              <QuickBite
+                                                id={1}
+                                                itemClass="menu-list"
+                                                image={item.Image}
+                                                title={item.Name}
+                                                detail={item.Details}
+                                                price={parseInt(item.Price)}
+                                                priceUnit={`₹ `}
+                                                onIncClicked={() =>
+                                                  this.handleDecreaseQuantity(
+                                                    item
+                                                  )
+                                                }
+                                                onDecClick={() =>
+                                                  this.handleIncreaseQuantity(
+                                                    item
+                                                  )
+                                                }
+                                                onAddClick={() =>
+                                                  this.handleAddToCart(item)
+                                                }
+                                                quantity={
+                                                  item.quantity === undefined
+                                                    ? (item.quantity = 0)
+                                                    : parseInt(item.quantity)
+                                                }
+                                                getValue={this.getQty}
+                                                showCart={false}
+                                              />
+                          
+                                            </div>
+                                          );
+                                        }
                                       })}
 
                                       {inActiveFoodItems.map((item, index) => {
@@ -1024,125 +1046,130 @@ class Detail extends React.Component {
                                       })}
                                     </>
                                   );
-                                })
-                              ) : (
-                                <>
-                                  {" "}
-                                  <div className="card">
-                                    <h5
-                                      style={{
-                                        textAlign: "justify",
-                                        fontSize: "20px",
-                                        color: "purple",
-                                        fontWeight: "bold",
-                                        marginTop: "10px",
-                                        marginBottom: "40px",
-                                        marginLeft: "20px",
-                                      }}
-                                    >
-                                      {"All"}{" "}
-                                    </h5>
-                                  </div>
-                                  {foodItems.map((item, index) => {
-                                    if (item.Menu === undefined) {
-                                      if (
-                                        item.AStatus !== "Active" ||
-                                        item.Status !== "Active" ||
-                                        Date.parse(currenttime) <
-                                          Date.parse(item.SDate) ||
-                                        Date.parse(currenttime) >
-                                          Date.parse(item.EDate)
-                                      ) {
-                                        inActiveFoodItems.push(item);
-                                        return "";
-                                      }
-                                      return (
-                                        <div key={index}>
-                                          <QuickBite
-                                            id={1}
-                                            itemClass="menu-list"
-                                            image={item.Image}
-                                            title={item.Name}
-                                            detail={item.Details}
-                                            price={parseInt(item.Price)}
-                                            priceUnit={`₹ `}
-                                            onIncClicked={() =>
-                                              this.handleDecreaseQuantity(item)
-                                            }
-                                            onDecClick={() =>
-                                              this.handleIncreaseQuantity(item)
-                                            }
-                                            onAddClick={() =>
-                                              this.handleAddToCart(item)
-                                            }
-                                            quantity={
-                                              item.quantity === undefined
-                                                ? (item.quantity = 0)
-                                                : parseInt(item.quantity)
-                                            }
-                                            getValue={this.getQty}
-                                            showCart={false}
-                                          />
-                                          {/* <QuickBite 
-                        id={2}
-                        itemClass="menu-list"
-                           title='Cheese corn Roll'
-                        image="/img/2.jpg"
-                        price={600}
-                        showBadge={true}
-                        badgeText='BEST SELLER'
-                        qty={1}
-                        priceUnit='$'
-                        getValue={this.getQty}
-                      />*/}
-                                          {/* <QuickBite 
-                        id={3}
-                        itemClass="menu-list"
-                        image="/img/3.jpg"
-                           title='Chicken Tikka Sub'
-                        price={250}
-                        showBadge={true}
-                        badgeText='Pure Veg'
-                        badgeVariant="success"
-                        priceUnit='$'
-                        getValue={this.getQty}
-                         />  */}
-                                        </div>
-                                      );
-                                    }
-                                  })}
-                                  {inActiveFoodItems.map((item, index) => {
-                                    if (item.Menu === undefined) {
-                                      console.log(item);
-                                      return (
-                                        <div key={index}>
-                                          <QuickBite
-                                            id={1}
-                                            itemClass="menu-list"
-                                            image={item.Image}
-                                            title={item.Name}
-                                            detail={item.Details}
-                                            price={parseInt(item.Price)}
-                                            priceUnit={`₹ `}
-                                            onIncClicked={() =>
-                                              this.handleDecreaseQuantity(item)
-                                            }
-                                            onDecClick={() =>
-                                              this.handleIncreaseQuantity(item)
-                                            }
-                                            onAddClick={() =>
-                                              this.handleAddToCart(item)
-                                            }
-                                            quantity={item.quantity}
-                                            getValue={this.getQty}
-                                            showCart={true}
-                                          />
-                                        </div>
-                                      );
-                                    }
-                                  })}
-                                </>
-                              )}
+                                })}
+                              {/* {/* // ) : (
+                      //             <>
+                      //               {" "}
+                      //               <div className="card">
+                      //                 <h5 */}
+                      {/* //                   style={{ */}
+                      {/* //                     textAlign: "justify",
+                      //                     fontSize: "30px",
+                      //                     color: "red",
+                      //                     fontWeight: "bold",
+                      //                     marginTop: "2px",
+                      //                     marginBottom: "1px",
+                      //                     marginLeft: "20px",
+                      //                   }}
+                      //                 >
+                      //                   {"All"}{" "}
+                      //                   <Icofont */}
+                      {/* //                     className=" mt-2 float-right"
+                      //                     icon="arrow-down"
+                      //                   />
+                      //                 </h5>
+                      //               </div>
+                      //               {foodItems.map((item, index) => { */}
+                      {/* //                 if (item.Menu === undefined) { */}
+                      {/* //                   console.log(item)
+                      //                   if (
+                      //                     item.AStatus !== "Active" ||
+                      //                     item.Status !== "Active" ||
+                      //                     Date.parse(currenttime) <
+                      //                     Date.parse(item.SDate) ||
+                      //                     Date.parse(currenttime) >
+                      //                     Date.parse(item.EDate)
+                      //                   ) { */}
+                      {/* //                     inActiveFoodItems.push(item);
+                      //                     return "";
+                      //                   }
+                      //                   return (
+                      //                     <div key={index}>
+                      //                       <QuickBite */}
+                      {/* //                         id={1}
+                      //                         itemClass="menu-list"
+                      //                         image={item.Image}
+                      //                         title={item.Name}
+                      //                         detail={item.Details}
+                      //                         price={parseInt(item.Price)}
+                      //                         priceUnit={`₹ `}
+                      //                         onIncClicked={() => */}
+                      {/* //                           this.handleDecreaseQuantity(item)
+                      //                         }
+                      //                         onDecClick={() => */}
+                      {/* //                           this.handleIncreaseQuantity(item)
+                      //                         }
+                      //                         onAddClick={() => */}
+                      {/* //                           this.handleAddToCart(item)
+                      //                         }
+                      //                         quantity={ */}
+                      {/* //                           item.quantity === undefined
+                      //                             ? (item.quantity = 0)
+                      //                             : parseInt(item.quantity)
+                      //                         }
+                      //                         getValue={this.getQty}
+                      //                         showCart={false}
+                      //                       />
+                      //                       {/* <QuickBite  */}
+                      {/* //   id={2}
+                      //   itemClass="menu-list"
+                      //      title='Cheese corn Roll'
+                      //   image="/img/2.jpg"
+                      //   price={600}
+                      //   showBadge={true}
+                      //   badgeText='BEST SELLER'
+                      //   qty={1}
+                      //   priceUnit='$'
+                      //   getValue={this.getQty}
+                      />*/} 
+                                            {/* <QuickBite 
+                      //   id={3}
+                      //   itemClass="menu-list"
+                      //   image="/img/3.jpg"
+                      //      title='Chicken Tikka Sub'
+                      //   price={250}
+                      //   showBadge={true}
+                      //   badgeText='Pure Veg'
+                      //   badgeVariant="success"
+                      //   priceUnit='$'
+                      //   getValue={this.getQty}
+                      //    />  */}
+                      {/* //                     </div>
+                      //                   );
+                      //                 }
+                      //               })}
+                      //               {inActiveFoodItems.map((item, index) => { */}
+                      {/* //                 if (item.Menu === undefined) { */}
+                      {/* //                   console.log(item);
+                      //                   return (
+                      //                     <div key={index}>
+                      //                       <QuickBite */}
+                      {/* //                         id={1}
+                      //                         itemClass="menu-list"
+                      //                         image={item.Image}
+                      //                         title={item.Name}
+                      //                         detail={item.Details}
+                      //                         price={parseInt(item.Price)}
+                      //                         priceUnit={`₹ `}
+                      //                         onIncClicked={() => */}
+                      {/* //                           this.handleDecreaseQuantity(item)
+                      //                         }
+                      //                         onDecClick={() => */}
+                      {/* //                           this.handleIncreaseQuantity(item)
+                      //                         }
+                      //                         onAddClick={() => */}
+                      {/* //                           this.handleAddToCart(item)
+                      //                         }
+                      //                         quantity={item.quantity}
+                      //                         getValue={this.getQty}
+                      //                         showCart={true}
+                      //                       />
+                      //                     </div>
+                      //                   );
+                      //                 }
+                      //               })}
+                      //             </>
+                      //           )} */}
                             </div>
                           </Col>
                         </Row>
@@ -1585,8 +1612,8 @@ class Detail extends React.Component {
                           })}
                         </>
                       ) : (
-                        "Cart Empty"
-                      )}
+                          "Cart Empty"
+                        )}
                     </div>
                     <div className="mb-2 bg-white rounded p-2 clearfix">
                       <Image

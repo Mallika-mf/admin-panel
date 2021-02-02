@@ -12,8 +12,7 @@ class GalleryCarousel extends React.Component {
     this.state = {
       itemscount: 0,
       showing:0,
-      image:[],
-      showImage:false
+      image:[]
     }; 
     this.Carousel = React.createRef();            
   }
@@ -35,16 +34,9 @@ class GalleryCarousel extends React.Component {
       }
     })
   }
-  onShowImage = (event)=>{
-    this.setState({showImage:true})
-  }
-  onBack=(event)=>{
-    this.setState({showImage:false})
-  }
+
 	render() {
     	return (
-        <>
-        {this.state.showImage===false?
 	      <>
 		      <OwlCarousel ref={this.Carousel}  nav loop {...options} className="owl-theme homepage-ad">
             {this.state.image.map((item,index)=>{
@@ -55,14 +47,11 @@ class GalleryCarousel extends React.Component {
               )
             })}
 		      </OwlCarousel>
-	          <div className="position-absolute restaurant-slider-pics bg-dark text-white">Total&nbsp;{this.state.image.length}&nbsp;Images</div>
-            <div className="position-absolute restaurant-slider-view-all"><Button variant='light' type="button" onClick={this.onShowImage} className="bg-white">See all Photos</Button></div>
-            </>:
-            <>
-            <div className="row">
+	          <div className="position-absolute restaurant-slider-pics bg-dark text-white">{this.state.image.length}&nbsp;Images</div>
+	          <div className="position-absolute restaurant-slider-view-all"><Button variant='light' type="button" className="bg-white">See all Photos</Button></div>
             {this.state.image.map((item,index)=>{
               return(
-                <div className="col-4">
+                <div className="col-3">
                 <Zoom>
                 <div className="card" style={{boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",margin: "auto",textAlign: "center", fontFamily: "arial"}}>
                 <Image fluid src={item.Image} style={{objectFit:"fill"}}/>
@@ -70,15 +59,10 @@ class GalleryCarousel extends React.Component {
     </div>
                 </Zoom>
                 </div>
-             
               )
             })}
-            </div>
-            <Button className="warning" onClick={this.onBack}>Back</Button>
-            </>
-             }
-           </>
-                        	    
+           
+                        	    	</>
 	    );
 	}
 }

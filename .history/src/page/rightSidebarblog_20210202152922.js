@@ -10,7 +10,7 @@ class RightSideBar extends Component {
 
         return (
             <MediaQuery minDeviceWidth={1224}>
-                <div className="col-lg-4" >
+                <div className="col-lg-4" style={{border:"1px solid rgb(220,220,220)"}}>
                     <div className="sidebar">
                         {/* <!-- search widget --> */}
                         {/*<!-- ends: .widget-wrapper -->*/}
@@ -20,7 +20,7 @@ class RightSideBar extends Component {
 
                         <div className="widget-wrapper" >
                             <div className="widget-default">
-                                <div className="widget-header"  >
+                                <div className="widget-header" style={{marginTop:"10%",marginBottom:"10%"}}  >
                                     <h6 className="widget-title" >Popular Post</h6>
                                 </div><hr/>
                                 <div class="row mx-md-n5" style={{marginBottom:"20%"}} >
@@ -209,7 +209,7 @@ class RightSideBar extends Component {
                                         <div className="sidebar-post">
                                             <div className="d-flex align-items-center">
                                                 <div className="col-lg-8"><NavLink to='/news-detail-15'><img src="../assets/img/blog-img-15.jpg" alt="mothersfood" style={{width:"120px"}} /></NavLink></div>
-                                                <div className="col-lg-6"> <p><span>Feb 02, 2021</span> <br /><span>by <NavLink to='/' onClick={noAction}>Eishita Rambhiya</NavLink></span></p></div>
+                                                <div className="col-lg-6"> <p><span>Feb 02, 2021</span> <br /><span>by <NavLink to='/' onClick={noAction}>Rikitha Ravula</NavLink></span></p></div>
                                             </div>
                                             <div style={{ position: "relative", marginLeft: "-25%" }}>
                                                 <NavLink to='/news-detail-14' className="post-title"><p>Why Home-Made Food is the  <br/>best as compared to Junk Food? </p></NavLink>
