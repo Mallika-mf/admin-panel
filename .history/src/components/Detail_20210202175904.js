@@ -157,10 +157,8 @@ class Detail extends React.Component {
               });
               if (snapshot.val().ItemMenu !== undefined) {
                 let itemShow = []
-                let itemShow1 = []
                 itemShow.push(snapshot.val().ItemMenu.split(","))
                 let menu = []
-                let menu1 = []
                 snapshot.child("FoodItems").forEach(snap=>{
                   let locker = {
                     Menu : snap.val().Menu
@@ -168,18 +166,14 @@ class Detail extends React.Component {
                   
                   menu.push(locker)
                 })
-                menu.map(item=>{
-                  menu1.push(item.Menu)
+                var iterator = menu.values();
 
-                })
-                itemShow.map(item=>{
-                  console.log(item.filter(element => menu1.includes(element)))
-                  const intersection = item.filter(element => menu1.includes(element))
-                  this.setState({ itemMenu: intersection});
-
-                })
+                console.log(iterator)
+                console.log(itemShow)
+                const intersection = itemShow.filter(element => iterator.includes(element));
+                console.log(itemShow.filter(element => iterator.includes(element)))
+                this.setState({ itemMenu: snapshot.val().ItemMenu.split(",") });
               }
-
               //else{
               //   this.setState({itemMenu:["All"]})
 

@@ -175,11 +175,9 @@ class Detail extends React.Component {
                 itemShow.map(item=>{
                   console.log(item.filter(element => menu1.includes(element)))
                   const intersection = item.filter(element => menu1.includes(element))
-                  this.setState({ itemMenu: intersection});
-
+                  this.setState({ itemMenu: intersection})
                 })
               }
-
               //else{
               //   this.setState({itemMenu:["All"]})
 

@@ -199,7 +199,7 @@ class List extends React.Component {
               ? Math.ceil(records.length / this.limit)
               : 1,
         });
-        this.allProducts = availableChefs.concat(nonAvailableChefs);
+        this.allProducts = records;
       } else {
         this.setState({ availableChefs: availableChefs });
         this.setState({ nonAvailableChefs: nonAvailableChefs });
@@ -297,12 +297,8 @@ class List extends React.Component {
         return filterProducts;
     }
   };
-  applyFilter =  () => {
+  applyFilter = () => {
     setTimeout(() => {
-      let currentRedius = localStorage.getItem("radius");
-      var today = new Date();
-        var CurrentTime = today.getHours() + ":" + today.getMinutes();
-        var regExp = /(\d{1,2}):(\d{1,2}):(\d{1,2})/;
       if (this.state.filter.cusines.length === 0) {
         this.setState({ product: { items: this.state.product1.items } });
       } else {
@@ -312,9 +308,8 @@ class List extends React.Component {
         // console.log(this.allProducts);
         let activeChef = [];
         this.allProducts.map((products) => {
-          if ( products.Status === "Active" ) {
+          if (products.Status === "Active") {
             activeChef.push(products);
-            console.log(products)
           }
         });
         // console.log(activeChef)
@@ -1050,7 +1045,7 @@ class List extends React.Component {
               </Col>
               <Col md={9}>
                 <CategoriesCarousel />
-                <Row>
+                <Row>{console.log(this.state.product.items)}
                   {this.state.product.items.map((item, index) => {
                     //   console.log(item)
                     var cuisinesitems = [];
