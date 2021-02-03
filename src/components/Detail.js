@@ -156,28 +156,30 @@ class Detail extends React.Component {
                 product: { data: snapshot.val(), loading: false },
               });
               if (snapshot.val().ItemMenu !== undefined) {
-                let itemShow = []
-                let itemShow1 = []
-                itemShow.push(snapshot.val().ItemMenu.split(","))
-                let menu = []
-                let menu1 = []
-                snapshot.child("FoodItems").forEach(snap=>{
+                let itemShow = [];
+                let itemShow1 = [];
+                itemShow.push(snapshot.val().ItemMenu.split(","));
+                let menu = [];
+                let menu1 = [];
+                snapshot.child("FoodItems").forEach((snap) => {
                   let locker = {
-                    Menu : snap.val().Menu
-                  }
-                  
-                  menu.push(locker)
-                })
-                menu.map(item=>{
-                  menu1.push(item.Menu)
+                    Menu: snap.val().Menu,
+                  };
 
-                })
-                itemShow.map(item=>{
-                  console.log(item.filter(element => menu1.includes(element)))
-                  const intersection = item.filter(element => menu1.includes(element))
-                  this.setState({ itemMenu: intersection});
-
-                })
+                  menu.push(locker);
+                });
+                menu.map((item) => {
+                  menu1.push(item.Menu);
+                });
+                itemShow.map((item) => {
+                  console.log(
+                    item.filter((element) => menu1.includes(element))
+                  );
+                  const intersection = item.filter((element) =>
+                    menu1.includes(element)
+                  );
+                  this.setState({ itemMenu: intersection });
+                });
               }
 
               //else{
