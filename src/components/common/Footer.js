@@ -243,17 +243,17 @@ class Footer extends React.Component {
                 <ul>
                   <li style={{ textAlign: "justify" }}>
                     <Link disabled to="#">
-                      Home Chef's
+                      Home Chefs
                     </Link>
                   </li>
                   <li style={{ textAlign: "justify" }}>
                     <Link disabled to="#">
-                      Local Kitchen's
+                      Local Kitchens
                     </Link>
                   </li>
                   <li style={{ textAlign: "justify" }}>
                     <Link disabled to="#">
-                      Caterer's
+                      Caterers
                     </Link>
                   </li>
                 </ul>

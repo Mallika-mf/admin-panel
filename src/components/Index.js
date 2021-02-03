@@ -325,7 +325,7 @@ const Index = (props) => {
       <section className="section pt-5 pb-5 products-section">
         <Container style={{ marginTop: "-5%" }}>
           <SectionHeading
-            heading="Popular kitchen's"
+            heading="Popular kitchens"
             subHeading="Top  Kitchen's in MothersFood based on trends"
           />
           <Row>

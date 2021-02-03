@@ -48,7 +48,10 @@ class CouponCard extends React.Component {
             ""
           )}
           {this.props.condition ? (
-            <p className="" style={{ color: "red" }}>
+            <p
+              className="card-title"
+              style={{ color: "red", backgroundColor: "InfoBackground" }}
+            >
               {this.props.condition}
             </p>
           ) : (

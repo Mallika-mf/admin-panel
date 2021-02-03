@@ -55,7 +55,7 @@ const Offerpage = () => {
             {offer.map((item, index) => {
               if (item.Type === "Percentage") {
                 return (
-                  <Col md={4} key={index}>
+                  <Col md={6} key={index}>
                     <CouponCard
                       title={`Get Up to ${item.Discount}% OFF on your  order`}
                       logoImage="img/offer.png"
@@ -68,7 +68,7 @@ const Offerpage = () => {
                 );
               } else if (item.Type === "Delivery") {
                 return (
-                  <Col md={4} key={index}>
+                  <Col md={6} key={index}>
                     <CouponCard
                       title={`Get Up to ₹${item.MaxAmount}% OFF on your  order`}
                       logoImage="img/offer.png"
@@ -81,12 +81,12 @@ const Offerpage = () => {
                 );
               } else {
                 return (
-                  <Col md={4} key={index}>
+                  <Col md={6} key={index}>
                     <CouponCard
                       title={`Get FLAT ₹${item.Discount} OFF on your  order`}
                       logoImage="img/offer.png"
                       subTitle={`Use code ${item.Name} & get FLAT ₹${item.Discount} off on your  order value above ₹${item.MinAmount} on Website and Mobile site.`}
-                      condition={` Maximum discount upto: ₹${item.MaxAmount}`}
+                      condition={` Maximum discount: ₹${item.MaxAmount}`}
                       couponCode={`${item.Name}`}
                     />
                   </Col>

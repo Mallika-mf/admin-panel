@@ -120,7 +120,7 @@ class Register extends React.Component {
           <Col md={4} lg={6} className="d-none d-md-flex ">
             <div
               className="bg_image_holder_ride"
-              style={{ backgroundColor: "#edf3f5", marginTop: "-5%" }}
+              style={{ backgroundColor: "#edf3f5", marginTop: "-30%" }}
             >
               <img src={backgroundImage} width="100%" alt="" />
             </div>
