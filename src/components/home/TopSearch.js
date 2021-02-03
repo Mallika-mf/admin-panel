@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 // import { Link } from "react-router-dom";
-import { Row, Col, Container, Form } from "react-bootstrap";
+import { Row, Col, Container, Form, Image } from "react-bootstrap";
 import Select2 from "react-select2-wrapper";
 import Icofont from "react-icofont";
 import OwlCarousel from "react-owl-carousel3";
@@ -11,6 +11,7 @@ import LocationBox from "./locationbox";
 import { AppContext } from "./context/appContext";
 import { openDrawer } from "./features/drawer";
 import { withRouter } from "react-router-dom";
+import Header from "../navBar/navbarhomepage";
 // import "./style.css";
 
 class TopSearch extends React.Component {
@@ -45,11 +46,13 @@ class TopSearch extends React.Component {
           className="pt-5 pb-5 homepage-search-block position-relative "
           style={{
             backgroundImage: "URL('img/background.jpg')",
+            width: "auto",
           }}
         >
+          <Header />
           <div className="banner-overlay background">
             <Container>
-              <Row className="d-flex">
+              <Row className="">
                 <Col md={8}>
                   <div className="homepage-search-title">
                     <h1
