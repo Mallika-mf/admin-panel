@@ -80,8 +80,8 @@ class TopSearch extends React.Component {
                         className=" text-black"
                         style={{ color: "white", fontWeight: "600" }}
                       >
-                        Order food from favourite Home Chef's and Local
-                        Kitchen's Near you!
+                        Order food from favourite Home Chefs and Local Kitchens
+                        Near you!
                       </span>
                     </h5>
                   </div>

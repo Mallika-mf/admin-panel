@@ -36,9 +36,24 @@ class CouponCard extends React.Component {
           ) : (
             ""
           )}
-          <h6 className="card-subtitle mb-2 text-block">{this.props.title}</h6>
+          <h6
+            className="card-subtitle mb-2 text-block"
+            style={{ color: "green" }}
+          >
+            {this.props.title}
+          </h6>
           {this.props.subTitle ? (
             <p className="card-text">{this.props.subTitle}</p>
+          ) : (
+            ""
+          )}
+          {this.props.condition ? (
+            <p
+              className="card-title"
+              style={{ color: "red", backgroundColor: "InfoBackground" }}
+            >
+              {this.props.condition}
+            </p>
           ) : (
             ""
           )}

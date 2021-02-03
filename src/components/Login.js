@@ -12,6 +12,7 @@ import { useHistory } from "react-router-dom";
 import { get } from "lodash";
 
 import backgroundImage from "../vid/login.jpeg";
+import Icofont from "react-icofont";
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -324,7 +325,7 @@ class Login extends React.Component {
           <Col md={4} lg={6} className="d-none d-md-flex ">
             <div
               className="bg_image_holder_ride"
-              style={{ backgroundColor: "#edf3f5" }}
+              style={{ backgroundColor: "#edf3f5", marginTop: "-15%" }}
             >
               <img src={backgroundImage} width="100%" alt="" />
               {/* <video
@@ -337,12 +338,24 @@ class Login extends React.Component {
               /> */}
             </div>
           </Col>
+
           <Col md={8} lg={6}>
             <div className="login d-flex align-items-center py-5">
               <Container>
                 <Row>
                   <Col md={9} lg={8} className="mx-auto pl-5 pr-5">
-                    <h3 className="login-heading mb-4">Welcome back!</h3>
+                    <Link
+                      className="pb-5"
+                      to="/"
+                      style={{
+                        fontSize: "17px",
+                        color: "red",
+                      }}
+                    >
+                      <Icofont icon="ui-home" /> Home <br /> <br />
+                    </Link>
+                    <h3 className="login-heading mb-4 ">Welcome back!</h3>
+
                     {/* <Form> */}
                     {/* <div className="form-label-group">
 	                                 <Form.Control type="email" id="inputEmail" placeholder="Email address" />
@@ -454,7 +467,7 @@ class Login extends React.Component {
                       </Link>
                     </div>
                     <hr className="my-4" />
-                    <p className="text-center">LOGIN WITH</p>
+                    {/* <p className="text-center">LOGIN WITH</p>
                     <div className="row">
                       <div className="col pr-2">
                         <Button
@@ -473,7 +486,7 @@ class Login extends React.Component {
                           Facebook
                         </Button>
                       </div>
-                    </div>
+                    </div> */}
                     {/* </Form> */}
                   </Col>
                 </Row>

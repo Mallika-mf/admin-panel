@@ -338,7 +338,10 @@ class MyCash extends React.Component {
                     className="col-12 text-left pt-0 pb-3 card"
                     style={{ marginTop: "-7%" }}
                   >
-                    <h3 className="text-center mt-2" style={{ color: "red" }}>
+                    <h3
+                      className="text-center mt-2"
+                      style={{ color: "red", fontWeight: "bold" }}
+                    >
                       MY CASH
                     </h3>
                     <div className="  mt-2 border-0 ">
