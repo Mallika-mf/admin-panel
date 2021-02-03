@@ -460,7 +460,10 @@ class GeneralRules extends React.Component {
               {/*<!-- ends: .icon-boxes -->*/}
             </section>
 
-            <section className="features-area  p-top-20 p-bottom-20">
+            <section
+              className="features-area  p-top-20 p-bottom-20"
+              style={{ marginLeft: "-5px" }}
+            >
               <div className="icon-boxes">
                 <div className="container">
                   <div className="row" style={{ margin: "auto" }}>
@@ -645,7 +648,10 @@ class GeneralRules extends React.Component {
                       <h3 style={{ color: "#E41C39" }} className="text-left">
                         <b>Why partner with us?</b>
                       </h3>
-                      <div className=" icon-box-fourteen text-left">
+                      <div
+                        className=" icon-box-fourteen text-left"
+                        style={{ fontSize: "15px" }}
+                      >
                         <p
                           className="m-top-0 p-top-0 text-left"
                           style={{ fontSize: "15px" }}
@@ -654,7 +660,10 @@ class GeneralRules extends React.Component {
                           get on board to rock your kitchen and be successful,
                           being awesome is your own choice.
                         </p>
-                        <ul className="bullet--list2">
+                        <ul
+                          className="bullet--list2"
+                          style={{ fontSize: "15px" }}
+                        >
                           <li className="bullet_list text-left">
                             What’s something that you can cook like no one else
                             can?

@@ -247,7 +247,7 @@ const Index = (props) => {
                 nav
                 loop
                 {...options}
-                className="owl-carousel-four owl-theme"
+                className="owl-carousel-four owl-theme "
               >
                 <div className="item">
                   <CardItem
@@ -310,6 +310,108 @@ const Index = (props) => {
                     onClickLocation={getLocation}
                     // offerText="65% off | Use Coupon"
                     time="10:00AM to 09:00PM"
+                    //price="New Delhi"
+                    // showPromoted={true}
+                    // promotedVariant="dark"
+                    favIcoIconColor="text-danger"
+                    rating="5.0"
+                  />
+                </div>
+                <div className="item">
+                  <CardItem
+                    title="Amina Tasmeen(Hyderabad)"
+                    subTitle="Hyderabadi"
+                    imageAlt="Product"
+                    image="./assets/img/chefs/Amina Tasmeen.jpg"
+                    imageClass="img-fluid item-img"
+                    onClickLocation={getLocation}
+                    // offerText="65% off | Use Coupon"
+                    time="08:30AM to 08:30PM"
+                    //price="New Delhi"
+                    // showPromoted={true}
+                    // promotedVariant="dark"
+                    favIcoIconColor="text-danger"
+                    rating="5.0"
+                  />
+                </div>
+                <div className="item">
+                  <CardItem
+                    title="Kusha Sachdev(Delhi)"
+                    subTitle="chicken wings • Tiffin services"
+                    imageAlt="Product"
+                    image="./assets/img/chefs/Kusha Sachdev.jpg"
+                    imageClass="img-fluid item-img"
+                    onClickLocation={getLocation}
+                    // offerText="65% off | Use Coupon"
+                    time="11:00AM to 11:00PM"
+                    //price="New Delhi"
+                    // showPromoted={true}
+                    // promotedVariant="dark"
+                    favIcoIconColor="text-danger"
+                    rating="5.0"
+                  />
+                </div>
+                <div className="item">
+                  <CardItem
+                    title="Manisha Guatham(Delhi)"
+                    subTitle="Chicken curry"
+                    imageAlt="Product"
+                    image="./assets/img/chefs/Manisha Guatham.jpg"
+                    imageClass="img-fluid item-img"
+                    onClickLocation={getLocation}
+                    // offerText="65% off | Use Coupon"
+                    time="10:30AM to 09:00PM"
+                    //price="New Delhi"
+                    // showPromoted={true}
+                    // promotedVariant="dark"
+                    favIcoIconColor="text-danger"
+                    rating="5.0"
+                  />
+                </div>
+                <div className="item">
+                  <CardItem
+                    title="Meenakshi Tah(Delhi)"
+                    subTitle=" COOKIES • CAKES • DESERTS"
+                    imageAlt="Product"
+                    image="./assets/img/chefs/Meenakshi Tah.jpg"
+                    imageClass="img-fluid item-img"
+                    onClickLocation={getLocation}
+                    // offerText="65% off | Use Coupon"
+                    time="09:00AM to 07:00PM"
+                    //price="New Delhi"
+                    // showPromoted={true}
+                    // promotedVariant="dark"
+                    favIcoIconColor="text-danger"
+                    rating="5.0"
+                  />
+                </div>
+                <div className="item">
+                  <CardItem
+                    title="N Shivaram Krishna(Delhi)"
+                    subTitle="Choclate • pickles"
+                    imageAlt="Product"
+                    image="./assets/img/chefs/N Shivaram Krishna.jpg"
+                    imageClass="img-fluid item-img"
+                    onClickLocation={getLocation}
+                    // offerText="65% off | Use Coupon"
+                    time="09:00AM to 09:00PM"
+                    //price="New Delhi"
+                    // showPromoted={true}
+                    // promotedVariant="dark"
+                    favIcoIconColor="text-danger"
+                    rating="5.0"
+                  />
+                </div>
+                <div className="item">
+                  <CardItem
+                    title="Taranjeet Kaur(Hyderabad)"
+                    subTitle="Choclate • pickles"
+                    imageAlt="Product"
+                    image="./assets/img/chefs/Taranjeet Kaur.jpg"
+                    imageClass="img-fluid item-img"
+                    onClickLocation={getLocation}
+                    // offerText="65% off | Use Coupon"
+                    time="12:00AM to 10:00PM"
                     //price="New Delhi"
                     // showPromoted={true}
                     // promotedVariant="dark"
@@ -397,6 +499,108 @@ const Index = (props) => {
                     onClickLocation={getLocationKitchen}
                     // offerText="65% off | Use Coupon OSAHAN50"
                     time="08:00AM to 11:00PM"
+                    // price="$250 FOR TWO"
+                    // showPromoted={true}
+                    // promotedVariant="dark"
+                    favIcoIconColor="text-danger"
+                    rating="5.0"
+                  />
+                </div>
+                <div className="item">
+                  <CardItem
+                    title="BIG BAKERS(Hyderabad)"
+                    subTitle="GRILLED SANDWICHES"
+                    imageAlt="Product"
+                    image="./assets/img/vendors/BIG BAKERS.jpg"
+                    imageClass="img-fluid item-img"
+                    onClickLocation={getLocationKitchen}
+                    // offerText="65% off | Use Coupon OSAHAN50"
+                    time="11:00AM to 09:00PM"
+                    // price="$250 FOR TWO"
+                    // showPromoted={true}
+                    // promotedVariant="dark"
+                    favIcoIconColor="text-danger"
+                    rating="5.0"
+                  />
+                </div>
+                <div className="item">
+                  <CardItem
+                    title="Bheema Biryani And Meals(Hyderabad)"
+                    subTitle="Curries • Biryani"
+                    imageAlt="Product"
+                    image="./assets/img/vendors/Bheema Biryani And Meals.jpg"
+                    imageClass="img-fluid item-img"
+                    onClickLocation={getLocationKitchen}
+                    // offerText="65% off | Use Coupon OSAHAN50"
+                    time="12:00AM to 04:00PM"
+                    // price="$250 FOR TWO"
+                    // showPromoted={true}
+                    // promotedVariant="dark"
+                    favIcoIconColor="text-danger"
+                    rating="5.0"
+                  />
+                </div>
+                <div className="item">
+                  <CardItem
+                    title="Morning Star Tiffin Center(Hyderabad)"
+                    subTitle="Tiffins"
+                    imageAlt="Product"
+                    image="./assets/img/vendors/Morning Star Tiffin Center.jpg"
+                    imageClass="img-fluid item-img"
+                    onClickLocation={getLocationKitchen}
+                    // offerText="65% off | Use Coupon OSAHAN50"
+                    time="07:00AM to 12:30PM"
+                    // price="$250 FOR TWO"
+                    // showPromoted={true}
+                    // promotedVariant="dark"
+                    favIcoIconColor="text-danger"
+                    rating="5.0"
+                  />
+                </div>
+                <div className="item">
+                  <CardItem
+                    title="Pizza 26(West Delhi)"
+                    subTitle="Pizzas"
+                    imageAlt="Product"
+                    image="./assets/img/vendors/Pizza 26.jpg"
+                    imageClass="img-fluid item-img"
+                    onClickLocation={getLocationKitchen}
+                    // offerText="65% off | Use Coupon OSAHAN50"
+                    time="10:00AM to 09:00PM"
+                    // price="$250 FOR TWO"
+                    // showPromoted={true}
+                    // promotedVariant="dark"
+                    favIcoIconColor="text-danger"
+                    rating="5.0"
+                  />
+                </div>
+                <div className="item">
+                  <CardItem
+                    title="Prince Ki Rasoi(South Delhi)"
+                    subTitle="Mix veg • dal makhani • shahi paneer"
+                    imageAlt="Product"
+                    image="./assets/img/vendors/Prince Ki Rasoi.jpg"
+                    imageClass="img-fluid item-img"
+                    onClickLocation={getLocationKitchen}
+                    // offerText="65% off | Use Coupon OSAHAN50"
+                    time="08:30AM to 10:30PM"
+                    // price="$250 FOR TWO"
+                    // showPromoted={true}
+                    // promotedVariant="dark"
+                    favIcoIconColor="text-danger"
+                    rating="5.0"
+                  />
+                </div>
+                <div className="item">
+                  <CardItem
+                    title="SHAMA BIRYANI CORNER(South Delhi)"
+                    subTitle="HYDERABADI CHICKEN BIRYANI"
+                    imageAlt="Product"
+                    image="./assets/img/vendors/SHAMA BIRYANI CORNER.jpg"
+                    imageClass="img-fluid item-img"
+                    onClickLocation={getLocationKitchen}
+                    // offerText="65% off | Use Coupon OSAHAN50"
+                    time="10:00AM to 10:00PM"
                     // price="$250 FOR TWO"
                     // showPromoted={true}
                     // promotedVariant="dark"

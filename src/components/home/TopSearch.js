@@ -42,14 +42,15 @@ class TopSearch extends React.Component {
   render() {
     return (
       <>
+        <Header />
         <section
-          className="pt-5 pb-5 homepage-search-block position-relative "
+          className=" pb-5 homepage-search-block position-relative "
           style={{
             backgroundImage: "URL('img/background.jpg')",
             width: "auto",
+            marginTop: "81px",
           }}
         >
-          <Header />
           <div className="banner-overlay background">
             <Container>
               <Row className="">
