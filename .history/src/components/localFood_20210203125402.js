@@ -200,6 +200,7 @@ class List extends React.Component {
               : 1,
         });
         this.allProducts = availableChefs.concat(nonAvailableChefs);
+        console.log(this.allProducts)
       } else {
         this.setState({ availableChefs: availableChefs });
         this.setState({ nonAvailableChefs: nonAvailableChefs });
@@ -297,9 +298,8 @@ class List extends React.Component {
         return filterProducts;
     }
   };
-  applyFilter =  () => {
+  applyFilter = () => {
     setTimeout(() => {
-      let currentRedius = localStorage.getItem("radius");
       var today = new Date();
         var CurrentTime = today.getHours() + ":" + today.getMinutes();
         var regExp = /(\d{1,2}):(\d{1,2}):(\d{1,2})/;
@@ -312,9 +312,10 @@ class List extends React.Component {
         // console.log(this.allProducts);
         let activeChef = [];
         this.allProducts.map((products) => {
-          if ( products.Status === "Active" ) {
+          if (
+          products.Status === "Active" 
+         ) {
             activeChef.push(products);
-            console.log(products)
           }
         });
         // console.log(activeChef)

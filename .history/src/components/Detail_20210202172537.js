@@ -157,29 +157,20 @@ class Detail extends React.Component {
               });
               if (snapshot.val().ItemMenu !== undefined) {
                 let itemShow = []
-                let itemShow1 = []
                 itemShow.push(snapshot.val().ItemMenu.split(","))
                 let menu = []
-                let menu1 = []
                 snapshot.child("FoodItems").forEach(snap=>{
                   let locker = {
                     Menu : snap.val().Menu
                   }
-                  
                   menu.push(locker)
                 })
-                menu.map(item=>{
-                  menu1.push(item.Menu)
-
-                })
-                itemShow.map(item=>{
-                  console.log(item.filter(element => menu1.includes(element)))
-                  const intersection = item.filter(element => menu1.includes(element))
-                  this.setState({ itemMenu: intersection});
-
-                })
+                console.log(menu)
+                console.log(itemShow)
+                const intersection = itemShow.filter(element => menu.includes(element));
+                console.log(intersection)
+                this.setState({ itemMenu: snapshot.val().ItemMenu.split(",") });
               }
-
               //else{
               //   this.setState({itemMenu:["All"]})
 
@@ -715,11 +706,7 @@ class Detail extends React.Component {
                     </Button>
                     <h6 className="text-white text-right mb-0 restaurant-detailed-ratings">
                       <span className="generator-bg rounded text-white">
-                        <Icofont icon="ui-rating" />{" "}
-                        {/* {prd.Ratings ? prd.Ratings : "5"} */}
-                        {prd.Ratings !== undefined
-                          ? Math.trunc(prd.Ratings * 10) / 10
-                          : "5"}
+                        <Icofont icon="ui-rating" /> {prd.Ratings}
                       </span>{" "}
                       Cost for two ₹{prd.CostTwo ? prd.CostTwo : 250}
                       {/* <Icofont icon="speech-comments" className="ml-3" /> 91 reviews */}
@@ -926,7 +913,7 @@ class Detail extends React.Component {
                                           style={{
                                             textAlign: "justify",
                                             fontSize: "20px",
-                                            color: "red",
+                                            color: "purple",
                                             fontWeight: "bold",
                                             marginTop: "10px",
                                             marginBottom: "40px",
@@ -1059,7 +1046,7 @@ class Detail extends React.Component {
                                       style={{
                                         textAlign: "justify",
                                         fontSize: "20px",
-                                        color: "red",
+                                        color: "purple",
                                         fontWeight: "bold",
                                         marginTop: "10px",
                                         marginBottom: "40px",

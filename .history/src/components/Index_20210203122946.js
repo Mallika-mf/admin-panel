@@ -252,7 +252,7 @@ const Index = (props) => {
                 <div className="item">
                   <CardItem
                     title="Kusum Dwivedi(Delhi)"
-                    subTitle="Kadai paneer"
+                    subTitle="Kadaipaneer"
                     imageAlt="Product"
                     image="./assets/img/chefs/Kusum Dwivedi.jpg"
                     imageClass="img-fluid item-img"
@@ -325,7 +325,7 @@ const Index = (props) => {
       <section className="section pt-5 pb-5 products-section">
         <Container style={{ marginTop: "-5%" }}>
           <SectionHeading
-            heading="Popular kitchens"
+            heading="Popular kitchen's"
             subHeading="Top  Kitchen's in MothersFood based on trends"
           />
           <Row>

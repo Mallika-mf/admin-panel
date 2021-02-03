@@ -50,47 +50,44 @@ const Offerpage = () => {
               <h4 className="font-weight-bold mt-0 mb-3">Available Coupons</h4>
             </Col>
             {offer.map((item, index) => {
-              if (item.Type === "Percentage") {
+              if (item.Type === "Percentage"){
                 return (
                   <Col md={3} key={index}>
                     <CouponCard
                       title={`Get Up to ${item.Discount}% OFF on your  order`}
                       logoImage="img/offer.png"
-                      subTitle={`Use code ${item.Name} & get ${item.Discount}% off on your  order value above ₹${item.MinAmount} on Website and Mobile site.`}
-                      condition={` Maximum discount: ₹${item.MaxAmount}`}
+                      subTitle={`Use code ${item.Name} & get ${item.Discount}% off on your  order value above ₹${item.MinAmount} on Website and Mobile site. Maximum discount upto: ₹${item.MaxAmount}`}
                       // copyBtnText="COPY CODE"
                       couponCode={`${item.Name}`}
                     />
                   </Col>
                 );
               }else if(item.Type==="Delivery"){
-
                 return (
                   <Col md={3} key={index}>
                     <CouponCard
                       title={`Get Up to ₹${item.MaxAmount}% OFF on your  order`}
                       logoImage="img/offer.png"
                       subTitle={`Use code ${item.Name} & get Free Delivery on your  order value above ₹${item.MinAmount} on Website and Mobile site.`}
-
-                      condition={` Maximum discount upto: ₹${item.MaxAmount}`}
                       // copyBtnText="COPY CODE"
                       couponCode={`${item.Name}`}
                     />
                   </Col>
                 );
-              } else {
+              }else{
                 return (
                   <Col md={3} key={index}>
                     <CouponCard
-                      title={`Get FLAT ₹${item.Discount} OFF on your  order`}
+                      title={`Get Up to ₹${item.Discount} OFF on your  order`}
                       logoImage="img/offer.png"
-                      subTitle={`Use code ${item.Name} & get FLAT ₹${item.Discount} off on your  order value above ₹${item.MinAmount} on Website and Mobile site.`}
-                      condition={` Maximum discount upto: ₹${item.MaxAmount}`}
+                      subTitle={`Use code ${item.Name} & get ₹${item.Discount} off on your  order value above ₹${item.MinAmount} on Website and Mobile site. Maximum discount upto: ₹${item.MaxAmount}`}
+                      // copyBtnText="COPY CODE"
                       couponCode={`${item.Name}`}
                     />
                   </Col>
                 );
               }
+            
             })}
 
             {/* <Col md={4}>

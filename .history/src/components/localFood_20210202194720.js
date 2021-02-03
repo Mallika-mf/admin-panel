@@ -121,7 +121,6 @@ class List extends React.Component {
     //const cityId = this.context.appState.cityinfo.PushId;
     const cityId = localStorage.getItem("pushid");
     this.setState({ product: { ...this.state.product, loading: true } });
-    console.log(this.state.product)
     this.setState({ product1: { ...this.state.product, loading: true } });
 
     if (!cityId) {
@@ -199,7 +198,7 @@ class List extends React.Component {
               ? Math.ceil(records.length / this.limit)
               : 1,
         });
-        this.allProducts = availableChefs.concat(nonAvailableChefs);
+        this.allProducts = records;
       } else {
         this.setState({ availableChefs: availableChefs });
         this.setState({ nonAvailableChefs: nonAvailableChefs });
@@ -297,12 +296,8 @@ class List extends React.Component {
         return filterProducts;
     }
   };
-  applyFilter =  () => {
+  applyFilter = () => {
     setTimeout(() => {
-      let currentRedius = localStorage.getItem("radius");
-      var today = new Date();
-        var CurrentTime = today.getHours() + ":" + today.getMinutes();
-        var regExp = /(\d{1,2}):(\d{1,2}):(\d{1,2})/;
       if (this.state.filter.cusines.length === 0) {
         this.setState({ product: { items: this.state.product1.items } });
       } else {
@@ -312,9 +307,8 @@ class List extends React.Component {
         // console.log(this.allProducts);
         let activeChef = [];
         this.allProducts.map((products) => {
-          if ( products.Status === "Active" ) {
+          if (products.Status === "Active") {
             activeChef.push(products);
-            console.log(products)
           }
         });
         // console.log(activeChef)
@@ -326,16 +320,16 @@ class List extends React.Component {
             let productCuisines = product.FoodType
               ? Object.keys(product.FoodType)
               : [];
-            // console.log(productCuisines)
             let allowedCuisines = productCuisines.filter(function (cusine) {
               return filteredCuisines.indexOf(cusine) !== -1;
             });
-            // console.log(filteredCuisines)
 
             return allowedCuisines.length > 0 ? true : false;
             //   });
             // }
           });
+          console.log(filteredProducts);
+
         }
         // let searchText = this.state.filter.search.trim().toLowerCase();
         // if (searchText.length > 0) {
@@ -347,7 +341,6 @@ class List extends React.Component {
         // }
 
         filteredProducts = this.sortProducts(filteredProducts);
-        // console.log(filteredProducts);
         this.setState({ product: { items: filteredProducts, loading: false } });
         this.setState({
           page:
@@ -437,21 +430,21 @@ class List extends React.Component {
       this.setState({ product: { items: this.state.product1.items } });
     }
   };
-  // onChangeBiryani = (event) => {
-  //   let vegitemShow = [];
-  //   this.setState({ biryaniItems: event.target.checked });
-  //   this.state.product.items.map((item, index) => {
-  //     if (item.Biryani === "Yes") {
-  //       vegitemShow.push(item);
-  //     }
-  //   });
-  //   if (event.target.checked === true) {
-  //     // this.setState({vegItems:false})
-  //     this.setState({ product: { items: vegitemShow } });
-  //   } else {
-  //     this.setState({ product: { items: this.state.product1.items } });
-  //   }
-  // };
+  onChangeBiryani = (event) => {
+    let vegitemShow = [];
+    this.setState({ biryaniItems: event.target.checked });
+    this.state.product.items.map((item, index) => {
+      if (item.Biryani === "Yes") {
+        vegitemShow.push(item);
+      }
+    });
+    if (event.target.checked === true) {
+      // this.setState({vegItems:false})
+      this.setState({ product: { items: vegitemShow } });
+    } else {
+      this.setState({ product: { items: this.state.product1.items } });
+    }
+  };
   render() {
     var isLoggedin = localStorage.getItem("isLogging");
     const { availableChefs } = this.state;

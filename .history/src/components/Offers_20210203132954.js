@@ -50,6 +50,7 @@ const Offerpage = () => {
               <h4 className="font-weight-bold mt-0 mb-3">Available Coupons</h4>
             </Col>
             {offer.map((item, index) => {
+
               if (item.Type === "Percentage") {
                 return (
                   <Col md={3} key={index}>
