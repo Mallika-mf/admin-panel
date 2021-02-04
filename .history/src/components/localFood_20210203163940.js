@@ -121,7 +121,7 @@ class List extends React.Component {
     //const cityId = this.context.appState.cityinfo.PushId;
     const cityId = localStorage.getItem("pushid");
     this.setState({ product: { ...this.state.product, loading: true } });
-    console.log(this.state.product);
+    console.log(this.state.product)
     this.setState({ product1: { ...this.state.product, loading: true } });
 
     if (!cityId) {
@@ -200,6 +200,7 @@ class List extends React.Component {
               : 1,
         });
         this.allProducts = availableChefs.concat(nonAvailableChefs);
+        console.log(this.allProduct)
       } else {
         this.setState({ availableChefs: availableChefs });
         this.setState({ nonAvailableChefs: nonAvailableChefs });
@@ -297,11 +298,13 @@ class List extends React.Component {
         return filterProducts;
     }
   };
-  applyFilter = () => {
+  applyFilter =  () => {
     setTimeout(() => {
-    
+      let currentRedius = localStorage.getItem("radius");
+      var today = new Date();
+        var CurrentTime = today.getHours() + ":" + today.getMinutes();
+        var regExp = /(\d{1,2}):(\d{1,2}):(\d{1,2})/;
       if (this.state.filter.cusines.length === 0) {
-        let filteredProducts = this.sortProducts(this.state.product1.items);
         this.setState({ product: { items: this.state.product1.items } });
       } else {
         let filteredCuisines = this.state.filter.cusines;
@@ -310,9 +313,9 @@ class List extends React.Component {
         // console.log(this.allProducts);
         let activeChef = [];
         this.allProducts.map((products) => {
-          if (products.Status === "Active") {
+          if ( products.Status === "Active" ) {
             activeChef.push(products);
-            console.log(products);
+            console.log(products)
           }
         });
         // console.log(activeChef)
@@ -525,7 +528,7 @@ class List extends React.Component {
               <Col md={3}>
                 <div className="filters shadow-sm rounded bg-white mb-4">
                   <div className="filters-header border-bottom pl-4 pr-4 pt-3 pb-3">
-                    <h5 className="m-0 text-danger">
+                    <h5 className="m-0">
                       <Icofont icon="filter" />
                       Filter By
                     </h5>
@@ -624,7 +627,7 @@ class List extends React.Component {
                               as={Button}
                               size="block"
                               variant="link"
-                              className="text-left d-flex align-items-center p-0  text-black"
+                              className="text-left d-flex align-items-center p-0"
                               eventKey="1"
                             >
                               All Cuisines{" "}
@@ -804,7 +807,7 @@ class List extends React.Component {
                               as={Button}
                               size="block"
                               variant="link"
-                              className="text-left d-flex align-items-center p-0  text-black"
+                              className="text-left d-flex align-items-center p-0"
                               eventKey="2"
                             >
                               Food Types{" "}

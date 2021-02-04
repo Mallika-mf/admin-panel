@@ -254,7 +254,7 @@ class List extends React.Component {
     // console.log(filterProducts);
     switch (this.state.filter.sort) {
       case "default":
-        return filterProducts;
+        return this.state.product1.items;
 
       case "heigh":
         return filterProducts.sort(function (a, b) {
@@ -293,15 +293,18 @@ class List extends React.Component {
         });
 
       default:
-        return filterProducts;
+        return  filterProducts;
+        ;
     }
   };
   applyFilter = () => {
     setTimeout(() => {
       if (this.state.filter.cusines.length === 0) {
-       let filteredProducts = this.sortProducts(this.state.product1.items);
+       let filteredProducts = this.sortProducts(this.state.product.items);
         this.setState({ product: { items: this.state.product1.items } });
+        console.log(filteredProducts)
       } else {
+        console.log("i m not here")
         let filteredCuisines = this.state.filter.cusines;
         //   console.log(filteredCuisines)
         let filteredProducts = this.allProducts;

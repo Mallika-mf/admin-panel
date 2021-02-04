@@ -253,8 +253,7 @@ class List extends React.Component {
   sortProducts = (filterProducts) => {
     // console.log(filterProducts);
     switch (this.state.filter.sort) {
-      case "default":
-        return filterProducts;
+    
 
       case "heigh":
         return filterProducts.sort(function (a, b) {
@@ -293,15 +292,18 @@ class List extends React.Component {
         });
 
       default:
-        return filterProducts;
+        return  this.state.product1.items;
+        ;
     }
   };
   applyFilter = () => {
     setTimeout(() => {
       if (this.state.filter.cusines.length === 0) {
-       let filteredProducts = this.sortProducts(this.state.product1.items);
+       let filteredProducts = this.sortProducts(this.state.product.items);
         this.setState({ product: { items: this.state.product1.items } });
+        console.log(filteredProducts)
       } else {
+        console.log("i m not here")
         let filteredCuisines = this.state.filter.cusines;
         //   console.log(filteredCuisines)
         let filteredProducts = this.allProducts;
@@ -506,7 +508,7 @@ class List extends React.Component {
                           className="form-control fc--rounded"
                           onChange={this.sort}
                         >
-                          <option value="default">Default Sorting</option>
+                          <option >Default Sorting</option>
                           <option value="heigh">Price : High to Low</option>
                           <option value="low">Price : Low to High</option>
                           <option value="a-z">Sort by Name : A-Z</option>

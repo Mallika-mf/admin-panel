@@ -299,9 +299,10 @@ class List extends React.Component {
   applyFilter = () => {
     setTimeout(() => {
       if (this.state.filter.cusines.length === 0) {
-       let filteredProducts = this.sortProducts(this.state.product1.items);
         this.setState({ product: { items: this.state.product1.items } });
+        console.log('i m here')
       } else {
+        console.log("i m not here")
         let filteredCuisines = this.state.filter.cusines;
         //   console.log(filteredCuisines)
         let filteredProducts = this.allProducts;
