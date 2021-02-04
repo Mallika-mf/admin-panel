@@ -241,7 +241,10 @@ class SratchCard extends React.Component {
                         <div className="cardbody">
                           <div className="card m-2 border-0">
                             <div className="cardbody p-2">
-                              <h5 style={{ color: "red", fontWeight: "bold" }}>
+                              <h5
+                                className="text-warning"
+                                style={{ color: "", fontWeight: "bold" }}
+                              >
                                 Can be Scrached only in mobile!
                               </h5>
                               <div className="row" style={{ marginTop: "4%" }}>
