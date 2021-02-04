@@ -774,9 +774,9 @@ class Detail extends React.Component {
 										<Nav.Item>
 											<Nav.Link eventKey="fourth">Book A Table</Nav.Link>
 										</Nav.Item> */}
-                    {/* <Nav.Item>
+                    <Nav.Item>
                       <Nav.Link eventKey="fifth">Ratings & Reviews</Nav.Link>
-                    </Nav.Item> */}
+                    </Nav.Item>
                   </Nav>
                 </Col>
               </Row>

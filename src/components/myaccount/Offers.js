@@ -60,7 +60,7 @@ const Offerpage = () => {
                       title={`Get Up to ${item.Discount}% OFF on your  order`}
                       logoImage="img/offer.png"
                       subTitle={`Use code ${item.Name} & get ${item.Discount}% off on your  order value above ₹${item.MinAmount} on Website and Mobile site. `}
-                      condition={` Maximum discount upto: ₹${item.MaxAmount}`}
+                      condition={` Maximum discount: ₹${item.MaxAmount}`}
                       // copyBtnText="COPY CODE"
                       couponCode={`${item.Name}`}
                     />
@@ -73,7 +73,7 @@ const Offerpage = () => {
                       title={`Get Up to ₹${item.MaxAmount}% OFF on your  order`}
                       logoImage="img/offer.png"
                       subTitle={`Use code ${item.Name} & get Free Delivery on your  order value above ₹${item.MinAmount} on Website and Mobile site.`}
-                      condition={` Maximum discount upto: ₹${item.MaxAmount}`}
+                      condition={` Maximum discount: ₹${item.MaxAmount}`}
                       // copyBtnText="COPY CODE"
                       couponCode={`${item.Name}`}
                     />

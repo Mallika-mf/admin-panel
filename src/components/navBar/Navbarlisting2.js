@@ -72,6 +72,7 @@ class NavbarListing extends React.Component {
             <Navbar.Collapse id="navbarNavDropdown">
               <Nav activeKey={0} className="ml-auto" onSelect={this.closeMenu}>
                 <Nav.Link
+                  className="text-primary"
                   eventKey={0}
                   as={NavLink}
                   activeclassname="active"
@@ -326,6 +327,7 @@ class NavbarListing extends React.Component {
                   </div>
                 </NavDropdown>*/}
                 <Nav.Link
+                  className="text-danger"
                   eventKey={0}
                   as={NavLink}
                   activeclassname="active"

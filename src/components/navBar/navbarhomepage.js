@@ -74,7 +74,7 @@ class Navbarhomepage extends React.Component {
             <Navbar.Collapse id="navbarNavDropdown">
               <Nav activeKey={0} className="ml-auto" onSelect={this.closeMenu}>
                 <Nav.Link
-                  className=" "
+                  className="text-secondary"
                   eventKey={0}
                   as={NavLink}
                   activeclassname="active"
@@ -85,7 +85,7 @@ class Navbarhomepage extends React.Component {
                   Partner with us <span className="sr-only">(current)</span>
                 </Nav.Link>
                 <Nav.Link
-                  className=""
+                  className="text-secondary"
                   eventKey={0}
                   as={NavLink}
                   activeclassname="active"
@@ -96,7 +96,7 @@ class Navbarhomepage extends React.Component {
                   <span className="sr-only">(current)</span>
                 </Nav.Link>
                 <Nav.Link
-                  className=" text-danger"
+                  className="text-primary"
                   eventKey={0}
                   as={NavLink}
                   activeclassname="active"
@@ -104,7 +104,7 @@ class Navbarhomepage extends React.Component {
                   to="/contactus"
                 >
                   <Icofont icon="live-support" size="2" />
-                  Support
+                  Customer support
                   <span className="sr-only">(current)</span>
                 </Nav.Link>
                 {/* <Nav.Link

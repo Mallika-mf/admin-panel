@@ -524,7 +524,7 @@ class List extends React.Component {
               <Col md={3}>
                 <div className="filters shadow-sm rounded bg-white mb-4">
                   <div className="filters-header border-bottom pl-4 pr-4 pt-3 pb-3">
-                    <h5 className="m-0">
+                    <h5 className="m-0 text-danger">
                       {" "}
                       <Icofont icon="filter" />
                       Filter By
@@ -624,7 +624,7 @@ class List extends React.Component {
                               as={Button}
                               size="block"
                               variant="link"
-                              className="text-left d-flex align-items-center p-0"
+                              className="text-left d-flex align-items-center p-0 text-black"
                               eventKey="1"
                             >
                               Category{" "}
@@ -825,7 +825,7 @@ class List extends React.Component {
                               as={Button}
                               size="block"
                               variant="link"
-                              className="text-left d-flex align-items-center p-0"
+                              className="text-left d-flex align-items-center p-0 text-black"
                               eventKey="2"
                             >
                               Food Types{" "}

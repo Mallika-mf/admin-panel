@@ -84,6 +84,7 @@ class NavbarListing extends React.Component {
             <Navbar.Collapse id="navbarNavDropdown">
               <Nav activeKey={0} className="ml-auto" onSelect={this.closeMenu}>
                 <Nav.Link
+                  className="text-primary"
                   eventKey={0}
                   as={NavLink}
                   activeclassname="active"
@@ -99,21 +100,22 @@ class NavbarListing extends React.Component {
                   as={NavLink}
                   activeclassname="active"
                   exact
-                  to="/localDishes"
+                  to="/listing"
                 >
-                  <Icofont icon="food-cart" />
-                  Local kitchen's <span className="sr-only">(current)</span>
+                  <Icofont icon="home" />
+                  Home Food <span className="sr-only">(current)</span>
                 </Nav.Link>
                 <Nav.Link
                   eventKey={0}
                   as={NavLink}
                   activeclassname="active"
                   exact
-                  to="/listing"
+                  to="/localDishes"
                 >
-                  <Icofont icon="home" />
-                  Home Food <span className="sr-only">(current)</span>
+                  <Icofont icon="food-cart" />
+                  Local Kitchens <span className="sr-only">(current)</span>
                 </Nav.Link>
+
                 <Nav.Link
                   eventKey={1}
                   as={NavLink}
@@ -283,6 +285,7 @@ class NavbarListing extends React.Component {
                   </NavDropdown.Item>
                 </NavDropdown>
                 <Nav.Link
+                  className="text-success"
                   eventKey={0}
                   as={NavLink}
                   activeclassname="active"
@@ -381,6 +384,7 @@ class NavbarListing extends React.Component {
                 </Nav.Link> */}
 
                 <Nav.Link
+                  className="text-danger"
                   eventKey={0}
                   onClick={this.handleLogout}
                   activeclassname="active"

@@ -15,6 +15,7 @@ import bannerImg from "../AbotUs/AboutUs-images/Banner_MyProfile.png";
 // import { get } from "lodash";
 //import bannerImg from "../abotUs/AboutUs-images/Banner_MyProfile.png";
 import "../../style copy.css";
+import Icofont from "react-icofont";
 class SratchCard extends React.Component {
   state = {
     product: this.props.product,
