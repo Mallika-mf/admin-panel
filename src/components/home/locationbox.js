@@ -331,7 +331,7 @@ const LocationBox = (props) => {
           style={{ backgroundColor: "transparent", borderRadius: "12px" }}
           type="text"
           placeholder="Enter your delivery location"
-          size="lg"
+          size="md"
           id="autocomplete"
         />
         {userlocation.city === "" ? (

@@ -61,15 +61,15 @@ class TopSearch extends React.Component {
                       style={{
                         //color: "darkRed",
                         fontSize: "80px",
-                        fontWeight: "bolder",
+                        fontWeight: "",
                         textAlign: "justify",
-                        marginTop: "-2%",
+                        marginTop: "-1%",
                         marginBottom: "5%",
                       }}
                     >
                       <span
                         className="font-weight-bolder text-black"
-                        style={{ color: "white", fontFamily: "Comic Sans MS" }}
+                        style={{ color: "white", fontFamily: "Lemonada" }}
                       >
                         Hungry?
                       </span>{" "}
@@ -78,11 +78,17 @@ class TopSearch extends React.Component {
                       className="mb-5 text-secondary font-weight-normal text-black"
                       style={{
                         textAlign: "justify",
+                        marginTop: "3%",
                       }}
                     >
                       <span
                         className=" text-black"
-                        style={{ color: "white", fontWeight: "600" }}
+                        style={{
+                          color: "white",
+                          fontWeight: "400",
+                          fontFamily: "Lemonada",
+                          fontSize: "15px",
+                        }}
                       >
                         Order food from favourite Home Chefs and Local Kitchens
                         Near you!

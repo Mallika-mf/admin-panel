@@ -58,7 +58,12 @@ class Navbarhomepage extends React.Component {
           expand="lg"
           className="navbar-light osahan-nav shadow-sm"
         >
-          <Container style={{ marginTop: "-1%", marginBottom: "-1%" }}>
+          <Container
+            style={{
+              marginTop: "-1%",
+              marginBottom: "-1%",
+            }}
+          >
             <Navbar.Brand to="/">
               <Image
                 style={{
