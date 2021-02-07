@@ -668,7 +668,7 @@ Like all of us already know,
                       >
                         <figure>
                           <img
-                            src="../assets/img/blog-img-15.jpeg"
+                            src="../assets/img/blog-img-15.jpg"
                             alt=""
                             style={{ maxWidth: "350px", height: "auto" }}
                           />
@@ -683,7 +683,7 @@ Like all of us already know,
                             <li className="text-left">02-02-2021</li>
                           </ul>
                           <p className="text-left" style={{ fontSize: "15px" }}>
-                          It is 2.30 pm. Shreya has just returned from school with a frown on her face. Her sister enquires if something went wrong in school 
+                          It is 2.30 pm. Shreya has just returned from school with a frown on her face. 
                           </p>
                         </div>
                       </div>
@@ -711,7 +711,7 @@ Like all of us already know,
                       >
                         <figure>
                           <img
-                            src="../assets/img/blog-img-16.jpeg"
+                            src="../assets/img/blog-img-16.jpg"
                             alt=""
                             style={{ maxWidth: "350px", height: "auto" }}
                           />
@@ -726,7 +726,7 @@ Like all of us already know,
                             <li className="text-left">02-02-2021</li>
                           </ul>
                           <p className="text-left" style={{ fontSize: "15px" }}>
-                          Vegetables and fruits form a very integral part of one's daily meals. Vegetables were original gathered by hunter-gatherers in 10000 B.C.When they realized that                          </p>
+                          Vegetables and fruits form a very integral part of one's daily meals. Vegetables were original gathered by hunter-gatherers in 10000 B.C.When they realized that they are tasty and can also be                           </p>
                         </div>
                       </div>
                     </NavLink>

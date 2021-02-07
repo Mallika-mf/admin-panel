@@ -208,7 +208,7 @@ class RightSideBar extends Component {
                                     <div className="widget-content">
                                         <div className="sidebar-post">
                                             <div className="d-flex align-items-center">
-                                                <div className="col-lg-8"><NavLink to='/news-detail-15'><img src="../assets/img/blog-img-15.jpeg" alt="mothersfood" style={{width:"120px"}} /></NavLink></div>
+                                                <div className="col-lg-8"><NavLink to='/news-detail-15'><img src="../assets/img/blog-img-15.jpg" alt="mothersfood" style={{width:"120px"}} /></NavLink></div>
                                                 <div className="col-lg-6"> <p><span>Feb 02, 2021</span> <br /><span>by <NavLink to='/' onClick={noAction}>Eishita Rambhiya</NavLink></span></p></div>
                                             </div>
                                             <div style={{ position: "relative", marginLeft: "-25%" }}>
@@ -222,7 +222,7 @@ class RightSideBar extends Component {
                                     <div className="widget-content">
                                         <div className="sidebar-post">
                                             <div className="d-flex align-items-center">
-                                                <div className="col-lg-8"><NavLink to='/news-detail-16'><img src="../assets/img/blog-img-16.jpeg" alt="mothersfood" style={{width:"120px"}} /></NavLink></div>
+                                                <div className="col-lg-8"><NavLink to='/news-detail-16'><img src="../assets/img/blog-img-16.jpg" alt="mothersfood" style={{width:"120px"}} /></NavLink></div>
                                                 <div className="col-lg-6"> <p><span>Feb 06, 2021</span> <br /><span>by <NavLink to='/' onClick={noAction}>Eishita Rambhiya</NavLink></span></p></div>
                                             </div>
                                             <div style={{ position: "relative", marginLeft: "-25%" }}>

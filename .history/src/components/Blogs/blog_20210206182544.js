@@ -683,7 +683,7 @@ Like all of us already know,
                             <li className="text-left">02-02-2021</li>
                           </ul>
                           <p className="text-left" style={{ fontSize: "15px" }}>
-                          It is 2.30 pm. Shreya has just returned from school with a frown on her face. Her sister enquires if something went wrong in school 
+                          It is 2.30 pm. Shreya has just returned from school with a frown on her face. Her sister enquires if something went wrong in school to which 
                           </p>
                         </div>
                       </div>

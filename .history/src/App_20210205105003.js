@@ -51,7 +51,6 @@ import NewsDetail12 from "./page/news-detail-12";
 import NewsDetail13 from "./page/news-detail-13";
 import NewsDetail14 from "./page/news-detail-14";
 import NewsDetail15 from "./page/news-detail-15";
-import NewsDetail16 from "./page/news-detail-16";
 
 import LocalFood from "./components/localFood";
 import localkitchens from "./components/FooterPages/localkitchens";
@@ -117,7 +116,6 @@ class App extends React.Component {
           <Route exact path="/news-detail-13" component={NewsDetail13} />
           <Route exact path="/news-detail-14" component={NewsDetail14} />
           <Route exact path="/news-detail-15" component={NewsDetail15} />
-          <Route exact path="/news-detail-16" component={NewsDetail16} />
 
           <Route exact component={NotFound} />
         </Switch>

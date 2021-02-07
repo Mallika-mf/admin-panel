@@ -1073,6 +1073,7 @@ class Detail extends React.Component {
                                     </h5>
                                   </div>{console.log(foodItems)}
                                   {foodItems.map((item, index) => {
+                                    if (item.Menu === undefined) {
                                       if (
                                         item.AStatus !== "Active" ||
                                         item.Status !== "Active" ||
@@ -1137,7 +1138,7 @@ class Detail extends React.Component {
                          />  */}
                                         </div>
                                       );
-                                    
+                                    }
                                   })}
                                   {inActiveFoodItems.map((item, index) => {
                                     if (item.Menu === undefined) {
