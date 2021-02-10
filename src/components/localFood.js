@@ -299,7 +299,6 @@ class List extends React.Component {
   };
   applyFilter = () => {
     setTimeout(() => {
-    
       if (this.state.filter.cusines.length === 0) {
         let filteredProducts = this.sortProducts(this.state.product1.items);
         this.setState({ product: { items: this.state.product1.items } });
@@ -495,7 +494,7 @@ class List extends React.Component {
                     className="sort d-flex align-items-center"
                     variant="outline-info"
                   >
-                    <span className="m-right-15 ">Sort By: </span>
+                    <span className="m-right-15 text-danger">Sort By: </span>
                     <div
                       className="form-group"
                       style={{ maxWidth: "100%", width: "200px" }}

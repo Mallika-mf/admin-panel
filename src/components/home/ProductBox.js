@@ -14,7 +14,13 @@ class ProductBox extends React.Component {
           className={this.props.imageClass}
           alt={this.props.imageAlt}
         />
-        {this.props.title ? <h6>{this.props.title}</h6> : ""}
+        {this.props.title ? (
+          <h6 style={{ fontFamily: "Lemonada", fontSize: "12px" }}>
+            {this.props.title}
+          </h6>
+        ) : (
+          ""
+        )}
         {this.props.counting ? <p>{this.props.counting}</p> : ""}
         {/* </Link> */}
       </div>

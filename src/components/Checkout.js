@@ -273,7 +273,9 @@ class Checkout extends React.Component {
     firebase
       .database()
       .ref("Promocode")
-      .child("User").orderByChild("Status").equalTo("Active")
+      .child("User")
+      .orderByChild("Status")
+      .equalTo("Active")
       .once(
         "value",
         function (snapshot) {

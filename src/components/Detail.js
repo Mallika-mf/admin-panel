@@ -911,7 +911,7 @@ class Detail extends React.Component {
                             </small>
                           </h5>
                           <Col md={12}>
-                            <div className="bg-white rounded border shadow-sm mb-4">
+                            <div className="bg-white rounded border shadow-sm mb-4 text-capitalize">
                               {this.state.itemMenu.length > 0 ? (
                                 this.state.itemMenu.map((itemMenu, index) => {
                                   console.log(this.state.itemMenu.length)

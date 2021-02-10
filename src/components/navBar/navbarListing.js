@@ -210,7 +210,7 @@ class NavbarListing extends React.Component {
                   alignRight
                   title={
                     <DropDownTitle
-                      className="d-inline-block"
+                      className="d-inline-block text-primary text-capitalize"
                       image="img/offer.png"
                       imageAlt="user"
                       imageClass="nav-osahan-pic rounded-pill"

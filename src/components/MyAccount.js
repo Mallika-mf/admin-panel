@@ -56,7 +56,9 @@ class MyAccount extends React.Component {
                           alt="Mothersfood"
                         />
                         <div className="osahan-user-media-body">
-                          <h6 className="mb-2 text-danger">{name}</h6>
+                          <h6 className="mb-2 text-danger text-capitalize">
+                            {name}
+                          </h6>
                           <p className="mb-1">{number}</p>
                           <p>{email}</p>
                           <p className="mb-0 text-black font-weight-bold">

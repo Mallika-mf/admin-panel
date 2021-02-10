@@ -48,6 +48,7 @@ class CardItem extends React.Component {
           <div className="list-card-body">
             <h6 className="mb-1">
               <button
+                className="text-danger"
                 onClick={this.props.onClickLocation}
                 style={{
                   border: "none",
