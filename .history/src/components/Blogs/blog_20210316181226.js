@@ -107,11 +107,17 @@ class Index extends React.Component {
                     </h1>
                     {/* <p>Need Single content here</p> */}
                   </div>
+  
                   <div
                     className="col-lg-4 col-md-6"
-                    style={{ marginTop: "5%" }}
+                    style={{
+                      position: "relative",
+                      marginTop: "20px",
+                      marginBottom: "5%",
+                      outline: "none",
+                    }}
                   >
-                   <NavLink to="/news-detail-25" style={{ color: "gray" }}>
+                  <NavLink to="/news-detail-25" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
                         style={{
@@ -143,40 +149,64 @@ class Index extends React.Component {
                     </NavLink>
                   </div>
 
-                  <div
-                    className="col-lg-4 col-md-6"
-                    style={{ marginTop: "5%" }}
-                  >
-                  
-                    <NavLink to='/news-detail-24' style={{color:"gray"}}>
-                            <div className="card post--card "
-                             style={{
-                              border: "none",
-                              boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
-                              borderRadius: "5px",
-                            }}>
-                                <figure>
-                                   <img src="../assets/img/blog-img-24.jpg" alt=""  max-width="100px" height="auto"/>
-                                </figure>
-                                <div className="card-body">
-                                    <h6 className="text-left"><strong>How the Right Nutrition Can Help You to Save a Lot of Money</strong></h6>
-                                    <ul className="post-meta d-flex">
-                                        <li className="text-left">13-03-2021</li>
-                                    </ul>
-                                    <p className="text-left">Your body is what you eat as they say. Similarly, our health is defined by what reaches our body. With the constant increase in junk food and fast food options, people
- </p>
 
-                                </div>
-                            </div>
-                            </NavLink>
-                   
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        
+        <div
+                    className="col-lg-4 col-md-6"
+                    style={{
+                      position: "relative",
+                      marginTop: "20px",
+                      marginBottom: "5%",
+                      outline: "none",
+                    }}
+                  >
+                  <NavLink to="/news-detail-24" style={{ color: "gray" }}>
+                      <div
+                        className="card post--card "
+                        style={{
+                          border: "none",
+                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                          borderRadius: "5px",
+                        }}
+                      >
+                        <figure>
+                          <img
+                            src="../assets/img/blog-img-24.jpg"
+                            alt=""
+                            style={{ maxWidth: "350px", height: "auto" }}
+                          />
+                        </figure>
+                        <div className="card-body">
+                          <h6 className="text-left">
+                            <strong>
+                            How the Right Nutrition Can Help You to Save a Lot of Money
+                             </strong>
+                          </h6>
+                          <ul className="post-meta d-flex">
+                            <li className="text-left">13-03-2021</li>
+                          </ul>
+                          <p className="text-left" style={{ fontSize: "15px" }}>
+                          Your body is what you eat as they say. Similarly, our health is defined by what reaches our body. With the constant increase in junk food and fast food options, people</p>                         </div>
+                      </div>
+                    </NavLink>
                   </div>
 
-                  
-                        <div className="col-lg-4 col-md-6"
-                         style={{ marginTop: "5%" }}
-                                            >
-                        <NavLink to="/news-detail-23" style={{ color: "gray" }}>
+                  <div
+                    className="col-lg-4 col-md-6"
+                    style={{
+                      position: "relative",
+                      marginTop: "20px",
+                      marginBottom: "5%",
+                      outline: "none",
+                    }}
+                  >
+                  <NavLink to="/news-detail-23" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
                         style={{
@@ -205,14 +235,19 @@ class Index extends React.Component {
 Food is loved by everyone. But what goes into your body is directly proportional to what shows on your body and health. </p>                         </div>
                       </div>
                     </NavLink>
-                        </div>
+                  </div>
 
-
+                       
                   <div
                     className="col-lg-4 col-md-6"
-                    style={{ marginTop: "2%" }}
+                    style={{
+                      position: "relative",
+                      marginTop: "20px",
+                      marginBottom: "5%",
+                      outline: "none",
+                    }}
                   >
-                    <NavLink to="/news-detail-22" style={{ color: "gray" }}>
+                  <NavLink to="/news-detail-22" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
                         style={{
@@ -227,7 +262,7 @@ Food is loved by everyone. But what goes into your body is directly proportional
                             alt=""
                             style={{ maxWidth: "350px", height: "auto" }}
                           />
-                        </figure><br/>
+                        </figure>
                         <div className="card-body">
                           <h6 className="text-left">
                             <strong>
@@ -238,18 +273,22 @@ Food is loved by everyone. But what goes into your body is directly proportional
                             <li className="text-left">06-03-2021</li>
                           </ul>
                           <p className="text-left" style={{ fontSize: "15px" }}>
-                          Indian cuisine and food are famous all over the world for their spicy taste, innovative ingredients, and nutritional value. A lot of times people living away from home  </p>                          
+                          Indian cuisine and food are famous all over the world for their spicy taste, innovative ingredients, and nutritional value. </p>                          
                          </div>
                       </div>
                     </NavLink>
-                   
                   </div>
-
+                  
                   <div
                     className="col-lg-4 col-md-6"
-                    style={{ position: "relative", marginTop: "20px" }}
+                    style={{
+                      position: "relative",
+                      marginTop: "20px",
+                      marginBottom: "5%",
+                      outline: "none",
+                    }}
                   >
-                    <NavLink to="/news-detail-21" style={{ color: "gray" }}>
+                  <NavLink to="/news-detail-21" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
                         style={{
@@ -275,25 +314,21 @@ Food is loved by everyone. But what goes into your body is directly proportional
                             <li className="text-left">01-03-2021</li>
                           </ul>
                           <p className="text-left" style={{ fontSize: "15px" }}>
-                          Are you exercising every day just to be healthy but still facing health issues? Are your diets not suiting your </p>                          
+                          Are you exercising every day just to be healthy but still facing health issues?</p>                          
                          </div>
                       </div>
                     </NavLink>
-                   
                   </div>
-                  {/* <div
-                    className="col-lg-4 col-md-6"
-                    style={{ position: "relative", marginTop: "20px" }}
-                  >
-                   
-                   
-                   
-                  </div> */}
                   <div
                     className="col-lg-4 col-md-6"
-                    style={{ position: "relative", marginTop: "20px" }}
+                    style={{
+                      position: "relative",
+                      marginTop: "20px",
+                      marginBottom: "5%",
+                      outline: "none",
+                    }}
                   >
-                      <NavLink to="/news-detail-20" style={{ color: "gray" }}>
+                    <NavLink to="/news-detail-20" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
                         style={{
@@ -323,14 +358,17 @@ Food is loved by everyone. But what goes into your body is directly proportional
                          </div>
                       </div>
                     </NavLink>
-                   
                   </div>
-
                   <div
                     className="col-lg-4 col-md-6"
-                    style={{ position: "relative", marginTop: "20px" }}
+                    style={{
+                      position: "relative",
+                      marginTop: "20px",
+                      marginBottom: "5%",
+                      outline: "none",
+                    }}
                   >
-                     <NavLink to="/news-detail-19" style={{ color: "gray" }}>
+                    <NavLink to="/news-detail-19" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
                         style={{
@@ -356,18 +394,21 @@ Food is loved by everyone. But what goes into your body is directly proportional
                             <li className="text-left">20-02-2021</li>
                           </ul>
                           <p className="text-left" style={{ fontSize: "15px" }}>
-                          Leafy green vegetables form an important part of a healthy diet.Available all round the year these healthy greens boost metabolism</p>                          
+                          Leafy green vegetables form an important part of a healthy diet.Available all round the year these healthy greens boost metabolism and ensure the smooth functioning of </p>                          
                          </div>
                       </div>
                     </NavLink>
-                   
                   </div>
 
                   <div
                     className="col-lg-4 col-md-6"
-                    style={{ position: "relative", marginTop: "20px" }}
+                    style={{
+                      position: "relative",
+                      marginTop: "20px",
+                      marginBottom: "5%",
+                      outline: "none",
+                    }}
                   >
-                 
                     <NavLink to="/news-detail-18" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
@@ -402,9 +443,14 @@ Food is loved by everyone. But what goes into your body is directly proportional
 
                   <div
                     className="col-lg-4 col-md-6"
-                    style={{ position: "relative", marginTop: "20px" }}
+                    style={{
+                      position: "relative",
+                      marginTop: "20px",
+                      marginBottom: "5%",
+                      outline: "none",
+                    }}
                   >
-                   <NavLink to="/news-detail-17" style={{ color: "gray" }}>
+                    <NavLink to="/news-detail-17" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
                         style={{
@@ -435,12 +481,15 @@ Food is loved by everyone. But what goes into your body is directly proportional
                          </div>
                       </div>
                     </NavLink>
-                  
                   </div>
-
                   <div
                     className="col-lg-4 col-md-6"
-                    style={{ position: "relative", marginTop: "20px" }}
+                    style={{
+                      position: "relative",
+                      marginTop: "20px",
+                      marginBottom: "5%",
+                      outline: "none",
+                    }}
                   >
                     <NavLink to="/news-detail-16" style={{ color: "gray" }}>
                       <div
@@ -472,14 +521,18 @@ Food is loved by everyone. But what goes into your body is directly proportional
                         </div>
                       </div>
                     </NavLink>
-                   
                   </div>
 
                   <div
                     className="col-lg-4 col-md-6"
-                    style={{ position: "relative", marginTop: "20px" }}
+                    style={{
+                      position: "relative",
+                      marginTop: "20px",
+                      marginBottom: "5%",
+                      outline: "none",
+                    }}
                   >
-                     <NavLink to="/news-detail-15" style={{ color: "gray" }}>
+                    <NavLink to="/news-detail-15" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
                         style={{
@@ -502,7 +555,7 @@ Food is loved by everyone. But what goes into your body is directly proportional
                             </strong>
                           </h6>
                           <ul className="post-meta d-flex">
-                            <li className="text-left">02-02-2021</li>
+                            <li className="text-left">30-01-2021</li>
                           </ul>
                           <p className="text-left" style={{ fontSize: "15px" }}>
                           It is 2.30 pm. Shreya has just returned from school with a frown on her face. Her sister enquires if something went wrong in school 
@@ -510,14 +563,17 @@ Food is loved by everyone. But what goes into your body is directly proportional
                         </div>
                       </div>
                     </NavLink>
-                   
                   </div>
-
                   <div
                     className="col-lg-4 col-md-6"
-                    style={{ position: "relative", marginTop: "20px" }}
+                    style={{
+                      position: "relative",
+                      marginTop: "20px",
+                      marginBottom: "5%",
+                      outline: "none",
+                    }}
                   >
-                     <NavLink to="/news-detail-14" style={{ color: "gray" }}>
+                    <NavLink to="/news-detail-14" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
                         style={{
@@ -550,9 +606,9 @@ Food is loved by everyone. But what goes into your body is directly proportional
                         </div>
                       </div>
                     </NavLink>
-                    </div>
-
-                    <div
+                  </div>
+                  
+                  <div
                     className="col-lg-4 col-md-6"
                     style={{ position: "relative", marginTop: "20px" }}
                   >
@@ -587,9 +643,8 @@ Food is loved by everyone. But what goes into your body is directly proportional
                         </div>
                       </div>
                     </NavLink>
-                    </div>
-
-                    <div
+                  </div>
+                  <div
                     className="col-lg-4 col-md-6"
                     style={{ position: "relative", marginTop: "20px" }}
                   >
@@ -619,26 +674,16 @@ Food is loved by everyone. But what goes into your body is directly proportional
                           <p className="text-left" style={{ fontSize: "15px" }}>
                             Comfort foods give comfort to the whole mood. Mostly
                             comfort foods are staple foods.. Majority of the
-                            people enjoy comfort 
+                            people enjoy comfort foods,
                           </p>
                         </div>
                       </div>
                     </NavLink>
-
-
-                 
-                    </div>
-
+                  </div>
                   <div
                     className="col-lg-4 col-md-6"
-                    style={{
-                      position: "relative",
-                      marginTop: "20px",
-                      // marginBottom: "5%",
-                      outline: "none",
-                    }}
+                    style={{ position: "relative", marginTop: "20px" }}
                   >
-                   
                     <NavLink to="/news-detail-11" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
@@ -675,14 +720,8 @@ Food is loved by everyone. But what goes into your body is directly proportional
 
                   <div
                     className="col-lg-4 col-md-6"
-                    style={{
-                      position: "relative",
-                      marginTop: "20px",
-                      // marginBottom: "5%",
-                      outline: "none",
-                    }}
+                    style={{ position: "relative", marginTop: "20px" }}
                   >
-                   
                     <NavLink to="/news-detail-10" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
@@ -718,20 +757,10 @@ Like all of us already know,
                       </div>
                     </NavLink>
                   </div>
-
-                  
-
-                  
                   <div
                     className="col-lg-4 col-md-6"
-                    style={{
-                      position: "relative",
-                      marginTop: "20px",
-                      // marginBottom: "5%",
-                      outline: "none",
-                    }}
+                    style={{ position: "relative", marginTop: "20px" }}
                   >
-                    
                     <NavLink to="/news-detail-9" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
@@ -769,17 +798,10 @@ Like all of us already know,
                       </div>
                     </NavLink>
                   </div>
-
                   <div
                     className="col-lg-4 col-md-6"
-                    style={{
-                      position: "relative",
-                      marginTop: "20px",
-                      // marginBottom: "5%",
-                      outline: "none",
-                    }}
+                    style={{ position: "relative", marginTop: "20px" }}
                   >
-                    
                     <NavLink to="/news-detail-8" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
@@ -818,14 +840,8 @@ Like all of us already know,
 
                   <div
                     className="col-lg-4 col-md-6"
-                    style={{
-                      position: "relative",
-                      marginTop: "20px",
-                      // marginBottom: "5%",
-                      outline: "none",
-                    }}
+                    style={{ position: "relative", marginTop: "20px" }}
                   >
-                    
                     <NavLink to="/news-detail-7" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
@@ -866,14 +882,8 @@ Like all of us already know,
 
                   <div
                     className="col-lg-4 col-md-6"
-                    style={{
-                      position: "relative",
-                      marginTop: "20px",
-                      // marginBottom: "5%",
-                      outline: "none",
-                    }}
+                    style={{ position: "relative", marginTop: "20px" }}
                   >
-                   
                     <NavLink to="/news-detail-6" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
@@ -911,29 +921,11 @@ Like all of us already know,
                       </div>
                     </NavLink>
                   </div>
-
-                  {/* <div
-                    className="col-lg-4 col-md-6"
-                    style={{
-                      position: "relative",
-                      marginTop: "20px",
-                      // marginBottom: "5%",
-                      outline: "none",
-                    }}
-                  >
-                   
-                  </div> */}
-
                   <div
                     className="col-lg-4 col-md-6"
-                    style={{
-                      position: "relative",
-                      marginTop: "20px",
-                      // marginBottom: "5%",
-                      outline: "none",
-                    }}
+                    style={{ position: "relative", marginTop: "20px" }}
                   >
-                  <NavLink to="/news-detail-5" style={{ color: "gray" }}>
+                    <NavLink to="/news-detail-5" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
                         style={{
@@ -969,18 +961,11 @@ Like all of us already know,
                       </div>
                     </NavLink>
                   </div>
-
-                 
                   <div
                     className="col-lg-4 col-md-6"
-                    style={{
-                      position: "relative",
-                      marginTop: "20px",
-                      // marginBottom: "5%",
-                      outline: "none",
-                    }}
+                    style={{ marginTop: "5%" }}
                   >
-                 <NavLink to="/news-detail-4" style={{ color: "gray" }}>
+                    <NavLink to="/news-detail-4" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
                         style={{
@@ -1018,14 +1003,9 @@ Like all of us already know,
 
                   <div
                     className="col-lg-4 col-md-6"
-                    style={{
-                      position: "relative",
-                      marginTop: "20px",
-                      // marginBottom: "5%",
-                      outline: "none",
-                    }}
+                    style={{ marginTop: "5%" }}
                   >
-                  <NavLink to="/news-detail-1" style={{ color: "gray" }}>
+                    <NavLink to="/news-detail-1" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
                         style={{
@@ -1063,17 +1043,11 @@ Like all of us already know,
                     </NavLink>
                   </div>
 
-
                   <div
                     className="col-lg-4 col-md-6"
-                    style={{
-                      position: "relative",
-                      marginTop: "20px",
-                      // marginBottom: "5%",
-                      outline: "none",
-                    }}
+                    style={{ marginTop: "5%" }}
                   >
-                   <NavLink to="/news-detail-2" style={{ color: "gray" }}>
+                    <NavLink to="/news-detail-2" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
                         style={{
@@ -1106,16 +1080,6 @@ Like all of us already know,
                       </div>
                     </NavLink>
                   </div>
-
-
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-
-        
-
         {/* <section className="features-area  p-top-0 p-bottom-50" >
             <div className="icon-boxes">
                 <div className="container">

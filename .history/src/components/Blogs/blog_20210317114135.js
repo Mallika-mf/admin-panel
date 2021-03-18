@@ -161,7 +161,7 @@ class Index extends React.Component {
                                 <div className="card-body">
                                     <h6 className="text-left"><strong>How the Right Nutrition Can Help You to Save a Lot of Money</strong></h6>
                                     <ul className="post-meta d-flex">
-                                        <li className="text-left">13-03-2021</li>
+                                        <li className="text-left">10-07-2020</li>
                                     </ul>
                                     <p className="text-left">Your body is what you eat as they say. Similarly, our health is defined by what reaches our body. With the constant increase in junk food and fast food options, people
  </p>

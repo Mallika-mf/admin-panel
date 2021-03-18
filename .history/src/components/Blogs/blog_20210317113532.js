@@ -161,7 +161,7 @@ class Index extends React.Component {
                                 <div className="card-body">
                                     <h6 className="text-left"><strong>How the Right Nutrition Can Help You to Save a Lot of Money</strong></h6>
                                     <ul className="post-meta d-flex">
-                                        <li className="text-left">13-03-2021</li>
+                                        <li className="text-left">10-07-2020</li>
                                     </ul>
                                     <p className="text-left">Your body is what you eat as they say. Similarly, our health is defined by what reaches our body. With the constant increase in junk food and fast food options, people
  </p>
@@ -356,7 +356,7 @@ Food is loved by everyone. But what goes into your body is directly proportional
                             <li className="text-left">20-02-2021</li>
                           </ul>
                           <p className="text-left" style={{ fontSize: "15px" }}>
-                          Leafy green vegetables form an important part of a healthy diet.Available all round the year these healthy greens boost metabolism</p>                          
+                          Leafy green vegetables form an important part of a healthy diet.Available all round the year these healthy greens boost metabolism and ensure the smooth functioning of </p>                          
                          </div>
                       </div>
                     </NavLink>
@@ -619,7 +619,7 @@ Food is loved by everyone. But what goes into your body is directly proportional
                           <p className="text-left" style={{ fontSize: "15px" }}>
                             Comfort foods give comfort to the whole mood. Mostly
                             comfort foods are staple foods.. Majority of the
-                            people enjoy comfort 
+                            people enjoy comfort foods,
                           </p>
                         </div>
                       </div>
@@ -634,7 +634,7 @@ Food is loved by everyone. But what goes into your body is directly proportional
                     style={{
                       position: "relative",
                       marginTop: "20px",
-                      // marginBottom: "5%",
+                      marginBottom: "5%",
                       outline: "none",
                     }}
                   >
@@ -678,7 +678,7 @@ Food is loved by everyone. But what goes into your body is directly proportional
                     style={{
                       position: "relative",
                       marginTop: "20px",
-                      // marginBottom: "5%",
+                      marginBottom: "5%",
                       outline: "none",
                     }}
                   >
@@ -727,7 +727,7 @@ Like all of us already know,
                     style={{
                       position: "relative",
                       marginTop: "20px",
-                      // marginBottom: "5%",
+                      marginBottom: "5%",
                       outline: "none",
                     }}
                   >
@@ -775,7 +775,7 @@ Like all of us already know,
                     style={{
                       position: "relative",
                       marginTop: "20px",
-                      // marginBottom: "5%",
+                      marginBottom: "5%",
                       outline: "none",
                     }}
                   >
@@ -821,7 +821,7 @@ Like all of us already know,
                     style={{
                       position: "relative",
                       marginTop: "20px",
-                      // marginBottom: "5%",
+                      marginBottom: "5%",
                       outline: "none",
                     }}
                   >
@@ -869,7 +869,7 @@ Like all of us already know,
                     style={{
                       position: "relative",
                       marginTop: "20px",
-                      // marginBottom: "5%",
+                      marginBottom: "5%",
                       outline: "none",
                     }}
                   >
@@ -912,24 +912,24 @@ Like all of us already know,
                     </NavLink>
                   </div>
 
-                  {/* <div
+                  <div
                     className="col-lg-4 col-md-6"
                     style={{
                       position: "relative",
                       marginTop: "20px",
-                      // marginBottom: "5%",
+                      marginBottom: "5%",
                       outline: "none",
                     }}
                   >
                    
-                  </div> */}
+                  </div>
 
                   <div
                     className="col-lg-4 col-md-6"
                     style={{
                       position: "relative",
                       marginTop: "20px",
-                      // marginBottom: "5%",
+                      marginBottom: "5%",
                       outline: "none",
                     }}
                   >
@@ -976,7 +976,7 @@ Like all of us already know,
                     style={{
                       position: "relative",
                       marginTop: "20px",
-                      // marginBottom: "5%",
+                      marginBottom: "5%",
                       outline: "none",
                     }}
                   >
@@ -1021,7 +1021,7 @@ Like all of us already know,
                     style={{
                       position: "relative",
                       marginTop: "20px",
-                      // marginBottom: "5%",
+                      marginBottom: "5%",
                       outline: "none",
                     }}
                   >
@@ -1069,7 +1069,7 @@ Like all of us already know,
                     style={{
                       position: "relative",
                       marginTop: "20px",
-                      // marginBottom: "5%",
+                      marginBottom: "5%",
                       outline: "none",
                     }}
                   >

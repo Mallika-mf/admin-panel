@@ -14,8 +14,8 @@ import "antd/dist/antd.css";
 import { message } from "antd";
 
 import firebase from "../Firebase";
-// import { Auto } from "@styled-icons/crypto";
-// import FadeIn from 'react-fade-in';
+import { Auto } from "@styled-icons/crypto";
+import FadeIn from 'react-fade-in';
 
 // const Box = styled.div`
 // max-width: 70vw;

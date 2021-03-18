@@ -147,36 +147,69 @@ class Index extends React.Component {
                     className="col-lg-4 col-md-6"
                     style={{ marginTop: "5%" }}
                   >
-                  
-                    <NavLink to='/news-detail-24' style={{color:"gray"}}>
-                            <div className="card post--card "
-                             style={{
-                              border: "none",
-                              boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
-                              borderRadius: "5px",
-                            }}>
+                    <NavLink to="/news-detail-1" style={{ color: "gray" }}>
+                      <div
+                        className="card post--card "
+                        style={{
+                          border: "none",
+                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                          borderRadius: "5px",
+                        }}
+                      >
+                        <figure>
+                          <img
+                            src="../assets/img/blog-img-3.jpg"
+                            alt=""
+                            style={{ maxWidth: "350px", height: "auto" }}
+                          />
+                        </figure>
+                        <div className="card-body">
+                          <h6 className="text-left">
+                            <strong>
+                              Cooking is a passion for every woman
+                            </strong>
+                          </h6>
+                          <ul className="post-meta d-flex">
+                            <li className="text-left">10-07-2020</li>
+                          </ul>
+                          <p className="text-left" style={{ fontSize: "15px" }}>
+                            Cooking is an art and science of experimenting with
+                            savory, sweetness, spices in ways that it brings out
+                            a drooling essence, flavor, taste, smell, and gets
+                            you a smile.{""}
+                            {""}
+                            {""} <br /><br />
+                          </p>
+                        </div>
+                      </div>
+                    </NavLink>
+                  </div>
+
+                  {/* 
+                        <div className="col-lg-4 col-md-6">
+                        <NavLink to='/news-detail-3' style={{color:"gray"}}>
+                            <div className="card post--card ">
                                 <figure>
-                                   <img src="../assets/img/blog-img-24.jpg" alt=""  max-width="100px" height="auto"/>
+                                   <img src="../assets/img/blog-img-2.jpg" alt=""  max-width="100px" height="auto"/>
                                 </figure>
                                 <div className="card-body">
-                                    <h6 className="text-left"><strong>How the Right Nutrition Can Help You to Save a Lot of Money</strong></h6>
+                                    <h6 className="text-left"><strong>Fast Food Vs. Homemade Food</strong></h6>
                                     <ul className="post-meta d-flex">
-                                        <li className="text-left">13-03-2021</li>
+                                        <li className="text-left">10-07-2020</li>
                                     </ul>
-                                    <p className="text-left">Your body is what you eat as they say. Similarly, our health is defined by what reaches our body. With the constant increase in junk food and fast food options, people
- </p>
+                                    <p className="text-left">Sure, Fast food can be luring with its looks, aroma, and taste, but have you realized the oily platters,
+unhygienic kitchen equipment, and rotten ingredients? 
+ <br/><br/></p>
 
                                 </div>
                             </div>
                             </NavLink>
-                   
-                  </div>
-
-                  
-                        <div className="col-lg-4 col-md-6"
-                         style={{ marginTop: "5%" }}
-                                            >
-                        <NavLink to="/news-detail-23" style={{ color: "gray" }}>
+                        </div> */}
+                  <div
+                    className="col-lg-4 col-md-6"
+                    style={{ marginTop: "5%" }}
+                  >
+                    <NavLink to="/news-detail-4" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
                         style={{
@@ -187,299 +220,36 @@ class Index extends React.Component {
                       >
                         <figure>
                           <img
-                            src="../assets/img/blog-img-23.jpg"
+                            src="../assets/img/blog-img-2.jpg"
                             alt=""
                             style={{ maxWidth: "350px", height: "auto" }}
                           />
                         </figure>
                         <div className="card-body">
                           <h6 className="text-left">
-                            <strong>
-                            Importance of High Quality Ingredients in meals.
-                             </strong>
+                            <strong>Best Indian Foods.</strong>
                           </h6>
                           <ul className="post-meta d-flex">
-                            <li className="text-left">09-03-2021</li>
+                            <li className="text-left">10-07-2020</li>
                           </ul>
                           <p className="text-left" style={{ fontSize: "15px" }}>
-Food is loved by everyone. But what goes into your body is directly proportional to what shows on your body and health. </p>                         </div>
-                      </div>
-                    </NavLink>
-                        </div>
-
-
-                  <div
-                    className="col-lg-4 col-md-6"
-                    style={{ marginTop: "2%" }}
-                  >
-                    <NavLink to="/news-detail-22" style={{ color: "gray" }}>
-                      <div
-                        className="card post--card "
-                        style={{
-                          border: "none",
-                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <figure>
-                          <img
-                            src="../assets/img/blog-img-22.jpg"
-                            alt=""
-                            style={{ maxWidth: "350px", height: "auto" }}
-                          />
-                        </figure><br/>
-                        <div className="card-body">
-                          <h6 className="text-left">
-                            <strong>
-                            Indian Meal Prep and Hacks
-                             </strong>
-                          </h6>
-                          <ul className="post-meta d-flex">
-                            <li className="text-left">06-03-2021</li>
-                          </ul>
-                          <p className="text-left" style={{ fontSize: "15px" }}>
-                          Indian cuisine and food are famous all over the world for their spicy taste, innovative ingredients, and nutritional value. A lot of times people living away from home  </p>                          
-                         </div>
-                      </div>
-                    </NavLink>
-                   
-                  </div>
-
-                  <div
-                    className="col-lg-4 col-md-6"
-                    style={{ position: "relative", marginTop: "20px" }}
-                  >
-                    <NavLink to="/news-detail-21" style={{ color: "gray" }}>
-                      <div
-                        className="card post--card "
-                        style={{
-                          border: "none",
-                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <figure>
-                          <img
-                            src="../assets/img/blog-img-21-4.jpg"
-                            alt=""
-                            style={{ maxWidth: "350px", height: "auto" }}
-                          />
-                        </figure>
-                        <div className="card-body">
-                          <h6 className="text-left">
-                            <strong>
-                            Indian Home-cooked meals and their Benefits:
-                             </strong>
-                          </h6>
-                          <ul className="post-meta d-flex">
-                            <li className="text-left">01-03-2021</li>
-                          </ul>
-                          <p className="text-left" style={{ fontSize: "15px" }}>
-                          Are you exercising every day just to be healthy but still facing health issues? Are your diets not suiting your </p>                          
-                         </div>
-                      </div>
-                    </NavLink>
-                   
-                  </div>
-                  {/* <div
-                    className="col-lg-4 col-md-6"
-                    style={{ position: "relative", marginTop: "20px" }}
-                  >
-                   
-                   
-                   
-                  </div> */}
-                  <div
-                    className="col-lg-4 col-md-6"
-                    style={{ position: "relative", marginTop: "20px" }}
-                  >
-                      <NavLink to="/news-detail-20" style={{ color: "gray" }}>
-                      <div
-                        className="card post--card "
-                        style={{
-                          border: "none",
-                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <figure>
-                          <img
-                            src="../assets/img/blog-img-20.jpg"
-                            alt=""
-                            style={{ maxWidth: "350px", height: "auto" }}
-                          />
-                        </figure>
-                        <div className="card-body">
-                          <h6 className="text-left">
-                            <strong>
-                            Indian Ancient Ingredients and their benefits.
-                             </strong>
-                          </h6>
-                          <ul className="post-meta d-flex">
-                            <li className="text-left">26-02-2021</li>
-                          </ul>
-                          <p className="text-left" style={{ fontSize: "15px" }}>
-                          Originally according to our scriptures Indian food is considered as one of most healthiest diet.</p>                          
-                         </div>
-                      </div>
-                    </NavLink>
-                   
-                  </div>
-
-                  <div
-                    className="col-lg-4 col-md-6"
-                    style={{ position: "relative", marginTop: "20px" }}
-                  >
-                     <NavLink to="/news-detail-19" style={{ color: "gray" }}>
-                      <div
-                        className="card post--card "
-                        style={{
-                          border: "none",
-                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <figure>
-                          <img
-                            src="../assets/img/blog-img-19.jpg"
-                            alt=""
-                            style={{ maxWidth: "350px", height: "auto" }}
-                          />
-                        </figure>
-                        <div className="card-body">
-                          <h6 className="text-left">
-                            <strong>
-                            Leafy Green Vegetables in your meals and their benefits.
-                             </strong>
-                          </h6>
-                          <ul className="post-meta d-flex">
-                            <li className="text-left">20-02-2021</li>
-                          </ul>
-                          <p className="text-left" style={{ fontSize: "15px" }}>
-                          Leafy green vegetables form an important part of a healthy diet.Available all round the year these healthy greens boost metabolism</p>                          
-                         </div>
-                      </div>
-                    </NavLink>
-                   
-                  </div>
-
-                  <div
-                    className="col-lg-4 col-md-6"
-                    style={{ position: "relative", marginTop: "20px" }}
-                  >
-                 
-                    <NavLink to="/news-detail-18" style={{ color: "gray" }}>
-                      <div
-                        className="card post--card "
-                        style={{
-                          border: "none",
-                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <figure>
-                          <img
-                            src="../assets/img/blog-img-18.jpeg"
-                            alt=""
-                            style={{ maxWidth: "350px", height: "auto" }}
-                          />
-                        </figure>
-                        <div className="card-body">
-                          <h6 className="text-left">
-                            <strong>
-                            SUPERFOODS AND THEIR BENEFITS
-                             </strong>
-                          </h6>
-                          <ul className="post-meta d-flex">
-                            <li className="text-left">16-02-2021</li>
-                          </ul>
-                          <p className="text-left" style={{ fontSize: "15px" }}>
-                          Fruits, vegetables, cereals, pulses are all known to provide our body with a different set of nutrients each and hence it is advisable to consume them regularly. </p>                          
-                         </div>
-                      </div>
-                    </NavLink>
-                  </div>
-
-                  <div
-                    className="col-lg-4 col-md-6"
-                    style={{ position: "relative", marginTop: "20px" }}
-                  >
-                   <NavLink to="/news-detail-17" style={{ color: "gray" }}>
-                      <div
-                        className="card post--card "
-                        style={{
-                          border: "none",
-                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <figure>
-                          <img
-                            src="../assets/img/blog-img-17.jpg"
-                            alt=""
-                            style={{ maxWidth: "350px", height: "auto" }}
-                          />
-                        </figure>
-                        <div className="card-body">
-                          <h6 className="text-left">
-                            <strong>
-                            HOW SPROUTS ARE BENEFICIAL FOR THE BODY?
-                             </strong>
-                          </h6>
-                          <ul className="post-meta d-flex">
-                            <li className="text-left">09-02-2021</li>
-                          </ul>
-                          <p className="text-left" style={{ fontSize: "15px" }}>
-                          Sprouts form an integral part of a meal and have been considered as superfoods for many decades. Sprouts are germination of  </p>
-                          
-                         </div>
-                      </div>
-                    </NavLink>
-                  
-                  </div>
-
-                  <div
-                    className="col-lg-4 col-md-6"
-                    style={{ position: "relative", marginTop: "20px" }}
-                  >
-                    <NavLink to="/news-detail-16" style={{ color: "gray" }}>
-                      <div
-                        className="card post--card "
-                        style={{
-                          border: "none",
-                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <figure>
-                          <img
-                            src="../assets/img/blog-img-16.jpeg"
-                            alt=""
-                            style={{ maxWidth: "350px", height: "auto" }}
-                          />
-                        </figure>
-                        <div className="card-body">
-                          <h6 className="text-left">
-                            <strong>
-                            7 Unique ways to Consume Vegetables
-                             </strong>
-                          </h6>
-                          <ul className="post-meta d-flex">
-                            <li className="text-left">02-02-2021</li>
-                          </ul>
-                          <p className="text-left" style={{ fontSize: "15px" }}>
-                          Vegetables and fruits form a very integral part of one's daily meals. Vegetables were original gathered by hunter-gatherers in 10000 B.C.When they realized that                          </p>
+                            India is a land of a variety of spices and flavors
+                            due to its multi-cultural nature. That deduces to
+                            Indian food being multi-cultural too. There is a
+                            variety of tasty
+                            <br />
+                            <br />
+                          </p>
                         </div>
                       </div>
                     </NavLink>
-                   
                   </div>
 
                   <div
                     className="col-lg-4 col-md-6"
                     style={{ position: "relative", marginTop: "20px" }}
                   >
-                     <NavLink to="/news-detail-15" style={{ color: "gray" }}>
+                    <NavLink to="/news-detail-5" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
                         style={{
@@ -490,7 +260,7 @@ Food is loved by everyone. But what goes into your body is directly proportional
                       >
                         <figure>
                           <img
-                            src="../assets/img/blog-img-15.jpeg"
+                            src="../assets/img/blog-img-5.jpg"
                             alt=""
                             style={{ maxWidth: "350px", height: "auto" }}
                           />
@@ -498,26 +268,28 @@ Food is loved by everyone. But what goes into your body is directly proportional
                         <div className="card-body">
                           <h6 className="text-left">
                             <strong>
-                            Why Home-Made Food is the best as compared to Junk Food?
+                              Health and Hygiene with homemade food
                             </strong>
                           </h6>
                           <ul className="post-meta d-flex">
-                            <li className="text-left">02-02-2021</li>
+                            <li className="text-left">30-11-2020</li>
                           </ul>
                           <p className="text-left" style={{ fontSize: "15px" }}>
-                          It is 2.30 pm. Shreya has just returned from school with a frown on her face. Her sister enquires if something went wrong in school 
+                            One of the most important aspects of all life, is
+                            food. Singularly for humans. As humans have the
+                            intellect to understand good food and bad food.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <br />
+                            <br />
                           </p>
                         </div>
                       </div>
                     </NavLink>
-                   
                   </div>
-
                   <div
                     className="col-lg-4 col-md-6"
                     style={{ position: "relative", marginTop: "20px" }}
                   >
-                     <NavLink to="/news-detail-14" style={{ color: "gray" }}>
+                    <NavLink to="/news-detail-6" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
                         style={{
@@ -528,304 +300,36 @@ Food is loved by everyone. But what goes into your body is directly proportional
                       >
                         <figure>
                           <img
-                            src="../assets/img/blog-img-14.jpeg"
+                            src="../assets/img/blog-img-6.jpg"
                             alt=""
                             style={{ maxWidth: "350px", height: "auto" }}
                           />
                         </figure>
                         <div className="card-body">
                           <h6 className="text-left">
-                            <strong>
-                              Which Indian vegetable is best for winter?
-                            </strong>
+                            <strong>Indian Homemade Foods</strong>
                           </h6>
                           <ul className="post-meta d-flex">
-                            <li className="text-left">13-01-2021</li>
+                            <li className="text-left">05-12-2020</li>
                           </ul>
                           <p className="text-left" style={{ fontSize: "15px" }}>
-                            Though India is a tropical country, winters are
-                            pretty cold in most parts of the country. And as we
-                            all know, winters in India have arrived.
+                            India is a land of a variety of spices and flavors
+                            due to its multi-cultural nature. That deduces to
+                            Indian food being multi-cultural too. There is a
+                            variety of tasty, hygienic food that is made in
+                            every household in India.
+                            <br />
+                            <br />
+                            
                           </p>
                         </div>
                       </div>
                     </NavLink>
-                    </div>
-
-                    <div
+                  </div>
+                  <div
                     className="col-lg-4 col-md-6"
                     style={{ position: "relative", marginTop: "20px" }}
                   >
-                    <NavLink to="/news-detail-13" style={{ color: "gray" }}>
-                      <div
-                        className="card post--card "
-                        style={{
-                          border: "none",
-                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <figure>
-                          <img
-                            src="../assets/img/blog-img-13.jpeg"
-                            alt=""
-                            style={{ maxWidth: "350px", height: "auto" }}
-                          />
-                        </figure>
-                        <div className="card-body">
-                          <h6 className="text-left">
-                            <strong>Top 25 Delhi Famous Foods</strong>
-                          </h6>
-                          <ul className="post-meta d-flex">
-                            <li className="text-left">09-01-2021</li>
-                          </ul>
-                          <p className="text-left" style={{ fontSize: "15px" }}>
-                            Delhi culture is a mix of different cultures and
-                            traditions which thus reflect in Delhi flavors,
-                            cuisines and food as well.
-                          </p>
-                        </div>
-                      </div>
-                    </NavLink>
-                    </div>
-
-                    <div
-                    className="col-lg-4 col-md-6"
-                    style={{ position: "relative", marginTop: "20px" }}
-                  >
-                    <NavLink to="/news-detail-12" style={{ color: "gray" }}>
-                      <div
-                        className="card post--card "
-                        style={{
-                          border: "none",
-                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <figure>
-                          <img
-                            src="../assets/img/blog-img-12.jpg"
-                            alt=""
-                            style={{ maxWidth: "350px", height: "auto" }}
-                          />
-                        </figure>
-                        <div className="card-body">
-                          <h6 className="text-left">
-                            <strong>What are your comfort foods?</strong>
-                          </h6>
-                          <ul className="post-meta d-flex">
-                            <li className="text-left">06-01-2021</li>
-                          </ul>
-                          <p className="text-left" style={{ fontSize: "15px" }}>
-                            Comfort foods give comfort to the whole mood. Mostly
-                            comfort foods are staple foods.. Majority of the
-                            people enjoy comfort 
-                          </p>
-                        </div>
-                      </div>
-                    </NavLink>
-
-
-                 
-                    </div>
-
-                  <div
-                    className="col-lg-4 col-md-6"
-                    style={{
-                      position: "relative",
-                      marginTop: "20px",
-                      // marginBottom: "5%",
-                      outline: "none",
-                    }}
-                  >
-                   
-                    <NavLink to="/news-detail-11" style={{ color: "gray" }}>
-                      <div
-                        className="card post--card "
-                        style={{
-                          border: "none",
-                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <figure>
-                          <img
-                            src="../assets/img/blog-img-11.jpeg"
-                            alt=""
-                            style={{ maxWidth: "350px", height: "auto" }}
-                          />
-                        </figure>
-                        <div className="card-body">
-                          <h6 className="text-left">
-                            <strong>
-                              Best Chicken Biryani and Its Recipes.
-                            </strong>
-                          </h6>
-                          <ul className="post-meta d-flex">
-                            <li className="text-left">02-01-2021</li>
-                          </ul>
-                          <p className="text-left" style={{ fontSize: "15px" }}>
-                            Biryani, a dish well known in almost all Indian
-                            states and loved by majority of Indian population.
-                          </p>
-                        </div>
-                      </div>
-                    </NavLink>
-                  </div>
-
-                  <div
-                    className="col-lg-4 col-md-6"
-                    style={{
-                      position: "relative",
-                      marginTop: "20px",
-                      // marginBottom: "5%",
-                      outline: "none",
-                    }}
-                  >
-                   
-                    <NavLink to="/news-detail-10" style={{ color: "gray" }}>
-                      <div
-                        className="card post--card "
-                        style={{
-                          border: "none",
-                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <figure>
-                          <img
-                            src="../assets/img/blog-img-10.jpg"
-                            alt=""
-                            style={{ maxWidth: "350px", height: "auto" }}
-                          />
-                        </figure>
-                        <div className="card-body">
-                          <h6 className="text-left">
-                            <strong>
-                              Homemade food, an integral part of fitness.
-                            </strong>
-                          </h6>
-                          <ul className="post-meta d-flex">
-                            <li className="text-left">24-12-2020</li>
-                          </ul>
-                          <p className="text-left" style={{ fontSize: "15px" }}>
-                            Fitness is all about maintaining a balanced
-                            lifestyle and healthy nutrition rather than the
-                            misconceived concept of having  bigger muscles.
-Like all of us already know,
-                          </p>
-                        </div>
-                      </div>
-                    </NavLink>
-                  </div>
-
-                  
-
-                  
-                  <div
-                    className="col-lg-4 col-md-6"
-                    style={{
-                      position: "relative",
-                      marginTop: "20px",
-                      // marginBottom: "5%",
-                      outline: "none",
-                    }}
-                  >
-                    
-                    <NavLink to="/news-detail-9" style={{ color: "gray" }}>
-                      <div
-                        className="card post--card "
-                        style={{
-                          border: "none",
-                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <figure>
-                          <img
-                            src="../assets/img/blog-img-9.jpg"
-                            alt=""
-                            style={{ maxWidth: "350px", height: "auto" }}
-                          />
-                        </figure>
-                        <div className="card-body">
-                          <h6 className="text-left">
-                            <strong>
-                              How many Types of Indian Breads are there?
-                            </strong>
-                          </h6>
-                          <ul className="post-meta d-flex">
-                            <li className="text-left">24-12-2020</li>
-                          </ul>
-                          <p
-                            className="text-left"
-                            style={{ wordSpacing: "-1px", fontSize: "15px" }}
-                          >
-                            The most heard of breads or the most consumed breads
-                            nationally might be 3 or 4. However, there are over
-                            25 types of breads in India.
-                          </p>
-                        </div>
-                      </div>
-                    </NavLink>
-                  </div>
-
-                  <div
-                    className="col-lg-4 col-md-6"
-                    style={{
-                      position: "relative",
-                      marginTop: "20px",
-                      // marginBottom: "5%",
-                      outline: "none",
-                    }}
-                  >
-                    
-                    <NavLink to="/news-detail-8" style={{ color: "gray" }}>
-                      <div
-                        className="card post--card "
-                        style={{
-                          border: "none",
-                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <figure>
-                          <img
-                            src="../assets/img/blog-img-8.jpg"
-                            alt=""
-                            style={{ maxWidth: "350px", height: "auto" }}
-                          />
-                        </figure>
-                        <div className="card-body">
-                          <h6 className="text-left">
-                            <strong>
-                              Importance of Homemade food for kids.
-                            </strong>
-                          </h6>
-                          <ul className="post-meta d-flex">
-                            <li className="text-left">18-12-2020</li>
-                          </ul>
-                          <p className="text-left" style={{ fontSize: "15px" }}>
-                            We cannot stress enough the importance of homemade
-                            food or home cooked meals. Of course, for the kind
-                            of nutrition it provides and the hygiene factors maintained. Especially for kids amidst the pandemic 
-                            <br/>
-                          </p>
-                        </div>
-                      </div>
-                    </NavLink>
-                  </div>
-
-                  <div
-                    className="col-lg-4 col-md-6"
-                    style={{
-                      position: "relative",
-                      marginTop: "20px",
-                      // marginBottom: "5%",
-                      outline: "none",
-                    }}
-                  >
-                    
                     <NavLink to="/news-detail-7" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
@@ -866,15 +370,9 @@ Like all of us already know,
 
                   <div
                     className="col-lg-4 col-md-6"
-                    style={{
-                      position: "relative",
-                      marginTop: "20px",
-                      // marginBottom: "5%",
-                      outline: "none",
-                    }}
+                    style={{ position: "relative", marginTop: "20px" }}
                   >
-                   
-                    <NavLink to="/news-detail-6" style={{ color: "gray" }}>
+                    <NavLink to="/news-detail-8" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
                         style={{
@@ -885,66 +383,7 @@ Like all of us already know,
                       >
                         <figure>
                           <img
-                            src="../assets/img/blog-img-6.jpg"
-                            alt=""
-                            style={{ maxWidth: "350px", height: "auto" }}
-                          />
-                        </figure>
-                        <div className="card-body">
-                          <h6 className="text-left">
-                            <strong>Indian Homemade Foods</strong>
-                          </h6>
-                          <ul className="post-meta d-flex">
-                            <li className="text-left">05-12-2020</li>
-                          </ul>
-                          <p className="text-left" style={{ fontSize: "15px" }}>
-                            India is a land of a variety of spices and flavors
-                            due to its multi-cultural nature. That deduces to
-                            Indian food being multi-cultural too. There is a
-                            variety of tasty, hygienic food that is made in
-                            every household in India.
-                            <br />
-                            <br />
-                            
-                          </p>
-                        </div>
-                      </div>
-                    </NavLink>
-                  </div>
-
-                  {/* <div
-                    className="col-lg-4 col-md-6"
-                    style={{
-                      position: "relative",
-                      marginTop: "20px",
-                      // marginBottom: "5%",
-                      outline: "none",
-                    }}
-                  >
-                   
-                  </div> */}
-
-                  <div
-                    className="col-lg-4 col-md-6"
-                    style={{
-                      position: "relative",
-                      marginTop: "20px",
-                      // marginBottom: "5%",
-                      outline: "none",
-                    }}
-                  >
-                  <NavLink to="/news-detail-5" style={{ color: "gray" }}>
-                      <div
-                        className="card post--card "
-                        style={{
-                          border: "none",
-                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <figure>
-                          <img
-                            src="../assets/img/blog-img-5.jpg"
+                            src="../assets/img/blog-img-8.jpg"
                             alt=""
                             style={{ maxWidth: "350px", height: "auto" }}
                           />
@@ -952,20 +391,549 @@ Like all of us already know,
                         <div className="card-body">
                           <h6 className="text-left">
                             <strong>
-                              Health and Hygiene with homemade food
+                              Importance of Homemade food for kids.
                             </strong>
                           </h6>
                           <ul className="post-meta d-flex">
-                            <li className="text-left">30-11-2020</li>
+                            <li className="text-left">18-12-2020</li>
                           </ul>
                           <p className="text-left" style={{ fontSize: "15px" }}>
-                            One of the most important aspects of all life, is
-                            food. Singularly for humans. As humans have the
-                            intellect to understand good food and bad food.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <br />
-                            <br />
+                            We cannot stress enough the importance of homemade
+                            food or home cooked meals. Of course, for the kind
+                            of nutrition it provides and the hygiene factors maintained. Especially for kids amidst the pandemic 
+                            <br/>
                           </p>
                         </div>
+                      </div>
+                    </NavLink>
+                  </div>
+
+                  <div
+                    className="col-lg-4 col-md-6"
+                    style={{ position: "relative", marginTop: "20px" }}
+                  >
+                    <NavLink to="/news-detail-9" style={{ color: "gray" }}>
+                      <div
+                        className="card post--card "
+                        style={{
+                          border: "none",
+                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                          borderRadius: "5px",
+                        }}
+                      >
+                        <figure>
+                          <img
+                            src="../assets/img/blog-img-9.jpg"
+                            alt=""
+                            style={{ maxWidth: "350px", height: "auto" }}
+                          />
+                        </figure>
+                        <div className="card-body">
+                          <h6 className="text-left">
+                            <strong>
+                              How many Types of Indian Breads are there?
+                            </strong>
+                          </h6>
+                          <ul className="post-meta d-flex">
+                            <li className="text-left">24-12-2020</li>
+                          </ul>
+                          <p
+                            className="text-left"
+                            style={{ wordSpacing: "-1px", fontSize: "15px" }}
+                          >
+                            The most heard of breads or the most consumed breads
+                            nationally might be 3 or 4. However, there are over
+                            25 types of breads in India.
+                          </p>
+                        </div>
+                      </div>
+                    </NavLink>
+                  </div>
+
+                  <div
+                    className="col-lg-4 col-md-6"
+                    style={{ position: "relative", marginTop: "20px" }}
+                  >
+                    <NavLink to="/news-detail-10" style={{ color: "gray" }}>
+                      <div
+                        className="card post--card "
+                        style={{
+                          border: "none",
+                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                          borderRadius: "5px",
+                        }}
+                      >
+                        <figure>
+                          <img
+                            src="../assets/img/blog-img-10.jpg"
+                            alt=""
+                            style={{ maxWidth: "350px", height: "auto" }}
+                          />
+                        </figure>
+                        <div className="card-body">
+                          <h6 className="text-left">
+                            <strong>
+                              Homemade food, an integral part of fitness.
+                            </strong>
+                          </h6>
+                          <ul className="post-meta d-flex">
+                            <li className="text-left">24-12-2020</li>
+                          </ul>
+                          <p className="text-left" style={{ fontSize: "15px" }}>
+                            Fitness is all about maintaining a balanced
+                            lifestyle and healthy nutrition rather than the
+                            misconceived concept of having  bigger muscles.
+Like all of us already know,
+                          </p>
+                        </div>
+                      </div>
+                    </NavLink>
+                  </div>
+
+                  <div
+                    className="col-lg-4 col-md-6"
+                    style={{ position: "relative", marginTop: "20px" }}
+                  >
+                    <NavLink to="/news-detail-11" style={{ color: "gray" }}>
+                      <div
+                        className="card post--card "
+                        style={{
+                          border: "none",
+                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                          borderRadius: "5px",
+                        }}
+                      >
+                        <figure>
+                          <img
+                            src="../assets/img/blog-img-11.jpeg"
+                            alt=""
+                            style={{ maxWidth: "350px", height: "auto" }}
+                          />
+                        </figure>
+                        <div className="card-body">
+                          <h6 className="text-left">
+                            <strong>
+                              Best Chicken Biryani and Its Recipes.
+                            </strong>
+                          </h6>
+                          <ul className="post-meta d-flex">
+                            <li className="text-left">02-01-2021</li>
+                          </ul>
+                          <p className="text-left" style={{ fontSize: "15px" }}>
+                            Biryani, a dish well known in almost all Indian
+                            states and loved by majority of Indian population.
+                          </p>
+                        </div>
+                      </div>
+                    </NavLink>
+                  </div>
+
+                  <div
+                    className="col-lg-4 col-md-6"
+                    style={{ position: "relative", marginTop: "20px" }}
+                  >
+                    <NavLink to="/news-detail-12" style={{ color: "gray" }}>
+                      <div
+                        className="card post--card "
+                        style={{
+                          border: "none",
+                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                          borderRadius: "5px",
+                        }}
+                      >
+                        <figure>
+                          <img
+                            src="../assets/img/blog-img-12.jpg"
+                            alt=""
+                            style={{ maxWidth: "350px", height: "auto" }}
+                          />
+                        </figure>
+                        <div className="card-body">
+                          <h6 className="text-left">
+                            <strong>What are your comfort foods?</strong>
+                          </h6>
+                          <ul className="post-meta d-flex">
+                            <li className="text-left">06-01-2021</li>
+                          </ul>
+                          <p className="text-left" style={{ fontSize: "15px" }}>
+                            Comfort foods give comfort to the whole mood. Mostly
+                            comfort foods are staple foods.. Majority of the
+                            people enjoy comfort foods,
+                          </p>
+                        </div>
+                      </div>
+                    </NavLink>
+                  </div>
+
+                  <div
+                    className="col-lg-4 col-md-6"
+                    style={{ position: "relative", marginTop: "20px" }}
+                  >
+                    <NavLink to="/news-detail-13" style={{ color: "gray" }}>
+                      <div
+                        className="card post--card "
+                        style={{
+                          border: "none",
+                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                          borderRadius: "5px",
+                        }}
+                      >
+                        <figure>
+                          <img
+                            src="../assets/img/blog-img-13.jpeg"
+                            alt=""
+                            style={{ maxWidth: "350px", height: "auto" }}
+                          />
+                        </figure>
+                        <div className="card-body">
+                          <h6 className="text-left">
+                            <strong>Top 25 Delhi Famous Foods</strong>
+                          </h6>
+                          <ul className="post-meta d-flex">
+                            <li className="text-left">09-01-2021</li>
+                          </ul>
+                          <p className="text-left" style={{ fontSize: "15px" }}>
+                            Delhi culture is a mix of different cultures and
+                            traditions which thus reflect in Delhi flavors,
+                            cuisines and food as well.
+                          </p>
+                        </div>
+                      </div>
+                    </NavLink>
+                  </div>
+
+                  <div
+                    className="col-lg-4 col-md-6"
+                    style={{
+                      position: "relative",
+                      marginTop: "20px",
+                      marginBottom: "5%",
+                      outline: "none",
+                    }}
+                  >
+                    <NavLink to="/news-detail-14" style={{ color: "gray" }}>
+                      <div
+                        className="card post--card "
+                        style={{
+                          border: "none",
+                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                          borderRadius: "5px",
+                        }}
+                      >
+                        <figure>
+                          <img
+                            src="../assets/img/blog-img-14.jpeg"
+                            alt=""
+                            style={{ maxWidth: "350px", height: "auto" }}
+                          />
+                        </figure>
+                        <div className="card-body">
+                          <h6 className="text-left">
+                            <strong>
+                              Which Indian vegetable is best for winter?
+                            </strong>
+                          </h6>
+                          <ul className="post-meta d-flex">
+                            <li className="text-left">13-01-2021</li>
+                          </ul>
+                          <p className="text-left" style={{ fontSize: "15px" }}>
+                            Though India is a tropical country, winters are
+                            pretty cold in most parts of the country. And as we
+                            all know, winters in India have arrived.
+                          </p>
+                        </div>
+                      </div>
+                    </NavLink>
+                  </div>
+
+                  <div
+                    className="col-lg-4 col-md-6"
+                    style={{
+                      position: "relative",
+                      marginTop: "20px",
+                      marginBottom: "5%",
+                      outline: "none",
+                    }}
+                  >
+                    <NavLink to="/news-detail-15" style={{ color: "gray" }}>
+                      <div
+                        className="card post--card "
+                        style={{
+                          border: "none",
+                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                          borderRadius: "5px",
+                        }}
+                      >
+                        <figure>
+                          <img
+                            src="../assets/img/blog-img-15.jpeg"
+                            alt=""
+                            style={{ maxWidth: "350px", height: "auto" }}
+                          />
+                        </figure>
+                        <div className="card-body">
+                          <h6 className="text-left">
+                            <strong>
+                            Why Home-Made Food is the best as compared to Junk Food?
+                            </strong>
+                          </h6>
+                          <ul className="post-meta d-flex">
+                            <li className="text-left">02-02-2021</li>
+                          </ul>
+                          <p className="text-left" style={{ fontSize: "15px" }}>
+                          It is 2.30 pm. Shreya has just returned from school with a frown on her face. Her sister enquires if something went wrong in school 
+                          </p>
+                        </div>
+                      </div>
+                    </NavLink>
+                  </div>
+
+                  
+
+                  
+                  <div
+                    className="col-lg-4 col-md-6"
+                    style={{
+                      position: "relative",
+                      marginTop: "20px",
+                      marginBottom: "5%",
+                      outline: "none",
+                    }}
+                  >
+                    <NavLink to="/news-detail-16" style={{ color: "gray" }}>
+                      <div
+                        className="card post--card "
+                        style={{
+                          border: "none",
+                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                          borderRadius: "5px",
+                        }}
+                      >
+                        <figure>
+                          <img
+                            src="../assets/img/blog-img-16.jpeg"
+                            alt=""
+                            style={{ maxWidth: "350px", height: "auto" }}
+                          />
+                        </figure>
+                        <div className="card-body">
+                          <h6 className="text-left">
+                            <strong>
+                            7 Unique ways to Consume Vegetables
+                             </strong>
+                          </h6>
+                          <ul className="post-meta d-flex">
+                            <li className="text-left">02-02-2021</li>
+                          </ul>
+                          <p className="text-left" style={{ fontSize: "15px" }}>
+                          Vegetables and fruits form a very integral part of one's daily meals. Vegetables were original gathered by hunter-gatherers in 10000 B.C.When they realized that                          </p>
+                        </div>
+                      </div>
+                    </NavLink>
+                  </div>
+
+                  <div
+                    className="col-lg-4 col-md-6"
+                    style={{
+                      position: "relative",
+                      marginTop: "20px",
+                      marginBottom: "5%",
+                      outline: "none",
+                    }}
+                  >
+                    <NavLink to="/news-detail-17" style={{ color: "gray" }}>
+                      <div
+                        className="card post--card "
+                        style={{
+                          border: "none",
+                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                          borderRadius: "5px",
+                        }}
+                      >
+                        <figure>
+                          <img
+                            src="../assets/img/blog-img-17.jpg"
+                            alt=""
+                            style={{ maxWidth: "350px", height: "auto" }}
+                          />
+                        </figure>
+                        <div className="card-body">
+                          <h6 className="text-left">
+                            <strong>
+                            HOW SPROUTS ARE BENEFICIAL FOR THE BODY?
+                             </strong>
+                          </h6>
+                          <ul className="post-meta d-flex">
+                            <li className="text-left">09-02-2021</li>
+                          </ul>
+                          <p className="text-left" style={{ fontSize: "15px" }}>
+                          Sprouts form an integral part of a meal and have been considered as superfoods for many decades. Sprouts are germination of  </p>
+                          
+                         </div>
+                      </div>
+                    </NavLink>
+                  </div>
+
+                  <div
+                    className="col-lg-4 col-md-6"
+                    style={{
+                      position: "relative",
+                      marginTop: "20px",
+                      marginBottom: "5%",
+                      outline: "none",
+                    }}
+                  >
+                    <NavLink to="/news-detail-18" style={{ color: "gray" }}>
+                      <div
+                        className="card post--card "
+                        style={{
+                          border: "none",
+                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                          borderRadius: "5px",
+                        }}
+                      >
+                        <figure>
+                          <img
+                            src="../assets/img/blog-img-18.jpeg"
+                            alt=""
+                            style={{ maxWidth: "350px", height: "auto" }}
+                          />
+                        </figure>
+                        <div className="card-body">
+                          <h6 className="text-left">
+                            <strong>
+                            SUPERFOODS AND THEIR BENEFITS
+                             </strong>
+                          </h6>
+                          <ul className="post-meta d-flex">
+                            <li className="text-left">16-02-2021</li>
+                          </ul>
+                          <p className="text-left" style={{ fontSize: "15px" }}>
+                          Fruits, vegetables, cereals, pulses are all known to provide our body with a different set of nutrients each and hence it is advisable to consume them regularly. </p>                          
+                         </div>
+                      </div>
+                    </NavLink>
+                  </div>
+
+                  <div
+                    className="col-lg-4 col-md-6"
+                    style={{
+                      position: "relative",
+                      marginTop: "20px",
+                      marginBottom: "5%",
+                      outline: "none",
+                    }}
+                  >
+                    <NavLink to="/news-detail-19" style={{ color: "gray" }}>
+                      <div
+                        className="card post--card "
+                        style={{
+                          border: "none",
+                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                          borderRadius: "5px",
+                        }}
+                      >
+                        <figure>
+                          <img
+                            src="../assets/img/blog-img-19.jpg"
+                            alt=""
+                            style={{ maxWidth: "350px", height: "auto" }}
+                          />
+                        </figure>
+                        <div className="card-body">
+                          <h6 className="text-left">
+                            <strong>
+                            Leafy Green Vegetables in your meals and their benefits.
+                             </strong>
+                          </h6>
+                          <ul className="post-meta d-flex">
+                            <li className="text-left">20-02-2021</li>
+                          </ul>
+                          <p className="text-left" style={{ fontSize: "15px" }}>
+                          Leafy green vegetables form an important part of a healthy diet.Available all round the year these healthy greens boost metabolism and ensure the smooth functioning of </p>                          
+                         </div>
+                      </div>
+                    </NavLink>
+                  </div>
+
+                  <div
+                    className="col-lg-4 col-md-6"
+                    style={{
+                      position: "relative",
+                      marginTop: "20px",
+                      marginBottom: "5%",
+                      outline: "none",
+                    }}
+                  >
+                    <NavLink to="/news-detail-20" style={{ color: "gray" }}>
+                      <div
+                        className="card post--card "
+                        style={{
+                          border: "none",
+                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                          borderRadius: "5px",
+                        }}
+                      >
+                        <figure>
+                          <img
+                            src="../assets/img/blog-img-20.jpg"
+                            alt=""
+                            style={{ maxWidth: "350px", height: "auto" }}
+                          />
+                        </figure>
+                        <div className="card-body">
+                          <h6 className="text-left">
+                            <strong>
+                            Indian Ancient Ingredients and their benefits.
+                             </strong>
+                          </h6>
+                          <ul className="post-meta d-flex">
+                            <li className="text-left">26-02-2021</li>
+                          </ul>
+                          <p className="text-left" style={{ fontSize: "15px" }}>
+                          Originally according to our scriptures Indian food is considered as one of most healthiest diet.</p>                          
+                         </div>
+                      </div>
+                    </NavLink>
+                  </div>
+
+                  <div
+                    className="col-lg-4 col-md-6"
+                    style={{
+                      position: "relative",
+                      marginTop: "20px",
+                      marginBottom: "5%",
+                      outline: "none",
+                    }}
+                  >
+                  <NavLink to="/news-detail-21" style={{ color: "gray" }}>
+                      <div
+                        className="card post--card "
+                        style={{
+                          border: "none",
+                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                          borderRadius: "5px",
+                        }}
+                      >
+                        <figure>
+                          <img
+                            src="../assets/img/blog-img-21-4.jpg"
+                            alt=""
+                            style={{ maxWidth: "350px", height: "auto" }}
+                          />
+                        </figure>
+                        <div className="card-body">
+                          <h6 className="text-left">
+                            <strong>
+                            Indian Home-cooked meals and their Benefits:
+                             </strong>
+                          </h6>
+                          <ul className="post-meta d-flex">
+                            <li className="text-left">01-03-2021</li>
+                          </ul>
+                          <p className="text-left" style={{ fontSize: "15px" }}>
+                          Are you exercising every day just to be healthy but still facing health issues?</p>                          
+                         </div>
                       </div>
                     </NavLink>
                   </div>
@@ -976,11 +944,11 @@ Like all of us already know,
                     style={{
                       position: "relative",
                       marginTop: "20px",
-                      // marginBottom: "5%",
+                      marginBottom: "5%",
                       outline: "none",
                     }}
                   >
-                 <NavLink to="/news-detail-4" style={{ color: "gray" }}>
+                  <NavLink to="/news-detail-22" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
                         style={{
@@ -991,52 +959,7 @@ Like all of us already know,
                       >
                         <figure>
                           <img
-                            src="../assets/img/blog-img-2.jpg"
-                            alt=""
-                            style={{ maxWidth: "350px", height: "auto" }}
-                          />
-                        </figure>
-                        <div className="card-body">
-                          <h6 className="text-left">
-                            <strong>Best Indian Foods.</strong>
-                          </h6>
-                          <ul className="post-meta d-flex">
-                            <li className="text-left">10-07-2020</li>
-                          </ul>
-                          <p className="text-left" style={{ fontSize: "15px" }}>
-                            India is a land of a variety of spices and flavors
-                            due to its multi-cultural nature. That deduces to
-                            Indian food being multi-cultural too. There is a
-                            variety of tasty
-                            <br />
-                            <br />
-                          </p>
-                        </div>
-                      </div>
-                    </NavLink>
-                  </div>
-
-                  <div
-                    className="col-lg-4 col-md-6"
-                    style={{
-                      position: "relative",
-                      marginTop: "20px",
-                      // marginBottom: "5%",
-                      outline: "none",
-                    }}
-                  >
-                  <NavLink to="/news-detail-1" style={{ color: "gray" }}>
-                      <div
-                        className="card post--card "
-                        style={{
-                          border: "none",
-                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <figure>
-                          <img
-                            src="../assets/img/blog-img-3.jpg"
+                            src="../assets/img/blog-img-22.jpg"
                             alt=""
                             style={{ maxWidth: "350px", height: "auto" }}
                           />
@@ -1044,36 +967,29 @@ Like all of us already know,
                         <div className="card-body">
                           <h6 className="text-left">
                             <strong>
-                              Cooking is a passion for every woman
-                            </strong>
+                            Indian Meal Prep and Hacks
+                             </strong>
                           </h6>
                           <ul className="post-meta d-flex">
-                            <li className="text-left">10-07-2020</li>
+                            <li className="text-left">06-03-2021</li>
                           </ul>
                           <p className="text-left" style={{ fontSize: "15px" }}>
-                            Cooking is an art and science of experimenting with
-                            savory, sweetness, spices in ways that it brings out
-                            a drooling essence, flavor, taste, smell, and gets
-                            you a smile.{""}
-                            {""}
-                            {""} <br /><br />
-                          </p>
-                        </div>
+                          Indian cuisine and food are famous all over the world for their spicy taste, innovative ingredients, and nutritional value. </p>                          
+                         </div>
                       </div>
                     </NavLink>
                   </div>
-
 
                   <div
                     className="col-lg-4 col-md-6"
                     style={{
                       position: "relative",
                       marginTop: "20px",
-                      // marginBottom: "5%",
+                      marginBottom: "5%",
                       outline: "none",
                     }}
                   >
-                   <NavLink to="/news-detail-2" style={{ color: "gray" }}>
+                  <NavLink to="/news-detail-23" style={{ color: "gray" }}>
                       <div
                         className="card post--card "
                         style={{
@@ -1084,26 +1000,65 @@ Like all of us already know,
                       >
                         <figure>
                           <img
-                            src="../assets/img/blog-img-1.jpg"
+                            src="../assets/img/blog-img-23.jpg"
                             alt=""
                             style={{ maxWidth: "350px", height: "auto" }}
                           />
                         </figure>
                         <div className="card-body">
                           <h6 className="text-left">
-                            <strong>Benefits of Eating Homemade Food</strong>
+                            <strong>
+                            Importance of High Quality Ingredients in meals.
+                             </strong>
                           </h6>
-                          <ul className="text-left post-meta d-flex">
-                            <li className="text-left">10-07-2020</li>
+                          <ul className="post-meta d-flex">
+                            <li className="text-left">09-03-2021</li>
                           </ul>
                           <p className="text-left" style={{ fontSize: "15px" }}>
-                            We all can agree that food is the only thing that
-                            can make anyone drool without any racial
-                            differences. When tasty, delicious food goes down
-                            the throat, that heavenly feeling can melt the soul.
-                          </p>
-                        </div>
+Food is loved by everyone. But what goes into your body is directly proportional to what shows on your body and health. </p>                         </div>
                       </div>
+                    </NavLink>
+                  </div>
+
+
+                  <div
+                    className="col-lg-4 col-md-6"
+                    style={{
+                      position: "relative",
+                      marginTop: "20px",
+                      marginBottom: "5%",
+                      outline: "none",
+                    }}
+                  >
+                  <NavLink to="/news-detail-25" style={{ color: "gray" }}>
+                      <div
+                        className="card post--card "
+                        style={{
+                          border: "none",
+                          boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                          borderRadius: "5px",
+                        }}
+                      >
+                        <figure>
+                          <img
+                            src="../assets/img/blog-img-25.jpg"
+                            alt=""
+                            style={{ maxWidth: "350px", height: "auto" }}
+                          />
+                        </figure>
+                        <div className="card-body">
+                          <h6 className="text-left">
+                            <strong>
+                            Top 10 Tips to Eat Healthy when Dining Out
+                             </strong>
+                          </h6>
+                          <ul className="post-meta d-flex">
+                            <li className="text-left">16-03-2021</li>
+                          </ul>
+                          <p className="text-left" style={{ fontSize: "15px" }}>
+                          Clean eating is a lifestyle one has to adapt to maintain their health. But is clean eating always possible? Especially when you have a huge social circle where  
+                          </p>                        
+                           </div>                    </div>
                     </NavLink>
                   </div>
 
